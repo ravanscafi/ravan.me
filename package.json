@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "ravan.me",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Ravan Scafi's personal website.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Ravan Scafi <hello@ravan.me>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/ravanscafi/ravan.me"
   },
   "dependencies": {
     "gatsby": "^2.6.0",
@@ -38,7 +38,7 @@
   "devDependencies": {
     "prettier": "^1.17.1"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://ravan.me",
   "keywords": [
     "gatsby"
   ],
@@ -46,7 +46,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/ravanscafi/ravan.me.git"
   },
   "scripts": {
     "build": "gatsby build",
