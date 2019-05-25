@@ -38,10 +38,11 @@ function Bio() {
               }}
             />
             <p>
-              Written by {' '}
+              Written by{" "}
               <a href={`https://twitter.com/${social.twitter}`}>
                 <strong>{author}</strong>
-              </a>.
+              </a>
+              .
             </p>
           </div>
         )
