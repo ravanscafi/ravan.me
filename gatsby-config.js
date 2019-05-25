@@ -79,5 +79,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-advanced-sitemap`,
+    `gatsby-plugin-netlify`,
   ],
 }
