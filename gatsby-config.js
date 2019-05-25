@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `Ravan Scafi`,
+    author: `Ravan Scafi`,
+    description: `Ravan Scafi's personal website.`,
+    siteUrl: `https://ravan.me/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `ravanscafi`,
     },
   },
   plugins: [
@@ -30,7 +30,10 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590,
+              maxWidth: 1032,
+              showCaptions: true,
+              quality: 100,
+              withWebp: true,
             },
           },
           {
@@ -45,25 +48,26 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-draft',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-51569123-1`,
       },
     },
     `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Ravan Scafi`,
+        short_name: `ravan.me`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/icon.png`,
       },
     },
     `gatsby-plugin-offline`,
@@ -74,5 +78,7 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    `gatsby-plugin-advanced-sitemap`,
+    `gatsby-plugin-netlify`,
   ],
 }
