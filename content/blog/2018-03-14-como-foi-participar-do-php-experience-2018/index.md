@@ -10,7 +10,7 @@ Fala galera! Este ano, como representante da comunidade [Laravel SP](https://twi
 
 Ano passado, após a [Laraconf Brasil 2017](https://laraconfbrasil.com.br/), rolou algo muito legal. O [@eltonantunes\_85873](http://twitter.com/eltonantunes_85873 "Twitter profile for @eltonantunes_85873") publicou o seguinte artigo falando sobre as impressões dele a respeito do evento:
 
-[**Laraconf Brasil 2017 — Dia 1/2**  
+[**Laraconf Brasil 2017 — Dia 1/2**
 medium.com](https://medium.com/@eltonantunes_85873/laraconf-brasil-2017-dia-1-2-f88078655bf7 "https://medium.com/@eltonantunes_85873/laraconf-brasil-2017-dia-1-2-f88078655bf7")[](https://medium.com/@eltonantunes_85873/laraconf-brasil-2017-dia-1-2-f88078655bf7)
 
 É um tipo de engajamento que vejo muito nas comunidades de frontend aqui no Brasil, mas que, por algum motivo, não acontece tanto nas comunidades PHP. Portanto, foi algo que me surpreendeu.
@@ -33,7 +33,7 @@ O Freek, com uma ótima presença de palco, começou se apresentando e também s
 
 Um ponto muito interessante foi ele ressaltar que **a companhia só existe graças ao open-source**, então eles devolvem contribuições para a comunidade [publicando vários pacotes relevantes](https://spatie.be/en/opensource). Um desses pacotes, inclusive, é o tema da palestra. Um fato curioso é que embora os projetos sejam open-source, uma “cláusula” para utilizar os projetos deles é a de enviar um cartão postal da cidade onde moramos, que vai ser adequadamente pendurada no escritório da Spatie depois —[ bem legal!](https://spatie.be/en/opensource/postcards)
 
-![Cartões Postais na parede do escritório da Spatie :)](https://cdn-images-1.medium.com/max/800/1*kXav7k8Nkvikvtw_2szK9A.png)
+![Cartões Postais na parede do escritório da Spatie :)](./spatie-postcards.jpg)
 Cartões Postais na parede do escritório da Spatie :)
 
 Indo para a palestra em si, Freek mostra um dashboard numa TV do escritório da Spatie, com métricas do GitHub, quais tarefas cada membro do time estão trabalhando, saúde dos sites que eles monitoram e até uma previsão do tempo.
@@ -42,10 +42,10 @@ Esse dashboard, como dito anteriormente, é mais um [projeto open-source deles](
 
 As tecnologias envolvidas são: [Laravel](https://laravel.com/), [Pusher](https://pusher.com/) e [Vue.js](https://vuejs.org/). O Laravel é responsável por servir a página e também por recuperar os dados das APIs externas que eles utilizam, como Google Calendar e etc. O Pusher é responsável pela “mágica”, transportando eventos em tempo real do servidor para o cliente. Por sua vez, o Vue.js escuta os eventos disparados pelo [Laravel Echo](https://laravel.com/docs/5.6/broadcasting) e monta a interface no cliente.
 
-Como quem sabe faz ao vivo, o Freek fez uma demonstração mostrando quão fácil é de começar um dashboard do zero. Adicionar uma “seção” pré-programada é algo trivial, com uma configuração bem fácil. Não parando por aí, o Freek deu uma aula básica de Vue e foi explicando como muitos aspectos do dashboard funcionam. É legal notar que existe um componente Vue pra uma dessas “seções” — muito bem organizado! (e deu uma ponta de orgulho ver uma pasta `__tests__` ali também)  
-Detalhes também foram mostrados sobre a organização dos componentes do Laravel, além de outras coisas legais como a atualização em tempo real do dashboard quando um dos comandos do `[artisan](https://laravel.com/docs/5.6/artisan)` específicos para um componente são rodados. Essa flexibilidade é muito legal, dá pra agendar os comandos pra rodar no tempo que for considerado relevante - simples e funcional. Outro aspecto legal é que muitos dados são salvos no _Local Storage_ do navegador, permitindo métricas temporais, por exemplo, exibindo dados consolidados dos últimos 30 dias.
+Como quem sabe faz ao vivo, o Freek fez uma demonstração mostrando quão fácil é de começar um dashboard do zero. Adicionar uma “seção” pré-programada é algo trivial, com uma configuração bem fácil. Não parando por aí, o Freek deu uma aula básica de Vue e foi explicando como muitos aspectos do dashboard funcionam. É legal notar que existe um componente Vue pra uma dessas “seções” — muito bem organizado! (e deu uma ponta de orgulho ver uma pasta `__tests__` ali também)
+Detalhes também foram mostrados sobre a organização dos componentes do Laravel, além de outras coisas legais como a atualização em tempo real do dashboard quando um dos comandos do [`artisan`](https://laravel.com/docs/5.6/artisan) específicos para um componente são rodados. Essa flexibilidade é muito legal, dá pra agendar os comandos pra rodar no tempo que for considerado relevante - simples e funcional. Outro aspecto legal é que muitos dados são salvos no _Local Storage_ do navegador, permitindo métricas temporais, por exemplo, exibindo dados consolidados dos últimos 30 dias.
 
-![Dashboard conectado à TV.](https://cdn-images-1.medium.com/max/800/1*mT4fQQGFP8V7ZPLiUWMfSA.png)
+![Dashboard conectado à TV.](./spatie-dashboard.jpg)
 Dashboard conectado à TV.
 
 Por fim, o Freek revelou a mágica para mostrar o dashboard na TV, utilizando um Raspberry PI 2 conectado à mesma.
@@ -60,10 +60,10 @@ O Gabriel, ou melhor dizendo, o _Bob_ começou sua talk visivelmente feliz com a
 
 Agora, resolveu implementar sua própria criptomoeda em PHP, a [PHPlata](https://github.com/gabrielrcouto/phplata).
 
-![[PHPlata](https://github.com/gabrielrcouto/phplata), uma criptomoeda feita com PHP](https://cdn-images-1.medium.com/max/800/1*jSqxbA6h2DY72nQfK8kGRw.png)
+![[PHPlata](https://github.com/gabrielrcouto/phplata), uma criptomoeda feita com PHP](./phplata-criptomoeda.jpg)
 [PHPlata](https://github.com/gabrielrcouto/phplata), uma criptomoeda feita com PHP
 
-Intercalando entre slides e demo, foi explicando desde o conceito mais básico sobre como funciona um blockchain e uma criptomoeda, começando com uma mensagem simples sendo trocada entre dois usuários, criptografada com [Sodium](https://download.libsodium.org/doc/). Inclusive, como ele ressaltou, o [PHP 7.2](http://php.net/manual/pt_BR/migration72.php) foi a primeira linguagem de todas a dar suporte para o Sodium! A partir daí, ele seguiu mostrando alguns conceitos de **transações**, inclusive da própria implementação do bitcoin, mostrando como o dinheiro sai de uma conta e entra em outra, de forma distribuída através de scripts.  
+Intercalando entre slides e demo, foi explicando desde o conceito mais básico sobre como funciona um blockchain e uma criptomoeda, começando com uma mensagem simples sendo trocada entre dois usuários, criptografada com [Sodium](https://download.libsodium.org/doc/). Inclusive, como ele ressaltou, o [PHP 7.2](http://php.net/manual/pt_BR/migration72.php) foi a primeira linguagem de todas a dar suporte para o Sodium! A partir daí, ele seguiu mostrando alguns conceitos de **transações**, inclusive da própria implementação do bitcoin, mostrando como o dinheiro sai de uma conta e entra em outra, de forma distribuída através de scripts.
 Outro ponto mostrado foi o de **Contratos**, permitindo diversas formas de operações como _loteria descentralizada_, _pagar para provar que existe_ (como algumas empresas descontam do seu cartão para validar o cartão), _depósito calção_, etc. Utilizando o projeto [PHP Sandbox](https://phpsandbox.org/), ele consegue rodar o script de transação dos usuários de forma isolada, sem esses scripts terem acesso ao código fonte do projeto.
 
 Em seguida, o Bob começou a explicar sobre os blocos, da blockchain, que são uma forma de guardar dados de transações, evitando fraudes no sistema. Cada bloco contém uma quantidade específica de transações e possuem uma certa dificuldade de serem resolvidos computacionalmente. Cada minerador da rede tenta resolver esses blocos e, ao conseguir, são recompensados de alguma forma. Na rede bitcoin, uma determinada quantia em bitcoins é oferecida ao minerador que resolve um bloco. A forma de resolução é um pouco complexa, sendo melhor ver a talk dele (ou outra no assunto) para entender melhor. O Bob comentou que a geração de novos bitcoins vai acabar um dia, ficando na rede somente o que foi minerado, passando os mineradores a ganharem seus bitcoins pela cobrança de pequenas taxas para processarem outras transações na rede. Com isso, ele cobriu apenas o “básico” de criptomoedas, apontando para outros tópicos importantes no assunto.
@@ -83,9 +83,9 @@ Nesse stand-up incrível, o pokemao ensinou, em apenas 10 minutos, como integrar
 
 Você deve conhecer o Marcelo Camargo, mesmo que indiretamente. Foi ele quem criou a ligação com o [Gemidão do Whatsapp ](https://github.com/haskellcamargo/gemidao-do-zap)— se você já recebeu, “agradeça” a ele. Além deste projeto, Marcelo é um assíduo contribuidor do open-source, tendo contribuído inclusive com [alguns RFCs para o core do PHP](https://wiki.php.net/rfc/pipe-operator). Conhecedor de diversas linguagens e [designer de algumas](https://github.com/quack/quack), inclusive, ele compartilhou conosco como funciona o PHP por baixo do capô. No geral, quando desenvolvemos em PHP, estamos acostumados a desenvolver para a Web, com grande chances de utilizar juntamente o Apache, por exemplo. Porém, o PHP vai muito além da Web.
 
-No interpretador PHP, tudo começa com um _Lexer_, que recebe uma lista de caracteres (nosso código) e quebra em palavras que são analisadas e convertidas em _tokens_. Por exemplo, a frase `"Hello, how are you?"` seria quebrada com os seguintes tokens: `[HELLO][,][HOW][ARE][YOU][?]`. Nesse sentido, o PHP até tem uma função chamada `[token_get_all()](http://php.net/manual/pt_BR/function.token-get-all.php)` que nos ajuda com esse trabalho de "tokenização" de uma lista de caracteres.
+No interpretador PHP, tudo começa com um _Lexer_, que recebe uma lista de caracteres (nosso código) e quebra em palavras que são analisadas e convertidas em _tokens_. Por exemplo, a frase `"Hello, how are you?"` seria quebrada com os seguintes tokens: `[HELLO][,][HOW][ARE][YOU][?]`. Nesse sentido, o PHP até tem uma função chamada [`token_get_all()`](http://php.net/manual/pt_BR/function.token-get-all.php) que nos ajuda com esse trabalho de "tokenização" de uma lista de caracteres.
 
-Após essa primeira fase léxica, vamos para o _Parser_, que define um conjunto de regras de que vão definir a interação com o _Lexer_. Uma mudança legal do PHP 7 é que o resultado do _Parser_ é uma AST (uma [Árvore de Sintaxe Abstrata](https://pt.wikipedia.org/wiki/%C3%81rvore_sint%C3%A1tica_abstrata)), ao invés de opcodes, que era o resultado até o PHP 5.6. Basicamente o _Parser_ vai pegar os tokens e validar se os mesmos estão corretos — _o código digitado gera um programa válido?_ — e transformar esses tokens em uma árvore que ultimamente virará instruções de máquina.  
+Após essa primeira fase léxica, vamos para o _Parser_, que define um conjunto de regras de que vão definir a interação com o _Lexer_. Uma mudança legal do PHP 7 é que o resultado do _Parser_ é uma AST (uma [Árvore de Sintaxe Abstrata](https://pt.wikipedia.org/wiki/%C3%81rvore_sint%C3%A1tica_abstrata)), ao invés de opcodes, que era o resultado até o PHP 5.6. Basicamente o _Parser_ vai pegar os tokens e validar se os mesmos estão corretos — _o código digitado gera um programa válido?_ — e transformar esses tokens em uma árvore que ultimamente virará instruções de máquina.
 Sabe aquelas mensagens de `UNEXPECTED` e etc. que a gente procura no StackOverflow como resolver? Então, é o _Parser_ que verifica seu código e vê se ele é válido, possivelmente jogando esses problemas pra gente. É nessa fase também que o escopo das variáveis, etc. é verificado e a precedência de operações também.
 
 Em seguida, pasmém, chega a parte mais complexa! _VM e opcodes_. O PHP utiliza uma máquina virtual (VM) baseada em registradores, a _Zend Virtual Machine_. Parecido com como o _Assembly_ moderno trabalha, a VM tem várias instruções para facilitar (as opcodes!). De forma simplificada, o PHP compila para opcodes independentes de máquina, que então podem rodar em qualquer sistema operacional.
@@ -94,7 +94,7 @@ Uma das vantagens de se conhecer como a máquina virtual funciona é poder escre
 
 Em uma demo, o Marcelo “Haskell” Camargo conseguiu mostrar mais ou menos como as opcodes são interpretadas pela VM — e de quebra, explica que o `opcache` deixa operações já computadas salvas para performance do servidor.
 
-![Parte da demo feita pelo Marcelo. (confira [os slides](http://slides.com/marcelocamargo/php-under-the-hood))](https://cdn-images-1.medium.com/max/800/1*uaLahwmpP5R8wY8AZuJcWw.png)
+![Parte da demo feita pelo Marcelo. (confira [os slides](http://slides.com/marcelocamargo/php-under-the-hood))](./opcodes-php)
 Parte da demo feita pelo Marcelo. (confira [os slides](http://slides.com/marcelocamargo/php-under-the-hood))
 
 O Marcelo consegue de forma bem didática explicar esses conceitos, com exemplos de códigos que ajudam no processo — uma talk bem interessante para se assistir e entender essa linguagem que utilizamos todos os dias ;)
@@ -108,11 +108,11 @@ O Marcelo consegue de forma bem didática explicar esses conceitos, com exemplos
 O Pawel já começa direto ao ponto, falando sobre a primeira etapa de um projeto: a análise. “Qual problema eu quero resolver?”. Precisamos conversar com o consumidor/usuário do possível sistema e reunir o máximo possível de informações. Também, deixa duas reflexões:
 
 > “A raiz de todo o mal em programação é entender o problema de forma errônea. Faça as perguntas corretas para as pessoas corretas antes da primeira linha de código”
-
+>
 > _Mariusz Gil — tradução livre_
 
 > “Pessoas técnicas devem falar a linguagem de pessoas de negócio, não vice versa.”
-
+>
 > _Stefan Priebsch — tradução livre_
 
 #### Arquitetura
@@ -122,13 +122,13 @@ O Pawel cita rapidamente _Domain Driven Design_ e _Event Storming_ como forma de
 Em seguida, entra no tema polêmico de Waterfall vs Agile, apenas para deixar a citação de que:
 
 > “A única coisa que é constante é a mudança.”
-
+>
 > _Heraclitus — tradução livre_
 
 Assim, o importante é lembrar disso, independente de como for o projeto. Já como gancho, entra em outra polêmica, a de microserviços, citando o grande Martin Fowler:
 
 > “Você não deveria começar um novo projeto com microserviços”
-
+>
 > _Martin Fowler — tradução livre_
 
 Tendo a lógica da sua aplicação seguindo uma “Clean Architecture”, separando a lógica de negócio da lógica da aplicação e adaptadores, é fácil trocar de frameworks, tecnologias ou até mesmo paradigma, refatorando para microserviços quando necessário. Ainda no tema, ele comenta para não utilizar um framework próprio, para deixar o mesmo para projetos pessoais e não reinventar a roda, utilizar o que já existe no mercado.
@@ -138,7 +138,7 @@ Tendo a lógica da sua aplicação seguindo uma “Clean Architecture”, separa
 Pessoas de negócio, infelizmente não se importam tanto com testes, então deve ser uma preocupação dos desenvolvedores. Ele cita que fazer testes é diferente de _Design Orientado a Testes (TDD)_. Talvez faça sentido fazer _Desenvolvimento Orientado a Comportamentos (BDD)_. Para finalizar o tema, deixa a seguinte reflexão:
 
 > “Se é difícil de escrever um teste, é um sinal de que você tem um problema de design, não um problema de testes.”
-
+>
 > _Kent Beck, TDD by example — tradução livre_
 
 #### Code Review
@@ -193,12 +193,19 @@ Ao fazermos `subscribe` em um fluxo de eventos, podemos ler esses valores e faze
 
 Para mostrar na prática como funciona isso, entra o [ReactiveX](http://reactivex.io/), também chamado de Rx, que é uma interpretação do _Observer Pattern_, _Iterator Pattern_ e programação funcional. O Rx é agnóstico de linguagem e tem uma implementação em PHP, o [RxPHP](https://github.com/ReactiveX/RxPHP). No exemplo abaixo, ela mostrou como se inscrever para obter informações de um fluxo de eventos.
 
-```
+```php
 $stream = \Rx\Observable::fromArray([1, 2, 3, 4]);
-```
-
-```
-$stream->subscribe(    function ($x) {        echo 'Next: ', $x, PHP_EOL;    },    function (Exception $ex) {        echo 'Error: ', $ex->getMessage(), PHP_EOL;    },    function () {        echo 'Completed', PHP_EOL;    },);
+$stream->subscribe(
+    function ($x) {
+        echo 'Next: ', $x, PHP_EOL;
+    },
+    function (Exception $ex) {
+        echo 'Error: ', $ex->getMessage(), PHP_EOL;
+    },
+    function () {
+        echo 'Completed', PHP_EOL;
+    },
+);
 ```
 
 Além disso, o RxPHP também fornece um conjunto de ferramentas para se trabalhar com esses dados, como por exemplo o conceito de `map` que percorre seu _stream_ transformando cada elemento e retorna um novo _stream_.
@@ -230,7 +237,7 @@ Seguindo na trilha _Assembly_, temos o Davi, da [pagar.me](https://pagar.me), fa
 Basicamente, é “aplicar mudanças em código sem comprometer suas funcionalidades finais”.
 
 > “Software é um recurso, e como todo recurso nós queremos que ele continue entregando valor em um fluxo contínuo.”
-
+>
 > _David Scott Bernstein_
 
 Porém, refatorar código pode não ser um trabalho tão fácil, então o Davi traz 10 dicas para a gente:
@@ -263,7 +270,7 @@ Confira [os slides da apresentação](https://speakerdeck.com/devdrops/refactori
 Ainda na trilha _Assembly_ (gostei dessa trilha, rapaz!), depois de um justo intervalo, o Eriksen, desenvolvedor na [Easy](http://www.easytaxi.com/), veio trazer uma introdução de um tema que é buscado por muitos: o _Domain-Driven Design_, o famoso `DDD`.
 
 > “Software está comendo o mundo”
-
+>
 > _Marc Andreessen_
 
 Assim começou o Eriksen, mostrando a importância do software em todo o mundo, apontando em seguida como o fato de não se fazer um bom design do seu código pode resultar em um péssimo design, ao contrário de um software “sem design”. Portanto, utilizar DDD pode ser uma solução.
@@ -274,10 +281,10 @@ Entrando em termos comumente utilizados no DDD, o Eriksen explica: — O **d
 
 Seguindo no raciocínio, vemos que ferramentas de design estratégico ajudam a fazer um rascunho antes da implementação, dividindo em problemas menores que são mais fáceis de atacar. O DDD é primariamente sobre modelar os dados em um **contexto delimitado** e utilizar uma **linguagem ubíqua**, uma linguagem “única” que é falada por todos, sejam desenvolvedores ou pessoas de negócio. Um **contexto** deve ser transformado em um time + banco de dados + repositório. Esse time é responsável por desenvolver e se tornar proficiente neste contexto.
 
-Utilizando o exemplo de uma transportadora, o principal contexto (core domain) é o transporte de cargas. Porém, existem outros contextos, como por exemplo, a roteirização dos veículos vs cargas; o controle de acesso dos usuários; o monitoramento de remessas, veículos e motoristas.   
+Utilizando o exemplo de uma transportadora, o principal contexto (core domain) é o transporte de cargas. Porém, existem outros contextos, como por exemplo, a roteirização dos veículos vs cargas; o controle de acesso dos usuários; o monitoramento de remessas, veículos e motoristas.
 Com a ajuda de um **mapa de contexto** é possível visualizar todos os contextos e fica fácil verificar, por exemplo, que um veículo aparece no contexto de transporte de cargas e também no de roteirização. **Dependendo do contexto, preocupações diferentes aparecem.** Na roteirização, talvez seja importante saber a capacidade do veículo. No transporte, talvez seja importante conhecer dados sobre o motorista, etc.
 
-![**Mapa de contextos** de uma transportadora.](https://cdn-images-1.medium.com/max/800/1*CxMMbCIinft2MXQ82BOMYA.png)
+![**Mapa de contextos** de uma transportadora.](./contextos.jpg)
 **Mapa de contextos** de uma transportadora.
 
 É uma relação corriqueira a **parceria** entre times de contextos com pontos em comum, como por exemplo para desenvolver a lógica do veículo entre o times de roteirização e o time transporte. Outra relação é a de **Cliente-Fornecedor**, onde o time de um contexto pede, como cliente, determinada funcionalidade para outro time, que é o fornecedor das funcionalidades daquele contexto. Uma **camada anti-corrupção** garante que a linguagem de um contexto não seja contaminada pela linguagem de outro contexto. O conceito de **conformista** estabelece que a linguagem pode ser definida por outro contexto, facilitando a comunicação entre eles.
@@ -309,13 +316,13 @@ Para fechar, Eriksen relembra que o software está comendo o mundo e faz um apel
 
 De volta do almoço, agora em uma trilha diferente, a trilha _Smalltalk_, apresentada pelo [João Batista Neto](https://twitter.com/netojoaobatista), vim conferir a talk do Alef, que trabalha na [Oowlish](http://www.oowlish.com/) e é um dos organizadores do [PHP com Rapadura](http://phpcomrapadura.org/).
 
-A ideia da talk dele é falar sobre serialização de objetos e como evoluir para objetos mais complexos. Ele iniciou explicando como funciona a serialização, utilizando a função `[serialize()](http://php.net/manual/pt_BR/function.serialize.php)` do PHP, que consegue pegar um objeto e retornar uma `string` que o representa, incluindo atributos `private` e `protected`.
+A ideia da talk dele é falar sobre serialização de objetos e como evoluir para objetos mais complexos. Ele iniciou explicando como funciona a serialização, utilizando a função [`serialize()`](http://php.net/manual/pt_BR/function.serialize.php) do PHP, que consegue pegar um objeto e retornar uma `string` que o representa, incluindo atributos `private` e `protected`.
 
-O uso de serialização se faz necessário quando precisamos guardar o estado do objeto e reconstruí-lo novamente. Nem sempre essa serialização é o suficiente, quando, por exemplo, precisamos serializar objetos para `JSON`. Utilizando `[json_encode](http://php.net/manual/pt_BR/function.json-encode.php)` é possível serializar objetos, porém só temos acesso aos atributos públicos dessa classe. Utilizando a interface `[JsonSerializable](http://php.net/manual/pt_BR/class.jsonserializable.php)`, podemos definir o método `jsonSerializable`que definirá como seu objeto será serializado quando passar pelo `json_encode`, permitindo apresentar qualquer dado.
+O uso de serialização se faz necessário quando precisamos guardar o estado do objeto e reconstruí-lo novamente. Nem sempre essa serialização é o suficiente, quando, por exemplo, precisamos serializar objetos para `JSON`. Utilizando [`json_encode`](http://php.net/manual/pt_BR/function.json-encode.php) é possível serializar objetos, porém só temos acesso aos atributos públicos dessa classe. Utilizando a interface [`JsonSerializable`](http://php.net/manual/pt_BR/class.jsonserializable.php), podemos definir o método `jsonSerializable`que definirá como seu objeto será serializado quando passar pelo `json_encode`, permitindo apresentar qualquer dado.
 
-Ainda assim, pode ser que em certos momentos vamos querer mais propriedades de um objeto e em outra hora queremos só alguns poucos. Para resolver esse problema, podemos utilizar o conceito de `[Transformers](https://fractal.thephpleague.com/transformers/)`, utilizando por exemplo a biblioteca [Fractal](https://fractal.thephpleague.com/). Com o Fractal, conseguimos definir uma classe que transformará os objetos da forma que acharmos melhor. É uma técnica simples, mas que pode se mostrar custosa se tivermos muitas formas de exibirmos diversos objetos.
+Ainda assim, pode ser que em certos momentos vamos querer mais propriedades de um objeto e em outra hora queremos só alguns poucos. Para resolver esse problema, podemos utilizar o conceito de [`Transformers`](https://fractal.thephpleague.com/transformers/), utilizando por exemplo a biblioteca [Fractal](https://fractal.thephpleague.com/). Com o Fractal, conseguimos definir uma classe que transformará os objetos da forma que acharmos melhor. É uma técnica simples, mas que pode se mostrar custosa se tivermos muitas formas de exibirmos diversos objetos.
 
-Para não termos o problema de manter diversos transformers, podemos utilizar o `[jms/serializer](https://jmsyst.com/libs/serializer)`, onde podemos utilizar, de forma bem simples, `[annotations](https://jmsyst.com/libs/serializer/master/reference/annotations)` para definirmos quais atributos serão mostrados ou ocultados durante o processo de serialização. É uma ferramenta poderosa que permite, por exemplo, a criação de grupos de serialização, para informarmos quais grupos queremos que estejam presentes na saída da serialização. É possível mudar o nome dos campos na serialização, entre outras coisas.
+Para não termos o problema de manter diversos transformers, podemos utilizar o [`jms/serializer`](https://jmsyst.com/libs/serializer), onde podemos utilizar, de forma bem simples, [`annotations`](https://jmsyst.com/libs/serializer/master/reference/annotations) para definirmos quais atributos serão mostrados ou ocultados durante o processo de serialização. É uma ferramenta poderosa que permite, por exemplo, a criação de grupos de serialização, para informarmos quais grupos queremos que estejam presentes na saída da serialização. É possível mudar o nome dos campos na serialização, entre outras coisas.
 
 O Alef ressalta que a serialização de objetos pode se tornar algo bem complexo, com diferentes combinações de saída. Existem 31 classes na biblioteca `jms/serializer` com possibilidade de alterar uma saída. Vale a pena conferir a documentação.
 
