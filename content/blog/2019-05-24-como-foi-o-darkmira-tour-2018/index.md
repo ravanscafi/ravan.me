@@ -2,6 +2,7 @@
 title: Darkmira Tour 2018
 date: "2019-05-24T20:00:00.000Z"
 description: O primeiro SymfonyLive da América Latina ocorreu na semana passada. Saiba tudo sobre o evento!
+draft: true
 ---
 
 # Você é um bom dev? - [_Diana Arnos_](https://twitter.com/dianaarnos)
