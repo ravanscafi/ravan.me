@@ -13,7 +13,7 @@ O keynote de abertura do primeiro dia de evento é com a Diana Arnos
 Tem júnior que aprende muito rápido e tem sênior que "caga" regra, a Diana já teve a experiência de entrevistar alguns devs que se diziam sênior mas que não sabiam muitas coisas básicas e, nessa, não eram aprovados na contratação. O que mais diferencia um profissional na opinião dela é a **resolução de problemas**. Um júnior tem a vontade de desenvolver, aquele desespero de não saber nada mas tentar correr atrás de todo mundo pra resolver. Já um sênior tem uma tranquilidade maior e consegue investigar os problemas com calma, seguindo um passo a passo e chegando até a resolução sem maiores exaltações.
 
 ### Boas práticas
-Por que se preocupar com boas práticas? PSRs, Calisthenics, etc.   
+Por que se preocupar com boas práticas? PSRs, Calisthenics, etc.
 Segundo a Diana, utilizar boas práticas indica quão longe você foi no conhecimento da linguagem e diz muito sobre você, sobre aproveitar o potencial das ferramentas e linguagem. Ela também comenta sobre o ciclo de vida de um software, citando até as culturas _Agile_ e _DevOps_.
 
 ### Saiba preparar o seu ambiente.
@@ -69,8 +69,8 @@ Quando e onde aconteceu o erro? Se temos mais de uma máquina, qual o ambiente e
 Logs precisam ser de fácil pesquisa e agrupamento.
 
 Utilize os níveis de criticidade dos Logs, que vão desde `DEBUG`  até emergência, seguindo por exemplo o _`RFC5424` - The Syslog Protocol_, utilizado pelo Linux.
-- `DEBUG` -  
-- `INFO` - 
+- `DEBUG` -
+- `INFO` -
 - `NOTICE` - Eventos comuns, porém com certa relevância
 - `WARNING` - Eventos que merecem uma certa atenção
 - `ERROR` - Erros em tempo de execução
@@ -78,9 +78,10 @@ Utilize os níveis de criticidade dos Logs, que vão desde `DEBUG`  até emergê
 - `ALERT` - Falha que precisa de ação imediata
 - `EMERGENCY` - Sistema está fora
 
-No PHP, temos o `PSR-3`, que é seguido, por exemplo, pelo Monolog. Também temos as exceções nativas do PHP, que seguem uma Hierarquia e podem ser muito úteis para as tratativas da nossa aplicação.  
+No PHP, temos o `PSR-3`, que é seguido, por exemplo, pelo Monolog. Também temos as exceções nativas do PHP, que seguem uma Hierarquia e podem ser muito úteis para as tratativas da nossa aplicação.
 Em produção, não devemos mostrar os erros, configurando adequadamente o `php.ini`, por exemplo da seguinte forma:
-```
+
+```ini
 display_errors = Off
 error_reporting = -1
 log_errors = On
@@ -88,9 +89,11 @@ error_log = /var/log/app_error.log
 ```
 
 Podemos posterior fazer uma análise com `tail`:
-```
+
+```bash
 tail -f /var/log/app_error.log
 ```
+
 Isso funciona bem quando temos apenas um servidor, para mais de um, devemos agregar esses logs em um único local. Podemos usar uma ferramenta como o Splunk TK, por exemplo. Outra é o Kibana, que junto com o ElasticSearch e o LogStash, é um ecossistema para análise e até mesmo predicção de erros. Outras opções também, são o Graylog e o papertrail.
 
 Antecipe problemas analisando seus logs, com notificações que podem vir por slack, telegram, email, etc. Separe as responsabilidades para atribuir e identificar erros corretamente. Faça testes para reproduzir bugs e garantir que eles não aconteçam mais. Entenda que você pode ter problema de recursos, indisponibilidade de bancos de dados, rede, sistema de arquivos e tente preparar sua aplicação para pelo menos exibir mensagens de erros nesses casos.
@@ -146,7 +149,7 @@ senso apropriado de risco para você ou para companhia
 fazer um deploy depois das três pré feriado?
 pesar consequências, fazer testes e ter um plano **rápido** de rollback, mesmo que signifique ter mais trabalho depois.
 
-### Detalhes vs Quadro Geral, 
+### Detalhes vs Quadro Geral,
 1. fazer o trabalho
 1. entender o impacto do trabalho para a empresa
 1. entender porque o trabalho está sendo feito
@@ -206,7 +209,7 @@ Desenvolva relacionamento, agradeça às pessoas que fazem o trabalho para você
 
 ---
 # Serverless: Função como serviço em PHP - [_Jonata Weber_](https://twitter.com/JonataWeber)
-O Jonata, que era da Bahia e agora está aqui por perto, em Goiânia, veio falar pra gente sobre Serverless, citando um artigo que foi onde ele teve contato com o tema, onde o autor afirmava que para cada 30 mil requisições, pagava apenas US$0.21. 
+O Jonata, que era da Bahia e agora está aqui por perto, em Goiânia, veio falar pra gente sobre Serverless, citando um artigo que foi onde ele teve contato com o tema, onde o autor afirmava que para cada 30 mil requisições, pagava apenas US$0.21.
 Ele afirma que o termo "Server-less" é um pouco estranho pois existem servidores em algum lugar, então um termo um pouco melhor seria "No Ops", No Internal Sys Admin, "Service-full" Architecture TK
 
 O **movimento serverless** tenta abstrair e facilitar muitas coisas do processo de desenvolvimento de software, visando tornar mais fácil colocar um código em produção.
@@ -258,7 +261,7 @@ O Bruno Souza, que trabalha no Itamarati, veio falar sobre APIs, que teve um boo
 WebAPIs são baseadas na arquitetura cliente x servidor e podem servir pra várias coisas: **gateway** - gerenciamento do controle de acessos; como um **contrato** entre consumidor e provedor de API; permite a **integração** de apps e dispositivos; permite a **criação de apps** com base em outros apps; como um **plug-in** universal; como um **filtro** de segurança...
 
 A economia de APIs envolve por exemplo IoT, para gerenciar os dados do dispositivos. APIs tornaram possível a criação de FinTechs mais dinâmicas como os bancos Nubank, por exemplo. Dentro de criptocurrency APIs são vitais. Redes sociais também fazem uso de APIs.
-  
+
 Com isso, chegamos no conceito de **API First**, que tem o intuito de alinhar a criação de APIs com os objetivos de negócio. A estratégia envolve pensar primeiramente na API, antes da implementação. Ela deve ser a primeira interface de usuário da aplicação e deve ser bem descritiva.
 
 Os benefícios são múltiplos: integração de vários dispositivos; ambiente distribuído; criação, manutenção e refatoração das funcionalidades em API bem documentadas. Melhora a produtividade do time, até sendo mais aderente ao Agile.
@@ -275,13 +278,13 @@ Quando usar uma estratégia de API? Algumas perguntas que precisam ser respondid
 Mobile First - Prioridade do planejamento do desenvolvimento a partir de dispositivos móveis
 API First: API é construída primeiro. Permite que várias plataformas sejam construídas
 
-Developer Experience - foco da criação da API na UX (sendo o desenvolvedor o usuário). Como os desenvolvedores usarão essa interface? É importante definir o tipo de dev que usará a API, expor os objetivos com clareza 
+Developer Experience - foco da criação da API na UX (sendo o desenvolvedor o usuário). Como os desenvolvedores usarão essa interface? É importante definir o tipo de dev que usará a API, expor os objetivos com clareza
 
 Prototipar sua API é muito importante para melhorar o design da mesma. Algumas ferramentas que auxiliam nesse processo são: Apiary, RAML, Swagger. A documentação da API auxilia muito a equipe no momento do desenvolvimento e atualização da mesma.
 É importante que a documentação seja fácil de entender e pesquisável, sendo auto-suficiente e intuitiva. A mesma deve estar sempre atualizada.
 
 Podem existir APIs públicas e privadas, cada uma com seu intuito. Independente disso, devem ser consideradas medidas de segurança, como por exemplo, autenticação e autorização. O tráfego da mesma pode ser monitorado, com controles como limite de requisições, cotas de uso, rejeição de requisições, etc.
-  
+
 Arquiteturalmente falando, contamos com alguns padrões como SOAP, REST, GraphQL. O Bruno explicou um pouco como funciona cada um desses padrões, com alguns exemplos básicos.
 
 O Bruno ainda falou que é importante pensar em performance, para que a API responda em tempo hábil e seus usuários não percam o interesse na aplicação. Mostrou também que existem algumas ferramentas para teste da API.
@@ -297,9 +300,7 @@ e nos slides pode encontrar várias referências.
 # The QueryFilter Concept for Filtering Models - [_Junior Grossi_](https://twitter.com/junior_grossi)
 Para finalizar o primeiro dia de palestras, decidi ver a talk do Junior, um dos organizadores do PHPMG. E após se apresentar, ele explicou que `QueryFilter` é uma abstração para filtrar objetos baseado na `URL`. Então, caso quiséssemos pegar posts com _título_ `foo` e _status_ `bar`, poderíamos utilizar uma URL do tipo:
 
-```
-/posts?title=foo&status=bar
-```
+`/posts?title=foo&status=bar`
 
 E essa é mais ou menos a ideia do `QueryFilter`. Logo já partimos pro live code, que foi bem completa. Recomendo assistir  a talk quando a mesma for liberada! ;)
 
@@ -310,7 +311,7 @@ E essa é mais ou menos a ideia do `QueryFilter`. Logo já partimos pro live cod
 # Dia 2
 # ChatOps! Como Podemos Usar "Chatbots" Para Realizar O Trabalho De Infra Por Nós - [_Rodrigo "Pokemao" Cardoso_](https://twitter.com/pokemaobr)
 
-Primeira talk do dia (pra mim, que cheguei atrasado), com o Pokemaobr, Community Manager na iMasters e criador do PokePHP, 
+Primeira talk do dia (pra mim, que cheguei atrasado), com o Pokemaobr, Community Manager na iMasters e criador do PokePHP,
 
 ChatBot existe desde 1950, porém virou moda, o pokemao já fazia ChatBots no mIRC, anos atrás
 eram bem parecidos com os chatbots de hoje: funcionam em um chat, orientado a eventos e a expressões, execução de comandos, acesso a serviços externos, integração com base de dados (arquivos .ini) e "inteligência artificial"
@@ -324,7 +325,7 @@ Alguns **projetos** citados foram o [Hubot](https://hubot.github.com), do GitHub
 O pokemao mostrou como fazer um ChatOps Bot na prática com PHP, para resolver o problema de criar e deletar droplets na Digital Ocean através do celular. Ele utilizou a biblioteca Digital Ocean V2, a ferramenta Dialogflow onde é possível definir **intenções** do usuário, como por exemplo, "listar droplets". Essa ferramenta permite que webhooks sejam acionados de acordo com as intenções pré determinadas. O pokemao fez uma live mostrando na prática, criando um droplet chamado "darkmiratour" pelo Telegram, confiram no vídeo depois.
 Num outro exemplo mostrado, utilizando o TelegramBot/API, o pokemao fez uma ferramenta que verifica se determinado site está online e avisa por Telegram caso o site saia fora do ar.
 
---- 
+---
 # Painel Das Comunidades
 
 ---
@@ -337,7 +338,7 @@ O **Revisor** deve instigar um debate sobre o trabalho do colega por meio da arg
 
 ### Pontos chave para fazer um review de qualidade
 **O que foi desenvolvido atende os requisitos?** É importante cuidar para não introduzir defeitos e de preferência não fazer tarefas ocultas no PR (_Pull Request_), que podem deixar a tarefa muito mais demorada ou complexa. É interessante separar os Pull Requests por tarefa, caso deseje fazer alguma outra coisa, faça outro PR e deixe claro para o time.
-**Os testes escritos garantem que o que foi implementado está realmente funcionando?** Faça testes que façam sentido para o contexto da tarefa, 
+**Os testes escritos garantem que o que foi implementado está realmente funcionando?** Faça testes que façam sentido para o contexto da tarefa,
 **A solução empregada foi a melhor para o momento?** Clean Code, YAGNI
 
 ### Agilidade
@@ -364,7 +365,7 @@ Uma ferramenta que verifica se a documentação foi atualizada junto com o PR, r
 O Marcel, que é desenvolvedor Web Full-Stack e um dos evangelistas do PHPSP, começa sua talk perguntando à plateia: "Orientação a Objetos? O que é isso?" e após algumas respostas, define: _trata da comunicação entre objetos através da troca de mensagens_. Um objeto tem **características**, **comportamentos** e **estado atual**.
 
 Os pilares da orientação a objeto são:
-**Abstração**, que permite a representação da vida real dentro do sistema. 
+**Abstração**, que permite a representação da vida real dentro do sistema.
 **Herança**, que possibilita o reaproveitamento de código em que uma classe herda características e atributos de uma classe base.
 **Encapsulamento** permite ocultar a implementação interna de um objeto.
 **Polimorfismo** consiste na alteração do funcionamento interno de um método herdado do pai.
@@ -381,7 +382,7 @@ Os pilares da orientação a objeto são:
 **repetição desnecessária** é quando um mesmo código aparece inúmeras vezes de forma pouco diferentes.
 **opacidade** refere-se a dificuldade de compreensão de um módulo
 
-## Princípios e práticas 
+## Princípios e práticas
 O `SOLID` é conjunto de princípios que permite um **melhor projeto** de sistemas. Inversão de dependência: módulos de alto nível não devem depender de módulos de baixo nível. modelos de alto nível devem depender apenas de abstrações. módulos de baixo nível também devem depender apenas de abstrações. Por exemplo, uma `Classe A` (alto nível) referencia uma `Classe B` (baixo nível), ou seja, a `A` depende da `B`. Alterações em qualquer uma das classes pode levar a efeitos indesejados na outra também. Utilizando-se uma interface, a `Classe B` poderia implementá-la e a `Classe A` depender somente da interface, tendo a garantia de que suas dependências estejam implementadas.
 Uma iniciativa como essa **diminui o acoplamento** do nosso código.
 Utilizando **injeção** de dependência, conseguimos alcançar o princípio da **inversão** de dependência. É possível fazer isso sem a necessidade de bibliotecas.
@@ -402,9 +403,9 @@ prefira classes com alta coesão e baixo acoplamento
 Nos slides TK, o Marcel deixa várias referências para se aprofundar no assunto.
 
 
---- 
+---
 # Legado Ao DDD - [_Leonn Leite_](https://twitter.com/leonnleite)
-Para fechar as talks do dia, escolhi ver a do Leonn, Líder Técnico PHP na Engesoftware. 
+Para fechar as talks do dia, escolhi ver a do Leonn, Líder Técnico PHP na Engesoftware.
 ## Motivação - Código Legado
 Segundo o Leonn, Brasília é o **país** do legado, então fazer integração contínua em legado é perigoso. Assim, os problemas são cada vez mais replicados conforme o projeto vai sendo desenvolvido, sendo difícil de manter. Geralmente as aplicações são estruturadas. Quando se tem Orientação a Objeto, que é raro, muitas vezes é um OO estruturado, com métodos de mais de mil linhas. Os testes das aplicações são feitos por humanos, sem nada automatizado. Testes unitários por exemplo, não existe. Os contratos com governos não exigem e "se não pagam, não fazemos". Reutilização de código, basicamente é `Ctrl+C` e `Ctrl+V` do Stack Overflow. Composer com Satis ou Toran Proxy poderiam ser utilizados para reaproveitar código...
 
@@ -414,7 +415,7 @@ A culpa desses sistemas serem assim, geralmente são: falta de tempo; experiênc
 - Falha na comunicação: medo de perguntar, cada um fala de uma forma, as vezes, quando tentamos programar em inglês, fica mais complexo
 
 reflexão do phpx
-"Vocês ainda não perceberam que o poder da empresa está na mão do programador?" tiago baestá (cofounder do imasters)  
+"Vocês ainda não perceberam que o poder da empresa está na mão do programador?" tiago baestá (cofounder do imasters)
 
 ## não sei
 
@@ -437,7 +438,7 @@ Domínio = Core Domain +  Subdomains
 - Por que não comprar uma solução pronta?
 - Por que não terceirizar o desenvolvimento?
 
-Se você pode terceirizar, talvez essa parte do seu sistema não é o seu _Core Domain_. 
+Se você pode terceirizar, talvez essa parte do seu sistema não é o seu _Core Domain_.
 
 Subdomínio Genérico: ?
 
