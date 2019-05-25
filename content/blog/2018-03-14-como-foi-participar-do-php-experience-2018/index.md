@@ -94,7 +94,7 @@ Uma das vantagens de se conhecer como a máquina virtual funciona é poder escre
 
 Em uma demo, o Marcelo “Haskell” Camargo conseguiu mostrar mais ou menos como as opcodes são interpretadas pela VM — e de quebra, explica que o `opcache` deixa operações já computadas salvas para performance do servidor.
 
-![Parte da demo feita pelo Marcelo. (confira [os slides](http://slides.com/marcelocamargo/php-under-the-hood))](./opcodes-php)
+![Parte da demo feita pelo Marcelo. (confira [os slides](http://slides.com/marcelocamargo/php-under-the-hood))](./opcodes-php.jpg)
 Parte da demo feita pelo Marcelo. (confira [os slides](http://slides.com/marcelocamargo/php-under-the-hood))
 
 O Marcelo consegue de forma bem didática explicar esses conceitos, com exemplos de códigos que ajudam no processo — uma talk bem interessante para se assistir e entender essa linguagem que utilizamos todos os dias ;)

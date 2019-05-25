@@ -10,13 +10,13 @@ draft: true
 
 # Dia 1 - Quinta-feira 16/maio
 
-## Abertura  - Cyrille 
+## Abertura  - Cyrille
 O Cyrille deu início à primeira #Symfony_Live da América Latina, é uma honra pra mim estar participando desse evento <3
 
 
 
 
-## Symphony MIME - [Nicolas Grekas](https://connect.symfony.com/profile/nicolas-grekas) 
+## Symphony MIME - [Nicolas Grekas](https://connect.symfony.com/profile/nicolas-grekas)
 
 Keynote
 Symfony MIME, já mergeado no Symfony 4.3, é "tudo que você precisa para criar emails bonitos".
@@ -34,18 +34,18 @@ $email = (new Email())
 	->subject('Some subject')
 	->text('Some text')
 	->html('<b>Some HTML message</b>')
-	->attach('doc.txt') 
+	->attach('doc.txt')
 ```
 
-Uma maneira moderna de mandar emails, sem precisar de Swiftmailer, ou o email nativo do php, algo do tipo. 
-Em uma comparação de serialização de objetos contendo o email, o serializado pelo Symfony tem apenas 2 mil caracteres, contra 16 mil do [Swiftmailer](https://swiftmailer.symfony.com/). Isso mostra a simplicidade das classes do Symfony Mailer e MIME, consistindo apenas de _Data Objects_. Há uma diferença nos cabeçalhos, que são dinâmicos e não fixos. Um simples `sleep(2)` no código mostra que ao transformar um email novamente em string, o cabeçalho de envio muda em 2 segundos também. 
+Uma maneira moderna de mandar emails, sem precisar de Swiftmailer, ou o email nativo do php, algo do tipo.
+Em uma comparação de serialização de objetos contendo o email, o serializado pelo Symfony tem apenas 2 mil caracteres, contra 16 mil do [Swiftmailer](https://swiftmailer.symfony.com/). Isso mostra a simplicidade das classes do Symfony Mailer e MIME, consistindo apenas de _Data Objects_. Há uma diferença nos cabeçalhos, que são dinâmicos e não fixos. Um simples `sleep(2)` no código mostra que ao transformar um email novamente em string, o cabeçalho de envio muda em 2 segundos também.
 Caso o usuário do componente sinta a necessidade de customizar ainda mais os cabeçalhos e etc, é possível utilizar a classe `Message`, que a classe `Email` se utiliza, dando mais flexibilidade por ser mais "baixo nível".
 
 ![Nicolas Grekas](./nicolas.jpg)
 
 Há uma integração nativa com o [`Twig`](https://twig.symfony.com/), o mecanismo de templates do Symfony. É possível até anexar emails utilizando algo como `{% do email.attach('file.txt') %}`
 
-Sabemos que escrever emails em HTML são difíceis, temos questões como compatibilidade de diferentes clientes, CSS, 
+Sabemos que escrever emails em HTML são difíceis, temos questões como compatibilidade de diferentes clientes, CSS,
 Com um filtro para CSS dessa integração com o Twig, conseguimos aplicar CSS inline e até mesmo incluir arquivos, facilitando a organização da estrutura dos emails. Temos também um filtro para Markdown, que pode facilitar tarefas como escrever tabelas e etc. Também é possível combinar com a extensão [Inky](https://github.com/twigphp/inky-extension).
 Os emails, no ato de envio, são convertidos para strings e não classes do PHP ou algo do tipo, aumentando a previsibilidade do que vai ser enviado - nenhuma surpresa sobre isso :)
 
@@ -111,7 +111,7 @@ Os slides da talk, com as referências, [podem ser encontrados aqui](https://www
 
 ## Web scraping com Symfony Panther - [Raphael de Almeida](https://connect.symfony.com/profile/raphaeldealmeida)
 
-O Raphael, da comunidade PHPRio, veio do RJ trazer essa palestra para a comunidade. 
+O Raphael, da comunidade PHPRio, veio do RJ trazer essa palestra para a comunidade.
 
 Ele começou refletindo que, no mundo ideal, todas as aplicações compartilham dados via API, retornando dados estruturados (não apenas em JSON!). Ele citou um exemplo de retornos de APIs RESTful, citando o Richardson Maturity Model (se quiser saber mais, está disponível nas referências dos slides) como dados bem estruturados. Citou também GraphQL.
 
@@ -130,7 +130,7 @@ Web Scraping pode ser utilizado para inúmeras coisas, incluindo:
 - Detecção de alterações
 
 Para isso, podemos, de uma maneira mais "ingênua", utilizar `cURL`. Mas e se quisermos simular um usuário, lendo HTML, manipulando formulários, utilizando cookies?
-Temos como alguns exemplos melhores algumas bibliotecas como o [Guzzle](http://docs.guzzlephp.org/en/stable/) e o [DomCrawler](https://symfony.com/doc/current/components/dom_crawler.html). Porém a web continua evoluindo, com SPAs (Single Page Applications) sendo criadas, necessitando de muita interação com  JavaScript - por exemplo. 
+Temos como alguns exemplos melhores algumas bibliotecas como o [Guzzle](http://docs.guzzlephp.org/en/stable/) e o [DomCrawler](https://symfony.com/doc/current/components/dom_crawler.html). Porém a web continua evoluindo, com SPAs (Single Page Applications) sendo criadas, necessitando de muita interação com  JavaScript - por exemplo.
 
 Eis que surge o [Symfony Panther](https://github.com/symfony/panther), que utiliza o protocolo WebDriver da W3C, que é o mesmo protocolo utilizado pelo Selenium, por exemplo. Podemos utilizar o Google Chrome "Headless" para interagir com o Panther, sendo nosso browser.
 
@@ -160,7 +160,7 @@ echo $crawler->filter('.support')->text();
 $client->takeScreenshot('screen.png'); // Yeah, screenshot!
 ```
 
-O Raphael fez uma demo pra gente, demonstrando como jogar o jogo  [Pokémon - Memory Game](https://vue-pokemon-memory-game.vinicius73.dev/), feito pelo grande [Vinicius Reis](https://twitter.com/luizvinicius73), utilizando o Symfony Panther. Ele foi mostrando passo a passo como interagir com o jogo, 
+O Raphael fez uma demo pra gente, demonstrando como jogar o jogo  [Pokémon - Memory Game](https://vue-pokemon-memory-game.vinicius73.dev/), feito pelo grande [Vinicius Reis](https://twitter.com/luizvinicius73), utilizando o Symfony Panther. Ele foi mostrando passo a passo como interagir com o jogo,
 Vale a pena conferir no vídeo, quando estiver disponível. Olha só o gif da aplicação dele jogando a memória:
 
 ![Bot rodando o jogo](./bot.gif)
@@ -254,7 +254,7 @@ Para conectar ao mesmo, é só colocar endereço, chave JWT e mais algumas outra
 O Mercure possui um bundle do Symfony, que você inclui na sua aplicação e configura.
 
 ### Demo!
-Após mostrar todos os conceitos, o Duodraco fez uma demo pra gente, mostrando uma aplicação dos Vingadores que ele construiu na [API Platform](https://api-platform.com/), colocou o Mercure e que atualiza em tempo real outra aplicação, em Vue.js, que ele também fez. 
+Após mostrar todos os conceitos, o Duodraco fez uma demo pra gente, mostrando uma aplicação dos Vingadores que ele construiu na [API Platform](https://api-platform.com/), colocou o Mercure e que atualiza em tempo real outra aplicação, em Vue.js, que ele também fez.
 
 ### Considerações
 O Mercure ainda não é um padrão estabelecido, então ainda pode existir certa instabilidade ou virem muitas mudanças na forma como funciona. De qualquer forma, já é utilizável e pode funcionar para comunicação entre múltiplas aplicações ou entre cliente-servidores.
@@ -344,9 +344,9 @@ Em imagens e fontes, podemos fazer a otimização de imagens, conversão para ba
 
 De forma geral, copiar e remover arquivos, notificar sobre o processo de compilação, visualizar as alterações no navegador... isso tudo faz parte do ciclo de desenvolvimento frontend moderno.
 
-O frontend evoluiu muito nesses últimos anos e o Marcel deu bastante detalhes de como isso aconteceu. Porém, com a evolução, também vieram alguns problemas, como por exemplo a dificuldade de conhecer todas as ferramentas e termos. 
+O frontend evoluiu muito nesses últimos anos e o Marcel deu bastante detalhes de como isso aconteceu. Porém, com a evolução, também vieram alguns problemas, como por exemplo a dificuldade de conhecer todas as ferramentas e termos.
 
-Uma das ferramentas que busca resolver esses problemas do desenvolvimento frontend moderno é o [Webpack](https://webpack.js.org/), um module bundler poderoso. 
+Uma das ferramentas que busca resolver esses problemas do desenvolvimento frontend moderno é o [Webpack](https://webpack.js.org/), um module bundler poderoso.
 Ele pode ser instalado através do npm (ou yarn), gerenciador(es) de dependências do [Nodejs](https://nodejs.org/). Embora seja robusto, a configuração do mesmo pode ser um pouco difícil.
 
 ### Symfony Encore
@@ -406,7 +406,7 @@ Perdi :(
 
 ## Empodere suas entidades com Doctrine e DDD - [Tobias Sette](https://connect.symfony.com/profile/gnumoksha)
 
-O Tobias veio trazer para a gente uma talk sobre _Domain Driven Design_, o DDD. É um tema que ganha cada vez mais relevância e é  ótimo poder saber 
+O Tobias veio trazer para a gente uma talk sobre _Domain Driven Design_, o DDD. É um tema que ganha cada vez mais relevância e é  ótimo poder saber
 
 ### Visão Geral sobre DDD
 
@@ -420,7 +420,7 @@ Falando sobre Entidades, um termo já conhecido para usuários do [Doctrine](htt
 
 ![Tobias Sette](./tobias.jpg)
 
-O Tobias fala sobre **Entidades anêmicas**, mostrando um exemplo de uma classe `Customer` com apenas `getter`s e `setter`s para campos `nome`, `email`, `status`... 
+O Tobias fala sobre **Entidades anêmicas**, mostrando um exemplo de uma classe `Customer` com apenas `getter`s e `setter`s para campos `nome`, `email`, `status`...
 Em seguida, realiza uma mudança nessa classe, adicionando **comportamento** para uma lógica de troca de email, disparando um evento para a aplicação informando sobre essa troca. Segundo ele, esse comportamento é inerente a essa classe e por isso deve estar junto a ela: Dados + Comportamentos da entidade.
 
 ### Objetos de Valor
@@ -452,7 +452,7 @@ Algumas das referências utilizadas na apresentação podem ser encontradas nos 
 
 O Wellington começa sua talk com a pergunta que não quer calar: **O que é Docker?** - pergunta essa que ele responde com uma definição própria:
 
-> "Ferramenta para **virtualização** no nível do Sistema Operacional." - Wellington F. Silva 
+> "Ferramenta para **virtualização** no nível do Sistema Operacional." - Wellington F. Silva
 
 E em seguida já explica pra gente quais são os tipos de **virtualização**:
 - **Full virtualization**: instalar a iso e rodar na máquina
@@ -545,7 +545,7 @@ Aí vem o Guard:
 php bin/console make:auth
 ```
 
-Escolhendo o `Login Authenticator` geramos o que precisamos de form, etc. e podemos ir para o próximo passo: **autenticação**. Ela explicou pra gente como funciona a `Authenticator Interface`. Configuramos no `security.yaml` que queremos utilizar nosso `Authenticator`, em `firewalls.main.guard.authenticators`. Ela explicou em detalhes como funciona a implementação do `Authenticator` que geramos com o `make:auth` e como deixar ainda mais seguro. 
+Escolhendo o `Login Authenticator` geramos o que precisamos de form, etc. e podemos ir para o próximo passo: **autenticação**. Ela explicou pra gente como funciona a `Authenticator Interface`. Configuramos no `security.yaml` que queremos utilizar nosso `Authenticator`, em `firewalls.main.guard.authenticators`. Ela explicou em detalhes como funciona a implementação do `Authenticator` que geramos com o `make:auth` e como deixar ainda mais seguro.
 
 É muito legal ter um código seguro de autenticação resolvendo vários problemas para nós. Em 30 minutos, já temos um token para  proteger contra [ataques `CSRF`](https://pt.wikipedia.org/wiki/Cross-site_request_forgery), as senhas já são criptografadas e tudo o mais. Vale a pena dar uma olhada nos slides ou no vídeo para poder ver tudo no detalhe :)
 
