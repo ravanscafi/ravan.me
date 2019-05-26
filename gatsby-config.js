@@ -42,9 +42,17 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
+          `gatsby-remark-autolink-headers`,
+          `gatsby-remark-prismjs`,
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: null,
+              rel: "nofollow",
+            }
+          },
         ],
       },
     },
@@ -74,14 +82,14 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
+            serialize: ({query: {site, allMarkdownRemark}}) => {
               return allMarkdownRemark.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
+                  custom_elements: [{"content:encoded": edge.node.html}],
                 })
               })
             },
@@ -134,19 +142,12 @@ module.exports = {
     },
     `gatsby-plugin-advanced-sitemap`,
     `gatsby-plugin-netlify`,
-          {
-        resolve: "gatsby-remark-external-links",
-        options: {
-          target: null,
-          rel: "nofollow",
-        }
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://ravan.me`,
+        stripQueryString: true
       },
-      {
-        resolve: `gatsby-plugin-canonical-urls`,
-        options: {
-          siteUrl: `https://ravan.me`,
-          stripQueryString: true
-        },
-      },
+    },
   ],
 }
