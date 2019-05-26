@@ -10,6 +10,9 @@ Wordpress2016.overrideThemeStyles = () => {
       display: "block",
       textAlign: "center",
     },
+    "a.anchor": {
+      boxShadow: `none`,
+    },
   }
 }
 
