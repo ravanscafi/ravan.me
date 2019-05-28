@@ -4,14 +4,22 @@ import Wordpress2016 from "typography-theme-wordpress-2016"
 Wordpress2016.overrideThemeStyles = () => {
   return {
     "a.gatsby-resp-image-link": {
-      boxShadow: "none",
+      boxShadow: `none`,
     },
     ".gatsby-resp-image-figcaption": {
-      display: "block",
-      textAlign: "center",
+      display: `block`,
+      textAlign: `center`,
+      fontStyle: `italic`,
     },
-    "a.anchor": {
+    "a.anchor, a.image-link": {
       boxShadow: `none`,
+    },
+    "a.image-link": {
+      textAlign: `center`,
+      display: `block`,
+    },
+    "[align=center]": {
+      textAlign: `center`,
     },
   }
 }
