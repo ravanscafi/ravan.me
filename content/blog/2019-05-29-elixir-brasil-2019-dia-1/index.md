@@ -138,7 +138,7 @@ Ele é tech lead do *Squad* de Relacionamento com o Cliente na empresa [QueroEdu
 
 Esse painel OPA foi totalmente desenvolvido em Elixir e Phoenix, lá por 2016, sendo uma aposta que ocorreu bem cedo em relação a linguagem, pois eles já tinham a visão de chegar no que de fato é a plataforma hoje, mostrando que foi uma decisão correta na época. Outra aposta que eles fizeram foi de usar o [Vue.JS](https://vuejs.org/) com [Nuxt](https://nuxtjs.org/). Eles usam o banco [PostgreSQL](https://www.postgresql.org/), além de [Redis](https://redis.io/) com a biblioteca [Nebulex](https://github.com/cabol/nebulex) para cache e [Algolia](https://www.algolia.com/) para busca. Eles conseguiram entrar no programa fechado da API Beta do WhatsApp, sendo uma das duas primeiras empresas do Brasil a testar o serviço - lá em 2017.
 
-![Erich Rodrigues explicando o desafio da plataforma](./erich.jpg)
+![Erich Rodrigues explicando o desafio da plataforma OPA.](./erich.jpg)
 
 Eles recebem centenas de milhares de mensagens todos os dias, caindo até em problemas não pensados como Bots de WhatsApp, muitas mensagens de SPAM e delay nos serviços.
 O Atendimento, para eles, precisa ser eficiente, eficaz e de alta qualidade.
@@ -210,7 +210,7 @@ Foi bem legal ver os exemplos que ele mostrou e poder refletir sobre como estrut
 
 ## Eventos de domínio podem ser simples - [Bernardo Amorim](https://twitter.com/BernardoDCGA)
 
-![Bernardo Amorim em sua apresentação: "Eventos de domínio podem ser simples"](./bernardo.jpg)
+![Bernardo Amorim em sua apresentação: "Eventos de domínio podem ser simples".](./bernardo.jpg)
 
 Ainda na trilha avançada, o Bernardo veio trazer o case da [Stone](https://www.stone.com.br/), empresa em que trabalha, sobre como foi o uso de [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) por lá. Ele diz que se deparou com a _buzzword_ "Eventos" e foi estudar sobre, chegando à seguinte definição:
 
@@ -274,58 +274,55 @@ Após o live coding, ele esclarece às três perguntas:
 
 ## Talvez você não precise de um GenServer - [Ulisses Almeida](https://twitter.com/ulissesalmeida)
 
-Para ter um comparativo sobre a talk anterior, quis voltar para a trilha avançada e ver essa palestra do Ulisses. 
+Para ter um comparativo sobre a talk anterior, quis voltar para a trilha avançada e ver essa palestra do Ulisses agora que estava entendendo um pouco melhor como funciona os GenServers. 
 
-Segundo ele, é um **processo** com um conjunto poderoso de ferramentas. Útil para uma relação cliente-servidor, mantém estado, executa código assincronamente.
+Segundo ele, **um GenServer é um *processo* com um conjunto poderoso de ferramentas**. Útil para uma relação cliente-servidor, mantém estado, executa código síncrona e assincronamente, pode ser supervisionado e provê ferramentas de *tracing* e *error reporting*.
 
-Existem alguns tipos de GenServers:
-- Agent
-- Task
-- Task.Supervisor
-- Supervisor
-- DynamicSupervisor
+Existem alguns tipos de GenServers: `Agent`; `Task`; `Task.Supervisor`; `Supervisor` e `DynamicSupervisor`.
 
-Fazendo um exemplo, o Ulisses mostrou como fazer uma calculadora com um GenServer e uma sem o GenServer, chegando a conclusão após alguns benchmarks que o GenServer é cerca de 200 vezes mais lentos
+Fazendo um exemplo, o Ulisses mostrou como fazer uma calculadora com o uso de um GenServer e uma sem, chegando a conclusão após alguns benchmarks que o GenServer é cerca de 200 vezes mais lento e gasta quase 10 vezes mais recursos.
 
 Segundo ele, a Erlang OTP provê hierarquia de processos, estratégias de reinício dos mesmos, concorrência e o GenServer tem um papel central nisso tudo.
 
-Segundo os motivos para se utilizar GenServer, disponível na GenServer checklist, talvez a calculadora não foi um bom caso para o uso dessa funcionalidade.
+Refletindo sobre os motivos para se utilizar GenServer, disponível na checklist da imagem abaixo, talvez a calculadora não foi um bom caso para o uso dessa funcionalidade.
 
 ![Ulisses Almeida e a checklist para um bom uso de GenServer](./ulisses.jpg)
 
-Segundo sua própria experiência, o Ulisses nunca escreveu um GenServer para código em produção - inclusive disse que já apagou vários que existiam para tirar gargalos.
+#### Mas, eu não deveria estar usando essa funcionalidade da linguagem?
 
-Para uma aplicação web, que é acessada por usuários, devemos ser capazes de lidar com múltiplas conexões de usuários, outros processos podem mandar mensagens para essas conexões e devemos poder fechar essas conexões de maneira limpa e segura. Parece uma boa oportunidade de usar um GenServer, com base no checklist?
-Phoenix e Cowboy já lidam com isso para você, então não é necessário fazer isso por conta.
+Por sua própria experiência, o Ulisses nunca escreveu um GenServer para código em produção em três anos trabalhando com a linguagem - inclusive disse que já apagou alguns que existiam para tirar gargalos da aplicação. E diz que não há vergonha em nunca precisar criar um GenServer.
 
-Para a aplicação e banco de dados, é uma comunicação externa
-nós temos que prover um número limitado de conexões para muitos processos
-essas conexões devem funcionar e devemos fechar essas conexões de maneira limpa e segura. Parece um outro bom caso para o GenServer?
-Pode até ser, mas o Ecto já faz isso pra gente.
+#### O Ecossistema te dá cobertura!
 
-Aplicação com outros serviços, normalmente nos comunicamos pela rede, temos que ter um mecanismo para não derrubar serviços mais fracos, esse mecanismo tem que lidar com concorrência e também devem fechar de maneira limpa e segura. GenServer?
-Bem, o Hackney e outras bibliotecas já fazem isso pra gente.
+Para uma **aplicação web**, que é acessada por usuários, devemos ser capazes de lidar com múltiplas conexões de usuários, outros processos podem mandar mensagens para essas conexões e devemos poder fechar essas conexões de maneira limpa e segura. Parece uma boa oportunidade de usar um GenServer, com base no checklist? Bem, parece, porém **Phoenix e Cowboy já lidam com isso para você**, então não é necessário fazer isso por conta própria.
 
-Nem tudo é armazenado em bancos de dados SQL, como cache, sessão, presença de usuários. Esses dados são persistentes ou transitórios? Será um bom caso pra GenServer?
+Para a interação da aplicação com **banco de dados**, um banco de dados é uma comunicação externa; nós temos que prover um número limitado de conexões para muitos processos; essas conexões devem funcionar e devemos fechar essas conexões de maneira limpa e segura. Parece um outro bom caso para o GenServer? Pode até ser, mas o **Ecto já faz isso pra gente**.
 
-Talvez, você precise uma abstração mais específica, como por exemplo o Cachex pra cache. Talvez o Redis seja mais fácil de lidar do que alguns GenServers, com possibilidade de shutdown em deploys e etc. O ideal é discutir entre o time para encontrar a ferramenta certa para o problema.
-Ou talvez ainda, seu ambiente não permita que você crie um GenServer global, como no caso da plataforma Heroku.
+Para a comunicação da aplicação com **outros serviços**, normalmente nos comunicamos pela rede; temos que ter um mecanismo para não derrubar serviços mais fracos; esse mecanismo tem que lidar com concorrência e também devem fechar de maneira limpa e segura. GenServer? Adivinha, o [Hackney](https://github.com/benoitc/hackney) e outras bibliotecas já fazem isso pra gente.
 
-Para tarefas em background, como emails, push-notifications, tarefas agendadas e fora do ciclo do usuário, precisamos de alguma forma de rodá-las
+Nem tudo é armazenado em bancos de dados SQL, como **cache, sessão, presença de usuários**. Geralmente vemos implementações NoSQL para resolver esses problemas. Mas, esses dados são persistentes ou transitórios na sua aplicação? Será um bom caso pra GenServer?
 
-Como lidamos com erros? Precisamos de algum tipo de persistência?
-Talvez podemos usar algo como RabbitMQ
+**Talvez você precise uma abstração mais específica**, como por exemplo o [Cachex](https://github.com/whitfin/cachex) para cache. Talvez o Redis seja mais fácil de lidar do que alguns GenServers, que podem ter o risco de shutdown em deploys e etc. O ideal é discutir entre o time para encontrar a ferramenta certa para o problema.
+
+Ou talvez ainda que queira usar para tarefas como serialização, mas seu ambiente não permita um GenServer global rodando, como no caso da plataforma Heroku.
+
+Para **tarefas em background**, como emails, push-notifications, tarefas agendadas e fora do ciclo do usuário, precisamos de alguma forma de rodá-las. Pode parecer que finalmente tenhamos chegado num caso válido, porém, como lidamos com erros? Precisamos de algum tipo de persistência para esses eventos?
+Talvez podemos usar algo como [RabbitMQ](https://www.rabbitmq.com/) ou Redis mesmo.
+
+Após apresentar todos esses casos de uso, chegamos nas conclusões.
 
 ### Conclusões
 
-As bibliotecas e frameworks lidam com os GenServers para a gente, então talvez não precisemos criar as nossas, mas é importante aprender para podermos entendê-los e configurar essas ferramentas, saber lidar com situações inesperadas e tudo o mais. O importante é sempre comparar e discutir com o time as ferramentas corretas. Não é vergonha nunca precisar de um *GenServer*.
+GenServers são fundamentais. As bibliotecas e frameworks lidam com eles para a gente, então talvez não precisemos criar os nossos. É importante aprendê-los para saber fazer a configuração correta dessas ferramentas, bem como saber lidar com situações inesperadas e tudo o mais. O importante é sempre comparar e discutir com o time as ferramentas corretas. Não é vergonha nunca precisar de um *GenServer*. Lembre-se de que um GenServer utilizado em um local incorreto pode trazer mais problemas do que benefícios.
 
 O Ulisses é autor do livro [Learn Functional Programming with Elixir - New Foundations for a New World](https://pragprog.com/book/cdc-elixir/learn-functional-programming-with-elixir) e disponibilizou um cupom de desconto de 20% para comprar o mesmo: `Elixir_Brazil_2019`. Para conferir os slides de sua talk, [clique aqui](https://speakerdeck.com/ulissesalmeida/you-aint-gonna-need-to-write-a-genserver).
+
+Essa foi um talk bem divertida, o Ulisses é particularmente engraçado e foi bom pra pegar um ânimo pro resto do dia - ainda tinha muita coisa pra escrever!
 
 
 ## Conjuntos em 3 Atos - [Luciano Ramalho](https://twitter.com/ramalhoorg)
 
-O Luciano Ramalho, da ThoughtWorks, famoso pelo seu livro de Python (@TODO), preparou essa palestra a partir de outras que tinha feito para as linguagens Go e Python. Então essa é a versão Elixir.
+O Luciano Ramalho, da [ThoughtWorks](https://www.thoughtworks.com/pt), famoso pelo seu [livro de Python](https://www.oreilly.com/library/view/fluent-python/9781491946237/), preparou essa palestra a partir de outras que tinha feito para as linguagens Go e Python. Então essa é a versão Elixir.
 
 ### Porque conjuntos podem simplificar seu código
 O primeiro caso de uso é "Exibir item se todas as palavras da consulta aparecerem na descrição", basicamente um buscador de emojis por palavras-chave. Ele implementou em Elixir, a partir do arquivo [`UnicodeData.txt`](https://github.com/standupdev/rf/blob/master/elixir/UnicodeData.txt). É possível tomar uma abordagem sem conjuntos, "desconjuntada", que usa `substring`s e vários `if`s.
@@ -358,9 +355,7 @@ A API do `MapSet` do Elixir é bastante rica. Com base no livro "The Go Programm
 
 Operações com conjuntos podem simplificar algoritmos dramaticamente. Elixir oferece uma implementação rica! O código do **MapSet** é um excelente exemplo de abstração de dados usando `struct` e `protocolo`. A interface de `UIntSet` é quase a mesma de `MapSet` mas a implementação é mais simples, com operadores `Bitwise` para manipular inteiros como vetores de bits.
 
-O código do `UIntSet` mostrado na apresentação está disponível [no GitHub](https://github.com/ramalho/uint_set).
-
-
+O código do `UIntSet` mostrado na apresentação está disponível [no GitHub](https://github.com/ramalho/uint_set). [E os slides também](https://speakerdeck.com/ramalho/elixir-conjuntos-em-3-atos).
 
 ## Elixir, o que pode dar errado - [Guilherme de Maio](https://twitter.com/nirev)
 
