@@ -30,7 +30,7 @@ Em 2010, o pessoal da Plataformatec estava tentando lidar com o [Ruby on Rails](
 
 Mas, por que `thread safe` era tão importante? O *paper* [The free lunch is over](http://www.gotw.ca/publications/concurrency-ddj.htm) (O almoço grátis acabou), de 2005, expõe uma visão interessante sobre o tema. Cita a *Lei de Moore*, que diz que o "número de transistores dos processadores dobra a cada dois anos" - o que na prática significava que a velocidade dos CPUs basicamente dobrava também. Ou seja, para ter performance em um software era só esperar um pouco, atualizar o hardware e pronto, almoço grátis!
 
-Porém, a partir dos anos 2000, esse cenário começou a mudar e a Lei de Moore já não mais funcionava. É importante ressaltar que **as CPUs não pararam de evoluir**, porém evoluíram de modo diferente, com *hyperthreading* e *multicore*. Ao invés de um processador ficando mais potente, mais processadores de mais ou menos mesma potência foram sendo adicionados. 
+Porém, a partir dos anos 2000, esse cenário começou a mudar e a Lei de Moore já não mais funcionava. É importante ressaltar que **as CPUs não pararam de evoluir**, porém evoluíram de modo diferente, com *hyperthreading* e *multicore*. Ao invés de um processador ficando mais potente, mais processadores de mais ou menos mesma potência foram sendo adicionados.
 
 Com essa mudança podemos entender que o modo como escrevemos softwares deve levar isso em conta, aproveitando-se de **concorrência** e **paralelização**.
 
@@ -82,8 +82,8 @@ Na opinião do Hugo, são basicamente três fatores: ele crê que a tendência d
 O "futuro de 2005" é hoje e a Erlang VM foi projetada para concorrência. Não que seja impossível fazer concorrência com outras tecnologias, mas com Elixir é muito fácil. Concorrência é sobre muito mais do que paralelismo, que te ajuda a fazer software responsivo, distribuído, resiliente...
 O Elixir/OTP suporta "nativamente" o [Manifesto Reativo](https://www.reactivemanifesto.org/pt-BR), pois é:
 - **Reativo**: respondendo rapidamente aos usuários, com um tempo de resposta previsível.
-- **Resiliente**: cada linha de processamento é isolado, com falhas isoladas e supervisores cuidando da saúde de outros processos. 
-- **Elástico**: com por exemplo 2 milhões de conexões simultâneas com nenhum _timeout_. 
+- **Resiliente**: cada linha de processamento é isolado, com falhas isoladas e supervisores cuidando da saúde de outros processos.
+- **Elástico**: com por exemplo 2 milhões de conexões simultâneas com nenhum _timeout_.
 - **Orientado a Mensagens**: quando dois processos estão se comunicando, não é necessário saber se eles estão na mesma máquina ou se estão distribuídos, isso é transparente.
 
 
@@ -95,7 +95,7 @@ Além desses motivos, concorrência ajuda em _desenvolvimento_, não apenas em _
 
 #### O Elixir te permite pensar diferente
 
-Aplicações com UI rica e em tempo real estão aumentando a expectativa dos usuários; [IoT](https://pt.wikipedia.org/wiki/Internet_das_coisas) traz a necessidade de monitoramento real-time de múltiplos dispositivos. [Phoenix Channels](https://hexdocs.pm/phoenix/channels.html) e [Phoenix LiveView](https://dockyard.com/blog/2018/12/12/phoenix-liveview-interactive-real-time-apps-no-need-to-write-javascript) permitem funcionalidades real-time facilmente. 
+Aplicações com UI rica e em tempo real estão aumentando a expectativa dos usuários; [IoT](https://pt.wikipedia.org/wiki/Internet_das_coisas) traz a necessidade de monitoramento real-time de múltiplos dispositivos. [Phoenix Channels](https://hexdocs.pm/phoenix/channels.html) e [Phoenix LiveView](https://dockyard.com/blog/2018/12/12/phoenix-liveview-interactive-real-time-apps-no-need-to-write-javascript) permitem funcionalidades real-time facilmente.
 
 Também é possível conceber uma arquitetura de "Nanoserviços", ao invés do monolito concorrente. Explicando, o Elixir roda milhares ou milhões de processos "leves" na máquina virtual do Erlang, com alguns deles se comunicando entre si, se supervisionando... alguns na mesma máquina, outros em outra, sem problemas. É como se fosse um monolito distribuído. Para se aprofundar no assunto, leia os posts [Elixir in times of microservices](http://blog.plataformatec.com.br/2015/06/elixir-in-times-of-microservices/) e [Dawn of the Microlith - Monoservices with Elixir](http://tjheeta.github.io/2016/12/16/dawn-of-the-microlith-monoservices-microservices-with-elixir/).
 
@@ -250,7 +250,7 @@ Algumas coisas o deixam nostálgico:
 
 Nesse momento, o Bernardo fez uma live coding pra gente, explorando tudo o que ele passou de conhecimento na sua palestra. E assim ele fechou sua apresentação - um mergulho em eventos, com teoria e prática.
 
-**Nota:** *Até o momento da publicação desse post os slides da talk não foram publicados. Atualizarei o post quando tiver o link.*
+O código apresentado por ele na live coding e o os slides da apresentação estão no [GitHub](https://github.com/bamorim/evil_corp_elixir_brasil_2019).
 
 ## TOP: Criando seu próprio GenServer - [Geovane Fedrecheski](https://twitter.com/geonnave)
 
@@ -274,7 +274,7 @@ Após o live coding, ele esclarece às três perguntas:
 
 ## Talvez você não precise de um GenServer - [Ulisses Almeida](https://twitter.com/ulissesalmeida)
 
-Para ter um comparativo sobre a talk anterior, quis voltar para a trilha avançada e ver essa palestra do Ulisses agora que estava entendendo um pouco melhor como funciona os GenServers. 
+Para ter um comparativo sobre a talk anterior, quis voltar para a trilha avançada e ver essa palestra do Ulisses agora que estava entendendo um pouco melhor como funciona os GenServers.
 
 Segundo ele, **um GenServer é um *processo* com um conjunto poderoso de ferramentas**. Útil para uma relação cliente-servidor, mantém estado, executa código síncrona e assincronamente, pode ser supervisionado e provê ferramentas de *tracing* e *error reporting*.
 
@@ -325,7 +325,7 @@ Essa foi um talk bem divertida, o Ulisses é particularmente engraçado e foi bo
 O Luciano Ramalho, da [ThoughtWorks](https://www.thoughtworks.com/pt), famoso pelo seu [livro de Python](https://www.oreilly.com/library/view/fluent-python/9781491946237/), preparou essa palestra a partir de outras que tinha feito para as linguagens Go e Python. Então essa é a versão Elixir. Ele busca explicar **porque** e **como** devemos usar [Conjuntos](https://pt.wikipedia.org/wiki/Conjunto).
 
 ### Porque conjuntos podem simplificar seu código
-Para nos convencer disso, o Luciano propõe três casos de uso. O primeiro deles é "exibir item se todas as palavras da consulta aparecerem na descrição" aplicado a um buscador de emojis por palavras-chave. 
+Para nos convencer disso, o Luciano propõe três casos de uso. O primeiro deles é "exibir item se todas as palavras da consulta aparecerem na descrição" aplicado a um buscador de emojis por palavras-chave.
 
 ![Exemplo de consulta do buscador de emojis.](./caso_de_uso_rune_finder.jpg)
 
