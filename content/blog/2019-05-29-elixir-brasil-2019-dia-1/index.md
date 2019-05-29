@@ -6,20 +6,20 @@ date: "2019-05-27T23:00:00.000Z"
 
 <p>
     <a href="https://2019.elixirbrasil.com/" rel="nofollow" class="image-link" title="Elixir Brasil 2019">
-        <img src="https://2019.elixirbrasil.com/assets/images/logo.svg" alt="Elixir Brasil 2019">
+        <img src="./elixir_brasil_logo.svg" alt="Elixir Brasil 2019" style="width: 413px; height: 164px">
     </a>
 </p>
 
-Nos dias 25 e 26 de maio tive a honra de participar da segunda edição do evento [`#ElixirBrasil`](https://twitter.com/hashtag/ElixirBrasil), realizado pela [CodamosClub](https://twitter.com/CodamosClub), o [Elug SP](https://twitter.com/elug_sp) e o [Nubank](https://twitter.com/nubank) - que sediou o evento em seu lindo prédio em São Paulo/SP.
+Nos dias 25 e 26 de maio tive a honra de participar da segunda edição do evento [**#ElixirBrasil**](https://twitter.com/hashtag/ElixirBrasil), realizado pela [CodamosClub](https://twitter.com/CodamosClub), o [Elug SP](https://twitter.com/elug_sp) e o [Nubank](https://twitter.com/nubank) - que sediou o evento em seu lindo prédio em São Paulo/SP.
 
-As palestras ocorreram durante os dois dias inteiros - foram 34 talks e 33 palestrantes, um número impressionante e de dar muito orgulho - principalmente se considerarmos o quão nova é a comunidade [Elixir](https://elixir-lang.org/). Tiveram duas trilhas: uma iniciante e uma avançada onde foi possível transitar entre elas conforme a afinidade com cada assunto 😉
+As palestras ocorreram durante os dois dias inteiros - foram 34 talks e 33 palestrantes para **mais de 400 participantes**, números impressionantes e de dar muito orgulho - principalmente se considerarmos o quão nova é a comunidade [Elixir](https://elixir-lang.org/). Haviam duas trilhas: uma iniciante e uma avançada onde foi possível transitar entre elas conforme a afinidade com cada assunto. [No site do evento](https://2019.elixirbrasil.com/) é possível encontrar toda a grade de palestras, informações sobre os palestrantes, patrocinadores e organizadores além do código de conduta.
 
 Infelizmente as palestras não foram gravadas, mas nesse post - primeira parte de duas - vou resumir todas as **talks que vi** durante o **primeiro dia**.
 
 ---
 
 ## Abertura
-A [Alda Rocha](https://twitter.com/mjcoffeeholick) e o [Guilherme de Maio](https://twitter.com/nirev) fizeram uma breve abertura do #ElixirBrasil desse ano. É incrível ver a diversidade do evento na organização e comunidades presentes. Há um código de conduta sendo seguido e vemos que essas ações se refletem no público também, que é muito diverso - com certeza o evento mais diverso que já participei. Várias comunidades vieram por iniciativas de inclusão, vou falar mais sobre isso no segundo post! Bom, bora começar?
+A [Alda Rocha](https://twitter.com/mjcoffeeholick) e o [Guilherme de Maio](https://twitter.com/nirev) fizeram uma breve abertura do #**ElixirBrasil** desse ano. É incrível ver a diversidade do evento na organização, comunidades presentes e o  código de conduta sendo seguido. Vemos que essas ações se refletem no público também, que é muito diverso - com certeza o evento mais diverso que já participei. Cada mínimo detalhe foi pensado para o conforto de todos os participantes. Enfim, bora começar?
 
 ## Como uma empresa brasileira criou uma linguagem que é usada no mundo inteiro. O case da Plataformatec com o Elixir - [Hugo Baraúna](https://twitter.com/hugobarauna)
 
@@ -30,7 +30,9 @@ Em 2010, o pessoal da Plataformatec estava tentando lidar com o [Ruby on Rails](
 
 Mas, por que `thread safe` era tão importante? O *paper* [The free lunch is over](http://www.gotw.ca/publications/concurrency-ddj.htm) (O almoço grátis acabou), de 2005, expõe uma visão interessante sobre o tema. Cita a *Lei de Moore*, que diz que o "número de transistores dos processadores dobra a cada dois anos" - o que na prática significava que a velocidade dos CPUs basicamente dobrava também. Ou seja, para ter performance em um software era só esperar um pouco, atualizar o hardware e pronto, almoço grátis!
 
-Porém, a partir dos anos 2000, esse cenário começou a mudar e a Lei de Moore já não mais funcionava. É importante ressaltar que **as CPUs não pararam de evoluir**, porém evoluíram de modo diferente, com *hyperthreading* e *multicore*. Ao invés de um processador ficando mais potente, mais processadores de mais ou menos mesma potência foram sendo adicionados. Com isso, podemos entender que o modo como escrevemos softwares tem que levar isso em conta, aproveitando-se de **concorrência** e **paralelização**.
+Porém, a partir dos anos 2000, esse cenário começou a mudar e a Lei de Moore já não mais funcionava. É importante ressaltar que **as CPUs não pararam de evoluir**, porém evoluíram de modo diferente, com *hyperthreading* e *multicore*. Ao invés de um processador ficando mais potente, mais processadores de mais ou menos mesma potência foram sendo adicionados. 
+
+Com essa mudança podemos entender que o modo como escrevemos softwares deve levar isso em conta, aproveitando-se de **concorrência** e **paralelização**.
 
 O Hugo cita ainda a [Lei de Amdahl](https://pt.wikipedia.org/wiki/Lei_de_Amdahl), que diz que "quanto menos concorrente for seu código, menos velocidade ele ganha pelo aumento de núcleos do processador (*cores*)". E cita também o seguinte:
 
@@ -45,7 +47,7 @@ Mas e se fosse fácil fazer concorrência?
 Concorrência deveria ser fácil, mas na prática não é bem por aí.
 Segundo o Herb Sutter, é natural que a maioria dos desenvolvedores não saibam concorrência, da mesma forma que 15 anos atrás a maioria não sabia sobre orientação a objetos. Já fazem 10 anos desde o artigo *"The Free Lunch is Over"*, mas vemos que a maioria do código ainda é *"single-threaded"*, ou seja, não-concorrente.
 
-O problema é o modelo de *threads* e *locks*, que são abstrações de baixo nível? E se tivéssemos uma abstração de mais alto nível, que facilitasse nossa vida como desenvolvedores de software - como por exemplo ocorre com o gerenciamento de memória - não precisamos mais de `malloc`s e etc, pois a abstração do *garbage collector* lida com isso para a gente.
+O problema é o modelo de *threads* e *locks*, que são abstrações de baixo nível? E se tivéssemos uma abstração de mais alto nível, que facilitasse nossa vida como desenvolvedores de software? Por exemplo, isso ocorre com o gerenciamento de memória - não precisamos mais de `malloc`s e etc, pois a abstração do *garbage collector* lida com isso para a gente.
 
 ### Parte 3 - O desenvolvimento do Elixir
 
@@ -53,18 +55,18 @@ Lendo o livro [Seven Languages in Seven Weeks](https://pragprog.com/book/btlang/
 
 ![Hugo Baraúna - Explorando o desenvolvimento de uma nova linguagem.](/hugo.jpg)
 
-### Por que a [Erlang Virtual Machine](https://en.wikipedia.org/wiki/BEAM_(Erlang_virtual_machine))?
+#### Por que a [Erlang Virtual Machine](https://en.wikipedia.org/wiki/BEAM_(Erlang_virtual_machine))?
 
 Porque foi pensada desde o começo para concorrência, distribuição e tolerância a falhas. É uma máquina virtual (VM) que já tem mais de 30 anos de desenvolvimento, sendo bem testada no mercado, ou seja, que tem seu funcionamento garantido.
 
-Em 2011 foi lançado o primeiro protótipo do Elixir. Porém esse "Elixir" tinha um modelo de "objetos", muito lento e quebrando compatibilidade com a VM. Depois de vários altos e baixos no desenvolvimento, eles perceberam que o design da linguagem estava errado.
-Então, redefiniram os direcionamentos do Elixir: **produtividade, extensibilidade e compatibilidade**. Foram meses de estudo, praticamente sem desenvolvimento ativo e esse novo caminho foi o momento *"Eureka!"*. Por isso, em 2012 decidiram investir e lançar o Elixir - em uma conversa entre a diretoria da Plataformatec, Valim os convenceu.
+Em 2011 foi lançado o primeiro protótipo do Elixir. Porém esse "Elixir" tinha um modelo de "objetos", era muito lento e quebrava compatibilidade com a VM. Depois de vários altos e baixos no desenvolvimento, eles perceberam que o design da linguagem estava errado.
+Então, redefiniram os direcionamentos do Elixir: **produtividade, extensibilidade e compatibilidade**. Foram meses de estudo, praticamente sem desenvolvimento ativo e esse novo caminho foi o momento *"Eureka!"*. Em 2012 decidiram investir e lançar o Elixir - foi em uma conversa entre a diretoria da Plataformatec que Valim os convenceu.
 
 Após quase um ano e meio nessa jornada, veio um período de incertezas sobre o projeto, mas que contou com uma surpresa inesperada. O [Dave Thomas](https://twitter.com/pragdave), um dos escritores do famoso livro [The Pragmatic Programmer](https://www.amazon.com.br/dp/B003GCTQAE/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1) (e também um dos fundadores da plataforma [Pragmatic Programmers](https://pragprog.com/)), resolveu escrever o primeiro livro sobre a linguagem Elixir e "evangelizar" sobre a mesma. O efeito foi extremamente positivo e o número de acessos no site do Elixir aumentou consideravelmente.
 
-No ano seguinte veio o ponto de inflexão. [Joe Armstrong](https://en.wikipedia.org/wiki/Joe_Armstrong_(programmer)) (*in memoriam* - [#rememberingjoe](https://twitter.com/hashtag/rememberingjoe)), um dos criadores do Erlang, [fez um post elogiando a linguagem](https://joearms.github.io/published/2013-05-31-a-week-with-elixir.html). Ainda em 2013, a [O'Reilly](https://www.oreilly.com/) anunciou a criação de um livro sobre a linguagem.
+No ano seguinte veio o ponto de inflexão. [Joe Armstrong](https://en.wikipedia.org/wiki/Joe_Armstrong_(programmer)) (*in memoriam* - [#rememberingjoe](https://twitter.com/hashtag/rememberingjoe)), um dos criadores do Erlang, [fez um post elogiando a linguagem](https://joearms.github.io/published/2013-05-31-a-week-with-elixir.html). Ainda em 2013 a [O'Reilly](https://www.oreilly.com/) anunciou a criação de um livro sobre a linguagem.
 
-Em 2014, tivemos a primeira [ElixirConf](https://elixirconf.com/2019) nos EUA, com cerca de 100 pessoas. O [Phoenix](https://phoenixframework.org/) também surgiu nessa época, o web-framework do Elixir. Por volta de 2015, surgiu o [Nerves](https://nerves-project.org/), para software embarcado (IoT) com Elixir.
+Em 2014, tivemos a primeira [ElixirConf](https://elixirconf.com/2019) nos EUA, com cerca de 100 pessoas. O [Phoenix](https://phoenixframework.org/) também surgiu nessa época, o web-framework do Elixir. Por volta de 2015 surge o [Nerves](https://nerves-project.org/) para software embarcado (IoT) com Elixir.
 
 Com a base web estabilizada, em 2016 a parte de ingestão e processamento de dados foi trabalhada na linguagem, com suporte a *streaming*, concorrência e *back pressure*. Para a Ptec, foi também quando conseguiram o primeiro cliente Elixir! A Gartner, provavelmente a maior empresa de pesquisa e aconselhamento em tecnologia para grandes corporações, citou o Elixir em seus relatórios.
 
@@ -73,47 +75,56 @@ A visão da Plataformatec é que o Elixir é **maior** do que eles.
 
 ### Parte 4 - Por que o Elixir tem crescido?
 
-Na opinião do Hugo, são basicamente três fatores: ele crê que a tendência do futuro concorrente veio para ficar;
-- a Erlang VM foi feita para concorrência.
-- @TODO
+Na opinião do Hugo, são basicamente três fatores: ele crê que a tendência do futuro concorrente veio para ficar; o Elixir te permite pensar diferente e, por fim, possui ferramental para diferentes domínios. E ele explica o porquê:
 
-Não que seja impossível fazer concorrência com outras tecnologias, mas com Elixir é muito fácil. Concorrência é sobre muito mais do que paralelismo, que te ajuda a fazer software responsivo, resiliente e @TODO...
-O Elixir/OTP suporta "nativamente" o Reactive manifesto, **reativo**: respondendo rapidamente aos usuários, com um tempo de resposta previsível. **Resiliente**: cada linha de processamento é isolado, com falhas isoladas e supervisores cuidando da saúde de outros processos. **Elástico**: 2 milhões de conexões simultâneas com nenhum _timeout_. **Message Driven**: quando dois processos estão se comunicando, não é necessário saber se eles estão na mesma máquina ou distribuído, é transparente.
-Concorrência ajuda em _development_, não apenas em _production_.
+#### O futuro é concorrente
 
-> "Tudo que você faz na sua máquina deveria usar todos os cores. Bootar sua aplicação, compilar código, resolver dependências, rodar os testes etc. Até o seu relógio tem 2 cores. Concorrência não é mais a exceção, é a regra."
+O "futuro de 2005" é hoje e a Erlang VM foi projetada para concorrência. Não que seja impossível fazer concorrência com outras tecnologias, mas com Elixir é muito fácil. Concorrência é sobre muito mais do que paralelismo, que te ajuda a fazer software responsivo, distribuído, resiliente...
+O Elixir/OTP suporta "nativamente" o [Manifesto Reativo](https://www.reactivemanifesto.org/pt-BR), pois é:
+- **Reativo**: respondendo rapidamente aos usuários, com um tempo de resposta previsível.
+- **Resiliente**: cada linha de processamento é isolado, com falhas isoladas e supervisores cuidando da saúde de outros processos. 
+- **Elástico**: com por exemplo 2 milhões de conexões simultâneas com nenhum _timeout_. 
+- **Orientado a Mensagens**: quando dois processos estão se comunicando, não é necessário saber se eles estão na mesma máquina ou se estão distribuídos, isso é transparente.
+
+
+Além desses motivos, concorrência ajuda em _desenvolvimento_, não apenas em _produção_.
+
+> "Tudo que você faz na sua máquina deveria usar todos os <u>cores</u>. Bootar sua aplicação, compilar código, resolver dependências, rodar os testes, etc. Até o seu relógio tem 2 <u>cores</u>. Concorrência não é mais a exceção, é a regra."
 >
 > **José Valim** em [_The fallacies of web application performance_](http://blog.plataformatec.com.br/2017/07/the-fallacies-of-web-application-performance/)
 
-#### Por que o Elixir tem crescido?
-- O futuro é concorrente
-- Te permite pensar diferente
-- Ferramental para diferentes domínios
+#### O Elixir te permite pensar diferente
 
-IoT traz a necessidade de monotonamento real-time de múltiplos devices.
-[Phoenix Channels](https://hexdocs.pm/phoenix/channels.html) e [Phoenix LiveView](https://dockyard.com/blog/2018/12/12/phoenix-liveview-interactive-real-time-apps-no-need-to-write-javascript) permitem funcionalidades real-time facilmente.
-Arquitetura de "Nanoserviços", ao invés do monolito concorrente.  Explicando, o Elixir roda milhares ou milhões de processos "leves" na máquina virtual do Erlang, com alguns deles se comunicando entre si, se supervisionando... alguns na mesma máquina, outros em outra, sem problemas. É como se fosse um monolito distribuído.
+Aplicações com UI rica e em tempo real estão aumentando a expectativa dos usuários; [IoT](https://pt.wikipedia.org/wiki/Internet_das_coisas) traz a necessidade de monitoramento real-time de múltiplos dispositivos. [Phoenix Channels](https://hexdocs.pm/phoenix/channels.html) e [Phoenix LiveView](https://dockyard.com/blog/2018/12/12/phoenix-liveview-interactive-real-time-apps-no-need-to-write-javascript) permitem funcionalidades real-time facilmente. 
 
-O Elixir tem ferramental para diferentes domínios técnicos: Phoenix; GenStage, Flow e Brodway; Nerves; outros para streaming de mídia, etc...
+Também é possível conceber uma arquitetura de "Nanoserviços", ao invés do monolito concorrente. Explicando, o Elixir roda milhares ou milhões de processos "leves" na máquina virtual do Erlang, com alguns deles se comunicando entre si, se supervisionando... alguns na mesma máquina, outros em outra, sem problemas. É como se fosse um monolito distribuído. Para se aprofundar no assunto, leia os posts [Elixir in times of microservices](http://blog.plataformatec.com.br/2015/06/elixir-in-times-of-microservices/) e [Dawn of the Microlith - Monoservices with Elixir](http://tjheeta.github.io/2016/12/16/dawn-of-the-microlith-monoservices-microservices-with-elixir/).
+
+
+#### Ferramental para diferentes domínios
+
+O Elixir tem ferramental para diferentes domínios técnicos:
+- **Phoenix** para aplicações web, APIs, backend para mobile e dispositivos IoT
+- **GenStage, Flow e Brodway** para ingestão e processamento de dados
+- **Nerves** para dispositivos embarcados
+- e muitos outros, para streaming de mídia, etc.
 
 ### Conclusões
+
+Para concluir, o Hugo deixou algumas reflexões.
 
 > Concorrência é uma grande evolução na maneira como escrevemos software
 >
 > Herb Sutter - tradução livre
 
+Ainda que alguém pense que:
 
-> Mas minha app é muito simples, eu não preciso de tudo isso
+> Entendi, concorrência é bom para fazer software reativo, com alta performance, escalável, distribuído, que não cai, etc. Mas minha app é muito simples, eu não preciso de tudo isso. Não preciso de concorrência.
 >
 > Alguém
 
-Talvez **hoje** seja, mas não sabemos como será no **futuro**, quais serão os requisitos. Mas como sabemos que o **futuro é concorrente**, faz todo o sentido.
+este pode ser um pensamento muito simplista. Talvez **hoje** seja assim, mas não sabemos como será no **futuro**, quais serão os requisitos. Mas como sabemos que o **futuro é concorrente**,  ou seja, faz todo o sentido.
 
-
-Como uma empresa decide criar uma nova linguagem: o futuro é concorrente, concorrência
-@todo
-
-Como sair do nada para uma comunidade mundial? Visão, Execução e Persistência, Comunidade Open Source
+Como sair do nada para uma comunidade mundial? Segundo a Ptec, isso pode ser alcançado com visão; execução e persistência; e com a ajuda da comunidade open-source. Por fim, a foto abaixo mostra o número de colaboradores nas empresas criadoras das linguagens:
 
 !["Você não precisa ser grande para causar um grande impacto na indústria do software." - Hugo Baraúna](./voce_nao_precisa_ser_grande_para_causar_um_grande_impacto.jpg)
 
@@ -123,105 +134,147 @@ Confira os slides da apresentação [no SpeakerDeck](https://speakerdeck.com/pla
 ## Processamento paralelo de mensagens em Elixir - [Erich Rodrigues](https://www.linkedin.com/in/erich-rodrigues-ferrares-72673091)
 Como o evento conta com duas trilhas, decidi seguir na trilha avançada, com essa talk do Erich Rodrigues sobre processamento de mensagens, que ele já esclarece serem **mensagens de texto**, mais especificamente da plataforma do *WhatsApp*. É uma talk sobre o case técnico de produto, como resolveram o problema que tiveram.
 
-Ele é tech lead do *Squad* de Relacionamento com o Cliente na empresa QueroEducação. Eles possuem um sistema chamado OperatorPAnel (OPA), usado para o relacionamento, integrado com telefonia, WhatsApp, entre outros. No exemplo de uma faculdade, o sistema possui informações de todos os alunos e permite a interação como se estivéssemos no WhatsApp Web, porém totalmente integrado na plataforma, trazendo insights e os dados de cada aluno durante a interação.
+Ele é tech lead do *Squad* de Relacionamento com o Cliente na empresa [QueroEducação](https://quero.education/). Eles possuem um sistema chamado OperatorPAnel (OPA), usado para o relacionamento integrado com telefonia, WhatsApp, entre outros. No exemplo de uma faculdade, o sistema possui informações de todos os alunos e permite a interação como se estivéssemos no WhatsApp Web, porém totalmente integrado na plataforma, trazendo insights e os dados de cada aluno durante a interação.
 
-Esse painel OPA foi totalmente desenvolvido em Elixir e Phoenix, lá por 2016, sendo uma aposta que ocorreu bem cedo em relação a linguagem, pois eles tinham a visão de chegar no que a plataforma chegou mesmo, mostrando que foi uma decisão correta na época. Outra aposta que eles fizeram foi de usar o VueJS com Nuxt. Eles usam o banco PostgreSQL, além dos serviços Redis / Nebulex @TODO para cache e Algolia para busca. Eles conseguiram entrar no programa fechado da API Beta do WhatsApp, sendo eles uma das duas primeiras empresas do Brasil a testar o serviço - lá em 2017.
-
+Esse painel OPA foi totalmente desenvolvido em Elixir e Phoenix, lá por 2016, sendo uma aposta que ocorreu bem cedo em relação a linguagem, pois eles já tinham a visão de chegar no que de fato é a plataforma hoje, mostrando que foi uma decisão correta na época. Outra aposta que eles fizeram foi de usar o [Vue.JS](https://vuejs.org/) com [Nuxt](https://nuxtjs.org/). Eles usam o banco [PostgreSQL](https://www.postgresql.org/), além de [Redis](https://redis.io/) com a biblioteca [Nebulex](https://github.com/cabol/nebulex) para cache e [Algolia](https://www.algolia.com/) para busca. Eles conseguiram entrar no programa fechado da API Beta do WhatsApp, sendo uma das duas primeiras empresas do Brasil a testar o serviço - lá em 2017.
 
 ![Erich Rodrigues explicando o desafio da plataforma](./erich.jpg)
 
 Eles recebem centenas de milhares de mensagens todos os dias, caindo até em problemas não pensados como Bots de WhatsApp, muitas mensagens de SPAM e delay nos serviços.
 O Atendimento, para eles, precisa ser eficiente, eficaz e de alta qualidade.
 
-Numa primeira abordagem, com tudo síncrono, usando HTTP, o Erich mostrou o código que lida com o seguinte: mensagem chegando, processando a mensagem sincronamente, vue fazendo _polling_. Como resultado, o limite de conexões com o banco fica ok, e o limite de concorrência com o mesmo processo também fica ok. Como problemas, tempo entre a mensagem ser enviada até chegar no guia; bloqueio desnecessário no envio da mensagem; tempo de interação e desperdício de recursos.
+Numa primeira abordagem para resolver o problema proposto, o Erich fez um sistema com tudo síncrono, usando HTTP. Ele mostrou o código que lida com o seguinte: mensagem chegando, processando a mensagem sincronamente, Vue.JS fazendo _polling_. Como resultado, o limite de conexões com o banco fica ok, e o limite de concorrência com o mesmo processo também fica ok. Como problemas, tempo entre a mensagem ser enviada até chegar no operador do sistema; bloqueio desnecessário no envio da mensagem; tempo de interação e desperdício de recursos.
 
-Na real abordagem agora, com processamento paralelo das mensagens com Elixir, o Erich explica por cima como funcionam os Processos do Elixir, sendo leves, utilizando pouca memória, sem compartilhamento dessa memória, só funcionam por passagem de mensagens e são lidados pela VM do Erlang.
-Um jeito bem simples de criar um processo é através do comando `spawn`:
+Na real abordagem agora, com processamento paralelo das mensagens com Elixir, o Erich explica por cima como funcionam os Processos do Elixir: são leves, utilizam pouca memória, sem compartilhamento dessa memória, só funcionam por passagem de mensagens e são lidados pela VM do Erlang.
+Um jeito bem simples de criar um processo é através da função [spawn](https://hexdocs.pm/elixir/Kernel.html#spawn/1):
 
 ```elixir
 spawn fn -> 1 + 2 end
 ```
 
-Temos também as `Tasks`, @TODO
+Temos também as [Tasks](https://hexdocs.pm/elixir/Task.html), com `async/1` e `await/2`:
 
 ```elixir
-Task.async(fn do something)
-Task.await()
+task = Task.async(fn -> do_some_work() end)
+res = do_some_other_work()
+res + Task.await(task)
 ```
 
-E os `GenServer` @todo
+E os [GenServers](https://hexdocs.pm/elixir/GenServer.html):
+
+```elixir
+defmodule Stack do
+  use GenServer
+
+  # Callbacks
+
+  @impl true
+  def init(stack) do
+    {:ok, stack}
+  end
+
+  @impl true
+  def handle_call(:pop, _from, [head | tail]) do
+    {:reply, head, tail}
+  end
+
+  @impl true
+  def handle_cast({:push, item}, state) do
+    {:noreply, [item | state]}
+  end
+end
+
+# Start the server
+{:ok, pid} = GenServer.start_link(Stack, [:hello])
+
+# This is the client
+GenServer.call(pid, :pop)
+#=> :hello
+
+GenServer.cast(pid, {:push, :world})
+#=> :ok
+
+GenServer.call(pid, :pop)
+#=> :world
+```
 
 Ele citou também o [Poolboy](https://github.com/devinus/poolboy), uma biblioteca Erlang para limitar a quantidade de processos simultâneos, para limitar por exemplo o acesso ao banco de dados com um processo por usuário. Inclusive, ele ressaltou que é a maneira utilizada pelo Ecto para interagir com o banco.
 
-Os Phoenix Channels, tornam possível a comunicação entre milhões de processos, podendo ser usados por exemplo para notícias em tempo real, rastreamento, eventos em jogos multiplayer, sensores, chats... Eles conseguem fazer comunicação bidirecional, por exemplo entre o backend e o frontend, podendo substituir o _polling_ da primeira abordagem.
+Os [Phoenix Channels](https://hexdocs.pm/phoenix/channels.html) tornam possível a comunicação entre milhões de processos, podendo ser usados por exemplo para notícias em tempo real, rastreamento, eventos em jogos multiplayer, sensores, chats... Esses *channels* (canais) conseguem fazer comunicação bidirecional, por exemplo entre o backend e o frontend, podendo substituir o *polling* da primeira abordagem.
 
 Na segunda abordagem, o tempo entre a troca de mensagens é ok, não tem bloqueios desnecessários, o tempo de interação é ok, não há desperdício de recursos e ainda assim há limites de conexões e de processos de forma OK.
 
-Confira os slides da talk.
+Foi bem legal ver os exemplos que ele mostrou e poder refletir sobre como estruturar uma aplicação nesses moldes. Muda um pouco a forma como estamos (ou pelo menos eu) acostumados a fazer software, mas não é nada de outro mundo.
+
+**Nota:** *Até o momento da publicação desse post os slides da talk não foram publicados. Atualizarei o post quando tiver o link.*
 
 ## Eventos de domínio podem ser simples - [Bernardo Amorim](https://twitter.com/BernardoDCGA)
 
-![Bernardo Amorim](./bernardo.jpg)
+![Bernardo Amorim em sua apresentação: "Eventos de domínio podem ser simples"](./bernardo.jpg)
 
-Ainda na trilha avançada, o Bernardo veio trazer o case da Stone, empresa em que trabalha, sobre como foi o uso de Event Sourcing. Ele diz que caiu na _buzzword_ de Eventos e foi estudar sobre, chegando à seguinte definição:
+Ainda na trilha avançada, o Bernardo veio trazer o case da [Stone](https://www.stone.com.br/), empresa em que trabalha, sobre como foi o uso de [Event Sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) por lá. Ele diz que se deparou com a _buzzword_ "Eventos" e foi estudar sobre, chegando à seguinte definição:
 
 > "Evento é algo que aconteceu, um fato"
 
-É uma informação que aconteceu no passado. É um conceito relativamente simples porém que pode ser usado .
-Para o Martin Fowler, sistemas *event-driven* consistem em sistemas que possuem **notificação por evento, transferência de estado por eventos, event sourcing, CQRS** e **event collaboration**.
+É uma informação que aconteceu no passado. Um conceito relativamente simples porém que, sem cuidado, pode ser usado de forma errada.
 
-Explicando *Event Sourcing*, basicamente o seu estado não mais uma informação que você simplesmente pega do banco de dados, ele é inferido através da análise de todos os eventos que ocorreram anteriormente. Para dar um exemplo real, o próprio `git` é uma aplicação que utiliza o conceito de _event sourcing_. O seu código é a aplicação de todos os commits (eventos) e você pode navegar entre eles.
+Para o Martin Fowler, sistemas *event-driven* consistem em sistemas que possuem **notificação por evento, transferência de estado por eventos, event sourcing, CQRS e event collaboration**.
 
-A jornada Event-Driven da Stone começou com a biblioteca Commanded @TODO, que te dá algumas facilidades para construir um sistema desse tipo. O Bernardo mostrou alguns exemplos para criar uma conta de banco utilizando esses conceitos, que eles tentaram fazer na Stone.
+Explicando *Event Sourcing*, basicamente o seu estado não é mais uma informação que você simplesmente pega do banco de dados, ele é inferido através da análise de todos os eventos que ocorreram anteriormente. Para dar um exemplo real, o próprio [git](https://git-scm.com/) é uma aplicação que utiliza o conceito de _event sourcing_. O seu código (estado) é a aplicação de todos os commits (eventos) e você pode navegar entre eles.
+
+A jornada *Event-Driven* da Stone começou com a biblioteca [Commanded](https://github.com/commanded/commanded), que te dá algumas facilidades para construir um sistema desse tipo. O Bernardo mostrou alguns exemplos para criar uma conta de banco utilizando esses conceitos, que eles tentaram fazer na Stone. Ele inclusive citou alguns problemas que tiveram:
 
 ### Dificuldades
 
-1. Eventos são imutáveis - _e você vai errar_
-Você pode até querer editá-los no banco de dados e etc, mas não é assim que eventos deveriam ocorrer, vistos que eles são **fatos**.
+1. **Eventos são imutáveis** - *e você vai errar*. Você pode até querer editá-los no banco de dados e etc, mas não é assim que eventos deveriam ocorrer, vistos que eles são **fatos**.
+1. **Consistência eventual** - o seu sistema não vai estar consistente a todo momento, cada parte processa os eventos e muda o estado em seu próprio tempo.
+1. **Existem muitos conceitos** - como todos os citados, mais *aggregate*, etc etc...
+1. **Treinamento** - barreira de entrada para novos desenvolvedores.
 
-1. Consistência eventual
-1. Muitos conceitos juntos - aggregate, etc etc
-1. Treinamento - barreira de entrada para novos desenvolvedores
+Resumindo, muita **complexidade acidental** foi criada no projeto. Assim, eles precisaram refletir e agir.
 
-Resumindo, muita **complexidade acidental** foi criada.
+### Nem tudo precisa ser *Event Sourcing*
 
-### Nem tudo precisa ser event sourcing
+Dando um passo atrás, viram que nem tudo precisava dessa complexidade. Por exemplo, **máquinas de estado finitas**, podem ser representadas em tabelas no banco de dados, com cada estado sendo uma coluna dessa tabela. Assim, fica simples de gerenciar com o Ecto, criando migrations, etc.
 
-Dando um passo atrás, eles viram que nem tudo precisava dessa complexidade. Por exemplo, **máquinas de estado finitas**, podem ser representadas em tabelas no banco de dados, com cada estado sendo uma coluna dessa tabela. Assim, fica simples de gerenciar com o Ecto @TODO.
+Algumas coisas o deixam nostálgico:
 
 ### Saudades
 
-1. Linguagem de domínio - eventos capturam uma mensagem poderosa sob o domínio da sua aplicação
-2. Muitos efeitos são desacordados, por exemplo, o código de abertura de conta não precisa ter nenhuma lógica para enviar emails, essa lógica pode estar desacoplada e escutando o evento de nova abertura de conta.
-3. Processamento assíncrono - não são mais necessárias tantas *queues*, podendo ser somente eventos.
-4. Auditoria facilitada
+1. **Linguagem de domínio** - eventos capturam uma mensagem poderosa sob o domínio da sua aplicação.
+2. Muitos **efeitos são desacoplados**, por exemplo, o código de abertura de conta não precisa ter nenhuma lógica para enviar emails, essa lógica pode estar desacoplada e escutando o evento de nova abertura de conta.
+3. **Processamento assíncrono** - não são mais necessárias tantas *queues*, podendo ser somente eventos.
+4. **Auditoria facilitada** - você possui todos os eventos que ocorreram!
 
 ### Explorando alternativas
 
-Nesse momento, o Bernardo fez uma live coding pra gente, explorando tudo o que ele passou de conhecimento na sua palestra.
+Nesse momento, o Bernardo fez uma live coding pra gente, explorando tudo o que ele passou de conhecimento na sua palestra. E assim ele fechou sua apresentação - um mergulho em eventos, com teoria e prática.
 
+**Nota:** *Até o momento da publicação desse post os slides da talk não foram publicados. Atualizarei o post quando tiver o link.*
 
 ## TOP: Criando seu próprio GenServer - [Geovane Fedrecheski](https://twitter.com/geonnave)
 
-Nessa talk da trilha iniciante, o Geovane busca, através de live coding, responder três perguntas: qual a diferença entre códigos sequenciais versus códigos concorrentes; como guardamos estado nos processos e, por último, se o GenServer pode ajudar.
+Nessa talk da trilha iniciante, o Geovane busca, através de live coding, responder a três perguntas: qual a diferença entre códigos sequenciais versus códigos concorrentes; como guardamos estado nos processos e, por último, se o [GenServer](https://hexdocs.pm/elixir/GenServer.html) pode ajudar.
 
 Contextualizando, em Erlang (e Elixir) **tudo** é um **processo**. Ou seja, não precisamos nos preocupar com semáforos, *mutex*, etc. Porém, código concorrente é mais difícil de se fazer do que código sequencial.
 
-![Geovane Fedrecheski](./geovane.jpg)
+![Geovane Fedrecheski - Hello Joe!](./geovane.jpg)
 
 Utilizando-nos da OTP (*Open Telecom Platform*), temos algumas facilidades para escrever código concorrente. Além disso, existem abstrações trazidas para a plataforma pelo próprio Elixir, como o *GenServer*.
 Segundo a própria documentação, um *GenServer* é um processo como qualquer outro, que mantém estado, executa código de maneira assíncrona e assim por diante...
 
 Assim, para nos ensinar sobre os processos e suas trocas de mensagens, o Geovane fez um *live coding*, mostrando os conceitos do `spawn` e do `GenServer` através de um exemplo prático.
 
-Respondendo as três perguntas,
-Guardamos estado em loops e usamos `send` e `receive` para "nos comunicar com o loop".
-Código concorrente e sequencial, devemos separar.
-O GenServer abstrai a escovação de mensagens, permitindo-nos focar na lógica de negócio.
+Após o live coding, ele esclarece às três perguntas:
+- Guardamos estado em loops e usamos `send` e `receive` para "nos comunicar com o loop".
+- Devemos separar o código concorrente do sequencial em nossos sistemas.
+- O GenServer abstrai a escovação de mensagens, permitindo-nos focar na lógica de negócio.
+
+**Nota:** *Até o momento da publicação desse post os slides da talk não foram publicados. Atualizarei o post quando tiver o link.*
 
 ## Talvez você não precise de um GenServer - [Ulisses Almeida](https://twitter.com/ulissesalmeida)
 
-Para ter um comparativo sobre a talk anterior, quis voltar para a trilha avançada e ver essa palestra do Ulisses.
+Para ter um comparativo sobre a talk anterior, quis voltar para a trilha avançada e ver essa palestra do Ulisses. 
 
 Segundo ele, é um **processo** com um conjunto poderoso de ferramentas. Útil para uma relação cliente-servidor, mantém estado, executa código assincronamente.
 
