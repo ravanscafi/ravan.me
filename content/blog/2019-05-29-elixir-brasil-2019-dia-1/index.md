@@ -363,42 +363,46 @@ O código do `UIntSet` mostrado na apresentação está disponível [no GitHub](
 
 ## Elixir: o que pode dar errado? - [Guilherme de Maio](https://twitter.com/nirev)
 
-O Guilherme, também conhecido como Nirev é um dos organizadores do Meetup de Elixir aqui em São Paulo e veio falar sobre sua experiência com o ecossistema Elixir.
+![Foto original por <a href="https://twitter.com/ulissesalmeida/status/1132369393441214464" rel="nofollow" title="O que pode dar errado com Elixir. #ElixirBrasil com @nirev">@ulissesalmeida</a>](./guilherme_nirev.jpg)
 
-Dando um pouco de contexto, o objetivo dessa talk foi a de fazer um contraponto aos benefícios do Elixir. Coisas que normalmente associamos à `BEAM`:
+O Guilherme - também conhecido como Nirev - é um dos organizadores do Meetup de Elixir aqui em São Paulo, foi um dos apresentadores do evento e veio falar sobre sua experiência com o ecossistema Elixir. O objetivo dessa talk foi a de fazer um contraponto aos benefícios do Elixir com problemas enfretados por ele e as equipes em que trabalhou.
 
-- Modelo de atores, com processos isolados
-- GC por Processo
+Dando um pouco de contexto antes de fato citar o problema, mostrou algumas coisas que normalmente associamos à `BEAM`:
+
+- Modelo de atores
+- Processos isolados
+- _Garbage Collector_ por Processo
 - Super escalável, só escreve e funciona!
 
-Porém essa é uma visão limitada. Então, ele vai ensinar: *como quebrar sua app!*
+Porém essa é uma visão limitada que ele quer por à prova. Então, ele vai ensinar: *como quebrar sua app!*
 
 ### O caso da tonelada de átomos:
 
-Podemos transformar um `JSON` em **átomos** da linguagem:
+Podemos transformar um `JSON` em **átomos** da linguagem utilizando [Poison](https://github.com/devinus/poison):
 
 ```elixir
 Poison.decode(body, keys: :atoms!)
 ```
 
-Porém, nossa tabela de átomos tem um limite configurável e dependendo da nossa mensagem JSON, podemos explodir nossa aplicação! Você pode até pensar: então é só não fazer isso! Porém esse foi só um exemplo, e talvez você pode chegar nesse limite por conta de algumas coisas: nomes de módulos, nomes de nós, campos de struct e _"decode as atom"_.
+Porém, nossa tabela de átomos tem um limite, configurável, mas ainda assim um limite e dependendo da nossa mensagem JSON, podemos explodir nossa aplicação! Você pode até pensar: então é só não fazer isso! Porém esse foi só um exemplo, e talvez você pode chegar nesse limite por conta de algumas coisas: nomes de módulos, nomes de nós, campos de `struct` e _"decode as atom"_.
 
 ### O caso do `Agent` linkado
 
 ```none
-| Processo 1 | -> start_link -> | Processo Linkado |
+--------------   start_link   --------------------
+| Processo 1 | -------------> | Processo Linkado |
+--------------                --------------------
 ```
-
 
 Caso seu processo 1 morra, o processo linkado morre também. Porém caso o término do processo 1 seja "normal", **o processo linkado continua vivo**! Esse é o comportamento padrão, está na documentação, porém pode ser uma armadilha caso você não se atente, com processos "zumbis" que podem explodir a quantidade máxima de processos, quebrando sua app.
 
 ### O caso da monitoração de Requests
 
-A ideia era monitorar requests, subindo um agent que receberia os _breadcrumbs_ das chamadas dentro da aplicação no request caso ele falhasse, ou apenas morreria se o request ocorresse normalmente. Era criado um monitor para o processo e o `agent`.
-Porém o `keep-alive` do Cowboy faz processos serem reutilizados sem morrerem, e o `plug` utilizado para subir o monitor era chamado continuamente, criando um monstro e quebrando a aplicação eventualmente.
+A ideia era monitorar requests, subindo um `agent` que receberia os _breadcrumbs_ das chamadas dentro da aplicação no request caso ele falhasse, ou apenas morreria se o request ocorresse normalmente. Era criado um monitor para o processo e o `agent`.
+Porém o `keep-alive` do Cowboy faz processos serem reutilizados sem morrerem, e o `plug` utilizado para subir o monitor era chamado continuamente, criando um novo `agent` por request e quebrando a aplicação eventualmente.
 
-### Infinite Restarts
-Toda vez que um processo morria, o `Task Supervisor`, configurado com `restart: transient` subia uma `Error Reporter Tasks` que reportava erros para uma API externa, porém se a API externa estivesse indisponível, fazia com que essas tasks morressem e que o supervisor subisse novas `tasks`. Isso também gerava um monstro com mais erros explodindo e novas tasks subindo apenas para falhar novamente. Uma solução simples nesse caso foi o uso de `restart: temporary`.
+### O caso dos Reinícios Infinitos
+Toda vez que um processo morria, o `Task Supervisor`, configurado com `restart: transient` subia uma `Error Reporter Task` que reportava erros para uma API externa, porém se a API externa estivesse indisponível, fazia com que essas tasks morressem e que o supervisor subisse novas `tasks`. Isso também gerava um monstro com mais erros explodindo e novas tasks subindo apenas para falhar novamente. Uma solução simples nesse caso foi o uso de `restart: temporary`.
 
 ### Message Router
 Uma aplicação que era para um dispositivo de rastreamento de uma frota de veículos, que se comunicava via TCP com uma API. Essa API também poderia enviar comandos para cada dispositivo. Na implementação feita pela equipe do Guilherme, existia um `GenServer` para cada dispositivo/veículo. As mensagens passavam por um `Message Router` que passavam as mensagens para a frente. Mesmo sem persistência dessas mensagens, o `Message Router` estava morrendo. Depois de uma longa inspeção, descobriram que o problema se devia ao funcionamento do _garbage collector_, e que honestamente não entendi tão bem, mas que tinha a ver com o fato de o `Message Router` utilizar pouca memória para seu funcionamento, apenas passando as mensagens para os `GenServer`s e por isso não ativando o _garbage collector_, ficando eventualmente sem memória - irônico, né?
