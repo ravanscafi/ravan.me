@@ -322,22 +322,24 @@ Essa foi um talk bem divertida, o Ulisses é particularmente engraçado e foi bo
 
 ## Conjuntos em 3 Atos - [Luciano Ramalho](https://twitter.com/ramalhoorg)
 
-O Luciano Ramalho, da [ThoughtWorks](https://www.thoughtworks.com/pt), famoso pelo seu [livro de Python](https://www.oreilly.com/library/view/fluent-python/9781491946237/), preparou essa palestra a partir de outras que tinha feito para as linguagens Go e Python. Então essa é a versão Elixir.
+O Luciano Ramalho, da [ThoughtWorks](https://www.thoughtworks.com/pt), famoso pelo seu [livro de Python](https://www.oreilly.com/library/view/fluent-python/9781491946237/), preparou essa palestra a partir de outras que tinha feito para as linguagens Go e Python. Então essa é a versão Elixir. Ele busca explicar **porque** e **como** devemos usar [Conjuntos](https://pt.wikipedia.org/wiki/Conjunto).
 
 ### Porque conjuntos podem simplificar seu código
-O primeiro caso de uso é "Exibir item se todas as palavras da consulta aparecerem na descrição", basicamente um buscador de emojis por palavras-chave. Ele implementou em Elixir, a partir do arquivo [`UnicodeData.txt`](https://github.com/standupdev/rf/blob/master/elixir/UnicodeData.txt). É possível tomar uma abordagem sem conjuntos, "desconjuntada", que usa `substring`s e vários `if`s.
+Para nos convencer disso, o Luciano propõe três casos de uso. O primeiro deles é "exibir item se todas as palavras da consulta aparecerem na descrição" aplicado a um buscador de emojis por palavras-chave. 
 
-![Luciano Ramalho e um exemplo do algoritmo de busca no primeiro caso de uso](./luciano.jpg)
+![Exemplo de consulta do buscador de emojis.](./caso_de_uso_rune_finder.jpg)
 
-O John Backus, um dos criadores da linguagem FORTRAN, levanta uma questão: Será que a programação pode ser liberada do estilo von Neumann? Muitas linguagens estão apegadas ao fato de a CPU trabalhar com uma palavra de cada vez. Pensando no primeiro exemplo, podemos usar a teoria dos conjuntos da matemática, onde um conjunto está contido dentro de outro conjunto e tentar chegar a uma solução assim no código.
+Ele implementou em Elixir, a partir do arquivo [`UnicodeData.txt`](https://github.com/standupdev/rf/blob/master/elixir/UnicodeData.txt). É possível tomar uma abordagem sem conjuntos, "desconjuntada", que usa `substring`s e vários `if`s para fazer essa busca por emoji. Ele explica detalhadamente pra gente o algoritmo e faz reflexões sobre a maneira que ele funciona.
 
-A solução em Elixir está disponível no [Github](https://github.com/standupdev/rf). Ela se baseia no [`MapSet`](https://hexdocs.pm/elixir/MapSet.html) do Elixir.
+![Luciano Ramalho e um exemplo do algoritmo de busca no primeiro caso de uso.](./luciano.jpg)
 
-No segundo caso de uso para uso de conjuntos, a solução que ele chamou de Gimel, é similar a primeira solução na funcionalidade, porém tem um REPL interativo onde você pode ficar buscando por emojis. A mesma lê o arquivo unicode, gera dois índices e os mantêm na memória. É a estratégia do "índice invertido".
+John Backus, um dos criadores da linguagem FORTRAN, levanta uma questão: Será que a programação pode ser liberada do [estilo von Neumann](https://pt.wikipedia.org/wiki/Arquitetura_de_von_Neumann)? Muitas linguagens estão apegadas ao fato de a CPU trabalhar com uma palavra de cada vez. Pensando no exemplo, podemos usar a teoria dos conjuntos da matemática, onde um conjunto está contido dentro de outro conjunto e tentar chegar a uma solução assim no código.
 
-Terceiro caso de uso, em uma Loja Online: "Destacar todos os produtos favoritados, exceto aqueles que já estão no carrinho de compras". Representa uma operação de diferença entre conjuntos.
+Assim, ele mostra sua solução em Elixir, que está disponível no [Github](https://github.com/standupdev/rf). Ela se baseia no [`MapSet`](https://hexdocs.pm/elixir/MapSet.html) da linguagem.
 
-Mas ok e agora, como implementar?
+No segundo caso de uso para Conjuntos, a solução que ele chamou de Gimel é similar à primeira solução na funcionalidade, porém tem uma estratégia diferente para resolver e também tem um terminal interativo onde você pode ficar buscando por emojis. Nessa versão, o arquivo unicode é lido uma única vez, gerando dois índices que são mantidos na memória e usados para a busca. É a estratégia do "índice invertido". Essa solução também está no [GitHub](https://github.com/standupdev/gimel).
+
+Para o terceiro caso de uso, dá o exemplo de uma Loja Online: "Destacar todos os produtos favoritados, exceto aqueles que já estão no carrinho de compras". É um problema trivial de se resolver com a teoria dos conjuntos, representando uma operação de diferença entre conjuntos.
 
 ### Conjuntos em várias linguagens
 
@@ -351,17 +353,19 @@ Mas ok e agora, como implementar?
 |Java|**Set** interface: < 10 métodos; 8 implementações|😿|
 |Go|Faça você mesmo, ou escolha um dos N pacotes|😾|
 
-A API do `MapSet` do Elixir é bastante rica. Com base no livro "The Go Programming Language" Alan A. A. Donavan & Brian W. Kernighan - um dos melhores livros já lidos pelo Luciano, ele tenta implementar o seu próprio `UIntSet`, que utiliza os `bits` para fazer seus grupos. Ele explicou detalhadamente como foi feita sua solução utilizando `bits` e recursos do Elixir.
+A API do `MapSet` do Elixir é bastante rica. Com base na sugestão presente no livro ["The Go Programming Language"](https://www.gopl.io/), de Alan A. A. Donavan & Brian W. Kernighan - que é um dos melhores livros já lidos pelo Luciano, ele tenta implementar o seu próprio `UIntSet`, que utiliza os `bits` para fazer seus conjuntos. Ele explicou detalhadamente como foi feita sua solução utilizando `bits` e recursos do Elixir.
 
-Operações com conjuntos podem simplificar algoritmos dramaticamente. Elixir oferece uma implementação rica! O código do **MapSet** é um excelente exemplo de abstração de dados usando `struct` e `protocolo`. A interface de `UIntSet` é quase a mesma de `MapSet` mas a implementação é mais simples, com operadores `Bitwise` para manipular inteiros como vetores de bits.
+### Conclusões
 
-O código do `UIntSet` mostrado na apresentação está disponível [no GitHub](https://github.com/ramalho/uint_set). [E os slides também](https://speakerdeck.com/ramalho/elixir-conjuntos-em-3-atos).
+Operações com conjuntos podem simplificar algoritmos dramaticamente. Elixir oferece uma implementação rica! O código do **MapSet** é um excelente exemplo de abstração de dados usando `structs` e `protocols`. A interface de `UIntSet` é quase a mesma de `MapSet` mas a implementação é mais simples, com operadores `Bitwise` para manipular inteiros como vetores de bits.
 
-## Elixir, o que pode dar errado - [Guilherme de Maio](https://twitter.com/nirev)
+O código do `UIntSet` mostrado na apresentação está disponível [no GitHub](https://github.com/ramalho/uint_set). E os slides, que contém diversos exemplos e explicações que deixei de fora aqui, estão no [SpeakerDeck](https://speakerdeck.com/ramalho/elixir-conjuntos-em-3-atos).
+
+## Elixir: o que pode dar errado? - [Guilherme de Maio](https://twitter.com/nirev)
 
 O Guilherme, também conhecido como Nirev é um dos organizadores do Meetup de Elixir aqui em São Paulo e veio falar sobre sua experiência com o ecossistema Elixir.
 
-Dando um pouco de contexto, o objetivo dessa talk é fazer um contraponto aos benefícios do Elixir. Coisas que normalmente associamos à `BEAM`:
+Dando um pouco de contexto, o objetivo dessa talk foi a de fazer um contraponto aos benefícios do Elixir. Coisas que normalmente associamos à `BEAM`:
 
 - Modelo de atores, com processos isolados
 - GC por Processo
