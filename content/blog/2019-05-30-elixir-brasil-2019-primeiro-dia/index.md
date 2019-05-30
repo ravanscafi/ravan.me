@@ -424,6 +424,8 @@ O Guilherme trouxe diversos casos de problemas que ele e seus colegas enfrentara
 
 O Edward é co-fundador e CTO do Nubank e o keynote de encerramento do primeiro dia do evento foi com ele. Esse keynote foi no formato entrevista, onde o [Alexandre Cisneiros](https://twitter.com/Cisneiros), que trabalha no Nubank, foi o entrevistador. A ideia era fazer um apanhado de como foram esses 6 anos de Nubank. Tentei fazer o meu melhor para escrever sobre esse bate-papo mas confesso que foi bem difícil e alguns assuntos foram perdidos e muitos estão desconexos, sem uma linha de raciocínio lógica. De qualquer forma, consegui reunir algumas coisas interessantes e por isso resolvi postar :)
 
+![Edward Wible sendo entrevistado por Alexandre Cisneiros.](./edward.jpg)
+
 Segundo o Edward, todos os erros possíveis foram cometidos nesses 6 anos. Porém, ainda assim, contam hoje com mais de 8,5 milhões de clientes!
 
 "Qual foi o maior desafio para escalar o Nubank?", indaga Alexandre. E assim descobrimos que o **mais estressante** mesmo foi o **lado humano**, com 8 engenheiros no início, sem gerentes, sem alguns papéis sendo desempenhados, ocorrendo bem no processo "hacking" mesmo. O que o Edward aprendeu a duras penas é que colocar pessoas técnicas como gerentes pode não ser a melhor coisa, e contou de um movimento que vem ocorrendo por lá agora onde muitos desses engenheiros estão voltando para o lado técnico.
