@@ -1,7 +1,7 @@
 ---
-title: Elixir Brasil 2019 - Dia 1
-description: "Tive a honra de participar da segunda edição do evento #ElixirBrasil. Confira o que aconteceu por lá!"
-date: "2019-05-27T23:00:00.000Z"
+title: Elixir Brasil 2019 - Primeiro dia
+description: "Tive a honra de participar da segunda edição do evento #ElixirBrasil. Confira em detalhes o que aconteceu por lá!"
+date: "2019-05-30T03:00:00.000Z"
 ---
 
 <p>
@@ -270,7 +270,7 @@ Após o live coding, ele esclarece às três perguntas:
 - Devemos separar o código concorrente do sequencial em nossos sistemas.
 - O GenServer abstrai a escovação de mensagens, permitindo-nos focar na lógica de negócio.
 
-**Nota:** *Até o momento da publicação desse post os slides da talk não foram publicados. Atualizarei o post quando tiver o link.*
+Confira os slides da apresentação no [SpeakerDeck](https://speakerdeck.com/geonnave/top-criando-seu-proprio-genserver).
 
 ## Talvez você não precise de um GenServer - [Ulisses Almeida](https://twitter.com/ulissesalmeida)
 
@@ -418,8 +418,7 @@ Tem várias maneiras de quebrar sua aplicação Elixir, então não vá para pro
 
 O Guilherme trouxe diversos casos de problemas que ele e seus colegas enfrentaram em produção e vários insights legais de como evitar que isso aconteça. Espero aprender com ele e não passar pelas mesmas tretas :)
 
-Os slides contém algumas explicações melhores e também alguns snippets para quebrar sua aplicação 😈
-[Confira aqui](https://speakerdeck.com/nirev/elixir-o-que-pode-dar-errado).
+[Os slides](https://speakerdeck.com/nirev/elixir-o-que-pode-dar-errado) contém algumas explicações melhores e também alguns snippets para quebrar sua aplicação 😈
 
 ## Keynote de encerramento do primeiro dia - [Edward Wible](https://www.linkedin.com/in/adamedwardwible/)
 
@@ -429,20 +428,20 @@ Segundo o Edward, todos os erros possíveis foram cometidos nesses 6 anos. Poré
 
 "Qual foi o maior desafio para escalar o Nubank?", indaga Alexandre. E assim descobrimos que o **mais estressante** mesmo foi o **lado humano**, com 8 engenheiros no início, sem gerentes, sem alguns papéis sendo desempenhados, ocorrendo bem no processo "hacking" mesmo. O que o Edward aprendeu a duras penas é que colocar pessoas técnicas como gerentes pode não ser a melhor coisa, e contou de um movimento que vem ocorrendo por lá agora onde muitos desses engenheiros estão voltando para o lado técnico.
 
-**Tecnicamente** falando agora, o que foi difícil no movimento de escalar foi **o domínio**. Ocorreram alguns erros de modelagem que até hoje assombram. Com a escala que o Nubank conquistou, todos esses erros devem ser investigados para cobrir os casos, mesmo afetando pouquíssimos usuários. Chegar a 100% de automatização é muito difícil e alguns engenheiros têm que deixar de entregar algumas novas funcionalidades para poder analisar esses casos.
+**Tecnicamente** falando agora, o que foi difícil no movimento de escalar foi **o domínio**. Ocorreram alguns erros de modelagem que até hoje assombram o negócio. Com a escala que o Nubank conquistou, todos esses erros devem ser investigados para cobrir os casos, mesmo afetando pouquíssimos usuários. Chegar a 100% de automatização é muito difícil e alguns engenheiros têm que deixar de entregar algumas novas funcionalidades para poder analisar esses casos.
 Ele comentou ainda que existe um Kafka na zona A do AWS em São Paulo e outro na zona C (já que a B nunca funcionou mesmo). Ele também comentou que ocorreram alguns erros de monitoria de serviços, que estão evoluindo hoje em dia.
 
-Mesmo desde o começo, não quiseram fazer uma arquitetura "bagunçada" e depois evoluir quando o dinheiro viesse para a startup então já tentaram começar com as soluções corretas.
-Ainda assim, alguns serviços cresceram muito, como o `Account` que na verdade estava representando 8 serviços do domínio. Eles  tiveram que ser divididos, o que é um processo difícil de se fazer enquanto garante a disponibilidade do serviço para os clientes.
-Ele também citou que alguns casos de dependências circulares (um serviço que depende de outro que depende de novo do primeiro) acabaram levando a indisponibilidades parciais. Eles também sofreram um pouco com o RefluxDB, mas não consegui ouvir o porquê.
+Mesmo desde o começo, não quiseram fazer uma arquitetura "bagunçada" e depois evoluir quando o dinheiro viesse para a startup, algo que vemos por acontecer em outras empresas. Então, desde o começo buscaram montar algo sólido, com as soluções corretas para os problemas.
+
+Ainda assim, alguns serviços cresceram muito, como o `Account` que na verdade estava representando 8 serviços do domínio. Eles  tiveram de ser divididos, o que é um processo difícil de se fazer enquanto se garante a disponibilidade do serviço para os clientes. Ele também citou que alguns casos de dependências circulares (um serviço que depende de outro que depende de novo do primeiro) acabaram levando a indisponibilidades parciais. Eles também sofreram um pouco com o RefluxDB, mas não consegui ouvir o porquê.
 
 A decisão de usar tudo em uma conta só do AWS foi difícil e hoje em dia estão quebrando em diversas contas - a abordagem melhora a organização.
 
-Uma coisa legal foi que eles não tinham medo de nada porque era "ignorância total" sobre a complexidade do que estavam fazendo. E citou que cartão de crédito é muito difícil, sendo que 6 anos depois de lançar o serviço, muito ainda está sendo desenvolvido.
+Uma coisa legal foi que eles não tinham medo de nada porque tinham "ignorância total" sobre a complexidade do que estavam fazendo. E citou que cartão de crédito é muito difícil, sendo que 6 anos depois de lançar o serviço, muito ainda está sendo desenvolvido.
 
-Vários segmentos ainda não estavam automatizados quando eles ainda tinham 100 mil clientes, por exemplo, o controle de _chargebacks_ era feito no Excel. Ainda hoje existem problemas de consistência e de domínio.
+Vários segmentos ainda não estavam automatizados quando eles tinham "apenas" 100 mil clientes. Por exemplo, o controle de _chargebacks_ era feito no Excel. Ainda hoje existem problemas de consistência e de domínio.
 
-Para garantir performance e acesso dos dados, cada cliente do Nubank hoje em dia vive em um só *shard* dos bancos de dados.
+Para garantir performance e acesso aos dados, cada cliente do Nubank hoje em dia vive em um só *shard* dos bancos de dados.
 A comunicação entre clientes em diferentes *shards* ocorre com um `router` global. Eles começaram a fazer essa migração quando estavam com cerca de 800 mil clientes e terminaram quando estavam com 2 milhões - número inclusive que é o tamanho máximo de cada um desses *shards*.
 
 No desafio de pessoas na Engenharia, com a escala de hoje, existem mais oportunidades de ter pessoas especialistas em temas muito específicos. Existem times horizontais para apoiar os próprios colaboradores, com papéis de infraestutura, especialistas de _Redis_, _Kubernetes_, etc. Com a plataforma mais sofisticada, os desenvolvedores conseguem ter mais produtividade e entregar produtos mais rapidamente.
@@ -451,21 +450,26 @@ O Nubank tem cerca de 240 serviços, que é mais ou menos o número de pessoas n
 
 Eles estão investindo em mais documentação escrita, mais ferramentas e menos em deixar o conhecimento como algo falado, facilitando o treinamento de novos engenheiros e descentralizando o conhecimento. Também estão fazendo *Requests for Comments* (RFCs) para avaliarem decisões técnicas que são impactantes, permitindo a outros times poder colaborar com as decisões.
 
-Nesses anos, muitos desenvolvedores entraram querendo usar outras tecnologias além das já utilizdas, porém eles tentaram manter a consistência e disciplina de usar Clojure. Isso facilita em entender como outros serviços funcionam (basta ler o código) e foi uma decisão acertada segundo o Edward, com ótimos frutos. Não é uma decisão de "religião" a respeito da linguagem, mas puramente de consistência mesmo.
+Nesses anos, muitos desenvolvedores entraram querendo usar outras tecnologias além das já utilizadas, porém eles tentaram manter a consistência e disciplina de usar Clojure. Isso facilita em entender como outros serviços funcionam (basta ler o código) e foi uma decisão acertada segundo o Edward, com ótimos frutos. Não é uma decisão de "religião" a respeito da linguagem, mas puramente de consistência mesmo. Ainda assim usam algumas coisas em Scala, em Python, para tarefas específicas em ecossistemas já desenvolvidos nessas linguagens.
 
-Ainda assim usam algumas coisas em Scala, em Python, para tarefas específicas em ecossistemas já desenvolvidos nessas linguagens.
-
-Na aplicação web, o frontend sofre mudanças constantes então eles não forçam essa consistência tão grande. Acabam usando também React Native para algumas funcionalidades dos apps. O Nubank está tentando atender a todas as funcionalidades que os clientes pedem nos apps, que ainda estão atrás de outros bancos.
+Na aplicação web, o frontend sofre mudanças constantes então eles não forçam essa consistência tão grande. Acabam usando também [React Native](https://facebook.github.io/react-native/) para algumas funcionalidades dos apps. O Nubank está tentando atender a todas as funcionalidades que os clientes pedem no app, que ainda está atrás quando comparado a outros bancos.
 Ele sente falta dessa consistência no backoffice, os componentes ainda podem ser feitos de diversas maneiras diferentes.
 
-Ter mais de um produto na Nubank (antes era só o cartão de crédito) e hoje já possuem entre 4 ou 5 produtos. Tem muitos problemas quanto a isso por algumas coisas "assumidas" (o usuário tem cartão de crédito - que nem sempre é verdade) e vários testes de regressão, etc. Foi difícil entender o que é específico sobre cartão de crédito e o que fazia sentido para outros produtos.
-Com a expansão internacional, tiveram que repensar ainda o que era específico para o Brasil e o que era geral.
-Foi uma decisão de focar no começo e hoje estão pagando o custo disso.
+Hoje possuem 4 ou 5 produtos no Nubank, sendo que antes era só o cartão de crédito. Sofreram com muitos problemas quanto a isso por algumas coisas "assumidas": por exemplo, assumir que o usuário possui cartão de crédito - não é mais sempre verdade - e agora contam com vários testes de regressão, etc. Foi difícil entender o que é específico sobre cartão de crédito e o que fazia sentido para outros produtos. Com a expansão internacional, tiveram que repensar ainda o que era específico para o Brasil e o que era geral.
+**Foi uma decisão de focar exatamente no produto no começo** e hoje estão pagando o custo disso.
 
-A resolução de incidentes no Nubank está cada vez maior e mais assertiva. No começo era muito estável, com serviços de pé por 18 meses e a realidade foi mudando. Com algumas instabilidades, foram melhorando esse ferramental e cultura. Tudo agora fica dentro do Kubernetes, o que facilitou algumas coisas.
+A resolução de incidentes no Nubank está cada vez maior e mais assertiva. No começo a plataforma era muito estável, com serviços de pé por 18 meses, realidade que foi mudando com a escala. Com algumas instabilidades, foram melhorando esse ferramental e cultura. Tudo agora fica dentro do [Kubernetes](https://kubernetes.io/pt/), o que facilitou algumas coisas.
 
-Os times de desenvolvimento possuem métricas de negócio também. E eles tem até monitoramento por ligações, o que deixa os engenheiros menos exaustos por não terem que checar o slack constantemente para saber se está tudo bem.
+Os times de desenvolvimento possuem métricas de negócio também. E eles tem até monitoramentos por ligações telefônicas (se der ruim, o telefone toca!), o que deixa os engenheiros menos exaustos por não terem que checar o Slack constantemente para saber se está tudo bem.
 
-Para os próximos 6 anos, ele prevê que algumas coisas vão mudar - cultura **não** é uma delas. Acredita que trabalho remotos vão crescer e vai haver um investimento massivo nisso e isso vai mudar um pouco a maneira que trabalham, sendo eficientes ainda que não na mesma sala.
+Para os próximos seis anos, ele prevê que algumas coisas vão mudar - porém cultura **não** é uma delas. Acredita que trabalhos remotos vão crescer e que vai haver um investimento massivo nisso. Isso vai mudar um pouco a maneira como trabalham, podendo ser eficientes ainda que não na mesma sala.
 
-É o fim do primeiro dia amém
+Isso foi tudo o que conseguir pegar do keynote - foram várias dicas em várias áreas, mas que pode ajudar muitos projetos. O Edward é uma pessoa bem lúcida e foi muito legal poder contar com esses insights - outras empresas e líderes talvez não seriam tão transparentes.
+
+Com isso, chegamos ao fim do primeiro dia desse evento incrível - talvez o melhor que já fui. E ainda tem o segundo dia pra contar!
+
+**Nota:** Em breve postarei o conteúdo do segundo dia e atualizarei o post.
+
+---
+
+> Para comentários, correções, ou qualquer outra coisa, entra em contato no [Twitter](https://twitter.com/ravanscafi)!
