@@ -142,6 +142,7 @@ module.exports = {
     },
     `gatsby-plugin-advanced-sitemap`,
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-netlify-cache`,
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
