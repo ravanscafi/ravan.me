@@ -402,62 +402,56 @@ A ideia era monitorar requests, subindo um `agent` que receberia os _breadcrumbs
 Porém o `keep-alive` do Cowboy faz processos serem reutilizados sem morrerem, e o `plug` utilizado para subir o monitor era chamado continuamente, criando um novo `agent` por request e quebrando a aplicação eventualmente.
 
 ### O caso dos Reinícios Infinitos
-Toda vez que um processo morria, o `Task Supervisor`, configurado com `restart: transient` subia uma `Error Reporter Task` que reportava erros para uma API externa, porém se a API externa estivesse indisponível, fazia com que essas tasks morressem e que o supervisor subisse novas `tasks`. Isso também gerava um monstro com mais erros explodindo e novas tasks subindo apenas para falhar novamente. Uma solução simples nesse caso foi o uso de `restart: temporary`.
+Toda vez que um processo morria, um `Task Supervisor`, configurado com `restart: transient` subia uma `Error Reporter Task` que reportava erros para uma API externa, porém se a API externa estivesse indisponível, fazia com que essas tasks morressem e que o supervisor subisse novas `tasks` para reportar esses novos erros. Isso também gerava um monstro com mais erros explodindo e novas tasks subindo apenas para falhar novamente. Uma solução simples nesse caso foi o uso de `restart: temporary`.
 
-### Message Router
-Uma aplicação que era para um dispositivo de rastreamento de uma frota de veículos, que se comunicava via TCP com uma API. Essa API também poderia enviar comandos para cada dispositivo. Na implementação feita pela equipe do Guilherme, existia um `GenServer` para cada dispositivo/veículo. As mensagens passavam por um `Message Router` que passavam as mensagens para a frente. Mesmo sem persistência dessas mensagens, o `Message Router` estava morrendo. Depois de uma longa inspeção, descobriram que o problema se devia ao funcionamento do _garbage collector_, e que honestamente não entendi tão bem, mas que tinha a ver com o fato de o `Message Router` utilizar pouca memória para seu funcionamento, apenas passando as mensagens para os `GenServer`s e por isso não ativando o _garbage collector_, ficando eventualmente sem memória - irônico, né?
+### O caso do Message Router
+Esse caso ocorreu em uma aplicação feita para um dispositivo de rastreamento  de veículos de uma frota. Essa aplicação se comunicava via TCP com uma API. E por sua vez, essa API também poderia enviar comandos para cada dispositivo. Na implementação feita pela equipe do Guilherme, existia um `GenServer` para cada dispositivo/veículo. As mensagens passavam por um `Message Router` que passavam as mensagens para a frente. Mesmo sem persistência dessas mensagens e sendo relativamente muito simples, o `Message Router` estava morrendo. Depois de uma longa inspeção, descobriram que o problema se devia ao funcionamento do _garbage collector_ e o fato de o `Message Router` utilizar pouca memória para seu funcionamento, apenas passando as mensagens para os `GenServer`s e não chegando a ativar o _garbage collector_, ficando eventualmente sem memória - irônico, né?
 
 ### O que fazer quando isso acontece (ou antes de acontecer!)
 
-- Introspecção: a possibilidade de você se conectar a um nó e analisar o que está acontecendo nele. Algumas funções como `Process.list/0, Process.info/1, :sys.get_*` ou até mesmo módulos criados por você como `MeuModulo.minha_task()` podem ajudar! `:observer.start()` ou o `Wobserver`, uma interface web para o `observer` que não necessita que você se conecte ao nó. A biblioteca erlang [Recon](https://ferd.github.io/recon) já possui bastante helpers para ajudar na instropecção, como `:recon.bin_leak(3)` que roda o GC para todos os processos e mostra os que liberaram mais memória (talvez significando *memory leaks*)
-
-Métricas da VM
-[`vmstats`](https://github.com/ferd/vmstats): manda métricas pro `statsd`
-prometheus: [deadtrickster/prometheus.ex](https://github.com/deadtrickster/prometheus.ex) ou
-[telemetry](https://github.com/beam-telemetry/telemetry)
-
-graylog: agregação de logs
-error reporting: sentry, bugsnag, etc.
+- **Introspecção**: a possibilidade de você se conectar a um nó e analisar o que está acontecendo nele. Algumas funções como `Process.list/0`, `Process.info/1`, `:sys.get_*` ou até mesmo módulos criados por você como `MeuModulo.minha_task()` podem ajudar! Também podemos utilizar o `:observer.start()` ou o [Wobserver](https://github.com/shinyscorpion/wobserver), uma interface web para o `observer` que não necessita que você se conecte ao nó. A biblioteca erlang [Recon](https://ferd.github.io/recon) já possui bastante helpers para ajudar na introspecção, como `:recon.bin_leak(3)` que roda o GC para todos os processos e mostra os que liberaram mais memória (talvez significando *memory leaks*)
+- Coletar e analisar **métricas da VM**. Temos algumas bibliotecas para ajudar, como a [vmstats](https://github.com/ferd/vmstats), que manda métricas pro `statsd`; a [deadtrickster/prometheus.ex](https://github.com/deadtrickster/prometheus.ex) para mandar para o Prometheus ou ainda a [telemetry](https://github.com/beam-telemetry/telemetry), que é bem leve e você pode customizar como quiser.
+- Ter **visibilidade** do que acontece na aplicação. Podemos fazer **agregação de logs**, usando por exemplo o [Graylog](https://www.graylog.org/) e ferramentas que coletam erros da sua aplicação, como o [Sentry](https://sentry.io/welcome/) ou o [Bugsnag](https://www.bugsnag.com/), dentre outras.
 
 ### Conclusão
-Tem várias maneiras de quebrar sua aplicação Elixir, então não vá para produção sem visibilidade. Livro gratuito "Stuff goes bad: Erlang in Anger" sobre o que fazer quando as coisas derem errado em Erlang e como atuar (porém ler de cabeça fria, você não quer fazer isso enquanto as coisas estão explodindo).
+Tem várias maneiras de quebrar sua aplicação Elixir, então não vá para produção sem visibilidade. Há um livro gratuito ["Stuff goes bad: Erlang in Anger"](https://www.erlang-in-anger.com/) sobre o que fazer quando as coisas derem errado em Erlang e como atuar, porém a recomendação do Guilherme é de que você leia de cabeça fria, você não vai querer fazer isso enquanto as coisas estão pegando fogo.
 
-O Guilherme trouxe diversos casos de problemas que ele e seus colegas enfrentaram em produção e vários insights legais de como evitar que isso aconteça.
+O Guilherme trouxe diversos casos de problemas que ele e seus colegas enfrentaram em produção e vários insights legais de como evitar que isso aconteça. Espero aprender com ele e não passar pelas mesmas tretas :)
 
-## [Edward Wible](https://www.linkedin.com/in/adamedwardwible/)
+Os slides contém algumas explicações melhores e também alguns snippets para quebrar sua aplicação 😈
+[Confira aqui](https://speakerdeck.com/nirev/elixir-o-que-pode-dar-errado).
 
-O Edward é cofundador e CTO do Nubank e veio trazer o keynote de fechamento do segundo dia do evento.
+## Keynote de encerramento do primeiro dia - [Edward Wible](https://www.linkedin.com/in/adamedwardwible/)
 
-Segundo ele, cometeu todos os erros possíveis nesses 6 anos de Nubank, com 8,5 milhões de clientes.
+O Edward é co-fundador e CTO do Nubank e o keynote de encerramento do primeiro dia do evento foi com ele. Esse keynote foi no formato entrevista, onde o [Alexandre Cisneiros](https://twitter.com/Cisneiros), que trabalha no Nubank, foi o entrevistador. A ideia era fazer um apanhado de como foram esses 6 anos de Nubank. Tentei fazer o meu melhor para escrever sobre esse bate-papo mas confesso que foi bem difícil e alguns assuntos foram perdidos e muitos estão desconexos, sem uma linha de raciocínio lógica. De qualquer forma, consegui reunir algumas coisas interessantes e por isso resolvi postar :)
 
-Pergunta: Qual foi o maior desafio para escalar o Nubank?
-Resposta: Mais estressante pessoalmente foi o lado humano, com 8 engenheiros começando, sem gerentes, sem alguns papéis, bem no processo "hacking" mesmo. E o que aprendeu a duras penas é que colocar pessoas técnicas como gerentes pode não ser a melhor coisa, então muitos acabaram voltando para o lado técnico.
+Segundo o Edward, todos os erros possíveis foram cometidos nesses 6 anos. Porém, ainda assim, contam hoje com mais de 8,5 milhões de clientes!
 
-Escalar tecnicamente foi difícil o domínio. Erros de modelagem de domínio, até hoje sofrem com erros de modelagem de domínio.
-Com a escala do Nubank, esses erros devem ser investigados para cobrir os casos. Chegar a 100% de automatização é muito difícil e alguns engenheiros tem que deixar de entregar algumas coisa para ver esses casos.
-Kafka na zona A do AWS e outro na zona C do AWS - zookeeper não sei ? @todo
-erros de monitoria de serviços.
-eles não quiseram fazer uma arquitetura "bagunçada" e depois evoluir quando o dinheiro viesse para a startup, então já tentaram começar com as soluções corretas.
-alguns serviços cresceram muito, como o `Account` que estava representando 8 serviços e tiveram que ser divididos, o que é um processo difícil de se fazer, garantindo a disponibilidade do serviço.
-Alguns casos de dependências circulares acabaram levando a indisponibilidades de algumas funcionalidades
+"Qual foi o maior desafio para escalar o Nubank?", indaga Alexandre. E assim descobrimos que o **mais estressante** mesmo foi o **lado humano**, com 8 engenheiros no início, sem gerentes, sem alguns papéis sendo desempenhados, ocorrendo bem no processo "hacking" mesmo. O que o Edward aprendeu a duras penas é que colocar pessoas técnicas como gerentes pode não ser a melhor coisa, e contou de um movimento que vem ocorrendo por lá agora onde muitos desses engenheiros estão voltando para o lado técnico.
 
-Sofreram um pouco com o RefluxDB.
-A decisão de usar tudo em uma conta só de AWS foi difícil e hoje em dia estão quebrando em diversas contas. A abordagem melhora a organização.
-Não tinham medo de nada porque era ignorância total, porém cartão de crédito é muito difícil e 6 anos depois ainda está sendo desenvolvido.
+**Tecnicamente** falando agora, o que foi difícil no movimento de escalar foi **o domínio**. Ocorreram alguns erros de modelagem que até hoje assombram. Com a escala que o Nubank conquistou, todos esses erros devem ser investigados para cobrir os casos, mesmo afetando pouquíssimos usuários. Chegar a 100% de automatização é muito difícil e alguns engenheiros têm que deixar de entregar algumas novas funcionalidades para poder analisar esses casos.
+Ele comentou ainda que existe um Kafka na zona A do AWS em São Paulo e outro na zona C (já que a B nunca funcionou mesmo). Ele também comentou que ocorreram alguns erros de monitoria de serviços, que estão evoluindo hoje em dia.
 
-Vários segmentos ainda não estavam automatizados quando eles tinham 100 mil clientes, por exemplo, _chargeback_ no Excel.
-Ainda existem problemas de consistência e de domínio.
+Mesmo desde o começo, não quiseram fazer uma arquitetura "bagunçada" e depois evoluir quando o dinheiro viesse para a startup então já tentaram começar com as soluções corretas.
+Ainda assim, alguns serviços cresceram muito, como o `Account` que na verdade estava representando 8 serviços do domínio. Eles  tiveram que ser divididos, o que é um processo difícil de se fazer enquanto garante a disponibilidade do serviço para os clientes.
+Ele também citou que alguns casos de dependências circulares (um serviço que depende de outro que depende de novo do primeiro) acabaram levando a indisponibilidades parciais. Eles também sofreram um pouco com o RefluxDB, mas não consegui ouvir o porquê.
 
-Cada cliente do Nubank hoje em dia vive em um só *shard* dos bancos de dados, facilitando o acesso aos dados do mesmo.
-A comunicação entre clientes em diferentes *shards* ocorre com um router global. Eles começaram a fazer essa migração com 800mil clientes e terminaram quando estavam com por volta de 2 milhões de clientes - que é o tamanho máximo de cada shard inclusive.
+A decisão de usar tudo em uma conta só do AWS foi difícil e hoje em dia estão quebrando em diversas contas - a abordagem melhora a organização.
 
-No desafio de pessoas na Engenharia, com a escala existem mais oportunidades de ter pessoas especialistas. Existem times horizontais para apoiar os próprios colaboradores, com papéis de infrastutura, especialistas de _Redis_,, _Kubernetes_, etc. Com a plataforma mais sofisticada, os devs conseguem ter mais produtividade e entregar produtos mais rapidamente.
+Uma coisa legal foi que eles não tinham medo de nada porque era "ignorância total" sobre a complexidade do que estavam fazendo. E citou que cartão de crédito é muito difícil, sendo que 6 anos depois de lançar o serviço, muito ainda está sendo desenvolvido.
 
-O Nubank tem cerca de 240 serviços, que é mais ou menos o número de pessoas na engenharia. A cultura é um grande desafio com a chegada de novos deve. O onboarding hoje tem um processo de uma semana, mas talvez seria legal um processo de um mês... Estão investindo em mais documentação escrita, mais ferramentas, e menos em deixar o conhecimento como algo falado, facilitando isso.
+Vários segmentos ainda não estavam automatizados quando eles ainda tinham 100 mil clientes, por exemplo, o controle de _chargebacks_ era feito no Excel. Ainda hoje existem problemas de consistência e de domínio.
 
-Estão fazendo *Requests for Coments* (RFCs) para avaliarem decisões técnicas que são impactantes e outros times podem colaborarem.
+Para garantir performance e acesso dos dados, cada cliente do Nubank hoje em dia vive em um só *shard* dos bancos de dados.
+A comunicação entre clientes em diferentes *shards* ocorre com um `router` global. Eles começaram a fazer essa migração quando estavam com cerca de 800 mil clientes e terminaram quando estavam com 2 milhões - número inclusive que é o tamanho máximo de cada um desses *shards*.
 
-Deve entraram querendo usar outras tecnologias, mas eles tentaram manter a consistência e disciplina de usar Clojure. Isso facilita em entender como outros serviços funcionam (basta ler o código) e foi uma decisão acertada segundo o Edward, com ótimos frutos. Não é uma decisão de "religião" da linguagem, mas puramente de consistência mesmo.
+No desafio de pessoas na Engenharia, com a escala de hoje, existem mais oportunidades de ter pessoas especialistas em temas muito específicos. Existem times horizontais para apoiar os próprios colaboradores, com papéis de infraestutura, especialistas de _Redis_, _Kubernetes_, etc. Com a plataforma mais sofisticada, os desenvolvedores conseguem ter mais produtividade e entregar produtos mais rapidamente.
+
+O Nubank tem cerca de 240 serviços, que é mais ou menos o número de pessoas na engenharia. A cultura é um grande desafio com a chegada constante de novos desenvolvedores. O *onboarding* hoje tem um processo de uma semana, mas em uma reflexão, o Edward comenta que talvez seria legal um processo de um mês...
+
+Eles estão investindo em mais documentação escrita, mais ferramentas e menos em deixar o conhecimento como algo falado, facilitando o treinamento de novos engenheiros e descentralizando o conhecimento. Também estão fazendo *Requests for Comments* (RFCs) para avaliarem decisões técnicas que são impactantes, permitindo a outros times poder colaborar com as decisões.
+
+Nesses anos, muitos desenvolvedores entraram querendo usar outras tecnologias além das já utilizdas, porém eles tentaram manter a consistência e disciplina de usar Clojure. Isso facilita em entender como outros serviços funcionam (basta ler o código) e foi uma decisão acertada segundo o Edward, com ótimos frutos. Não é uma decisão de "religião" a respeito da linguagem, mas puramente de consistência mesmo.
 
 Ainda assim usam algumas coisas em Scala, em Python, para tarefas específicas em ecossistemas já desenvolvidos nessas linguagens.
 
