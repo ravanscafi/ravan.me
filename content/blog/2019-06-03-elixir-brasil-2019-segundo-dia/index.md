@@ -1,4 +1,18 @@
-# Elixir Brasil 2019 - Dia 2
+---
+title: Elixir Brasil 2019 - Segundo dia
+description: "O segundo dia de #ElixirBrasil foi tão impressionante quanto o primeiro - e eu estava lá também!"
+#date: "2019-06-03T13:00:00.000Z"
+date: "2019-05-30T13:00:00.000Z"
+#draft: true
+---
+
+<p>
+    <a href="https://2019.elixirbrasil.com/" rel="nofollow" class="image-link" title="Elixir Brasil 2019">
+        <img src="./elixir_brasil_logo.svg" alt="Elixir Brasil 2019" style="width: 413px; height: 164px">
+    </a>
+</p>
+
+[Primeira parte](/2019-05-30-elixir-brasil-2019-primeiro-dia/)
 
 ## Lições aprendidas em um projeto Elixir / OTP - [Amanda Sposito](https://www.linkedin.com/in/amandasposito/)
 
