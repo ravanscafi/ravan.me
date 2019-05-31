@@ -21,7 +21,7 @@ Wordpress2016.overrideThemeStyles = () => {
     "[align=center]": {
       textAlign: `center`,
     },
-    "h2": {
+    h2: {
       textAlign: `center`,
     },
   }

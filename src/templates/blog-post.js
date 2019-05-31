@@ -4,12 +4,14 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Disqus from "gatsby-plugin-disqus"
 import { rhythm, scale } from "../utils/typography"
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
+    const site = this.props.data.site
+    const siteTitle = site.siteMetadata.title
     const { previous, next } = this.props.pageContext
 
     return (
@@ -61,6 +63,11 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ul>
+        <Disqus
+          identifier={post.id}
+          title={post.frontmatter.title}
+          url={`${site.siteMetadata.siteUrl}${post.fields.slug}`}
+        />
       </Layout>
     )
   }
@@ -74,11 +81,15 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        siteUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
+      fields {
+        slug
+      }
       html
       frontmatter {
         title
