@@ -206,7 +206,7 @@ Na segunda abordagem, o tempo entre a troca de mensagens é ok, não tem bloquei
 
 Foi bem legal ver os exemplos que ele mostrou e poder refletir sobre como estruturar uma aplicação nesses moldes. Muda um pouco a forma como estamos (ou pelo menos eu) acostumados a fazer software, mas não é nada de outro mundo.
 
-**Nota:** *Até o momento da publicação desse post os slides da talk não foram publicados. Atualizarei o post quando tiver o link.*
+Os slides da apresentação estão disponíveis no [Google Presentations](https://docs.google.com/presentation/d/1I7EIDIEqQySZbPCHl-8B263XejdK8TC42uGhe9VJPQc/edit#slide=id.p).
 
 ## Eventos de domínio podem ser simples - [Bernardo Amorim](https://twitter.com/BernardoDCGA)
 
