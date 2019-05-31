@@ -150,5 +150,11 @@ module.exports = {
         stripQueryString: true
       },
     },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `ravan-me`
+      }
+    }
   ],
 }

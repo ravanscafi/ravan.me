@@ -471,7 +471,3 @@ Isso foi tudo o que conseguir pegar do keynote - foram várias dicas em várias 
 Com isso, chegamos ao fim do primeiro dia desse evento incrível - talvez o melhor que já fui. E ainda tem o segundo dia pra contar!
 
 **Nota:** Em breve postarei o conteúdo do segundo dia e atualizarei o post.
-
----
-
-> Para comentários, correções, ou qualquer outra coisa, entra em contato no [Twitter](https://twitter.com/ravanscafi)!
