@@ -1,0 +1,378 @@
+# Elixir Brasil 2019 - Dia 2
+
+## Lições aprendidas em um projeto Elixir / OTP - [Amanda Sposito](https://www.linkedin.com/in/amandasposito/)
+
+## Domain-Driven Design with Contexts - [Adam Tew](https://twitter.com/adamjtew)
+
+Na trilha avançada, começamos com a talk do Adam, que trabalha na [Podium](https://www.podium.com/), e veio falar sobre _Domain-Driven Design_ (DDD)
+
+### Modelagem
+DDD é primariamente usado para aplicações maiores, precisa de muita ponderação para modelar. Tem o objetivo de atingir uma descoberta do que é o domínio. O [livro sobre DDD do Eric Evans](https://www.amazon.com.br/dp/B00794TAUG/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1) é o que você pode ler para aprender.
+
+No DDD, você precisa de um **domínio** para modelar. Um domínio é o problema que o seu cliente, ou a sua empresa, quer resolver. Você precisa de **experts de domínio** que entendam muito sobre o problema. Use **mapeamento de contexto** para descoberta, coloque todos os envolvidos numa sala e peça para os mesmos escreverem tudo sobre o domínio em post-its e coloque numa parede, para que vocês definam as **entidades** (substantivos) e os **eventos** (verbos). 
+
+![Adam Tew mapeando um entidades e eventos](./adam.jpg)
+
+Agrupe todas as entidades que façam sentido. Seu **core domain** (domínio principal) é essencialmente o que é realmente importante para o negócio. Você tem também **support domains** (domínios de suporte), que apoiam o core domain a atingir seu objetivo.
+
+![Domínios de suporte no DDD](./ddd_support_domains.jpg)
+
+Outras maneiras de mapear seus domínios é através de *Domain Storytelling*, que tenta contar uma história sobre os atores e as ações entre eles, ou  de *Event Storming*.
+
+@todo mostrar/explicar mapa de contextos
+
+### Modularização
+Após agrupar os domínios, é hora de fazer algo em relação a isso. Numa arquitetura de camadas (*Layered Architecture*), temos a `UserInterface` como ponto de entrada, se comunicando com as camadas abaixo: `Application, Domain, Infrastructure`. As dependências fluem para as camadas abaixo
+
+![Arquitetura de Camadas de uma aplicação feita com DDD](./ddd_layered_architecture.jpg)
+
+Um *bounded context* está tipicamente em um alto nível de granulosidade.
+
+Teste os geradores de código do Phoenix:
+```bash
+mix phx.gen.html Menu MenuItem menu_items name:string,unique quantity:integer
+```
+
+Um contexto deve dizer a **intenção** do que você quer fazer e não **como** você fez isso. E isso é algo muito difícil de fazer  segundo o Adam. 
+
+
+#### Knowledge Crunching
+Prefira ciclos de desenvolvimento ágil
+
+
+
+Junte os dados que devam estar juntos
+
+O **Aggregate root** é o elemento principal
+
+
+
+#### Como compartilhar entre os diferentes contextos
+
+tem um post do chris mccord @todo
+
+[Event-driven messaging Andrew Hao](https://www.youtube.com/watch?v=5MBGDM8xSQg)
+
+Use os **eventos** do **mapa de contextos** com pub/sub
+Crie um `EventBus` e dentro do contexto crie um módulo `EventHandler`
+Esse contexto é conhecido como camada **anti-corrupção**, que não polui um contexto com dados de outro contexto
+
+### Preocupações
+O Adam expôs suas preocupações de DDD, começando dizendo que há toneladas de teoria sobre DDD, então é muito pra absorver e pensar sobre. Provavelmente use somente para grandes base de códigos - e para essas grande bases, implemente em fases, peça por peça. OO vs FP. Priorize a descoberta dos domínios.
+Abstraia no sistema o que irá mudar no negóico. Escute os especialistas de domínios. Sempre consulte o **mapa de contextos**.
+
+[Functional and reactive domain modelling](https://www.manning.com/books/functional-and-reactive-domain-modeling)
+
+
+
+## A Divina Comédia de um Código Legado: indo do Inferno ao Paraíso com Elixir - [Juliana Helena](https://twitter.com/julianahelenaa5)
+
+A Juliana veio de Belo Horizonte para nos contar do case que ela participou, com código legado
+
+Como trabalhar de uma forma efetiva com código legado. livro @todo
+Código sem testes é código ruim. Com testes conseguimos ter 
+> Código legado **também** é o código que você acabou de escrever
+
+É importante manter o **respeito** e entender o **contexto** do código duvidoso que você encontra, não dá pra saber porque aquele código está daquela forma.
+Ok, mas você recebeu o problema: como lidar? A primeira coisa que você pode pensar é: vou reescrever tudo! Você tem duas opções: **refazer** ou **refatorar**, ambos com fatores a se considerar:
+
+- **Refazer**: custo, prazo, manter o legado funcionando em paralelo
+- **Refatorar**: começar com penas mudanças, ter qualidade em todo novo código, planejamento: pagar a dívida técnica frequentemente.
+
+Você pode tentar convencer a equipe, evangelizando sobre qualidade de código, explicando sobre escalabilidade e menor custo de correção. Se tudo não funcionar: comece pequeno, mostre seus resultados e, em último caso, se não tiver jeito, mude de emprego.
+
+Falando sobre o case, a Juliana nos explicou como era lá. Assim vamos para a parte 1, **o Inferno**.
+
+### Inferno
+Várias aplicações antigas e difíceis de escalar. Não havia cultura focada em qualidade de código. Existiam falhas de comunicação e falta de processos (para apagar os incêndios por exemplo). O conhecimento era centralizado em algumas pessoas e não havia muita documentação.
+
+Em resumo:
+- Era uma rede de aplicações dependentes e sem testes ou informações precisas sobre o funcionamento.
+- Não tínhamos **segurança** para realizar alterações - suavizado pelo conhecimento da galera
+
+Porém chegou uma notícia de reestruturação das equipes na empresa e todos os sistemas legados ficaram sob responsabilidade das equipes de BH, que não tinham conhecimento de tudo, já que ele era centralizado em outras equipes.
+
+### Purgatório
+Para fazer ml
+
+reestruturar os times
+
+
+**Pré migração**: definição de uma **equipe de migração**, divisão dos projetos entre as pessoas; criação de documentação e aprendizado sobre projeto; entender os processos: deu um problema, roda um script aí e aprende; reuniões para compartilhamento de conhecimento/tirar dúvidas
+
+
+**Pós migração**: criação de squads, as pessoas ajudantes voltaram para seus squads normais; manter o funcionamento dos legados estável; começo do processo de reestruturação - criação de novas aplicações
+
+#### Por que o Elixir?
+Segundo o líder técnico da Juliana, a escolha foi para resolver problemas de concorrência e também por ser funcional. Já existiam alguns cases de sucesso da empresa em Elixir e por isso também já existia um background da equipe.
+
+Assim nasceu o **AppPay**, com qualidade, testes, escalável, desacoplado e seguindo boas práticas.
+
+#### Próximos passos
+Evoluir novas aplicações, manter os legados **estáveis** com o mínimo de intervenção possível, até que a maior parte dos legados morra e eles cheguem no:
+
+### Paraíso
+Para se manter no Paraíso, ela diz que é muito importante manter uma boa **comunicação**. Também fazer **1x1 com o gestor/líder técnico** para ter feedbacks rápidos. Focar em **documentação** é essencial, ela cita inclusive o exemplo do Swagger @todo para documentar APIs. Uma boa prática é a de **code review**. É preciso ter foco em **qualidade de código**, usando inclusive *linters*. Tenha **processos bem definidos**, com cerimônias bem feitas, tarefas bem escritas, prioridades estabelecidas e respeitadas. **Acessibilidade** é algo legal de se pensar desde o início, não espere surgir uma demanda pra isso.
+
+### Considerações finais
+Não existe bala de prata, depende do projeto e tipo de gestão, tente criar uma cultura de foco em qualidade. Incentive sua comunidade local. Incentive mulheres, pessoas negras, pessoas LGBTQI+, pessoas trans e pessoas com  deficiência no seu time, empresa e comunidade. É importante que as empresas/RHs invistam em formação e busca ativa. Também é muito importante deixar as pessoas falarem, respeitar o espaço de fala de cada um.
+A Juliana [criou um texto](https://bit.ly/culturadediversidade) sobre como criar uma cultura de diversidade em sua empresa, vale a pena ler!
+
+
+## Primeiros passos com Nerves - Elixir based IoT - [Donato Viana](https://twitter.com/donatoaz)
+
+
+Linux embarcado significa que é otimizado e customizado para dispositivos embarcados
+Aspectos importantes: recursos limitados, overhead de desenvolvimento - cross compiling, flashing, etc., atualizações em campo
+
+### Nerves
+É uma plataforma, um framework, um conjunto de ferramentas e um *toolchain* para fazer Elixir Embarcado. Mas, com isso, surge a pergunta: por que Elixir Embarcado? - e a resposta é: Por que não? Foi pra isso que a BEAM foi criada, pra telecomunicações altamente disponíveis. O mundo real é concorrente (coisas acontecem ao mesmo tempo ou em algum tempo não previsível).
+Deixe falhar, mas não deixe explodir - se o usuário não perceber está OK :)
+
+Seu App + Toolchain + Platform (junta tudo com ferramental)-> Firmware (com ferramental)-> SD card
+
+Toolchain: conjunto de ferramentas para compilar para diversas arquiteturas. Plataformas são imagens customizadas, feitas pela comunidade para rodar nos dispositivos.
+
+O Fluxo de desenvolvimento: faz o código, compila e empacota o firmware, transfere o firmware, testa e repete.
+
+Entre os pontos fortes estão o **boot rápido**, de segundos; o **tamanho reduzido** (menos de 100mb); estratégia de **update com imagem inteira**; estratégia de **fallback com partições A/B** - somente alterando a versão caso funcione; **robustez ante a perda de energia** (o sistema de arquivos é somente leitura) e **atualizações OTA** (*Over The Air*, igual você provavelmente atualiza seu Android).
+
+> "O Nerves está fazendo para desenvolvimento embarcado e Elixir o que o Rails fez pelo desenvolvimento web e pelo Ruby."
+> Arto Bendiken
+
+Em seguida o Donato mostrou um "live coding" mostrando rapidamente como é a cara do framework e como desenvolver algo para o Raspberry PI dele - no caso, piscar um LED, que ele disse ser o "Hello World" do mundo IoT. Os vídeos da apresentação estão disponíveis no YouTube: 
+
+1. [Elixir Nerves - blinky example](https://www.youtube.com/watch?v=PniEVXOYd3g)
+2. [Elixir Nerves OTA using uploader script](https://www.youtube.com/watch?v=F-mYpVabptw)
+3. [Elixir Nerves ssh and show log](https://www.youtube.com/watch?v=QM9rnAsl95A)
+
+O Donato mostrou pra gente um projeto IoT incrível chamado Farmbot, vale a pena ver o [vídeo no YouTube](https://www.youtube.com/watch?v=uNkADHZStDE) ou conferir o site.
+
+
+## Testando no mundo Elixir - [Rafael Rocha](https://twitter.com/RocRafael)
+
+Quando começamos uma estória de usuário, vemos a descrição, os critérios de aceito e começamos a desenvolver
+Mas.. estamos trazendo as especificações para o código? 
+E quão confiante você está com a sua entrega?
+Então, por que testar?
+Segundo ele, ajuda a ter **confiança** sobre suas entregas, ajuda a **organizar** os pensamentos, mantém os **custos baixos**, traz mais **qualidade** para o produto.
+
+### Tipos de teste
+
+**Aceitação** expressa um cenário, é de ponta a ponta, garantem mais a qualidade externa e mais próximo da camada de apresentação - além de serem lentos. **Integração** entre aceitação e unitário
+**Unitários** testa o comportamento de uma única unidade, 
+Piramide de testes foto @todo
+
+O Rafael trouxe um exemplo para exercitar esses conceitos, mostrando conceitos e implementações. Ele usou uma estratégia de "cebola", de testar em camadas, de fora pra dentro. Para poder entender as camadas, você precisa fazer uma reflexão sobre quais elas são, ajudando na compreensão do problema. Ele mostrou de forma bem rápida como seria o formato de cada um dos testes e o tipo de segurança que aquele teste traz. Ele também enviou um pouco sobre os **Dublês** de teste, para evitar tocar sistemas externos.
+
+Ele também trouxe o conceito de `Doctests`, explicando que é uma ferramenta para garantir que a nossa documentação está válida. Você põe no *docblock* um exemplo de como funcionaria aquela função e pode rodar isso para ver se está correto.
+
+Nos slides, você pode conferir toda a talk, incluindo o código e os testes feitos.
+
+
+## Mantendo a Sanidade Testando Estado - [Andrew Rosa](https://twitter.com/_andrewhr)
+
+De volta a trilha avançada, 
+
+Teste baseado em propriedades
+
+Usando [PropEr](https://jeffkreeftmeijer.com/mix-proper/) com elixir.
+
+Um simples teste pode ser:
+
+```elixir
+test "sorts a list" do
+	assert Enum.sort([3, 1, 3]) == [1, 2, 3]
+end
+```
+
+Esse é um teste onde você informa a lista a ser ordenada. Já, em um teste de entrada, você não define uma entrada específica como o exemplo acima, mas pede algumas listas aleatórias para testar o seu código. Você tem alguns geradores que pode usar para gerar dados para testar seu sistema. E assim, você roda os seus testes  e verifica se os mesmo estão funcionando.
+
+Caso um erro seja encontrado, acontece um **shrinking**, que tenta encontrar um caso mínimo que quebre o teste, sendo mais fácil de encontrar a razão do problema que levou seu código a estar errado.
+O Andrew mostrou bem didaticamente como fazer vários testes baseados em propriedades com exemplo "reais". Confira depois nos slides.
+
+Para ele e sua equipe, o legal é que como muitos testes são gerados, vários *edge cases* são encontrados sem que eles tenham que ficar pensando sobre eles. Porém, como são muitos testes, eles demoram! É necessário saber qual o retorno de investimento daquele teste, você não precisa fazer por exemplo para um *CRUD*.
+
+## Stand-Up - Em busca do elixir do desenvolvimento - [Rodrigo "pokemaobr" Cardoso
+](https://twitter.com/pokemaobr)
+
+
+## Livestream de Elixir para aumentar a comunidade - [Philip Sampaio](https://twitter.com/philipsampaio)
+
+O que é Live Streaming? Geralmente pensamos em jogos quando falamos sobre live streaming e provavelmente 98% dos streams são de outros jogos. É fascinante pensar que assistir outros jogadores é legal. 
+Algumas pessoas, como a Suz Hinton @todo fazem streaming de código e utilizam o twitch pra isso. Ela fala sobre JavaScript/Node, bem como Open Source, acessibilidade de IoT.
+Ela conseguia explicar algo complexo pra alguém, prestar a atenção no chat e elaborar um racioncínio complexo enquanto isso.
+
+No final de 2018, o José Valim - criador do Elixir - começou a fazer o mesmo! Eventualmente ele fazia lives mostrando como resolver problemas do Advent of Code @todo e foi bem legal pra mostrar como resolver com Elixir alguns desses problemas. E pro Philip isso foi incrível, pois ele tinha muita curiosidade em saber como o pessoal do Open Source codava - e descobriu que não era tão diferente assim 😉. A ideia veio do irmão do Valim, professor que achava que isso poderia ajudar a comunidade. 
+ 
+ Ajuda a entender o fluxo de trabalho da outra pessoa, pega alguns truques que aquela pessoa faz... É muito útil para aprender uma nova tecnologia, então pra Elixir é ótimo poder contar com esse tipo de conteúdo. Para os _streamers_ em si também existem vantagens, pois ajudam a se comunicar de forma mais eficaz, aprende a dividir a atenção entre o stream e a plateia e também resolve problemas em conjunto com outras pessoas.
+ 
+ E por que você deveria fazer ou participar das lives? Um dos medos do Philip era: "e se não aparecer ninguém?". Ele percebeu que divulgar nas redes sociais era de grande ajuda e o importante é ajudar pelo menos uma pessoa.
+ 
+ E se eu travar ou errar na frente das pessoas? Acontece e é normal, o dia-a-dia da programação é assim.
+ 
+ Com live streams você vai ajudar a comunidade a crescer, você vai melhorar muito suas habilidades e também você vai se divertir.
+ 
+ O Philip começou com a ideia inicial de dedicar tempo à biblioteca `Floki` @todo que ele criou, um *parser* de `HTML` feito em Elixir. Mas ele também fala sobre outros assuntos, como Live View, Ecto Elixir básico.
+ 
+ OBS Studio para fazer broadcast.
+ Faz o stream da tela, possibilita configurar Cenas Ricas, disponibiliza várias configurações para mic/câmera e é totalmente Open Source.
+ 
+ > foto configurando o OBS 
+
+Caso você não tenha câmera, você pode usar seu celular e configurar para usar como uma webcam.
+
+O Philip dá algumas recomendações para quem está a fim de começar: experimentar algumas configurações do OBS, procurar no youtube. antes das lives, faça uma agenda de tópicos a serem falados nas lives; configure o setup com antecedência; desabilite as notificações do sistema operacional; tenha cuidado com o histórico de comandos do seu terminal; tenha cuidado com segredos em geral; converse com as pessoas do chat - interagir é o mais legal das lives.
+
+Ele mostrou também algumas pessoas que estão fazendo streaming de código
+
+[marcobrunobr](https://www.twitch.tv/marcobrunobr) (js, frontend, react)
+
+[anizark](https://www.twitch.tv/anizark) (elixir, programação funcional, exercícios do livro "learn funcional programming with elixir)
+
+[jessitronica](https://www.twitch.tv/jessitronica) (ruby, aws, pair programming)
+
+[José Valim](https://www.twitch.tv/josevalim)
+
+Como conclusão, o Philip diz que acredita que live streaming podem ser artefatos muito poderosos para fazer a comunidade Elixir crescer no Brasil. 
+
+## Mesa redonda com streamers de Elixir - [Philip Sampaio](https://twitter.com/philipsampaio), [Ulisses Almeida](https://twitter.com/ulissesalmeida) e [Geovane Fedrecheski](https://twitter.com/geonnave)
+
+
+diferença vídeo e streaming - stream é mais simples, não necessita de edição e se errar está ok, pode ser uma forma de começar.
+
+ideia para começar é pegar um assunto bem basicão e tentando ir evoluindo isso ao longo do tempo, percebendo acertos e erros.
+
+tempo de live: entre uma hora e uma hora e meia.
+tempo de vídeos: o que funciona são coisas curtas, até uns cinco minutos.
+plataforma: 
+
+
+José Valim tem um [curso legal na Pluralsight](https://www.pluralsight.com/courses/meet-elixir) (em inglês) sobre Elixir, Phoenix Nathan alguma coisa e vídeos sobre problemas reais sendo resolvidos usando elixir. ele erra várias vezes e comete erros simples - gente como a gente!
+
+Eles compartilharam a experiência de cada um responderam diversas perguntas da plateia. Algumas delas eu compilei aqui :)
+
+
+## Lightning Talks
+
+Para começar as talks relâmpago, o [Felipe Orlando](https://br.linkedin.com/in/felipeorlando) começou falando sobre como é o processo seletivo dentro das empresas e como conseguir um trampo em Elixir. 
+O que todo dev elixir tem que ter?
+Qual a empresa do seus sonhos, entra na página de vagas e vê quais são os requisitos dessa empresa. Sejam curiosos, pesquisem, estudem, não tenham medo de conhecer coisas novas e nem medo de errar - inclusive nos testes práticos de empresas. Participe sempre de eventos, networking e aprendizado.
+Em termos de conhecimento técnico, precisa saber um pouco de estrutura de dados, algoritmos e coloque o estudo em prática fazendo pequenas aplicações em casa, sem medo de dar certo/errado. TDD é muito importante, é o que vai garantir que a sua aplicação é confiável. Entender o ecossistema do Elixir é importante, fazer testes, ter CI, ter linters, ter uma documentação boa do código feito. Clean code é muito importante, código fácil de entender por outras pessoas. Inglês é primordial, ter o conhecimento que permita que você consuma conteúdo na internet e aumente seus conhecimentos.
+Empresa boa é empresa que responde - se ela não te respondeu, talvez ela não era tão boa. Empresa boa valoriza diversidade e inclusão.
+
+Honestamente, não consegui acompanhar direito as outras talks relâmpagos, pois acabei fazendo uma também. Falei sobre o [Exercism](https://exercism.io/), uma plataforma opensource para prática de código e mentoria para todos - um lugar legal pra aprender Elixir e Programação Funcional!
+
+menção tecnogueto
+
+
+## BEAM architecture handbook - [Andrea Leopardi](https://twitter.com/whatyouhide)
+
+Andrea, um dos core commiters do Elixir já há três anos.
+Ele usa Elixir no trabalho por um ano. Nessa talk, ele quer dar bastante dicas sobre quando você for fazer sua aplicação em Elixir, em como funciona a BEAM. Começando a partir de um único nó e crescendo para vários. Essa talk também se aplica a Erlang, ele diz.
+
+Arquitetura de um único nó
+
+Ele começa com a menor unidade de computação: processo. é uma unidade de isolamento e concorrência (não unidades de separação de código).
+
+Por exemplo, um "aceitador de TCP" que distribui processos para "conexões TCP". Esse é um bom caso de uso para processos, caso uma conexão caia, ele está isolado e os outros continuam.
+
+@todo foto tcp
+
+Por exemplo agora, você tem sua conexão, e um "connection handler", como ele se relaciona com a sua "session"? É só um tanto de dados e talvez não deveria estar em um processo separado. Você pode usar uma data estruture dentro do handler.
+
+O problema de salvar estado dentro de processos
+
+> **Qualquer** processo seu irá *morrer* em **qualquer** dado momento e **todo** o estado deles será *perdido*.
+
+`Flush` o estado do processo constantemente, faça o estado ser remontável (sendo praticamente um cache do estado de verdade ou do cálculo dele) e mantenha isso em mente, que os processos vão morrer.
+
+Evite **impor** arquitetura de processos.
+
+connection data struct -> process
+											 -> gen_stage
+											 -> get_statem (machines)
+											 
+A ideia de separar estado dos dados é uma dica que ele dá.
+Outra dica é prestar atenção à **MailBox** dos processos, pra não ficar sem memória.
+
+No exemplo de consumo de mensagens abaixo, é possível cair facilmente no problema citado, pois alguns tipos de mensagens não são consumidas e vão parar na **MailBox**. É algo pra ter em mente.
+
+```elixir
+receive do
+    :some_message ->
+       # ...
+    :other_message ->
+       # ...
+```
+
+Guia de uso de **Árvores de Supervisão**: 
+
+whiteboard design: desenhe a árvore de supervisão num quadro branco
+@todo foto whiteboard
+
+strategies: `one_for_one`, `one_for_all`, `rest_for_one`. monte árvores de supervisão aninhadas, utilize-se disso. por exemplo, uma árvore de supervisão que tem como filhos, tanto o `cache` como três `workers`. Nenhuma das estratégias funciona bem nesse caso, pois a eventual falha de um desses filhos vai reiniciar coisas de forma errada. Para resolver, o ideal era ter um supervisor dos três `workers`, ficando com o `cache` como irmão. Assim, você pode ter uma estratégia para o supervisor principal (`rest_for_one`) e outra para o supervisor de `workers` (`one_for_one`). Todos os processos deveriam ser supervisionados. Sempre dê nome para os seus supervisores, para ficar mais fácil de debugar em sistemas em produção.
+
+**Teste árvores de supervisão**. Uma forma de fazer isso é com Chaos Monkey. O repositório ![ferd/sups](https://github.com/ferd/sups) ajuda fazendo property based testing (@todo lembra da  talk) para montar um modelo da sua árvore de supervisão
+
+`Connection Handling` - trabalhamos com serviços externos, fora da nossa rede. Geralmente utilizamos processos para lidarmos com isso.
+
+```none
+<Seu App> -> Redis Connection -> Redis (de verdade)
+															/\ falha de rede, o que fazer?
+```
+
+Colocar um Connection Manager, que é responsável por lidar com a lógica de reconexão (não deveria ser por exemplo a responsabilidade de um supervisor). Em algum ponto sua conexão vai cair e você deve fazer a aplicação com isso em mente, se preparando para os possíveis erros.
+
+need redis? -> nope -> async init; handle :error tuples
+\/ yep
+sync init; raise on errors
+
+É raro que você precise de conexões externas o tempo inteiro para funcionar, então podemos usar a abordagem de estar indisponível por um tempo.
+
+`gen_statem` @todo foto
+
+Tente reconectar a serviços externos, mas não a cada X segundos ou instantaneamente. use uma estratégia "backoff", que tenta em tempo exponencial e também randomizado um pouco (um pouco de tempo a mais ou a menos).
+
+Processos gargalo: são processos que todo o seu sistema depende e que atrasam tudo caso fiquem lentos. Por exemplo, chamadas bloqueantes para o Cache. Então seu cache vai ser um gargalo.
+
+Com uma tabela `ETS` pode ajudar a resolver esse problema. @todo imagem. 
+
+`Pools` de conexões também pode ser uma solução para esses gargalos, onde através de uma rotação, vo
+`checkout pools` (lidam com a conexão) vs `name based pools` (registrados com nomes, vc pede conexão por nome) com `registry`, toma cuidado e processa os nomes.
+
+**Error Handling**: lide com todos os erros **esperados**. Se algum erro pode acontecer, ele com certeza vai. Ele odeia o "Let it crash" que é bastante falado, porque talvez não é entendido como deveria ser entendido. Ele diz que você deve tratar os erros e não usar essa frase como desculpa para lidar com os mesmos. Dê `crash` apenas em erros inesperados ou irrecuperáveis. 
+
+### Arquitetura de muitos nós
+
+Frequentemente ele ouve que o `BEAM` "resolve sistemas distribuidos" e a reação dele é NÃO! Pra ele, o BEAM é apenas um bom conjunto de ferramentas! Como por exemplo, `send/2`, `Process.monitor/1`, `Node.monitor/2` e  registro `:global` de processos. 
+
+> to beam or not to beam
+
+Por exemplo para *Data Storage*, devo usar RDBMS (como o Postgres) ou uma solução BEAM (como o Riak)?
+
+Pense em interoperabilidade, recursos funcionais e análise de dados. Replicação é difícil. Se você tem uma solução 
+
+A abordagem Phoenix é por exemplo usar mais de uma solução, como `pg2` + `Redis pub/sub`.
+
+**Application failover**: se minha aplicação falhar, essa outra aplicação de pé, que estava parada, assume. 
+
+**Hot-code upgrades**: não tão utilizados, conflita com a abordagem de contêineres Docker. Ele diz para nos questionarmos: "Eu realmente preciso disso?" - na opinião dele, geralmente não precisamos.
+
+**Requests**: nós frontend, nós backend. Existem 3 tipos de requisições: `no máximo uma vez`, `pelo menos uma vez` e `exatamente uma vez`.
+No máximo uma vez não tem muito o que fazer.
+Idempotência para requesta que podem acontecer pelo menos uma vez. Se chamar mais de uma vez, você lida com isso (por exemplo salvar no banco de dados mais de uma vez). Exatamente uma vez é o tipo mais caro de requests, porque você tem que garantir que eles vão sempre funcionar (por exemplo transações)
+
+> "Use a ferramenta certa para o trabalho" - Capitão Óbvio
+
+Não tente usar o BEAM pra tudo. Você pode usar muitas outras ferramentas e tecnologias mas, se usar, tente seguir essas dicas.
+
+Aprenda sobre **Sistemas distribuídos**. A arquitetura BEAM é **boa**, leve isso com você.
+
+
+### Recursos
+"Designing for scalability with Erlang/OTP"
+
+http://ferd.ca
+
+"Distributed system for fun and profit"
