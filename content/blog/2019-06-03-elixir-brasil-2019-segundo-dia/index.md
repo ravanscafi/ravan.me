@@ -1,9 +1,7 @@
 ---
 title: Elixir Brasil 2019 - Segundo dia
 description: "O segundo dia de #ElixirBrasil foi tão impressionante quanto o primeiro - e eu estava lá também!"
-#date: "2019-06-03T13:00:00.000Z"
-date: "2019-05-30T13:00:00.000Z"
-#draft: true
+date: "2019-06-03T13:00:00.000Z"
 ---
 
 <p>
@@ -12,73 +10,59 @@ date: "2019-05-30T13:00:00.000Z"
     </a>
 </p>
 
-No post anterior, falei sobre o [primeiro dia do evento](/2019-05-30-elixir-brasil-2019-primeiro-dia/). Hoje trago para vocês o segundo dia, que foi tão impressionante quanto o primeiro.
+No post anterior, falei sobre o [primeiro dia do evento](/2019-05-30-elixir-brasil-2019-primeiro-dia/). Hoje trago para vocês o segundo dia - que foi tão impressionante quanto o primeiro. Foi na mesma pegada do dia anterior, com dois keynotes e duas trilhas paralelas. É impossível estar em dois lugares ao mesmo tempo, senão tinha visto todas as talks. Foi o sentimento da galera que foi comigo também, de ficar indeciso sobre o que assistir, visto a qualidade das talks e temas escolhidos.
+
+---
 
 ## Lições aprendidas em um projeto Elixir / OTP - [Amanda Sposito](https://www.linkedin.com/in/amandasposito/)
 
-Infelizmente, cheguei ~~muito~~ atrasado no evento e perdi o keynote da Amanda quase inteiro. No entanto, consegui ver o finalzinho com algumas dicas, que coloco aqui. De qualquer forma, é possível ver os slides da talk para ter uma ideia melhor.
+Infelizmente, cheguei ~~muito~~ atrasado no evento e perdi o keynote da Amanda quase inteiro. Consegui ver o finalzinho com algumas dicas, que coloco aqui. Tentarei não cometer esse vacilo da próxima vez, principalmente com uma talk que queria tanto ver 😢
 
-Sortid elixir
+Quando cheguei, ela estava citando o artigo [Unit Tests in Elixir - Part 2](http://devonestes.herokuapp.com/unit-tests-in-elixir-part-2) do Devon C. Estes, porém não peguei o contexto do que ela estava falando. Também recomendou ver o [SORTID Elixir](https://www.youtube.com/watch?v=eldYot7uxUc), uma talk da Georgina McFadyen sobre os princípios `SOLID`, mas voltados para programação funcional e Elixir.
 
-Unit testing in elixir part 2
-Devonetes
-
-Contexts definem limites entre diferentes partes da sua aplicação  (não tem mais mvc)
-
-Porém eles podem ficar maior do que deveriam
-Não manter código ortogonal ao contexto no contexto
-
-Mantenha queries próximas ao seu schema
+Em seguida, definiu que [Contexts](https://hexdocs.pm/phoenix/contexts.html), do Phoenix, definem limites entre diferentes módulos da aplicação - não tem mais aquele padrão `MVC`. Porém, esses contextos podem ficar maiores do que deveriam com o passar do tempo e com a interação entre eles. Uma dica então é evitar manter código ortogonal ao contexto, no contexto. Além disso, mantenha *queries* próximas ao seu *schema*. Uma exceção para essa regra, segundo a Amanda, são de *queries* que lidam com mais de um *schema*. Também recomendou o outro post do Devon, [A Proposal for Some New Rules for Phoenix Contexts](http://devonestes.herokuapp.com/a-proposal-for-context-rules).
 
 !["Mantenha queries próximas de seu schema" - Amanda Sposito.](./amanda.jpg)
 
-Uma exceção para essa regra, segundo ela, são de queries que lidam com mais de um schema.
+Sobre **Umbrella Projects**, a Amanda explicou que é uma maneira de organizar seu código, que vira tipo um monolito organizado. É necessário ter cuidado com dependências circulares, quando um app acessa o outro app que por sua vez acessa de novo o primeiro - enfim, vocês entenderam.
 
-A proposal for some new rules for Phoenix contexts
-Devonetes
-
-Umbrella projects: é uma maneira de organizar seu código, vira tipo um monolito organizado, cuidado com dependências circular
-
-Os slides da talk da Amanda estão no [SpeakerDeck](https://speakerdeck.com/amandasposito/aprendizados-de-um-projeto-elixir-otp).
-
+Essas foram as dicas que consegui pegar da talk. Os slides estão no [SpeakerDeck](https://speakerdeck.com/amandasposito/aprendizados-de-um-projeto-elixir-otp) e podem trazer mais insights sobre o que ela passou.
 
 ## Domain-Driven Design with Contexts - [Adam Tew](https://twitter.com/adamjtew)
 
-Na trilha avançada, começamos com a talk do Adam, que trabalha na [Podium](https://www.podium.com/), e veio falar sobre _Domain-Driven Design_ (DDD)
+Na trilha avançada, começamos com a talk do Adam, que trabalha na [Podium](https://www.podium.com/), e veio até o Brasil pra falar com a gente sobre _Domain-Driven Design_ (DDD), um tema que independe de uma linguagem específica mas que casa muito bem com Elixir.
 
 ### Modelagem
-DDD é primariamente usado para aplicações maiores, precisa de muita ponderação para modelar. Tem o objetivo de atingir uma descoberta do que é o domínio. O [livro sobre DDD do Eric Evans](https://www.amazon.com.br/dp/B00794TAUG/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1) é o que você pode ler para aprender.
+O **DDD** é primariamente utilizado para aplicações maiores e precisa de muita ponderação para modelar. Tem o objetivo de descobrir o que é o domínio. O [livro sobre DDD do Eric Evans](https://www.amazon.com.br/dp/B00794TAUG/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1) é o que você pode ler para aprender sobre os conceitos do DDD.
 
-No DDD, você precisa de um **domínio** para modelar. Um domínio é o problema que o seu cliente, ou a sua empresa, quer resolver. Você precisa de **experts de domínio** que entendam muito sobre o problema. Use **mapeamento de contexto** para descoberta, coloque todos os envolvidos numa sala e peça para os mesmos escreverem tudo sobre o domínio em post-its e coloque numa parede, para que vocês definam as **entidades** (substantivos) e os **eventos** (verbos).
+No DDD, você precisa de um **domínio** para modelar. Um domínio é o problema que o seu cliente, ou a sua empresa, quer resolver. Você precisa de **especialistas de domínio** que entendam muito sobre o problema proposto. Use **mapeamento de contexto** para descoberta, coloque todos os envolvidos numa sala e peça para os mesmos escreverem tudo sobre o domínio em *post-its* e coloque numa parede, para que vocês definam as **entidades** (substantivos) e os **eventos** (verbos).
 
-![Adam Tew mapeando um entidades e eventos](./adam.jpg)
+![Adam Tew mapeando entidades e eventos.](./adam.jpg)
 
-Agrupe todas as entidades que façam sentido. Seu **core domain** (domínio principal) é essencialmente o que é realmente importante para o negócio. Você tem também **support domains** (domínios de suporte), que apoiam o core domain a atingir seu objetivo.
+Agrupe todas as entidades que façam sentido. Seu **core domain** (domínio principal) é essencialmente o que é realmente importante para o negócio. Você tem também **support domains** (domínios de suporte), que apoiam o *core domain* a atingir seu objetivo.
 
-![Domínios de suporte no DDD](./ddd_support_domains.jpg)
+![Domínios de suporte no DDD.](./ddd_support_domains.jpg)
 
-Outras maneiras de mapear seus domínios é através de *Domain Storytelling*, que tenta contar uma história sobre os atores e as ações entre eles, ou  de *Event Storming*.
-
-@todo mostrar/explicar mapa de contextos
+Outras maneiras de mapear seus domínios é através de *Domain Storytelling*, que tenta contar uma história sobre os atores e as ações entre eles, ou de *Event Storming*. É importante sempre utilizar uma **linguagem ubíqua** entre todos do time. Escreva em algum lugar uma lista de todas as palavras comuns utilizadas.
 
 ### Modularização
-Após agrupar os domínios, é hora de fazer algo em relação a isso. Numa arquitetura de camadas (*Layered Architecture*), temos a `UserInterface` como ponto de entrada, se comunicando com as camadas abaixo: `Application, Domain, Infrastructure`. As dependências fluem para as camadas abaixo
+Após agrupar os domínios, é hora de fazer algo em relação a isso. Numa arquitetura de camadas (*Layered Architecture*), temos a `UserInterface` como ponto de entrada, se comunicando com as camadas abaixo: `Application`, `Domain` e `Infrastructure`. De `Application`, a comunicação é com `Domain` e `Infrastructure`. E assim por diante. As dependências fluem para as camadas abaixo.
 
 ![Arquitetura de Camadas de uma aplicação feita com DDD](./ddd_layered_architecture.jpg)
 
-Um *bounded context* está tipicamente em um alto nível de granulosidade.
+Um *bounded context* está tipicamente em um alto nível de granularidade e define uma área completa de funcionalidade dentro do seu sistema.
 
-Teste os geradores de código do Phoenix:
+Para gerar um contexto, podemos testar os geradores de código do Phoenix:
+
 ```bash
-mix phx.gen.html Menu MenuItem menu_items name:string,unique quantity:integer
+mix phx.gen.html Menu MenuItem menu_items name:string:unique quantity:integer
 ```
 
-Um contexto deve dizer a **intenção** do que você quer fazer e não **como** você fez isso. E isso é algo muito difícil de fazer  segundo o Adam.
+Um contexto deve dizer a **intenção** do que você quer fazer e não **como** você fez isso. E isso é algo muito difícil de se fazer segundo o Adam.
 
 
 #### Knowledge Crunching
 Prefira ciclos de desenvolvimento ágil
-
 
 
 Junte os dados que devam estar juntos
@@ -102,6 +86,9 @@ O Adam expôs suas preocupações de DDD, começando dizendo que há toneladas d
 Abstraia no sistema o que irá mudar no negóico. Escute os especialistas de domínios. Sempre consulte o **mapa de contextos**.
 
 [Functional and reactive domain modelling](https://www.manning.com/books/functional-and-reactive-domain-modeling)
+
+
+[Confira aqui](https://docs.google.com/presentation/d/1ano0faAXjj4GMw6bJDLeI1-RtX_DlDLLQAkjXnAEGdY/edit) os slides da talk do Adam.
 
 
 
