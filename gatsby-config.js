@@ -57,7 +57,12 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-draft',
+    {
+      resolve: 'gatsby-plugin-draft',
+      options: {
+        publishDraft: process.env.NODE_ENV !== 'production',
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
