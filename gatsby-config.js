@@ -53,6 +53,7 @@ module.exports = {
               rel: "nofollow",
             }
           },
+          `gatsby-remark-reading-time`,
         ],
       },
     },

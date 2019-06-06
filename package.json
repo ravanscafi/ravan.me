@@ -28,6 +28,7 @@
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^3.0.11",
     "gatsby-remark-prismjs": "^3.2.9",
+    "gatsby-remark-reading-time": "^1.0.1",
     "gatsby-remark-responsive-iframe": "^2.1.1",
     "gatsby-remark-smartypants": "^2.0.9",
     "gatsby-source-filesystem": "^2.0.37",
