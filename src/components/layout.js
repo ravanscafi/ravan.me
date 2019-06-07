@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import Heart from "react-feather/dist/icons/heart"
 
 import { rhythm, scale } from "../utils/typography"
 
@@ -57,13 +58,14 @@ class Layout extends React.Component {
           marginLeft: `auto`,
           marginRight: `auto`,
           maxWidth: rhythm(30),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          padding: `${rhythm(1.5)} ${rhythm(3 / 4)} ${rhythm(0.5)}`,
         }}
       >
         <header>{header}</header>
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()} - built with &hearts; using
+        <footer style={{ textAlign: "center", marginTop: `1.2rem` }}>
+          © {new Date().getFullYear()} - built with{" "}
+          <Heart className="icon" color="#f00" /> using
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>

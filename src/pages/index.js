@@ -1,5 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Calendar from "react-feather/dist/icons/calendar"
+import Clock from "react-feather/dist/icons/clock"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -29,9 +31,12 @@ class BlogIndex extends React.Component {
                   {title}
                 </Link>
               </h3>
-              <small>
-                {node.frontmatter.date} &bull;{" "}
-                <span>{node.fields.readingTime.text}</span>
+              <small style={{ color: `hsla(0,0%,0%,0.75)` }}>
+                <Calendar className="icon" /> {node.frontmatter.date}
+                <span style={{ padding: `0 .5rem` }}>&bull;</span>
+                <span>
+                  <Clock className="icon" /> {node.fields.readingTime.text}
+                </span>
               </small>
               <p
                 dangerouslySetInnerHTML={{

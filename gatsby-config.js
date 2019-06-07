@@ -6,6 +6,9 @@ module.exports = {
     siteUrl: `https://ravan.me`,
     social: {
       twitter: `ravanscafi`,
+      github: `ravanscafi`,
+      linkedin: `ravanscafi`,
+      stackoverflow: `804741/ravan-scafi`,
     },
   },
   plugins: [
