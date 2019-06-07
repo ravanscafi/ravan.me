@@ -11,7 +11,7 @@ Wordpress2016.overrideThemeStyles = ({ rhythm }) => {
       textAlign: `center`,
       fontStyle: `italic`,
     },
-    "a.anchor, a.image-link, a.social-icon": {
+    "a.anchor, a.image-link": {
       boxShadow: `none`,
     },
     "a.image-link": {
@@ -30,14 +30,12 @@ Wordpress2016.overrideThemeStyles = ({ rhythm }) => {
       verticalAlign: "middle",
     },
     ".social-icon": {
-      padding: "0 " + rhythm(0.2),
-    },
-    ".social-icon:hover": {
-      color: Wordpress2016.bodyColor,
-    },
+      boxShadow: "none",
+      padding: "0 " + rhythm(0.6),
+},
     ".social-icon .icon": {
-      width: rhythm(0.8),
-      height: rhythm(0.8),
+      width: rhythm(1.2),
+      height: rhythm(1.2),
     },
   }
 }

@@ -3,6 +3,7 @@ title: SymfonyLive São Paulo 2019
 date: "2019-05-28T16:40:32.169Z"
 description: O primeiro SymfonyLive da América Latina ocorreu na semana passada. Saiba tudo sobre o evento!
 draft: true
+cover: ./nicolas.jpg
 ---
 
 [Veja a programação do evento](https://brasil2019.live.symfony.com/speakers).
