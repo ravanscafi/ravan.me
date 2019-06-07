@@ -1,7 +1,7 @@
 import Typography from "typography"
 import Wordpress2016 from "typography-theme-wordpress-2016"
 
-Wordpress2016.overrideThemeStyles = () => {
+Wordpress2016.overrideThemeStyles = ({ rhythm }) => {
   return {
     "a.gatsby-resp-image-link": {
       boxShadow: `none`,
@@ -11,7 +11,7 @@ Wordpress2016.overrideThemeStyles = () => {
       textAlign: `center`,
       fontStyle: `italic`,
     },
-    "a.anchor, a.image-link": {
+    "a.anchor, a.image-link, a.social-icon": {
       boxShadow: `none`,
     },
     "a.image-link": {
@@ -23,6 +23,21 @@ Wordpress2016.overrideThemeStyles = () => {
     },
     h2: {
       textAlign: `center`,
+    },
+    ".icon": {
+      width: rhythm(0.5),
+      height: rhythm(0.5),
+      verticalAlign: "middle",
+    },
+    ".social-icon": {
+      padding: "0 " + rhythm(0.2),
+    },
+    ".social-icon:hover": {
+      color: Wordpress2016.bodyColor,
+    },
+    ".social-icon .icon": {
+      width: rhythm(0.8),
+      height: rhythm(0.8),
     },
   }
 }

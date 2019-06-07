@@ -1,10 +1,12 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Disqus from "gatsby-plugin-disqus"
+import Calendar from "react-feather/dist/icons/calendar"
+import Clock from "react-feather/dist/icons/clock"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Disqus from "gatsby-plugin-disqus"
 import { rhythm, scale } from "../utils/typography"
 
 class BlogPostTemplate extends React.Component {
@@ -29,8 +31,11 @@ class BlogPostTemplate extends React.Component {
             marginTop: rhythm(-1),
           }}
         >
-          {post.frontmatter.date} &bull;{" "}
-          <span>{post.fields.readingTime.text}</span>
+          <Calendar className="icon" /> {post.frontmatter.date}
+          <span style={{ padding: `0 .5rem` }}>&bull;</span>
+          <span>
+            <Clock className="icon" /> {post.fields.readingTime.text}
+          </span>
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
