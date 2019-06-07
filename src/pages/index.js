@@ -1,12 +1,14 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Calendar from "react-feather/dist/icons/calendar"
 import Clock from "react-feather/dist/icons/clock"
+import Image from "gatsby-image"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
+
+import '../styles/index.css'
 
 class BlogIndex extends React.Component {
   render() {
@@ -17,35 +19,33 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Home" />
-        <Bio />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
+        <section className="post-feed">
+          {posts.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug
+            return (
+              <div key={node.fields.slug} className="post">
+                <Link style={{ boxShadow: `none`, color: "inherit" }} to={node.fields.slug}>
+                  <Image fluid={{...node.frontmatter.cover.childImageSharp.fluid, aspectRatio: 16/9}} />
+                  <h3 style={{margin: rhythm(1 / 4) + " 0", textAlign: "left"}}>
+                    {title}
+                  </h3>
+                  <small style={{ color: `hsla(0, 0%, 0%, 0.75)` }}>
+                    <Calendar className="icon" /> {node.frontmatter.date}
+                    <span style={{ padding: `0 .5rem` }}>&bull;</span>
+                    <span>
+                      <Clock className="icon" /> {node.fields.readingTime.text}
+                    </span>
+                  </small>
+                  <p style={{ marginTop: rhythm(1 / 4) }}
+                    dangerouslySetInnerHTML={{
+                      __html: node.frontmatter.description || node.excerpt,
+                    }}
+                  />
                 </Link>
-              </h3>
-              <small style={{ color: `hsla(0,0%,0%,0.75)` }}>
-                <Calendar className="icon" /> {node.frontmatter.date}
-                <span style={{ padding: `0 .5rem` }}>&bull;</span>
-                <span>
-                  <Clock className="icon" /> {node.fields.readingTime.text}
-                </span>
-              </small>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </div>
-          )
-        })}
+              </div>
+            )
+          })}
+        </section>
       </Layout>
     )
   }
@@ -77,6 +77,13 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            cover {
+              childImageSharp {
+                fluid(maxWidth: 625) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
           }
         }
       }

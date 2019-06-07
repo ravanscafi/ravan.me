@@ -15,7 +15,7 @@ import Stackoverflow from "./icons/stackoverflow"
 
 import { rhythm } from "../utils/typography"
 
-function Bio() {
+function Bio(props) {
   return (
     <StaticQuery
       query={bioQuery}
@@ -24,35 +24,31 @@ function Bio() {
         return (
           <div
             style={{
-              display: `flex`,
+              textAlign: "center",
               marginBottom: rhythm(2.5),
             }}
           >
-            <Image
-              fixed={data.avatar.childImageSharp.fixed}
-              alt={author}
-              style={{
-                marginRight: rhythm(1 / 2),
-                marginBottom: 0,
-                minWidth: 60,
-                width: 60,
-                height: 60,
-                borderRadius: `100%`,
-                display: "block",
-                flex: "0 0 auto",
-              }}
-              imgStyle={{
-                borderRadius: `50%`,
-              }}
-            />
+            <div>
+              <Image
+                fixed={data.avatar.childImageSharp.fixed}
+                alt={author}
+                style={{
+                  marginRight: rhythm(1 / 2),
+                  marginBottom: 0,
+                  borderRadius: `100%`,
+                }}
+                imgStyle={{
+                  borderRadius: `50%`,
+                }}
+              />
+            </div>
             <div style={{ flex: "1 1 auto" }}>
-              <div>
-                Written by <strong>{author}</strong>.
-              </div>
-              <div>
+                {props.children}
+                I am a web developer living in São Paulo - Brazil.
+              <div style={{marginTop: rhythm(1)}}>
                 <a
                   title="Twitter"
-                  className="social-icon"
+                  className="social-icon twitter"
                   href={`https://twitter.com/${social.twitter}`}
                   rel="nofollow"
                 >
@@ -60,15 +56,15 @@ function Bio() {
                 </a>
                 <a
                   title="GitHub"
-                  className="social-icon"
+                  className="social-icon github"
                   href={`https://github.com/${social.github}`}
                   rel="nofollow"
                 >
                   <Github className="icon" />
                 </a>
                 <a
-                  title="Stackoverflow"
-                  className="social-icon"
+                  title="Stack Overflow"
+                  className="social-icon stackoverflow"
                   href={`https://stackoverflow.com/users/${
                     social.stackoverflow
                   }`}
@@ -78,7 +74,7 @@ function Bio() {
                 </a>
                 <a
                   title="Linkedin"
-                  className="social-icon"
+                  className="social-icon linkedin"
                   href={`https://www.linkedin.com/in/${social.linkedin}`}
                   rel="nofollow"
                 >
@@ -97,7 +93,7 @@ const bioQuery = graphql`
   query BioQuery {
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
-        fixed(width: 50, height: 50) {
+        fixed(width: 150, height: 150) {
           ...GatsbyImageSharpFixed
         }
       }

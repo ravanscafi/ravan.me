@@ -3,6 +3,7 @@ title: Melhorando seu currículo de desenvolvedor
 description:
 date: ''
 draft: true
+cover: ./writing.jpg
 ---
 
 Com mais de três anos de casa, vi nossos projetos e produtos aqui na empresa serem entregues e mantidos com sucesso, e, como consequência dessa constante evolução, vi nossa equipe crescer. É um cenário bem positivo acompanhar de perto esse crescimento e receber mais colegas, trocar conhecimentos e fazer algo cada vez mais relevante para nossos Clientes. 
