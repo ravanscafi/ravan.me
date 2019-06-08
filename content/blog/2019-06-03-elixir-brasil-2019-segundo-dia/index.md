@@ -2,6 +2,7 @@
 title: Elixir Brasil 2019 - Segundo dia
 description: "O segundo dia de #ElixirBrasil foi tão impressionante quanto o primeiro - e eu estava lá também!"
 date: "2019-06-03T13:00:00.000Z"
+cover: ./amanda.jpg
 ---
 
 <p>
@@ -10,7 +11,7 @@ date: "2019-06-03T13:00:00.000Z"
     </a>
 </p>
 
-No post anterior, falei sobre o [primeiro dia do evento](/2019-05-30-elixir-brasil-2019-primeiro-dia/). Hoje trago para vocês o segundo dia - que foi tão impressionante quanto o primeiro. Foi na mesma pegada do dia anterior, com dois keynotes e duas trilhas paralelas. É impossível estar em dois lugares ao mesmo tempo, senão tinha visto todas as talks. Foi o sentimento da galera que foi comigo também, de ficar indeciso sobre o que assistir, visto a qualidade das talks e temas escolhidos.
+No post anterior, falei sobre o [primeiro dia do evento](/2019-05-30-elixir-brasil-2019-primeiro-dia/). Hoje trago para vocês o segundo dia - que foi tão impressionante quanto o primeiro. Foi na mesma pegada do dia anterior, com dois keynotes e duas trilhas paralelas. É impossível estar em dois lugares ao mesmo tempo, senão tinha visto todas as talks. Foi o sentimento da galera do trampo que foi comigo também, de ficarmos indecisos sobre o que assistir visto a qualidade das talks e temas escolhidos.
 
 ---
 
@@ -48,11 +49,11 @@ Outras maneiras de mapear seus domínios é através de *Domain Storytelling*, q
 ### Modularização
 Após agrupar os domínios, é hora de fazer algo em relação a isso. Numa arquitetura de camadas (*Layered Architecture*), temos a `UserInterface` como ponto de entrada, se comunicando com as camadas abaixo: `Application`, `Domain` e `Infrastructure`. De `Application`, a comunicação é com `Domain` e `Infrastructure`. E assim por diante. As dependências fluem para as camadas abaixo.
 
-![Arquitetura de Camadas de uma aplicação feita com DDD](./ddd_layered_architecture.jpg)
+![Arquitetura de Camadas de uma aplicação feita com DDD.](./ddd_layered_architecture.jpg)
 
-Um *bounded context* está tipicamente em um alto nível de granularidade e define uma área completa de funcionalidade dentro do seu sistema.
+Um *bounded context* está tipicamente em um alto nível de granularidade e define uma área completa de funcionalidade dentro do seu sistema. Você deve abstrair o que provavelmente irá mudar no futuro, que é a lógica de negócio.
 
-Para gerar um contexto, podemos testar os geradores de código do Phoenix:
+Para gerar um contexto, podemos testar os [geradores de código do Phoenix](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.Html.html#content):
 
 ```bash
 mix phx.gen.html Menu MenuItem menu_items name:string:unique quantity:integer
@@ -60,36 +61,23 @@ mix phx.gen.html Menu MenuItem menu_items name:string:unique quantity:integer
 
 Um contexto deve dizer a **intenção** do que você quer fazer e não **como** você fez isso. E isso é algo muito difícil de se fazer segundo o Adam.
 
-
-#### Knowledge Crunching
-Prefira ciclos de desenvolvimento ágil
-
-
-Junte os dados que devam estar juntos
-
-O **Aggregate root** é o elemento principal
-
-
+#### Assimilando Conhecimento
+Prefira ciclos de desenvolvimento ágil. Você vai descobrir as coisas depois do que você acha que deveria descobrir. Junte os dados que devam estar juntos. Um **Aggregate** representa esses dados que deveriam estar juntos. O **Aggregate root** é o elemento principal. Prefira passar os **aggregates** pelo sistema, tendo todos os dados que você precisa diretamente.
 
 #### Como compartilhar entre os diferentes contextos
+Tem uma palestra do Andrew Hao, [Event-driven messaging](https://www.youtube.com/watch?v=5MBGDM8xSQg) que fala sobre como fazer mensageria em um sistema orientado a eventos.
 
-tem um post do chris mccord @todo
-
-[Event-driven messaging Andrew Hao](https://www.youtube.com/watch?v=5MBGDM8xSQg)
-
-Use os **eventos** do **mapa de contextos** com pub/sub
-Crie um `EventBus` e dentro do contexto crie um módulo `EventHandler`
-Esse contexto é conhecido como camada **anti-corrupção**, que não polui um contexto com dados de outro contexto
+Use os **eventos** do **mapa de contextos** com pub/sub. Crie um `EventBus` e dentro do contexto crie um módulo `EventHandler`, que vai receber eventos do `EventBus`.
+Esse conceito é conhecido no DDD como camada **anti-corrupção**, que não polui um contexto com dados de outro contexto, se comunicando através de mensagens.
 
 ### Preocupações
-O Adam expôs suas preocupações de DDD, começando dizendo que há toneladas de teoria sobre DDD, então é muito pra absorver e pensar sobre. Provavelmente use somente para grandes base de códigos - e para essas grande bases, implemente em fases, peça por peça. OO vs FP. Priorize a descoberta dos domínios.
-Abstraia no sistema o que irá mudar no negóico. Escute os especialistas de domínios. Sempre consulte o **mapa de contextos**.
+O Adam expôs suas preocupações sobre o DDD, começando com o fato de que há toneladas de teoria sobre o tema, representando muito pra absorver e pensar sobre durante o aprendizado. Provavelmente, utilize DDD somente para grandes bases de códigos - e para essas grande bases, implemente em fases, peça por peça. Pode ser difícil de se aprender também pelo fato de os livros serem mais voltados para OO, precisando pensar em como ficaria com programação funcional.
 
-[Functional and reactive domain modelling](https://www.manning.com/books/functional-and-reactive-domain-modeling)
+### Conclusões
+Priorize a **descoberta dos domínios**. Abstraia no sistema o que irá mudar no **negócio**. Escute os **especialistas de domínio**. Sempre consulte o **mapa de contextos**. O Adam também citou o livro [Functional and reactive domain modeling](https://www.manning.com/books/functional-and-reactive-domain-modeling) como uma referência da sua talk.
 
 
-[Confira aqui](https://docs.google.com/presentation/d/1ano0faAXjj4GMw6bJDLeI1-RtX_DlDLLQAkjXnAEGdY/edit) os slides da talk do Adam.
-
+[Confira os slides da talk do Adam.](https://docs.google.com/presentation/d/1ano0faAXjj4GMw6bJDLeI1-RtX_DlDLLQAkjXnAEGdY/edit)
 
 
 ## A Divina Comédia de um Código Legado: indo do Inferno ao Paraíso com Elixir - [Juliana Helena](https://twitter.com/julianahelenaa5)
