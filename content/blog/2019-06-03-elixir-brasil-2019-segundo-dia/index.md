@@ -82,69 +82,71 @@ Priorize a **descoberta dos domínios**. Abstraia no sistema o que irá mudar no
 
 ## A Divina Comédia de um Código Legado: indo do Inferno ao Paraíso com Elixir - [Juliana Helena](https://twitter.com/julianahelenaa5)
 
-A Juliana veio de Belo Horizonte para nos contar do case que ela participou, com código legado
 
-Como trabalhar de uma forma efetiva com código legado. livro @todo
-Código sem testes é código ruim. Com testes conseguimos ter
-> Código legado **também** é o código que você acabou de escrever
+![A Divina Comédia de um Código Legado: indo do Inferno ao Paraíso com Elixir - Juliana Helena (foto original do <a title="Twitter - Juliana Helena" href="https://twitter.com/julianahelenaa5/status/1132707780132069377" rel="nofollow">twitter dela</a>).](./juliana.jpg)
+
+A Juliana veio de Belo Horizonte para nos contar do case que ela participou no trabalho, em um projeto que tinha código legado.
+
+Assim, foi atrás de encontrar formas de se trabalhar com esse código. Citou o livro [Working Effectively with Legacy Code](https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052) (Trabalhando de forma efetiva com código legado). O autor define código legado simplesmente como **código sem testes**.
+E diz que **código sem testes é código ruim**. Com testes conseguimos ter confiança de mudar o comportamento do nosso código. Sem testes não sabemos se nosso código está evoluindo ou regredindo com o passar do tempo.
+
+> Código legado **também** é o código que você acabou de escrever.
 
 É importante manter o **respeito** e entender o **contexto** do código duvidoso que você encontra, não dá pra saber porque aquele código está daquela forma.
-Ok, mas você recebeu o problema: como lidar? A primeira coisa que você pode pensar é: vou reescrever tudo! Você tem duas opções: **refazer** ou **refatorar**, ambos com fatores a se considerar:
+Ok, mas você recebeu o problema: e agora, como lidar? A primeira coisa que você pode pensar é: vou reescrever tudo! Você tem duas opções: **refazer** ou **refatorar**, ambas com fatores a se considerar:
 
 - **Refazer**: custo, prazo, manter o legado funcionando em paralelo
-- **Refatorar**: começar com penas mudanças, ter qualidade em todo novo código, planejamento: pagar a dívida técnica frequentemente.
+- **Refatorar**: começar com pequenas mudanças, ter qualidade em todo novo código e fazer um planejamento para pagar a dívida técnica frequentemente.
 
 Você pode tentar convencer a equipe, evangelizando sobre qualidade de código, explicando sobre escalabilidade e menor custo de correção. Se tudo não funcionar: comece pequeno, mostre seus resultados e, em último caso, se não tiver jeito, mude de emprego.
 
 Falando sobre o case, a Juliana nos explicou como era lá. Assim vamos para a parte 1, **o Inferno**.
 
 ### Inferno
-Várias aplicações antigas e difíceis de escalar. Não havia cultura focada em qualidade de código. Existiam falhas de comunicação e falta de processos (para apagar os incêndios por exemplo). O conhecimento era centralizado em algumas pessoas e não havia muita documentação.
+Existiam equipes em São Paulo e Belo Horizonte. Várias aplicações antigas e difíceis de escalar. Não havia cultura focada em qualidade de código. Existiam falhas de comunicação e falta de processos (para apagar os incêndios por exemplo). O conhecimento era centralizado em algumas pessoas e não havia muita documentação.
 
 Em resumo:
 - Era uma rede de aplicações dependentes e sem testes ou informações precisas sobre o funcionamento.
-- Não tínhamos **segurança** para realizar alterações - suavizado pelo conhecimento da galera
+- Não havia **segurança** para realizar alterações - o que era um pouco suavizado pelo conhecimento da galera.
 
-Porém chegou uma notícia de reestruturação das equipes na empresa e todos os sistemas legados ficaram sob responsabilidade das equipes de BH, que não tinham conhecimento de tudo, já que ele era centralizado em outras equipes.
+Porém chegou uma notícia de reestruturação das equipes na empresa e todos os sistemas legados ficaram sob responsabilidade das equipes de BH, que não tinham conhecimento de tudo, já que ele era centralizado em outras equipes. As pessoas com maior conhecimento acabaram indo para outros times. Ela deu algumas sugestões de leitura, como o livro já citado [Working Effectively with Legacy Code](https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052), além do [Refactoring](https://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Signature/dp/0134757599) e o [Clean Code](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship-ebook/dp/B001GSTOAM).
 
 ### Purgatório
-Para fazer ml
+Para fazer a migração, três **pilares** foram definidos, sendo eles: transferir conhecimento de código não documentado; conseguir manter o funcionamento das aplicações e reestruturar os times.
 
-reestruturar os times
+Houve um processo **pré migração**, que envolveu a definição de uma **equipe de migração**, a divisão dos projetos entre as pessoas; a criação de documentação e aprendizado sobre projeto. Foi necessário entender os processos: quando dava um problema, rodavam um script e tentavam aprender o que acontecia. Além disso, haviam reuniões para compartilhamento de conhecimento e para esclarecimento de dúvidas.
 
-
-**Pré migração**: definição de uma **equipe de migração**, divisão dos projetos entre as pessoas; criação de documentação e aprendizado sobre projeto; entender os processos: deu um problema, roda um script aí e aprende; reuniões para compartilhamento de conhecimento/tirar dúvidas
-
-
-**Pós migração**: criação de squads, as pessoas ajudantes voltaram para seus squads normais; manter o funcionamento dos legados estável; começo do processo de reestruturação - criação de novas aplicações
+Assim, com tudo definido, ocorreu o processo de migração. Em seguida, ocorreu o processo **pós migração**, com a criação de *squads* e algumas pessoas ajudantes voltando para seus *squads* normais. Foi necessário manter estável o funcionamento dos legados e assim se deu o começo do processo de reestruturação, com a criação de novas aplicações.
 
 #### Por que o Elixir?
-Segundo o líder técnico da Juliana, a escolha foi para resolver problemas de concorrência e também por ser funcional. Já existiam alguns cases de sucesso da empresa em Elixir e por isso também já existia um background da equipe.
+Segundo o líder técnico da Juliana, a escolha do Elixir foi para resolver problemas de concorrência e também por ser funcional. Além disso, já existiam alguns cases de sucesso da empresa em Elixir e por isso também já existia um background da equipe.
 
 Assim nasceu o **AppPay**, com qualidade, testes, escalável, desacoplado e seguindo boas práticas.
 
 #### Próximos passos
-Evoluir novas aplicações, manter os legados **estáveis** com o mínimo de intervenção possível, até que a maior parte dos legados morra e eles cheguem no:
+Evoluir novas aplicações, manter os legados **estáveis** com o mínimo de intervenção possível, até que a maior parte dos legados morra, tendo um processo bem estruturado, qualidade, código escaláveis e eles cheguem no:
 
 ### Paraíso
-Para se manter no Paraíso, ela diz que é muito importante manter uma boa **comunicação**. Também fazer **1x1 com o gestor/líder técnico** para ter feedbacks rápidos. Focar em **documentação** é essencial, ela cita inclusive o exemplo do Swagger @todo para documentar APIs. Uma boa prática é a de **code review**. É preciso ter foco em **qualidade de código**, usando inclusive *linters*. Tenha **processos bem definidos**, com cerimônias bem feitas, tarefas bem escritas, prioridades estabelecidas e respeitadas. **Acessibilidade** é algo legal de se pensar desde o início, não espere surgir uma demanda pra isso.
+Para se manter no Paraíso, ela diz que é muito importante manter uma boa **comunicação**. Também fazer **1x1 com o gestor/líder técnico** para ter feedbacks precisos e mentoria. Focar em **documentação** é essencial, ela cita inclusive o exemplo do [Swagger](https://petstore.swagger.io/) para documentar APIs. Uma boa prática é a de **code review** (com cuidado na comunicação). É preciso ter foco em **qualidade de código**, com testes e usando inclusive *linters*. São necessários **processos bem definidos**, com cerimônias bem feitas, tarefas bem escritas, prioridades estabelecidas e respeitadas. **Acessibilidade** é algo legal de se pensar desde o início, não sendo necessário esperar surgir uma demanda pra isso.
 
 ### Considerações finais
-Não existe bala de prata, depende do projeto e tipo de gestão, tente criar uma cultura de foco em qualidade. Incentive sua comunidade local. Incentive mulheres, pessoas negras, pessoas LGBTQI+, pessoas trans e pessoas com  deficiência no seu time, empresa e comunidade. É importante que as empresas/RHs invistam em formação e busca ativa. Também é muito importante deixar as pessoas falarem, respeitar o espaço de fala de cada um.
+Não existe bala de prata, depende do projeto e tipo de gestão. Tente criar uma cultura de foco em qualidade, que vai evoluindo junto com o time. **Incentive sua comunidade local**, com palestras, espaço físico/coffee breaks, mentoria e open source. **Incentive mulheres, pessoas negras, pessoas LGBTQI+, pessoas trans e pessoas com  deficiência** no seu time, empresa e comunidade. É importante que as empresas/RHs invistam em formação e busca ativa. Também é muito importante deixar as pessoas falarem, respeitar o espaço de fala de cada um.
 A Juliana [criou um texto](https://bit.ly/culturadediversidade) sobre como criar uma cultura de diversidade em sua empresa, vale a pena ler!
+
+Para conferir os slides da apresentação, [clique aqui](https://speakerdeck.com/julianahelena5/a-divina-comedia-de-um-codigo-legado-indo-do-inferno-ao-paraiso-com-elixir).
 
 
 ## Primeiros passos com Nerves - Elixir based IoT - [Donato Viana](https://twitter.com/donatoaz)
 
+![Primeiros passos com Nerves - Elixir based IoT - Donato Viana.](./donato.jpg)
 
-Linux embarcado significa que é otimizado e customizado para dispositivos embarcados
-Aspectos importantes: recursos limitados, overhead de desenvolvimento - cross compiling, flashing, etc., atualizações em campo
+Resolvi voltar do almoço e ir para a trilha iniciante, para ver a talk do Donato, que tive oportunidade de conhecer no pós evento do dia anterior. Fiquei interessado para conhecer o Nerves, mesmo sem nunca ter mexido com o IoT. Ele começa sua talk definindo que Linux embarcado significa que é otimizado e customizado para dispositivos embarcados. Alguns aspectos importantes de dispositivos embarcados: temos recursos limitados, *overhead* de desenvolvimento - *cross compiling*, *flashing*, etc., precisamos pensar em atualizações em campo (no dispositivo, que está distante de você).
 
 ### Nerves
-É uma plataforma, um framework, um conjunto de ferramentas e um *toolchain* para fazer Elixir Embarcado. Mas, com isso, surge a pergunta: por que Elixir Embarcado? - e a resposta é: Por que não? Foi pra isso que a BEAM foi criada, pra telecomunicações altamente disponíveis. O mundo real é concorrente (coisas acontecem ao mesmo tempo ou em algum tempo não previsível).
+É uma plataforma, um framework, um conjunto de ferramentas e um *toolchain* para fazer Elixir Embarcado. Mas, com isso, surge a pergunta: por que Elixir Embarcado? - e a resposta é: Por que não? Foi pra isso que a BEAM foi criada, para telecomunicações altamente disponíveis. O mundo real é concorrente (coisas acontecem ao mesmo tempo ou em algum tempo não previsível).
 Deixe falhar, mas não deixe explodir - se o usuário não perceber está OK :)
 
-Seu App + Toolchain + Platform (junta tudo com ferramental)-> Firmware (com ferramental)-> SD card
+Seu App + Toolchain + Platform (junta tudo com ferramental)-> Firmware (com ferramental) -> SD card
 
 Toolchain: conjunto de ferramentas para compilar para diversas arquiteturas. Plataformas são imagens customizadas, feitas pela comunidade para rodar nos dispositivos.
 
@@ -166,17 +168,16 @@ O Donato mostrou pra gente um projeto IoT incrível chamado Farmbot, vale a pena
 
 ## Testando no mundo Elixir - [Rafael Rocha](https://twitter.com/RocRafael)
 
-Quando começamos uma estória de usuário, vemos a descrição, os critérios de aceito e começamos a desenvolver
-Mas.. estamos trazendo as especificações para o código?
-E quão confiante você está com a sua entrega?
-Então, por que testar?
-Segundo ele, ajuda a ter **confiança** sobre suas entregas, ajuda a **organizar** os pensamentos, mantém os **custos baixos**, traz mais **qualidade** para o produto.
+Quando começamos uma estória de usuário, vemos a descrição, os critérios de aceite e começamos a desenvolver. Mas... estamos trazendo as especificações para o código? E quão confiante você fica com a sua entrega? Então, **por que testar**?
+
+Segundo o Rafael, testar ajuda a ter **confiança** sobre suas entregas, ajuda a **organizar** os pensamentos, mantém os **custos baixos** e traz mais **qualidade** para o produto.
 
 ### Tipos de teste
 
 **Aceitação** expressa um cenário, é de ponta a ponta, garantem mais a qualidade externa e mais próximo da camada de apresentação - além de serem lentos. **Integração** entre aceitação e unitário
 **Unitários** testa o comportamento de uma única unidade,
-Piramide de testes foto @todo
+
+![Rafael e a Pirâmide de Testes.](./rafael.jpg)
 
 O Rafael trouxe um exemplo para exercitar esses conceitos, mostrando conceitos e implementações. Ele usou uma estratégia de "cebola", de testar em camadas, de fora pra dentro. Para poder entender as camadas, você precisa fazer uma reflexão sobre quais elas são, ajudando na compreensão do problema. Ele mostrou de forma bem rápida como seria o formato de cada um dos testes e o tipo de segurança que aquele teste traz. Ele também enviou um pouco sobre os **Dublês** de teste, para evitar tocar sistemas externos.
 
