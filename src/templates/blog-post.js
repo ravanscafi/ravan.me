@@ -43,7 +43,9 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1),
           }}
         />
-        <Bio />
+        <Bio>
+          <div><strong>{site.siteMetadata.author}</strong></div>
+        </Bio>
 
         <ul
           style={{
