@@ -140,30 +140,30 @@ Para conferir os slides da apresentação, [clique aqui](https://speakerdeck.com
 
 ![Primeiros passos com Nerves - Elixir based IoT - Donato Viana.](./donato.jpg)
 
-Resolvi voltar do almoço e ir para a trilha iniciante, para ver a talk do Donato, que tive oportunidade de conhecer no pós evento do dia anterior. Fiquei interessado para conhecer o Nerves, mesmo sem nunca ter mexido com o IoT. Ele começa sua talk definindo que Linux embarcado significa que é otimizado e customizado para dispositivos embarcados. Alguns aspectos importantes de dispositivos embarcados: temos recursos limitados, *overhead* de desenvolvimento - *cross compiling*, *flashing*, etc., precisamos pensar em atualizações em campo (no dispositivo, que está distante de você).
+Resolvi voltar do almoço e ir para a trilha iniciante, para ver a talk do Donato, que tive oportunidade de conhecer no pós evento do dia anterior. Fiquei interessado para conhecer o Nerves, mesmo sem nunca ter mexido com o IoT. Ele começa sua talk definindo que Linux embarcado significa que é otimizado e customizado para dispositivos embarcados. Alguns aspectos importantes de dispositivos embarcados: temos recursos limitados (em certos aspectos), há um *overhead* de desenvolvimento - *cross compiling*, *flashing*, etc. e precisamos pensar em atualizações em campo, no dispositivo, que está distante de nós.
 
 ### Nerves
-É uma plataforma, um framework, um conjunto de ferramentas e um *toolchain* para fazer Elixir Embarcado. Mas, com isso, surge a pergunta: por que Elixir Embarcado? - e a resposta é: Por que não? Foi pra isso que a BEAM foi criada, para telecomunicações altamente disponíveis. O mundo real é concorrente (coisas acontecem ao mesmo tempo ou em algum tempo não previsível).
-Deixe falhar, mas não deixe explodir - se o usuário não perceber está OK :)
+É uma plataforma, um framework, um conjunto de ferramentas e um *toolchain* para fazer Elixir Embarcado. Mas, com isso, surge a pergunta: "por que Elixir Embarcado?" - e a resposta é: Por que não? Foi pra isso que a BEAM foi criada, para telecomunicações altamente disponíveis. O mundo real é concorrente: coisas acontecem ao mesmo tempo ou em algum tempo não previsível.
 
-Seu App + Toolchain + Platform (junta tudo com ferramental)-> Firmware (com ferramental) -> SD card
+![Como tudo se relaciona em uma aplicação Nerves.](./app_nerves.jpg)
 
-Toolchain: conjunto de ferramentas para compilar para diversas arquiteturas. Plataformas são imagens customizadas, feitas pela comunidade para rodar nos dispositivos.
+Um **toolchain** é um conjunto de ferramentas para compilar para diversas arquiteturas. **Plataformas** são imagens customizadas, feitas pela comunidade para rodar nos dispositivos. O Fluxo de desenvolvimento, basicamente é: faz o código, compila e empacota o firmware, em seguida o transfere para o dispositivo, testa, corrige bugs e repete.
 
-O Fluxo de desenvolvimento: faz o código, compila e empacota o firmware, transfere o firmware, testa e repete.
-
-Entre os pontos fortes estão o **boot rápido**, de segundos; o **tamanho reduzido** (menos de 100mb); estratégia de **update com imagem inteira**; estratégia de **fallback com partições A/B** - somente alterando a versão caso funcione; **robustez ante a perda de energia** (o sistema de arquivos é somente leitura) e **atualizações OTA** (*Over The Air*, igual você provavelmente atualiza seu Android).
+Entre os pontos fortes estão o **boot rápido**, de segundos; o **tamanho reduzido** (menos de 100mb); a estratégia de **update com imagem inteira**; a estratégia de **fallback com partições A/B** - somente alterando a versão caso funcione; a **robustez ante a perda de energia** (o sistema de arquivos é somente leitura) e **atualizações OTA** (*Over The Air*, igual você provavelmente atualiza seu Android).
 
 > "O Nerves está fazendo para desenvolvimento embarcado e Elixir o que o Rails fez pelo desenvolvimento web e pelo Ruby."
+>
 > Arto Bendiken
 
-Em seguida o Donato mostrou um "live coding" mostrando rapidamente como é a cara do framework e como desenvolver algo para o Raspberry PI dele - no caso, piscar um LED, que ele disse ser o "Hello World" do mundo IoT. Os vídeos da apresentação estão disponíveis no YouTube:
+Em seguida o Donato fez um *live coding* mostrando rapidamente como é a cara do framework e como desenvolver algo para o [Raspberry PI](https://www.raspberrypi.org/) dele - no caso, piscar um LED, que ele disse ser o "Hello World" do mundo IoT. Os vídeos da apresentação estão disponíveis no YouTube:
 
 1. [Elixir Nerves - blinky example](https://www.youtube.com/watch?v=PniEVXOYd3g)
 2. [Elixir Nerves OTA using uploader script](https://www.youtube.com/watch?v=F-mYpVabptw)
 3. [Elixir Nerves ssh and show log](https://www.youtube.com/watch?v=QM9rnAsl95A)
 
-O Donato mostrou pra gente um projeto IoT incrível chamado Farmbot, vale a pena ver o [vídeo no YouTube](https://www.youtube.com/watch?v=uNkADHZStDE) ou conferir o site.
+Em seguida, o Donato mostrou pra gente um projeto IoT incrível chamado [Farmbot](https://farm.bot/), vale a pena ver o [vídeo no YouTube](https://www.youtube.com/watch?v=uNkADHZStDE) ou conferir o site.
+
+Os slides da talk estão disponíveis no [SlideShare](https://www.slideshare.net/DonatoAzevedo/primeiros-passos-com-nerves-elixir-para-dispositivos-embarcados).
 
 
 ## Testando no mundo Elixir - [Rafael Rocha](https://twitter.com/RocRafael)
@@ -174,52 +174,53 @@ Segundo o Rafael, testar ajuda a ter **confiança** sobre suas entregas, ajuda a
 
 ### Tipos de teste
 
-**Aceitação** expressa um cenário, é de ponta a ponta, garantem mais a qualidade externa e mais próximo da camada de apresentação - além de serem lentos. **Integração** entre aceitação e unitário
-**Unitários** testa o comportamento de uma única unidade,
+Um Teste de **Aceitação** expressa um cenário, é de ponta a ponta, garante mais a qualidade externa e é mais próximo da camada de apresentação - porém é lento. Um Teste de **Integração** fica entre os Testes de **Aceitação** e os Testes **Unitários**. Um Teste **Unitário** testa o comportamento de uma única unidade do sistema.
 
 ![Rafael e a Pirâmide de Testes.](./rafael.jpg)
 
-O Rafael trouxe um exemplo para exercitar esses conceitos, mostrando conceitos e implementações. Ele usou uma estratégia de "cebola", de testar em camadas, de fora pra dentro. Para poder entender as camadas, você precisa fazer uma reflexão sobre quais elas são, ajudando na compreensão do problema. Ele mostrou de forma bem rápida como seria o formato de cada um dos testes e o tipo de segurança que aquele teste traz. Ele também enviou um pouco sobre os **Dublês** de teste, para evitar tocar sistemas externos.
+O Rafael trouxe um exemplo para exercitar testes, mostrando conceitos e implementações. Ele usou uma estratégia de "cebola", de testar em camadas, de fora pra dentro. Para poder entender as camadas, você precisa fazer uma reflexão sobre quais elas são, ajudando na compreensão do problema. Ele mostrou de forma bem rápida como seria o formato de cada um dos testes e o tipo de segurança que aquele teste traz. Ele também ensinou um pouco sobre os **Dublês** de teste, para evitar tocar sistemas externos.
 
-Ele também trouxe o conceito de `Doctests`, explicando que é uma ferramenta para garantir que a nossa documentação está válida. Você põe no *docblock* um exemplo de como funcionaria aquela função e pode rodar isso para ver se está correto.
+Trouxe ainda o conceito de `Doctests`, explicando que é uma ferramenta para garantir que a nossa documentação esteja válida. Basicamente, você coloca no *docblock* um exemplo de como funcionaria aquela função e pode rodar esse exemplo como código, para ver se o comportamento da função está correto.
 
-Nos slides, você pode conferir toda a talk, incluindo o código e os testes feitos.
+O código encontra-se [disponível no GitHub](https://github.com/rafaelrochasilva/greenbox). Um outro recurso legal é o post [Starting with Elixir, the Study Guide](http://blog.plataformatec.com.br/2018/11/starting-with-elixir-the-study-guide/), guia de estudos sobre Elixir escrito pelo próprio Rafael.
 
+Nos slides, você pode conferir toda a talk, incluindo o código e os testes feitos. @todo
 
 ## Mantendo a Sanidade Testando Estado - [Andrew Rosa](https://twitter.com/_andrewhr)
 
-De volta a trilha avançada,
-
-Teste baseado em propriedades
-
-Usando [PropEr](https://jeffkreeftmeijer.com/mix-proper/) com elixir.
+De volta a trilha avançada, temos agora a talk do Andrew, falando sobre como manter a sanidade testando estado, com o conceito de **testes baseado em propriedades**. E para isso, ele utiliza a ferramenta [PropEr](https://jeffkreeftmeijer.com/mix-proper/) com seu código Elixir.
 
 Um simples teste pode ser:
 
 ```elixir
 test "sorts a list" do
-	assert Enum.sort([3, 1, 3]) == [1, 2, 3]
+	assert Enum.sort([3, 1, 2]) == [1, 2, 3]
 end
 ```
 
-Esse é um teste onde você informa a lista a ser ordenada. Já, em um teste de entrada, você não define uma entrada específica como o exemplo acima, mas pede algumas listas aleatórias para testar o seu código. Você tem alguns geradores que pode usar para gerar dados para testar seu sistema. E assim, você roda os seus testes  e verifica se os mesmo estão funcionando.
+Esse é um teste onde você informa a lista a ser ordenada. Já, em um **teste de entrada**, você não define uma entrada específica como o exemplo acima (`[3, 1, 2]`), mas pede algumas listas aleatórias para testar o seu código. Você tem alguns geradores que pode usar para gerar dados para testar seu sistema. E assim, você roda os seus testes e verifica se os mesmo estão funcionando.
 
 Caso um erro seja encontrado, acontece um **shrinking**, que tenta encontrar um caso mínimo que quebre o teste, sendo mais fácil de encontrar a razão do problema que levou seu código a estar errado.
+
 O Andrew mostrou bem didaticamente como fazer vários testes baseados em propriedades com exemplo "reais". Confira depois nos slides.
 
-Para ele e sua equipe, o legal é que como muitos testes são gerados, vários *edge cases* são encontrados sem que eles tenham que ficar pensando sobre eles. Porém, como são muitos testes, eles demoram! É necessário saber qual o retorno de investimento daquele teste, você não precisa fazer por exemplo para um *CRUD*.
+![Andrew Rosa - Mantendo a Sanidade Testando Estado.](./andrew.jpg)
+
+Para ele e sua equipe, o legal é que como muitos testes são gerados, vários *edge cases* são encontrados sem que eles tenham que ficar pensando sobre eles. Porém, como são muitos testes a serem rodados, eles demoram! É necessário saber qual o **retorno de investimento** daquele teste, você não precisa fazer por exemplo para um *CRUD*, mas pode pegar partes sensíveis de seu sistema e submetê-las a testes baseados em propriedades.
+
+@todo slides
 
 ## Stand-Up - Em busca do elixir do desenvolvimento - [Rodrigo "pokemaobr" Cardoso](https://twitter.com/pokemaobr)
 
-O grande pokemao fez um stand-up na hora do intervalo.
+O grande pokemao fez um stand-up na hora do intervalo, levantando risadas da plateia com piadas sobre Elixir e programação.
 
 ![Em busca do elixir do desenvolvimento - Pokemaobr](./pokemao.jpg)
 
 ## Livestream de Elixir para aumentar a comunidade - [Philip Sampaio](https://twitter.com/philipsampaio)
 
-O que é Live Streaming? Geralmente pensamos em jogos quando falamos sobre live streaming e provavelmente 98% dos streams são de outros jogos. É fascinante pensar que assistir outros jogadores é legal.
-Algumas pessoas, como a Suz Hinton @todo fazem streaming de código e utilizam o twitch pra isso. Ela fala sobre JavaScript/Node, bem como Open Source, acessibilidade de IoT.
-Ela conseguia explicar algo complexo pra alguém, prestar a atenção no chat e elaborar um racioncínio complexo enquanto isso.
+Agora na trilha iniciante, temos o Philip falando sobre *Live Streaming*. Mas, o que é *Live Streaming*? Geralmente pensamos em jogos quando falamos sobre live streaming e provavelmente 98% dos streams são de jogos. É fascinante pensar que assistir outros jogadores, ao vivo, é legal.
+
+No entanto, algumas pessoas, como a [Suz Hinton](https://www.twitch.tv/noopkat) fazem streaming de código e utilizam o Twitch pra isso. Ela fala sobre JavaScript/Nodejs, bem como Open Source, acessibilidade e IoT. Ela consegue explicar algo complexo pra alguém, prestar atenção no chat e elaborar um raciocínio complexo enquanto isso - e isso fascinou o Philip.
 
 No final de 2018, o José Valim - criador do Elixir - começou a fazer o mesmo! Eventualmente ele fazia lives mostrando como resolver problemas do Advent of Code @todo e foi bem legal pra mostrar como resolver com Elixir alguns desses problemas. E pro Philip isso foi incrível, pois ele tinha muita curiosidade em saber como o pessoal do Open Source codava - e descobriu que não era tão diferente assim 😉. A ideia veio do irmão do Valim, professor que achava que isso poderia ajudar a comunidade.
 
@@ -236,7 +237,7 @@ No final de 2018, o José Valim - criador do Elixir - começou a fazer o mesmo! 
  OBS Studio para fazer broadcast.
  Faz o stream da tela, possibilita configurar Cenas Ricas, disponibiliza várias configurações para mic/câmera e é totalmente Open Source.
 
- > foto configurando o OBS
+![Philip, Philip e Philip - Configurando o OBS Studio.](./philip.jpg)
 
 Caso você não tenha câmera, você pode usar seu celular e configurar para usar como uma webcam.
 
@@ -254,8 +255,12 @@ Ele mostrou também algumas pessoas que estão fazendo streaming de código
 
 Como conclusão, o Philip diz que acredita que live streaming podem ser artefatos muito poderosos para fazer a comunidade Elixir crescer no Brasil.
 
+Confira os slides no [SpeakerDeck](https://speakerdeck.com/philss/streaming-de-codigo-elixir-para-aumentar-a-comunidade).
+
 ## Mesa redonda com streamers de Elixir - [Philip Sampaio](https://twitter.com/philipsampaio), [Ulisses Almeida](https://twitter.com/ulissesalmeida) e [Geovane Fedrecheski](https://twitter.com/geonnave)
 
+
+![Mesa redonda com os streamers Philip, Ulisses e Geovane.](./mesa_redonda_streamers.jpg)
 
 diferença vídeo e streaming - stream é mais simples, não necessita de edição e se errar está ok, pode ser uma forma de começar.
 
