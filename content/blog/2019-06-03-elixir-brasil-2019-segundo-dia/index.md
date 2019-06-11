@@ -353,13 +353,15 @@ sync init; raise on errors
 
 É raro que você precise de conexões externas o tempo inteiro para funcionar, então podemos usar a abordagem de estar indisponível por um tempo.
 
-`gen_statem` @todo foto
+![Esquema de um 'gen_statem'.](./gen_statem.jpg)
 
 Tente reconectar a serviços externos, mas não a cada X segundos ou instantaneamente. use uma estratégia "backoff", que tenta em tempo exponencial e também randomizado um pouco (um pouco de tempo a mais ou a menos).
 
 Processos gargalo: são processos que todo o seu sistema depende e que atrasam tudo caso fiquem lentos. Por exemplo, chamadas bloqueantes para o Cache. Então seu cache vai ser um gargalo.
 
 Com uma tabela `ETS` pode ajudar a resolver esse problema. @todo imagem.
+
+![Tabela ETS para com @todo](./ets_table.jpg)
 
 `Pools` de conexões também pode ser uma solução para esses gargalos, onde através de uma rotação, vo
 `checkout pools` (lidam com a conexão) vs `name based pools` (registrados com nomes, vc pede conexão por nome) com `registry`, toma cuidado e processa os nomes.
@@ -399,3 +401,5 @@ Aprenda sobre **Sistemas distribuídos**. A arquitetura BEAM é **boa**, leve is
 http://ferd.ca
 
 "Distributed system for fun and profit"
+
+Confira os slides (lindos demais, desenhados a mão!) da talk do Andrea [no SpeakerDeck](https://speakerdeck.com/whatyouhide/beam-architecture-handbook).
