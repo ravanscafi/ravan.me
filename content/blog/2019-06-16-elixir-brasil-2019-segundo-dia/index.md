@@ -1,7 +1,7 @@
 ---
 title: Elixir Brasil 2019 - Segundo dia
 description: "O segundo dia de #ElixirBrasil foi tão impressionante quanto o primeiro - e eu estava lá também!"
-date: "2019-06-16T18:00:00.000Z"
+date: "2019-06-16T20:00:00.000Z"
 cover: ./amanda.jpg
 ---
 
