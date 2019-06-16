@@ -1,7 +1,7 @@
 ---
 title: Elixir Brasil 2019 - Segundo dia
 description: "O segundo dia de #ElixirBrasil foi tão impressionante quanto o primeiro - e eu estava lá também!"
-date: "2019-06-16T18:30:00.000Z"
+date: "2019-06-16T18:00:00.000Z"
 cover: ./amanda.jpg
 ---
 
@@ -379,6 +379,6 @@ Fica aqui meus parabéns à organização.
 
 Também deixo meus parabéns para a curadoria de palestrantes do evento e todos os ajudaram de alguma forma. Valeu demais!
 
-<blockquote class="twitter-tweet"><p lang="pt" dir="ltr">Não temos palavras pra agradecer a todas as pessoas e empresas que ajudaram a <a href="https://twitter.com/hashtag/ElixirBrasil?src=hash&amp;ref_src=twsrc%5Etfw">#ElixirBrasil</a> acontecer &lt;3 Nos vemos em 2020 <a href="https://t.co/GiY6tq9pxm">pic.twitter.com/GiY6tq9pxm</a></p>&mdash; Elixir Brasil (@elixir_brasil) <a href="https://twitter.com/elixir_brasil/status/1132822827009282049?ref_src=twsrc%5Etfw">May 27, 2019</a></blockquote>
+<blockquote class="twitter-tweet" style="margin: 0 auto"><p lang="pt" dir="ltr">Não temos palavras pra agradecer a todas as pessoas e empresas que ajudaram a <a href="https://twitter.com/hashtag/ElixirBrasil?src=hash&amp;ref_src=twsrc%5Etfw">#ElixirBrasil</a> acontecer &lt;3 Nos vemos em 2020 <a href="https://t.co/GiY6tq9pxm">pic.twitter.com/GiY6tq9pxm</a></p>&mdash; Elixir Brasil (@elixir_brasil) <a href="https://twitter.com/elixir_brasil/status/1132822827009282049?ref_src=twsrc%5Etfw">May 27, 2019</a></blockquote>
 
 Nos vemos em 2020 - quem sabe com uma talk minha também? 😉
