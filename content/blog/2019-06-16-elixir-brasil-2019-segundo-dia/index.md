@@ -1,7 +1,7 @@
 ---
 title: Elixir Brasil 2019 - Segundo dia
 description: "O segundo dia de #ElixirBrasil foi tão impressionante quanto o primeiro - e eu estava lá também!"
-date: "2019-06-03T13:00:00.000Z"
+date: "2019-06-16T18:30:00.000Z"
 cover: ./amanda.jpg
 ---
 
@@ -314,6 +314,8 @@ Uma forma de lidar com isso é consumindo mensagens desconhecidas, adicionando l
 
 Guia de uso de **Árvores de Supervisão**:
 
+# ![Andrea e o <strong>Whiteboard Design</strong> das árvores de supervisão.](./andrea.jpg)
+
 - **Whiteboard Design**: desenhe a árvore de supervisão num quadro branco para que você tenha certeza do que está acontecendo na aplicação.
 - **Estratégias**: `one_for_one`, `one_for_all`, `rest_for_one`. Monte árvores de supervisão aninhadas, utilize-se disso. por exemplo, uma árvore de supervisão que tem como filhos, tanto o `cache` como três `workers`. Nenhuma das estratégias funciona bem nesse caso, pois a eventual falha de um desses filhos vai reiniciar coisas de forma errada. Para resolver, o ideal é ter um supervisor dos três `workers`, ficando com o `cache` como irmão. Assim, você pode ter uma estratégia para o supervisor principal (`rest_for_one`) e outra para o supervisor de `workers` (`one_for_one`). Todos os processos deveriam ser supervisionados. Sempre dê nome para os seus supervisores, para ficar mais fácil de debugar em sistemas em produção.
 - **Teste de árvores de supervisão**: uma forma de fazer isso é com *Chaos Monkey*. O repositório [ferd/sups](https://github.com/ferd/sups) ajuda fazendo **property based testing** (como citado na talk do Andrew Rosa) para montar um modelo da sua árvore de supervisão.
@@ -375,7 +377,7 @@ Fica aqui meus parabéns à organização.
 
 ![<a href="https://twitter.com/mjcoffeeholick" rel="nofollow">Alda Rocha</a> e <a href="https://twitter.com/noteu" rel="nofollow">João Britto</a> - os organizadores do Evento. Foto por <a href="https://www.behance.net/gallery/81294793/Elixir-Brasil-2019-Maio-2019" rel="nofollow">Gabi Nascimento</a>.](./organizadores.jpg)
 
-Também deixo meus parabéns para a curadoria de palestrantes do evento e todos os ajudaram de alguma forma.
+Também deixo meus parabéns para a curadoria de palestrantes do evento e todos os ajudaram de alguma forma. Valeu demais!
 
 <blockquote class="twitter-tweet"><p lang="pt" dir="ltr">Não temos palavras pra agradecer a todas as pessoas e empresas que ajudaram a <a href="https://twitter.com/hashtag/ElixirBrasil?src=hash&amp;ref_src=twsrc%5Etfw">#ElixirBrasil</a> acontecer &lt;3 Nos vemos em 2020 <a href="https://t.co/GiY6tq9pxm">pic.twitter.com/GiY6tq9pxm</a></p>&mdash; Elixir Brasil (@elixir_brasil) <a href="https://twitter.com/elixir_brasil/status/1132822827009282049?ref_src=twsrc%5Etfw">May 27, 2019</a></blockquote>
 
