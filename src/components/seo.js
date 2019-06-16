@@ -22,7 +22,7 @@ function SEO({ description, lang, meta, title, cover }) {
             siteUrl
           }
         }
-        image: file(absolutePath: { regex: "/icon.jpg/" }) {
+        image: file(absolutePath: { regex: "/icon.png/" }) {
           childImageSharp {
             fixed(width: 360, height: 360) {
               src
@@ -34,7 +34,9 @@ function SEO({ description, lang, meta, title, cover }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const imageUrl = `${site.siteMetadata.siteUrl}${cover || image.childImageSharp.fixed.src}`
+  const type = cover ? 'summary_large_image' : 'summary'
+  const imageUrl = `${site.siteMetadata.siteUrl}${cover ||
+    image.childImageSharp.fixed.src}`
 
   return (
     <Helmet
@@ -66,7 +68,7 @@ function SEO({ description, lang, meta, title, cover }) {
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: type,
         },
         {
           name: `twitter:creator`,

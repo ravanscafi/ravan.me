@@ -45,7 +45,9 @@ class BlogPostTemplate extends React.Component {
           }}
         />
         <Bio>
-          <div><strong>{site.siteMetadata.author}</strong></div>
+          <div>
+            <strong>{site.siteMetadata.author}</strong>
+          </div>
         </Bio>
 
         <ul
@@ -109,7 +111,7 @@ export const pageQuery = graphql`
         description
         cover {
           childImageSharp {
-            fixed(width: 360, height: 360) {
+            fixed(width: 600) {
               src
             }
           }
