@@ -269,43 +269,38 @@ Em termos de conhecimento técnico, procure saber um pouco de estrutura de dados
 
 E diz também que empresa boa é empresa que responde - se ela não te respondeu, talvez ela não era tão boa. Empresa boa também valoriza diversidade e inclusão.
 
-Honestamente, não consegui acompanhar direito as outras talks relâmpagos, pois acabei fazendo uma também. Falei sobre o [Exercism](https://exercism.io/), uma plataforma opensource para prática de código e mentoria para todos - um lugar legal pra aprender Elixir e Programação Funcional!
+Honestamente, não consegui acompanhar direito as outras talks relâmpagos, pois acabei tendo a honra de fazer uma talk relâmpago também, de última hora. Falei sobre o [Exercism](https://exercism.io/), uma plataforma opensource para prática de código e mentoria para todos - um lugar legal pra aprender Elixir e Programação Funcional!
 
 Várias comunidades acabaram se apresentando também. Elas estiveram presentes graças a uma iniciativa muito legal de diversidade do evento.
 
-<blockquote class="twitter-tweet"><p lang="pt" dir="ltr">No dia da África, estamos fazendo história: <a href="https://twitter.com/AfroPython?ref_src=twsrc%5Etfw">@AfroPython</a> , <a href="https://twitter.com/tecnogueto?ref_src=twsrc%5Etfw">@tecnogueto</a> , <a href="https://twitter.com/perifacode?ref_src=twsrc%5Etfw">@perifacode</a> e <a href="https://twitter.com/afrotechbr?ref_src=twsrc%5Etfw">@afrotechbr</a> participando de grandes eventos. Tecnologia e Diversidade caminham lado a lado<br>Pessoas, são o CENTRO.<br>Não é inclusão. É pertencimento. Esses espaços também são nossos. <a href="https://twitter.com/hashtag/Ubuntu?src=hash&amp;ref_src=twsrc%5Etfw">#Ubuntu</a> ✊🏿 <a href="https://t.co/mMMp5WYcRo">pic.twitter.com/mMMp5WYcRo</a></p>&mdash; AfrotechBR (@afrotechbr) <a href="https://twitter.com/afrotechbr/status/1132366765407854593?ref_src=twsrc%5Etfw">May 25, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" style="margin: 0 auto"><p lang="pt" dir="ltr">No dia da África, estamos fazendo história: <a href="https://twitter.com/AfroPython?ref_src=twsrc%5Etfw">@AfroPython</a> , <a href="https://twitter.com/tecnogueto?ref_src=twsrc%5Etfw">@tecnogueto</a> , <a href="https://twitter.com/perifacode?ref_src=twsrc%5Etfw">@perifacode</a> e <a href="https://twitter.com/afrotechbr?ref_src=twsrc%5Etfw">@afrotechbr</a> participando de grandes eventos. Tecnologia e Diversidade caminham lado a lado<br>Pessoas, são o CENTRO.<br>Não é inclusão. É pertencimento. Esses espaços também são nossos. <a href="https://twitter.com/hashtag/Ubuntu?src=hash&amp;ref_src=twsrc%5Etfw">#Ubuntu</a> ✊🏿 <a href="https://t.co/mMMp5WYcRo">pic.twitter.com/mMMp5WYcRo</a></p>&mdash; AfrotechBR (@afrotechbr) <a href="https://twitter.com/afrotechbr/status/1132366765407854593?ref_src=twsrc%5Etfw">May 25, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## BEAM architecture handbook - [Andrea Leopardi](https://twitter.com/whatyouhide)
 
-Andrea, um dos core commiters do Elixir já há três anos.
-Ele usa Elixir no trabalho por um ano. Nessa talk, ele quer dar bastante dicas sobre quando você for fazer sua aplicação em Elixir, em como funciona a BEAM. Começando a partir de um único nó e crescendo para vários. Essa talk também se aplica a Erlang, ele diz.
+Para fechar o evento tivemos o keynote do Andrea, um dos *core commiters* do Elixir já há três anos. Ele usa Elixir no trabalho há um ano. Nessa talk, ele quer dar bastante dicas para quando você for fazer sua aplicação em Elixir e sobre como funciona a BEAM. Começando a partir de um único nó e crescendo para vários. Essa talk também se aplica a Erlang, ele diz.
 
-Arquitetura de um único nó
+### Arquitetura de um único nó
 
-Ele começa com a menor unidade de computação: processo. é uma unidade de isolamento e concorrência (não unidades de separação de código).
+Ele começa com a menor unidade de computação: um processo. É uma unidade de isolamento e concorrência (não unidades de separação de código). Por exemplo, um "distribuidor de TCP" que distribui processos para "conexões TCP". Esse é um bom caso de uso para processos. Caso uma conexão caia, ela está isolada e os outras continuam.
 
-Por exemplo, um "aceitador de TCP" que distribui processos para "conexões TCP". Esse é um bom caso de uso para processos, caso uma conexão caia, ele está isolado e os outros continuam.
+![Um "distribuidor de TCP" utilizando processos. Quando uma conexão cai, as outras continuam.](./tcp_acceptor.jpg)
 
-@todo foto tcp
-
-Por exemplo agora, você tem sua conexão, e um "connection handler", como ele se relaciona com a sua "session"? É só um tanto de dados e talvez não deveria estar em um processo separado. Você pode usar uma data estruture dentro do handler.
-
-O problema de salvar estado dentro de processos
+Em outro exemplo, você tem sua conexão e um "connection handler", que se conecta a sua sessão. Como ele se relaciona com a sua sessão? Ela é só um punhado de dados e talvez não devesse estar em um processo separado. Ela poderia ser apenas uma "data structure" dentro do *connection handler*. Ele ressalta que o problema de salvar estado dentro de processos é:
 
 > **Qualquer** processo seu irá *morrer* em **qualquer** dado momento e **todo** o estado deles será *perdido*.
 
-`Flush` o estado do processo constantemente, faça o estado ser remontável (sendo praticamente um cache do estado de verdade ou do cálculo dele) e mantenha isso em mente, que os processos vão morrer.
+Faça `flush` do estado do processo constantemente, faça o estado ser recalculável (sendo praticamente um cache do estado de verdade ou do cálculo dele) e mantenha isso em mente, que os processos vão morrer.
 
-Evite **impor** arquitetura de processos.
+Evite **impor** arquitetura de processos. 
 
-connection data struct -> process
-											 -> gen_stage
-											 -> get_statem (machines)
+Separe o estado da estrutura de dados:
+```none
+                        /-> process
+connection data struct----> gen_stage
+					    \-> get_statem (machines)
+```
 
-A ideia de separar estado dos dados é uma dica que ele dá.
-Outra dica é prestar atenção à **MailBox** dos processos, pra não ficar sem memória.
-
-No exemplo de consumo de mensagens abaixo, é possível cair facilmente no problema citado, pois alguns tipos de mensagens não são consumidas e vão parar na **MailBox**. É algo pra ter em mente.
+Outra dica é prestar atenção à **MailBox** dos processos, pra não ficar sem memória. No exemplo de consumo de mensagens abaixo, é possível cair facilmente nesse problema, pois alguns tipos de mensagens não são consumidas e vão parar na **MailBox**. É algo para se ter em mente.
 
 ```elixir
 receive do
@@ -315,77 +310,73 @@ receive do
        # ...
 ```
 
+Uma forma de lidar com isso é consumindo mensagens desconhecidas, adicionando logs para podermos saber disso e retornando o próprio estado.
+
 Guia de uso de **Árvores de Supervisão**:
 
-whiteboard design: desenhe a árvore de supervisão num quadro branco
-@todo foto whiteboard
+- **Whiteboard Design**: desenhe a árvore de supervisão num quadro branco para que você tenha certeza do que está acontecendo na aplicação.
+- **Estratégias**: `one_for_one`, `one_for_all`, `rest_for_one`. Monte árvores de supervisão aninhadas, utilize-se disso. por exemplo, uma árvore de supervisão que tem como filhos, tanto o `cache` como três `workers`. Nenhuma das estratégias funciona bem nesse caso, pois a eventual falha de um desses filhos vai reiniciar coisas de forma errada. Para resolver, o ideal é ter um supervisor dos três `workers`, ficando com o `cache` como irmão. Assim, você pode ter uma estratégia para o supervisor principal (`rest_for_one`) e outra para o supervisor de `workers` (`one_for_one`). Todos os processos deveriam ser supervisionados. Sempre dê nome para os seus supervisores, para ficar mais fácil de debugar em sistemas em produção.
+- **Teste de árvores de supervisão**: uma forma de fazer isso é com *Chaos Monkey*. O repositório [ferd/sups](https://github.com/ferd/sups) ajuda fazendo **property based testing** (como citado na talk do Andrew Rosa) para montar um modelo da sua árvore de supervisão.
 
-strategies: `one_for_one`, `one_for_all`, `rest_for_one`. monte árvores de supervisão aninhadas, utilize-se disso. por exemplo, uma árvore de supervisão que tem como filhos, tanto o `cache` como três `workers`. Nenhuma das estratégias funciona bem nesse caso, pois a eventual falha de um desses filhos vai reiniciar coisas de forma errada. Para resolver, o ideal era ter um supervisor dos três `workers`, ficando com o `cache` como irmão. Assim, você pode ter uma estratégia para o supervisor principal (`rest_for_one`) e outra para o supervisor de `workers` (`one_for_one`). Todos os processos deveriam ser supervisionados. Sempre dê nome para os seus supervisores, para ficar mais fácil de debugar em sistemas em produção.
-
-**Teste árvores de supervisão**. Uma forma de fazer isso é com Chaos Monkey. O repositório ![ferd/sups](https://github.com/ferd/sups) ajuda fazendo property based testing (@todo lembra da  talk) para montar um modelo da sua árvore de supervisão
-
-`Connection Handling` - trabalhamos com serviços externos, fora da nossa rede. Geralmente utilizamos processos para lidarmos com isso.
+`Connection Handling` - trabalhamos com serviços externos, fora da nossa rede. Geralmente utilizamos processos para lidarmos com isso. Porém, e se a conexão entre esse processo e o serviço externo cair, o que fazemos?
 
 ```none
-<Seu App> -> Redis Connection -> Redis (de verdade)
-															/\ falha de rede, o que fazer?
+Seu App ---> Redis Connection -X-> Redis (de verdade)
+                              /\ falha de rede, o que fazer?
 ```
 
-Colocar um Connection Manager, que é responsável por lidar com a lógica de reconexão (não deveria ser por exemplo a responsabilidade de um supervisor). Em algum ponto sua conexão vai cair e você deve fazer a aplicação com isso em mente, se preparando para os possíveis erros.
+Segundo o Andrea, podemos colocar um *Connection Manager*, que é responsável por lidar com a lógica de reconexão (não deveria ser, por exemplo, a responsabilidade de um supervisor). Em algum ponto sua conexão vai cair e você deve conceber a aplicação com isso em mente, se preparando para os possíveis erros. É raro que você precise de conexões externas o tempo inteiro para sua aplicação funcionar, então podemos usar a abordagem de estar indisponível por um tempo onde realmente utilizamos.
 
-need redis? -> nope -> async init; handle :error tuples
-\/ yep
-sync init; raise on errors
+Tente se reconectar a serviços externos, mas não a cada X segundos ou instantaneamente. Use uma estratégia "backoff", que tenta em tempo exponencial e também um pouco randomizado (um pouco de tempo a mais ou a menos em cada tentativa).
 
-É raro que você precise de conexões externas o tempo inteiro para funcionar, então podemos usar a abordagem de estar indisponível por um tempo.
+**Processos gargalo** são processos que todo o seu sistema depende e que atrasam tudo caso fiquem lentos. Por exemplo, chamadas bloqueantes para o Cache. Então seu cache vai ser um gargalo. Uma tabela `ETS` pode ajudar a resolver esse problema.
 
-![Esquema de um 'gen_statem'.](./gen_statem.jpg)
+![Tabela ETS para lidar com processos gargalo.](./ets_table.jpg)
 
-Tente reconectar a serviços externos, mas não a cada X segundos ou instantaneamente. use uma estratégia "backoff", que tenta em tempo exponencial e também randomizado um pouco (um pouco de tempo a mais ou a menos).
+`Pools` de conexões também podem ser uma solução para esses gargalos, onde através de uma rotação, você acessa os serviços.
 
-Processos gargalo: são processos que todo o seu sistema depende e que atrasam tudo caso fiquem lentos. Por exemplo, chamadas bloqueantes para o Cache. Então seu cache vai ser um gargalo.
-
-Com uma tabela `ETS` pode ajudar a resolver esse problema. @todo imagem.
-
-![Tabela ETS para com @todo](./ets_table.jpg)
-
-`Pools` de conexões também pode ser uma solução para esses gargalos, onde através de uma rotação, vo
-`checkout pools` (lidam com a conexão) vs `name based pools` (registrados com nomes, vc pede conexão por nome) com `registry`, toma cuidado e processa os nomes.
-
-**Error Handling**: lide com todos os erros **esperados**. Se algum erro pode acontecer, ele com certeza vai. Ele odeia o "Let it crash" que é bastante falado, porque talvez não é entendido como deveria ser entendido. Ele diz que você deve tratar os erros e não usar essa frase como desculpa para lidar com os mesmos. Dê `crash` apenas em erros inesperados ou irrecuperáveis.
+**Error Handling**: lide com todos os erros **esperados**. Se algum erro pode acontecer, ele com certeza vai. O Andrea comenta que odeia o termo "Let it crash" que é bastante falado, porque talvez não é entendido como deveria ser entendido. Ele diz que você deve tratar os erros e não usar essa frase como desculpa para lidar com os mesmos. Dê `crash` apenas em erros inesperados ou irrecuperáveis.
 
 ### Arquitetura de muitos nós
 
-Frequentemente ele ouve que o `BEAM` "resolve sistemas distribuidos" e a reação dele é NÃO! Pra ele, o BEAM é apenas um bom conjunto de ferramentas! Como por exemplo, `send/2`, `Process.monitor/1`, `Node.monitor/2` e  registro `:global` de processos.
+Frequentemente, o Andrea ouve que o *BEAM* "resolve sistemas distribuidos" e a reação dele é **NÃO**! Para ele, o BEAM é apenas um bom conjunto de ferramentas! Como por exemplo, `send/2`, `Process.monitor/1`, `Node.monitor/2` e o registro de processos `:global`. Ele até brinca:
 
 > to beam or not to beam
 
-Por exemplo para *Data Storage*, devo usar RDBMS (como o Postgres) ou uma solução BEAM (como o Riak)?
+Por exemplo para *Data Storage*, devo usar *RDBMS* (como o *Postgres*, *MySQL*) ou uma solução *BEAM* (como o *Riak*)?
+Para tomar decisões assim, pense em interoperabilidade, recursos relacionais e na análise de dados. Já para um banco *key/value*, usamos *Redis* ou *ETS/Mnesia*? Replicação é difícil. A abordagem Phoenix por exemplo é a de usar mais de uma solução, como *pg2* + *Redis pub/sub*.
 
-Pense em interoperabilidade, recursos funcionais e análise de dados. Replicação é difícil. Se você tem uma solução
+O Andrea ainda explicou sobre **application failovers**: se a minha aplicação falhar, outra aplicação de pé, que estava parada, assume. E sobre **hot-code upgrades** diz que não são tão utilizados e que conflitam com a abordagem de contêineres Docker. Ele diz para nos questionarmos: "Eu realmente preciso disso?" - e que na opinião dele, geralmente não precisamos.
+Com *websockets* é mais complicado, mas com *requests* normais é mais tranquilo.
 
-A abordagem Phoenix é por exemplo usar mais de uma solução, como `pg2` + `Redis pub/sub`.
+Existem 3 tipos de **requests**: os que ocorrem **no máximo uma vez**, os que ocorrem **pelo menos uma vez** e os que ocorrem **exatamente uma vez**.
+Para as requisições que podemos fazer até **no máximo uma vez** não tem muito o que fazer.
+É importante ter [idempotência](https://pt.wikipedia.org/wiki/Idempot%C3%AAncia) para *requests* que podem acontecer pelo menos uma vez. Se chamar mais de uma vez, você lida com isso (por exemplo salvar no banco de dados mais de uma vez). **Exatamente uma vez** é o tipo mais caro de *requests*, porque você tem que garantir que eles vão sempre funcionar (por exemplo transações).
 
-**Application failover**: se minha aplicação falhar, essa outra aplicação de pé, que estava parada, assume.
+### Conclusões
 
-**Hot-code upgrades**: não tão utilizados, conflita com a abordagem de contêineres Docker. Ele diz para nos questionarmos: "Eu realmente preciso disso?" - na opinião dele, geralmente não precisamos.
+> "Use a ferramenta certa para o trabalho"
+>
+> Capitão Óbvio
 
-**Requests**: nós frontend, nós backend. Existem 3 tipos de requisições: `no máximo uma vez`, `pelo menos uma vez` e `exatamente uma vez`.
-No máximo uma vez não tem muito o que fazer.
-Idempotência para requesta que podem acontecer pelo menos uma vez. Se chamar mais de uma vez, você lida com isso (por exemplo salvar no banco de dados mais de uma vez). Exatamente uma vez é o tipo mais caro de requests, porque você tem que garantir que eles vão sempre funcionar (por exemplo transações)
-
-> "Use a ferramenta certa para o trabalho" - Capitão Óbvio
-
-Não tente usar o BEAM pra tudo. Você pode usar muitas outras ferramentas e tecnologias mas, se usar, tente seguir essas dicas.
-
-Aprenda sobre **Sistemas distribuídos**. A arquitetura BEAM é **boa**, leve isso com você.
-
+Não tente usar o *BEAM* pra tudo. Você pode usar muitas outras ferramentas e tecnologias mas, se mesmo assim decidir usar, tente seguir as dicas dessa talk. Aprenda sobre **Sistemas distribuídos**. A arquitetura BEAM é **boa**, leve isso com você.
 
 ### Recursos
-"Designing for scalability with Erlang/OTP"
+- [Designing for scalability with Erlang/OTP](http://shop.oreilly.com/product/0636920024149.do)
+- [https://ferd.ca](https://ferd.ca/)
+- [Distributed system for fun and profit](http://book.mixu.net/distsys/index.html)
 
-http://ferd.ca
+Confira os slides (lindos demais, desenhados a mão!) da talk do Andrea no [SpeakerDeck](https://speakerdeck.com/whatyouhide/beam-architecture-handbook).
 
-"Distributed system for fun and profit"
+## That's all Folks!
 
-Confira os slides (lindos demais, desenhados a mão!) da talk do Andrea [no SpeakerDeck](https://speakerdeck.com/whatyouhide/beam-architecture-handbook).
+Com isso, chegamos ao fim desse evento maravilhoso. Como já comentei antes, achei incrível o evento sob todos os aspectos.
+Fica aqui meus parabéns à organização.
+
+![<a href="https://twitter.com/mjcoffeeholick" rel="nofollow">Alda Rocha</a> e <a href="https://twitter.com/noteu" rel="nofollow">João Britto</a> - os organizadores do Evento. Foto por <a href="https://www.behance.net/gallery/81294793/Elixir-Brasil-2019-Maio-2019" rel="nofollow">Gabi Nascimento</a>.](./organizadores.jpg)
+
+Também deixo meus parabéns para a curadoria de palestrantes do evento e todos os ajudaram de alguma forma.
+
+<blockquote class="twitter-tweet"><p lang="pt" dir="ltr">Não temos palavras pra agradecer a todas as pessoas e empresas que ajudaram a <a href="https://twitter.com/hashtag/ElixirBrasil?src=hash&amp;ref_src=twsrc%5Etfw">#ElixirBrasil</a> acontecer &lt;3 Nos vemos em 2020 <a href="https://t.co/GiY6tq9pxm">pic.twitter.com/GiY6tq9pxm</a></p>&mdash; Elixir Brasil (@elixir_brasil) <a href="https://twitter.com/elixir_brasil/status/1132822827009282049?ref_src=twsrc%5Etfw">May 27, 2019</a></blockquote>
+
+Nos vemos em 2020 - quem sabe com uma talk minha também? 😉
