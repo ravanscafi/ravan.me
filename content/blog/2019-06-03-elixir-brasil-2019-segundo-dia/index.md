@@ -140,7 +140,7 @@ Para conferir os slides da apresentação, [clique aqui](https://speakerdeck.com
 
 ![Primeiros passos com Nerves - Elixir based IoT - Donato Viana.](./donato.jpg)
 
-Resolvi voltar do almoço e ir para a trilha iniciante, para ver a talk do Donato, que tive oportunidade de conhecer no pós evento do dia anterior. Fiquei interessado para conhecer o Nerves, mesmo sem nunca ter mexido com o IoT. Ele começa sua talk definindo que Linux embarcado significa que é otimizado e customizado para dispositivos embarcados. Alguns aspectos importantes de dispositivos embarcados: temos recursos limitados (em certos aspectos), há um *overhead* de desenvolvimento - *cross compiling*, *flashing*, etc. e precisamos pensar em atualizações em campo, no dispositivo, que está distante de nós.
+Resolvi voltar do almoço e ir para a trilha iniciante, para ver a talk do Donato, que tive oportunidade de conhecer no pós evento do dia anterior. Fiquei interessado para conhecer o Nerves, mesmo sem nunca ter mexido com o [IoT](https://pt.wikipedia.org/wiki/Internet_das_coisas). Ele começa sua talk definindo que Linux embarcado significa que é otimizado e customizado para dispositivos embarcados. Alguns aspectos importantes de dispositivos embarcados: temos recursos limitados (em certos aspectos), há um *overhead* de desenvolvimento - *cross compiling*, *flashing*, etc. e precisamos pensar em atualizações em campo, no dispositivo, que está distante de nós.
 
 ### Nerves
 É uma plataforma, um framework, um conjunto de ferramentas e um *toolchain* para fazer Elixir Embarcado. Mas, com isso, surge a pergunta: "por que Elixir Embarcado?" - e a resposta é: Por que não? Foi pra isso que a BEAM foi criada, para telecomunicações altamente disponíveis. O mundo real é concorrente: coisas acontecem ao mesmo tempo ou em algum tempo não previsível.
@@ -174,7 +174,7 @@ Segundo o Rafael, testar ajuda a ter **confiança** sobre suas entregas, ajuda a
 
 ### Tipos de teste
 
-Um Teste de **Aceitação** expressa um cenário, é de ponta a ponta, garante mais a qualidade externa e é mais próximo da camada de apresentação - porém é lento. Um Teste de **Integração** fica entre os Testes de **Aceitação** e os Testes **Unitários**. Um Teste **Unitário** testa o comportamento de uma única unidade do sistema.
+Um **Teste de Aceitação** expressa um cenário, é de ponta a ponta, garante mais a qualidade externa e é mais próximo da camada de apresentação - porém é lento. Um **Teste de Integração** fica entre os testes de aceitação e os testes unitários. Um **Teste Unitário** testa o comportamento de uma única unidade do sistema.
 
 ![Rafael e a Pirâmide de Testes.](./rafael.jpg)
 
@@ -182,13 +182,11 @@ O Rafael trouxe um exemplo para exercitar testes, mostrando conceitos e implemen
 
 Trouxe ainda o conceito de `Doctests`, explicando que é uma ferramenta para garantir que a nossa documentação esteja válida. Basicamente, você coloca no *docblock* um exemplo de como funcionaria aquela função e pode rodar esse exemplo como código, para ver se o comportamento da função está correto.
 
-O código encontra-se [disponível no GitHub](https://github.com/rafaelrochasilva/greenbox). Um outro recurso legal é o post [Starting with Elixir, the Study Guide](http://blog.plataformatec.com.br/2018/11/starting-with-elixir-the-study-guide/), guia de estudos sobre Elixir escrito pelo próprio Rafael.
-
-Nos slides, você pode conferir toda a talk, incluindo o código e os testes feitos. @todo
+O código encontra-se [disponível no GitHub](https://github.com/rafaelrochasilva/greenbox). Um outro recurso legal é o post [Starting with Elixir, the Study Guide](http://blog.plataformatec.com.br/2018/11/starting-with-elixir-the-study-guide/), guia de estudos sobre Elixir escrito pelo próprio Rafael. [Confira os slides](https://speakerdeck.com/rafaelrochasilva/testando-no-mundo-elixir) que incluem o código e os testes feitos de forma mais explicativa.
 
 ## Mantendo a Sanidade Testando Estado - [Andrew Rosa](https://twitter.com/_andrewhr)
 
-De volta a trilha avançada, temos agora a talk do Andrew, falando sobre como manter a sanidade testando estado, com o conceito de **testes baseado em propriedades**. E para isso, ele utiliza a ferramenta [PropEr](https://jeffkreeftmeijer.com/mix-proper/) com seu código Elixir.
+De volta a trilha avançada, tivemos a talk do Andrew, falando sobre como manter a sanidade testando estado com o conceito de **testes baseados em propriedades**. E para isso, ele utiliza a ferramenta [PropEr](https://jeffkreeftmeijer.com/mix-proper/) com seu código Elixir.
 
 Um simples teste pode ser:
 
@@ -198,62 +196,54 @@ test "sorts a list" do
 end
 ```
 
-Esse é um teste onde você informa a lista a ser ordenada. Já, em um **teste de entrada**, você não define uma entrada específica como o exemplo acima (`[3, 1, 2]`), mas pede algumas listas aleatórias para testar o seu código. Você tem alguns geradores que pode usar para gerar dados para testar seu sistema. E assim, você roda os seus testes e verifica se os mesmo estão funcionando.
+Esse é um teste onde você informa a lista a ser ordenada, no caso `[3, 1, 2]` e o que esperar exatamente da ordenação, `[1, 2, 3]`. Já, em um **teste de entrada**, você não define uma entrada específica como o exemplo acima (`[3, 1, 2]`), mas pede algumas listas aleatórias para testar o seu código. Por exemplo, `[1]`, `[3, 1, 2, 9, 5]`, `[1, 1, 1, 0]`, `[1, 2]`, `[]`. Você tem alguns geradores que pode usar para gerar dados como esses para testar seu sistema. Para seu teste funcionar agora, é necessário mudar a lógica que ele testa. Como não sabemos qual lista vai vir, ao invés de comparar com uma lista ordenada como antes, agora verificamos se todos os itens estão na ordem após rodar a função de sort. E assim, você roda os seus testes e verifica se a sua função funciona como esperado.
 
-Caso um erro seja encontrado, acontece um **shrinking**, que tenta encontrar um caso mínimo que quebre o teste, sendo mais fácil de encontrar a razão do problema que levou seu código a estar errado.
+Caso um erro seja encontrado, acontece um ***shrinking***, que tenta encontrar um caso mínimo que quebre o teste, sendo mais fácil de encontrar a razão do problema que levou seu código a estar errado. Por exemplo, pode ser que a lista `[1, 1, 1, 0]` não seja ordenada como o esperado. Com o *shrinking*, podemos descobrir que o menor caso de lista que dê o erro, por exemplo, seja `[1, 0]`. E assim, graças ao teste baseado em propriedades, achamos um erro no nosso código com um caso que não pensamos e assim podemos melhorar ainda mais nossa lógica.
 
-O Andrew mostrou bem didaticamente como fazer vários testes baseados em propriedades com exemplo "reais". Confira depois nos slides.
+O Andrew mostrou bem didaticamente como fazer vários testes baseados em propriedades com exemplo "reais".
 
 ![Andrew Rosa - Mantendo a Sanidade Testando Estado.](./andrew.jpg)
 
-Para ele e sua equipe, o legal é que como muitos testes são gerados, vários *edge cases* são encontrados sem que eles tenham que ficar pensando sobre eles. Porém, como são muitos testes a serem rodados, eles demoram! É necessário saber qual o **retorno de investimento** daquele teste, você não precisa fazer por exemplo para um *CRUD*, mas pode pegar partes sensíveis de seu sistema e submetê-las a testes baseados em propriedades.
+Para ele e sua equipe, o que foi legal é que como muitos testes são gerados, vários *edge cases* foram encontrados sem que eles tenham que ficar pensando sobre encontrá-los manualmente. Porém, como são muitos testes a serem rodados, eles demoram! É necessário saber qual o **retorno de investimento** daquele teste, você não precisa fazer por exemplo para um *CRUD*, mas pode pegar partes sensíveis de seu sistema e submetê-las a testes baseados em propriedades.
 
-@todo slides
+**Nota:** Infelizmente, até o momento, os slides da talk ainda não foram postados. Atualizarei o post caso sejam publicados.
 
 ## Stand-Up - Em busca do elixir do desenvolvimento - [Rodrigo "pokemaobr" Cardoso](https://twitter.com/pokemaobr)
 
-O grande pokemao fez um stand-up na hora do intervalo, levantando risadas da plateia com piadas sobre Elixir e programação.
+O grande pokemaobr fez um stand-up na hora do intervalo, levantando risadas da plateia com piadas sobre Elixir e programação em geral.
 
 ![Em busca do elixir do desenvolvimento - Pokemaobr](./pokemao.jpg)
 
 ## Livestream de Elixir para aumentar a comunidade - [Philip Sampaio](https://twitter.com/philipsampaio)
 
-Agora na trilha iniciante, temos o Philip falando sobre *Live Streaming*. Mas, o que é *Live Streaming*? Geralmente pensamos em jogos quando falamos sobre live streaming e provavelmente 98% dos streams são de jogos. É fascinante pensar que assistir outros jogadores, ao vivo, é legal.
+Na volta do intervalo, agora na trilha iniciante, temos o Philip falando sobre *Live Streaming*. Mas, o que é *Live Streaming*? Basicamente é uma transmissão ao vivo de nossas atividades. Geralmente, pensamos em jogos quando falamos sobre live streaming e provavelmente 98% dos streams são de fato sobre jogos. É fascinante pensar que assistir outros jogadores, ao vivo, é legal, que existe um público bem grande pra isso. E também poder interagir via chat, é algo diferente.
 
-No entanto, algumas pessoas, como a [Suz Hinton](https://www.twitch.tv/noopkat) fazem streaming de código e utilizam o Twitch pra isso. Ela fala sobre JavaScript/Nodejs, bem como Open Source, acessibilidade e IoT. Ela consegue explicar algo complexo pra alguém, prestar atenção no chat e elaborar um raciocínio complexo enquanto isso - e isso fascinou o Philip.
+No entanto, algumas pessoas como a [Suz Hinton](https://www.twitch.tv/noopkat) fazem streaming de código e utilizam o a plataforma [Twitch](https://www.twitch.tv/) para isso. Ela fala sobre JavaScript/Node.js, bem como Open Source, acessibilidade e IoT. Ela consegue explicar um tema complicado pra alguém ao vivo, prestar atenção no chat e elaborar um raciocínio complexo ao mesmo tempo - e isso fascinou o Philip.
 
-No final de 2018, o José Valim - criador do Elixir - começou a fazer o mesmo! Eventualmente ele fazia lives mostrando como resolver problemas do Advent of Code @todo e foi bem legal pra mostrar como resolver com Elixir alguns desses problemas. E pro Philip isso foi incrível, pois ele tinha muita curiosidade em saber como o pessoal do Open Source codava - e descobriu que não era tão diferente assim 😉. A ideia veio do irmão do Valim, professor que achava que isso poderia ajudar a comunidade.
+No final de 2018, o José Valim - criador do Elixir - começou a fazer o mesmo! Eventualmente, ele fazia lives mostrando como resolver problemas do [Advent of Code](https://adventofcode.com/) e foi bem legal para mostrar como resolver com Elixir alguns desses problemas. Pro Philip isso foi incrível pois ele tinha muita curiosidade em saber como o pessoal do Open Source *codava* - e descobriu que não era tão diferente assim 😉. A ideia veio do irmão do Valim, professor que achava que isso poderia ajudar a comunidade.
 
- Ajuda a entender o fluxo de trabalho da outra pessoa, pega alguns truques que aquela pessoa faz... É muito útil para aprender uma nova tecnologia, então pra Elixir é ótimo poder contar com esse tipo de conteúdo. Para os _streamers_ em si também existem vantagens, pois ajudam a se comunicar de forma mais eficaz, aprende a dividir a atenção entre o stream e a plateia e também resolve problemas em conjunto com outras pessoas.
+O live streaming ajuda a entender o fluxo de trabalho da outra pessoa, a pegar alguns truques que aquela pessoa faz... É muito útil para aprender uma nova tecnologia, então é ótimo poder contar com esse tipo de conteúdo para o Elixir. Para os _streamers_ em si também existem vantagens, pois os ajudam a se comunicar de forma mais eficaz, aprendem a dividir a atenção entre o stream e a plateia e também podem resolver problemas em conjunto com outras pessoas.
 
- E por que você deveria fazer ou participar das lives? Um dos medos do Philip era: "e se não aparecer ninguém?". Ele percebeu que divulgar nas redes sociais era de grande ajuda e o importante é ajudar pelo menos uma pessoa.
+### E por que você deveria fazer ou participar das *lives*? 
+Um dos medos do Philip era: "e se não aparecesse ninguém?". Ele percebeu que **divulgar** nas redes sociais era de grande ajuda e o importante é ajudar pelo menos uma pessoa. "E se eu travasse ou errasse na frente das pessoas?", você pode se perguntar. Ele diz que acontece e que é normal, o dia-a-dia da programação é assim.
 
- E se eu travar ou errar na frente das pessoas? Acontece e é normal, o dia-a-dia da programação é assim.
+Com *live streams* você vai ajudar a comunidade a crescer, vai melhorar muito suas habilidades e também vai se divertir.
 
- Com live streams você vai ajudar a comunidade a crescer, você vai melhorar muito suas habilidades e também você vai se divertir.
+O Philip começou com a ideia de dedicar tempo à biblioteca [Floki](https://github.com/philss/floki) que ele criou, um *parser* de `HTML` feito em Elixir. Mas ele também fala sobre outros assuntos como [Live View](https://github.com/phoenixframework/phoenix_live_view), [Ecto](https://github.com/elixir-ecto/ecto) e Elixir básico.
 
- O Philip começou com a ideia inicial de dedicar tempo à biblioteca `Floki` @todo que ele criou, um *parser* de `HTML` feito em Elixir. Mas ele também fala sobre outros assuntos, como Live View, Ecto Elixir básico.
-
- OBS Studio para fazer broadcast.
- Faz o stream da tela, possibilita configurar Cenas Ricas, disponibiliza várias configurações para mic/câmera e é totalmente Open Source.
+### Como começar?
+Ele recomenda utilizar o software [OBS Studio](https://obsproject.com/) para fazer a transmissão.
+O OBS faz o stream da tela, possibilita configurar Cenas Ricas, disponibiliza várias configurações para microfone/câmera e é totalmente Open Source!
 
 ![Philip, Philip e Philip - Configurando o OBS Studio.](./philip.jpg)
 
 Caso você não tenha câmera, você pode usar seu celular e configurar para usar como uma webcam.
 
-O Philip dá algumas recomendações para quem está a fim de começar: experimentar algumas configurações do OBS, procurar no youtube. antes das lives, faça uma agenda de tópicos a serem falados nas lives; configure o setup com antecedência; desabilite as notificações do sistema operacional; tenha cuidado com o histórico de comandos do seu terminal; tenha cuidado com segredos em geral; converse com as pessoas do chat - interagir é o mais legal das lives.
+O Philip dá algumas recomendações para quem está a fim de começar: experimentar algumas configurações do OBS, procurar tutoriais no youtube. Antes das lives, faça uma agenda de tópicos a serem falados; faça a configuração de tudo com antecedência; desabilite as notificações do sistema operacional; tenha cuidado com o histórico de comandos do seu terminal; tenha cuidado com segredos em geral e por último, converse com as pessoas do chat - interagir é o mais legal das lives.
 
-Ele mostrou também algumas pessoas que estão fazendo streaming de código
+Ele mostrou também algumas pessoas que estão fazendo streaming de código. O [MarcoBrunoBR](https://www.twitch.tv/marcobrunobr) é provavelmente o mais famoso e fala sobre JavaScript, frontend e React. O [Ulisses Almeida](https://www.twitch.tv/anizark)  fala sobre Elixir, programação funcional e exercícios de seu livro [Learn Functional Programming with Elixir](https://pragprog.com/book/cdc-elixir/learn-functional-programming-with-elixir). Já a [JessiTRONica](https://www.twitch.tv/jessitronica)  faz lives sobre Ruby, AWS, Pair Programming, entre outras coisas. Também tem o [José Valim](https://www.twitch.tv/josevalim), que já citamos.
 
-[marcobrunobr](https://www.twitch.tv/marcobrunobr) (js, frontend, react)
-
-[anizark](https://www.twitch.tv/anizark) (elixir, programação funcional, exercícios do livro "learn funcional programming with elixir)
-
-[jessitronica](https://www.twitch.tv/jessitronica) (ruby, aws, pair programming)
-
-[José Valim](https://www.twitch.tv/josevalim)
-
-Como conclusão, o Philip diz que acredita que live streaming podem ser artefatos muito poderosos para fazer a comunidade Elixir crescer no Brasil.
+Como conclusão, o Philip diz que acredita que *live streamings* podem ser artefatos muito poderosos para fazer a comunidade Elixir crescer no Brasil.
 
 Confira os slides no [SpeakerDeck](https://speakerdeck.com/philss/streaming-de-codigo-elixir-para-aumentar-a-comunidade).
 
