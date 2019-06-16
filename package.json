@@ -61,7 +61,7 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop -H 0.0.0.0",
+    "develop": "gatsby develop -H 0.0.0.0 -o",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "yarn install && yarn develop",
     "serve": "gatsby serve",
