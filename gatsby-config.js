@@ -58,6 +58,7 @@ module.exports = {
             }
           },
           `gatsby-remark-reading-time`,
+          `@weknow/gatsby-remark-twitter`,
         ],
       },
     },

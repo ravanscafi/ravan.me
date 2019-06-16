@@ -34,7 +34,7 @@ function SEO({ description, lang, meta, title, cover }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const type = cover ? 'summary_large_image' : 'summary'
+  const type = cover ? "summary_large_image" : "summary"
   const imageUrl = `${site.siteMetadata.siteUrl}${cover ||
     image.childImageSharp.fixed.src}`
 

@@ -273,7 +273,7 @@ Honestamente, não consegui acompanhar direito as outras talks relâmpagos, pois
 
 Várias comunidades acabaram se apresentando também. Elas estiveram presentes graças a uma iniciativa muito legal de diversidade do evento.
 
-<blockquote class="twitter-tweet" style="margin: 0 auto"><p lang="pt" dir="ltr">No dia da África, estamos fazendo história: <a href="https://twitter.com/AfroPython?ref_src=twsrc%5Etfw">@AfroPython</a> , <a href="https://twitter.com/tecnogueto?ref_src=twsrc%5Etfw">@tecnogueto</a> , <a href="https://twitter.com/perifacode?ref_src=twsrc%5Etfw">@perifacode</a> e <a href="https://twitter.com/afrotechbr?ref_src=twsrc%5Etfw">@afrotechbr</a> participando de grandes eventos. Tecnologia e Diversidade caminham lado a lado<br>Pessoas, são o CENTRO.<br>Não é inclusão. É pertencimento. Esses espaços também são nossos. <a href="https://twitter.com/hashtag/Ubuntu?src=hash&amp;ref_src=twsrc%5Etfw">#Ubuntu</a> ✊🏿 <a href="https://t.co/mMMp5WYcRo">pic.twitter.com/mMMp5WYcRo</a></p>&mdash; AfrotechBR (@afrotechbr) <a href="https://twitter.com/afrotechbr/status/1132366765407854593?ref_src=twsrc%5Etfw">May 25, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+https://twitter.com/afrotechbr/status/1132366765407854593
 
 ## BEAM architecture handbook - [Andrea Leopardi](https://twitter.com/whatyouhide)
 
@@ -379,6 +379,6 @@ Fica aqui meus parabéns à organização.
 
 Também deixo meus parabéns para a curadoria de palestrantes do evento e todos os ajudaram de alguma forma. Valeu demais!
 
-<blockquote class="twitter-tweet" style="margin: 0 auto"><p lang="pt" dir="ltr">Não temos palavras pra agradecer a todas as pessoas e empresas que ajudaram a <a href="https://twitter.com/hashtag/ElixirBrasil?src=hash&amp;ref_src=twsrc%5Etfw">#ElixirBrasil</a> acontecer &lt;3 Nos vemos em 2020 <a href="https://t.co/GiY6tq9pxm">pic.twitter.com/GiY6tq9pxm</a></p>&mdash; Elixir Brasil (@elixir_brasil) <a href="https://twitter.com/elixir_brasil/status/1132822827009282049?ref_src=twsrc%5Etfw">May 27, 2019</a></blockquote>
+https://twitter.com/elixir_brasil/status/1132822827009282049
 
 Nos vemos em 2020 - quem sabe com uma talk minha também? 😉
