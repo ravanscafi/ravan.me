@@ -32,10 +32,13 @@ Wordpress2016.overrideThemeStyles = ({ rhythm }) => {
     ".social-icon": {
       boxShadow: "none",
       padding: "0 " + rhythm(0.6),
-},
+    },
     ".social-icon .icon": {
       width: rhythm(1.2),
       height: rhythm(1.2),
+    },
+    "twitter-widget": {
+      margin: "1.5rem auto",
     },
   }
 }

@@ -26,6 +26,7 @@ module.exports = {
         name: `assets`,
       },
     },
+    `gatsby-plugin-catch-links`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -164,6 +165,6 @@ module.exports = {
       options: {
         shortname: `ravan-me`
       }
-    }
+    },
   ],
 }

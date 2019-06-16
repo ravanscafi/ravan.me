@@ -8,7 +8,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
-import '../styles/index.css'
+import "../styles/index.css"
 
 class BlogIndex extends React.Component {
   render() {
@@ -24,9 +24,19 @@ class BlogIndex extends React.Component {
             const title = node.frontmatter.title || node.fields.slug
             return (
               <div key={node.fields.slug} className="post">
-                <Link style={{ boxShadow: `none`, color: "inherit" }} to={node.fields.slug}>
-                  <Image fluid={{...node.frontmatter.cover.childImageSharp.fluid, aspectRatio: 16/9}} />
-                  <h3 style={{margin: rhythm(1 / 4) + " 0", textAlign: "left"}}>
+                <Link
+                  style={{ boxShadow: `none`, color: "inherit" }}
+                  to={node.fields.slug}
+                >
+                  <Image
+                    fluid={{
+                      ...node.frontmatter.cover.childImageSharp.fluid,
+                      aspectRatio: 16 / 9,
+                    }}
+                  />
+                  <h3
+                    style={{ margin: rhythm(1 / 4) + " 0", textAlign: "left" }}
+                  >
                     {title}
                   </h3>
                   <small style={{ color: `hsla(0, 0%, 0%, 0.75)` }}>
@@ -36,7 +46,8 @@ class BlogIndex extends React.Component {
                       <Clock className="icon" /> {node.fields.readingTime.text}
                     </span>
                   </small>
-                  <p style={{ marginTop: rhythm(1 / 4) }}
+                  <p
+                    style={{ marginTop: rhythm(1 / 4) }}
                     dangerouslySetInnerHTML={{
                       __html: node.frontmatter.description || node.excerpt,
                     }}

@@ -1,13 +1,13 @@
 import React from "react"
-import {Link} from "gatsby"
+import { Link } from "gatsby"
 import Heart from "react-feather/dist/icons/heart"
 
-import {rhythm, scale} from "../utils/typography"
+import { rhythm, scale } from "../utils/typography"
 import Bio from "./bio"
 
 class Layout extends React.Component {
   render() {
-    const {location, title, children} = this.props
+    const { location, title, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
     let header
 
@@ -66,9 +66,9 @@ class Layout extends React.Component {
       >
         <header>{header}</header>
         <main>{children}</main>
-        <footer style={{textAlign: "center", marginTop: `1.2rem`}}>
+        <footer style={{ textAlign: "center", marginTop: `1.2rem` }}>
           © {new Date().getFullYear()} - built with{" "}
-          <Heart className="icon" color="#f00"/> using
+          <Heart className="icon" color="#f00" /> using
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>

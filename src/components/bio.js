@@ -43,9 +43,8 @@ function Bio(props) {
               />
             </div>
             <div style={{ flex: "1 1 auto" }}>
-                {props.children}
-                I am a web developer living in São Paulo - Brazil.
-              <div style={{marginTop: rhythm(1)}}>
+              {props.children}I am a web developer living in São Paulo - Brazil.
+              <div style={{ marginTop: rhythm(1) }}>
                 <a
                   title="Twitter"
                   className="social-icon twitter"
