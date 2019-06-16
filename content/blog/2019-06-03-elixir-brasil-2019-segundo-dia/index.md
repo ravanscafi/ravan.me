@@ -249,35 +249,31 @@ Confira os slides no [SpeakerDeck](https://speakerdeck.com/philss/streaming-de-c
 
 ## Mesa redonda com streamers de Elixir - [Philip Sampaio](https://twitter.com/philipsampaio), [Ulisses Almeida](https://twitter.com/ulissesalmeida) e [Geovane Fedrecheski](https://twitter.com/geonnave)
 
+![Mesa redonda com os streamers. Da esquerda para direita: Geovane, Philip e Ulisses.](./mesa_redonda_streamers.jpg)
 
-![Mesa redonda com os streamers Philip, Ulisses e Geovane.](./mesa_redonda_streamers.jpg)
+Na conversa desse mesa redonda, consegui pegar algumas dicas, que compartilho com vocês. Eles ressaltam a diferença vídeo e streaming: stream é mais simples, não necessita de edição e se errar está ok, pode ser uma forma de começar. A ideia para começar é pegar um assunto bem basicão e tentar ir evoluindo ao longo do tempo, percebendo acertos e erros. O **tempo de live** que eles julgam bom é **entre uma hora e uma hora e meia**. Já para **vídeos**, o que funciona são **coisas curtas**, até **uns cinco minutos** cada. Eles comentaram sobre a possibilidade de se usar o YouTube também como plataforma, ao invés do Twitch, que é algo que o Geovane faz.
 
-diferença vídeo e streaming - stream é mais simples, não necessita de edição e se errar está ok, pode ser uma forma de começar.
+Outra dica que deram é que o José Valim tem um [curso legal na Pluralsight](https://www.pluralsight.com/courses/meet-elixir) (em inglês) sobre Elixir, Phoenix.
 
-ideia para começar é pegar um assunto bem basicão e tentando ir evoluindo isso ao longo do tempo, percebendo acertos e erros.
-
-tempo de live: entre uma hora e uma hora e meia.
-tempo de vídeos: o que funciona são coisas curtas, até uns cinco minutos.
-plataforma:
-
-
-José Valim tem um [curso legal na Pluralsight](https://www.pluralsight.com/courses/meet-elixir) (em inglês) sobre Elixir, Phoenix Nathan alguma coisa e vídeos sobre problemas reais sendo resolvidos usando elixir. ele erra várias vezes e comete erros simples - gente como a gente!
-
-Eles compartilharam a experiência de cada um responderam diversas perguntas da plateia. Algumas delas eu compilei aqui :)
-
+Eles compartilharam a experiência de cada um e responderam diversas perguntas da plateia. Eu tive algumas dúvidas também, então foi difícil conseguir escrever mais. De qualquer forma, foi uma mesa redonda bem legal :)
 
 ## Lightning Talks
 
-Para começar as talks relâmpago, o [Felipe Orlando](https://br.linkedin.com/in/felipeorlando) começou falando sobre como é o processo seletivo dentro das empresas e como conseguir um trampo em Elixir.
-O que todo dev elixir tem que ter?
-Qual a empresa do seus sonhos, entra na página de vagas e vê quais são os requisitos dessa empresa. Sejam curiosos, pesquisem, estudem, não tenham medo de conhecer coisas novas e nem medo de errar - inclusive nos testes práticos de empresas. Participe sempre de eventos, networking e aprendizado.
-Em termos de conhecimento técnico, precisa saber um pouco de estrutura de dados, algoritmos e coloque o estudo em prática fazendo pequenas aplicações em casa, sem medo de dar certo/errado. TDD é muito importante, é o que vai garantir que a sua aplicação é confiável. Entender o ecossistema do Elixir é importante, fazer testes, ter CI, ter linters, ter uma documentação boa do código feito. Clean code é muito importante, código fácil de entender por outras pessoas. Inglês é primordial, ter o conhecimento que permita que você consuma conteúdo na internet e aumente seus conhecimentos.
-Empresa boa é empresa que responde - se ela não te respondeu, talvez ela não era tão boa. Empresa boa valoriza diversidade e inclusão.
+A organização deu espaço para algumas talks relâmpago - de cinco minutos. Houve uma votaçãozinha e várias pessoas se apresentaram pra falar sobre diversos temas. 
+
+O [Felipe Orlando](https://br.linkedin.com/in/felipeorlando) começou falando sobre como é o processo seletivo dentro das empresas e como conseguir um trampo em Elixir. Mas, o que todo dev elixir tem que ter?
+
+Primeiro, descubra qual é a empresa do seus sonhos, entre na página de vagas e veja quais são os requisitos dessa empresa. Sejam curiosos, pesquisem, estudem, não tenham medo de conhecer coisas novas e nem medo de errar - inclusive nos testes práticos de empresas. Participe sempre de eventos, é muito válido pelo networking e pelo aprendizado.
+
+Em termos de conhecimento técnico, procure saber um pouco de estrutura de dados, algoritmos e coloque o estudo em prática fazendo pequenas aplicações em casa, sem medo de dar certo ou errado. *TDD* é muito importante, é o que vai garantir que a sua aplicação é confiável. Entender o ecossistema do Elixir é importante, fazer testes, ter *CI*, ter *linters*, ter uma boa documentação do código feito. *Clean code* é muito importante, fazer código fácil de entender por outras pessoas. Inglês é primordial, pois permite que você consuma conteúdo na internet e aumente seus conhecimentos. 
+
+E diz também que empresa boa é empresa que responde - se ela não te respondeu, talvez ela não era tão boa. Empresa boa também valoriza diversidade e inclusão.
 
 Honestamente, não consegui acompanhar direito as outras talks relâmpagos, pois acabei fazendo uma também. Falei sobre o [Exercism](https://exercism.io/), uma plataforma opensource para prática de código e mentoria para todos - um lugar legal pra aprender Elixir e Programação Funcional!
 
-menção tecnogueto
+Várias comunidades acabaram se apresentando também. Elas estiveram presentes graças a uma iniciativa muito legal de diversidade do evento.
 
+<blockquote class="twitter-tweet"><p lang="pt" dir="ltr">No dia da África, estamos fazendo história: <a href="https://twitter.com/AfroPython?ref_src=twsrc%5Etfw">@AfroPython</a> , <a href="https://twitter.com/tecnogueto?ref_src=twsrc%5Etfw">@tecnogueto</a> , <a href="https://twitter.com/perifacode?ref_src=twsrc%5Etfw">@perifacode</a> e <a href="https://twitter.com/afrotechbr?ref_src=twsrc%5Etfw">@afrotechbr</a> participando de grandes eventos. Tecnologia e Diversidade caminham lado a lado<br>Pessoas, são o CENTRO.<br>Não é inclusão. É pertencimento. Esses espaços também são nossos. <a href="https://twitter.com/hashtag/Ubuntu?src=hash&amp;ref_src=twsrc%5Etfw">#Ubuntu</a> ✊🏿 <a href="https://t.co/mMMp5WYcRo">pic.twitter.com/mMMp5WYcRo</a></p>&mdash; AfrotechBR (@afrotechbr) <a href="https://twitter.com/afrotechbr/status/1132366765407854593?ref_src=twsrc%5Etfw">May 25, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## BEAM architecture handbook - [Andrea Leopardi](https://twitter.com/whatyouhide)
 
