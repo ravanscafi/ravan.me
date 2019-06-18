@@ -1,97 +1,105 @@
 ---
 title: Darkmira Tour 2018
-date: "2019-05-24T20:00:00.000Z"
-description: O primeiro SymfonyLive da América Latina ocorreu na semana passada. Saiba tudo sobre o evento!
-draft: true
+date: "2019-06-17T20:00:00.000Z"
+description: Ano passado tive o prazer de participar do Darkmira Tour em Brasília. Veja os highlights do evento!
 cover: ./darkmira2018.jpg
 ---
 
-# Você é um bom dev? - [_Diana Arnos_](https://twitter.com/dianaarnos)
+![Público do evento Darkmira Tour 2018.](./darkmira2018.jpg)
 
-O keynote de abertura do primeiro dia de evento é com a Diana Arnos
+No começo desse mês rolou o [Darkmira Tour 2019](https://php.darkmiratour.rocks/2019/), lá em Fortaleza. Infelizmente, não consegui estar presente, mas na edição do ano passado tive esse prazer. O evento aconteceu nos dias 14 e 15 de abril de 2018, em Brasília. Contou com mais de 20 palestrantes e alguns painéis. Acabei encontrando recentemente minhas anotações no fundo do ~~baú~~ editor de texto, então nesse post vou tentar dar uns *highlights* do que vi por lá!
+
+## Você é um bom dev? - [_Diana Arnos_](https://twitter.com/dianaarnos)
+
+Abrindo o evento, temos o keynote da Diana Arnos, que é uma das evangelistas do [PHPWomen](https://twitter.com/PHPWomenBR). Ela começa a talk com um comparativo entre júnior e sênior.
 
 ### Júnior vs Sênior
 
-Tem júnior que aprende muito rápido e tem sênior que "caga" regra, a Diana já teve a experiência de entrevistar alguns devs que se diziam sênior mas que não sabiam muitas coisas básicas e, nessa, não eram aprovados na contratação. O que mais diferencia um profissional na opinião dela é a **resolução de problemas**. Um júnior tem a vontade de desenvolver, aquele desespero de não saber nada mas tentar correr atrás de todo mundo pra resolver. Já um sênior tem uma tranquilidade maior e consegue investigar os problemas com calma, seguindo um passo a passo e chegando até a resolução sem maiores exaltações.
+Ela diz que tem júnior que aprende muito rápido ao passo que existe sênior que "caga" regra. A Diana já teve a experiência de entrevistar alguns devs que se diziam sêniores mas que não sabiam muitas coisas básicas e, nessa, não eram aprovados na contratação. O que mais diferencia um profissional na opinião dela é a **resolução de problemas**. Um júnior tem a vontade de desenvolver, aquele desespero de não saber nada mas tentar correr atrás de todo mundo para resolver. Já um sênior tem uma tranquilidade maior e consegue investigar os problemas com calma, seguindo um passo a passo e chegando até a resolução sem maiores exaltações.
 
 ### Boas práticas
 
 Por que se preocupar com boas práticas? PSRs, Calisthenics, etc.
 Segundo a Diana, utilizar boas práticas indica quão longe você foi no conhecimento da linguagem e diz muito sobre você, sobre aproveitar o potencial das ferramentas e linguagem. Ela também comenta sobre o ciclo de vida de um software, citando até as culturas _Agile_ e _DevOps_.
 
-### Saiba preparar o seu ambiente.
+### Saiba preparar o seu ambiente
 
-Você sabe como sua aplicação sobe? Ou você só executa um script que algum DevOps do time te mandou? É importante conhecer o sistema operacional, as ferramentas do servidor, mesmo que apenas superficialmente.
+Você sabe como sua aplicação sobe? Ou você só executa um script que algum *DevOps* do time te mandou? É importante conhecer o sistema operacional, as ferramentas do servidor, mesmo que apenas superficialmente.
+
 **Virtualização** é uma ótima forma de saber isolar as dependências da sua aplicação e garantir que seus projetos não afetem seu ambiente local. Você pode usar Virtual Box, PHPansible, Docker... (só não subam o docker como `root`, por favor! - ela apela)
 
 ### Controle de Versão
 
-Quem usa `.zip` merece morrer. Utilize o Git ou qualquer outra ferramenta de controle de versão. Você terá acesso a histórico, poderá reverter códigos que já foram feitos, poderá ter uma documentação do que foi feito e, de quebra, tem um backup da lógica da sua aplicação.
+"GIT! Quem usa `.zip` merece morrer." - Utilize o Git ou qualquer outra ferramenta de controle de versão. Você terá acesso a histórico, poderá reverter códigos que já foram feitos, poderá ter uma documentação do que foi feito e, de quebra, tem um backup da lógica da sua aplicação.
 
 > "É sabendo de onde vem que sei pra onde vai"
 
 ### Segurança
 
-E se o seu site `meusite.com/phpinfo.php`. ExploitDB, CVS e como explorar falhas. Qualquer informação que você expõe do seu sistema está abrindo a potenciais falhas a serem exploradas.
-**Não use IDs sequenciais** para mostrar aos usuários. A coluna de ID do banco serve única e exclusivamente para o banco. Não exponha essa informação ao usuário.
-**Não mostre a assinatura do servidor e da linguagem** nas requisições, é muito fácil desabilitar e evita que algum potencial atacante tenha de mão beijada que você está rodando por exemplo `nginx` numa versão específica.
-**Inputs devem ser validados** e, não, não estamos falando de validar (somente) no frontend, devemos validar os dados do lado do servidor.
-Utilize também **Argon 2** e **libsodium** que o PHP tem suporte.
+A Diana comenta que qualquer informação que você expõe do seu sistema está abrindo a potenciais falhas a serem exploradas.
+**Não use IDs sequenciais** para mostrar aos usuários. A coluna de ID do banco serve única e exclusivamente para o banco. Não exponha essa informação ao usuário. **Não mostre a assinatura do servidor e da linguagem** nas requisições, é muito fácil desabilitar isso e evita que algum potencial atacante tenha de mão beijada que você está rodando por exemplo *nginx* numa versão específica. **Inputs devem ser validados** e, não, não estamos falando de validar (somente) no frontend, devemos validar os dados do lado do servidor. Utilize também **Argon 2** e **libsodium** que o PHP tem suporte.
 
 ### Ferramentas
 
-A Diana comenta sobre algumas coisas que ela citou: Linux, Windows, Git, GitHub, Virtual Box, Docker, Gecko, Web Kit, Terminal, Nginx, Apache, Ansible. E que devemos nos lembrar que é muita coisa para se dominar além do desenvolvimento em si e não necessariamente um júnior ou um estagiário tenham essa conhecimento.
+A Diana reuniu em um slide algumas coisas que citou: Linux, Windows, Git, GitHub, Virtual Box, Docker, Gecko, WebKit, Terminal, nginx, Apache, Ansible. E que devemos nos lembrar que é muita coisa para se dominar além do desenvolvimento em si e não necessariamente um júnior ou um estagiário possuem esse conhecimento.
 
 ### Dicas
 
 **DURMA**, não fique acordado de madrugada resolvendo problemas. A neurociência é sua amiga. Quando você dorme, seu organismo consegue limpar as toxinas acumuladas no seu cérebro. Esqueça desse status de que você é um dev "foda" porque ficou varado trabalhando.
 
-Ainda em neurociência, o **Pensamento focado** é o que já estamos acostumados, que usamos para resolver problemas que já conhecemos e sabemos como atacar. Caso estivermos em um problema que não sabemos resolver, podemos relaxar, ir tomar um banho, um café e deixarmos o **pensamento difuso** agir, resolvendo os problemas através da ligação de informações que talvez não fizessem tanto sentido no pensamento focado.
+Ainda em neurociência, o **pensamento focado** é o que já estamos acostumados, que usamos para resolver problemas que já conhecemos e sabemos como atacar. Caso estivermos em um problema que não sabemos resolver, podemos relaxar, ir tomar um banho, um café e deixarmos o **pensamento difuso** agir, resolvendo os problemas através da ligação de informações que talvez não fizessem tanto sentido no pensamento focado.
 
-A **prática cadenciada**, por exemplo, estudar todos os dias por 30 minutos é algo muito benéfico que até muda nosso cérebro.
+A **prática cadenciada**, como por exemplo, estudar todos os dias por 30 minutos, é algo muito benéfico que até muda nosso cérebro.
 
 ### Open Source
 
-Faça open source! TK
+Como última dica ela diz: **faça open source**!
 
----
+Confira os slides no [SpeakerDeck](https://speakerdeck.com/dianaarnos/voce-e-um-bom-dev).
 
-# Investigando a saúde de seu sistema através de Logs - [_Raphael de Almeida_](https://twitter.com/raph_almeida)
+## Investigando a saúde de seu sistema através de Logs - [_Raphael de Almeida_](https://twitter.com/raph_almeida)
 
-Após o keynote da Diana e o coffee-break/networking, escolhi ver a talk do Raphael, community manager do PHPRio, sobre logs.
+Após o keynote da Diana e o coffee-break/networking, escolhi ver a talk do Raphael, já que contamos com duas trilhas no evento. Ele é *community manager* do PHPRio e veio falar sobre **logs**.
+Ele começa citando Murphy:
 
 > "Qualquer coisa que possa dar errado, dará no pior momento possível."
 > _Edward A. Murphy_
 
-Quem nunca desabilitou os logs do PHP e do Apache porque eles enchiam o disco do servidor? - brinca Raphael.
-Erros no sistema deixam o usuário frustrado em relação à aplicação, podendo até fazer o mesmo desistir do uso.
-**Inconsistência de dados** é um problema que nossa aplicação pode sofrer mas, num exemplo de um commerce, um preço muito fora da média pode ser detectado automaticamente.
-**Exposição de vulnerabilidades** log de erro do MySQl exposto, para o ataque, coletamos informações e montamos o ataque
-**Reproduza o erro em ambiente local** ao invés de ficar fazendo em produção, tenha o ambiente local o mais próximo possível do ambiente de produção.
-Aquela história de "na minha máquina funciona" pode realmente acontecer, mesmo com o ambiente parecido. O problema é que o contexto específico em que o bug aconteceu pode estar faltando. Por isso, log é um diário de acontecimentos que pode nos dar insights sobre o contexto em que a aplicação vive.
+E diz que quanto **mais tempo** um sistema fica **inconsistente**, **piores** são as **consequências**.
 
-Uma dica para fazer logs é **escrever uma boa mensagem de erro**, não faça por exemplo um log escrito "Erro inesperado". Para escrever uma mensagem relevante é necessário que o desenvolvedor tenha experiência, aprenda com quem está acertando na escrita e evolua seus logs. Banco de dados, por exemplo, utilizam códigos de erro para facilitar a pesquisa de soluções.
+Quem nunca desabilitou os logs do PHP e do Apache porque eles enchiam o disco do servidor? - brinca Raphael. Erros no sistema deixam o usuário frustrado em relação à aplicação, podendo até fazer o mesmo desistir do uso por uma percepção de baixa confiabilidade.
 
-Os Erros do PHP são muito bons para descobrir que problemas estamos enfrentando. Similarmente, os erros de framework contêm bastante informações relevantes.
+Entre problemas de saúde do sistema, o Raphael cita alguns casos:
+- Ter **inconsistência de dados** é um problema que nossa aplicação pode sofrer mas, num exemplo de um e-commerce, um preço muito fora da média poderia ser detectado automaticamente.
+- Caso ocorra a **exposição de vulnerabilidades**, como um log de erro do de uma query MySQl exposto, um atacante conseguiria coletar informações e montar o ataque contra o sistema.
 
-Códigos de erro HTTP geralmente são ambíguos, então uma dica que o Raphael dá é não espelhar esses códigos HTTP para explicar o contexto de erros dentro da aplicação.
+Quando algum problema ocorrer, **reproduza o erro em ambiente local** ao invés de ficar fazendo em produção, tenha o ambiente local o mais próximo possível do ambiente de produção. Aquela história de "na minha máquina funciona" pode realmente acontecer, mesmo com o ambiente parecido. O problema é que o contexto específico em que o bug aconteceu pode estar faltando. Por isso, um **log** é um **diário de acontecimentos** que pode nos dar insights sobre o contexto em que a aplicação vive.
 
+Uma dica para fazer logs é **escrever uma boa mensagem de erro**, não faça por exemplo um log escrito `"Erro inesperado"`. Para escrever uma mensagem relevante é necessário que o desenvolvedor tenha experiência, aprenda com quem está acertando  na escrita e evolua seus logs. Banco de dados, por exemplo, utilizam códigos de erro para facilitar a pesquisa de soluções.
+
+Os erros do PHP são muito bons para descobrir que problemas estamos enfrentando. Similarmente, os erros de framework contêm bastante informações relevantes. Já os códigos de erro HTTP geralmente são ambíguos então uma dica que o Raphael dá é não espelhar esses códigos HTTP para explicar o contexto de erros dentro da aplicação.
+
+### Contexto dos erros
 Quando e onde aconteceu o erro? Se temos mais de uma máquina, qual o ambiente e o nome do host? Com o contexto certo, poderemos saber exatamente qual equipe é responsável por resolver aquele problema.
-É uma boa ideia salvar informações sobre o usuário logado, primary keys, stacktrace, arquivo e linha onde o erro ocorreu, o HTTP Request...
-Logs precisam ser de fácil pesquisa e agrupamento.
 
-Utilize os níveis de criticidade dos Logs, que vão desde `DEBUG` até emergência, seguindo por exemplo o _`RFC5424` - The Syslog Protocol_, utilizado pelo Linux.
+É uma boa ideia salvar informações sobre o usuário logado, *primary keys*, *stacktrace*, arquivo e linha onde o erro ocorreu, a requisição HTTP.
 
-- `DEBUG` -
-- `INFO` -
-- `NOTICE` - Eventos comuns, porém com certa relevância
-- `WARNING` - Eventos que merecem uma certa atenção
-- `ERROR` - Erros em tempo de execução
-- `CRITICAL` - Falha de serviços externos ou módulos
-- `ALERT` - Falha que precisa de ação imediata
-- `EMERGENCY` - Sistema está fora
+Seus logs precisam ser de fácil pesquisa e agrupamento.
 
-No PHP, temos o `PSR-3`, que é seguido, por exemplo, pelo Monolog. Também temos as exceções nativas do PHP, que seguem uma Hierarquia e podem ser muito úteis para as tratativas da nossa aplicação.
+Utilize os níveis de criticidade dos Logs, que vão desde `DEBUG`  até `EMERGENCY`, seguindo por exemplo o *[**RFC5424** - The Syslog Protocol](https://tools.ietf.org/html/rfc5424)*, utilizado pelo Linux.
+
+|Nível|Criticidade|Uso indicado|
+|:---:|:----------:|:----------|
+|DEBUG|Menos crítico|Mensagem para ajudar na depuração|
+|INFO|.|Eventos comuns|
+|NOTICE|.|Eventos comuns, porém com certa relevância|
+|WARNING|.|Eventos que merecem uma certa atenção|
+|ERROR|.|Erros em tempo de execução|
+|CRITICAL|.|Falha de serviços externos ou módulos|
+|ALERT|.|Falha que precisa de ação imediata|
+|EMERGENCY|Mais crítico|Sistema está fora|
+
+No PHP, temos o [PSR-3](https://www.php-fig.org/psr/psr-3/), que é seguido, por exemplo, pelo [Monolog](https://github.com/Seldaek/monolog). Também temos as **exceções nativas** do PHP, que seguem uma **hierarquia** e podem ser muito úteis para as tratativas da nossa aplicação.
 Em produção, não devemos mostrar os erros, configurando adequadamente o `php.ini`, por exemplo da seguinte forma:
 
 ```ini
@@ -101,21 +109,20 @@ log_errors = On
 error_log = /var/log/app_error.log
 ```
 
-Podemos posterior fazer uma análise com `tail`:
+Podemos posterior fazer uma análise desse log com `tail`:
 
-```bash
+```sh
 tail -f /var/log/app_error.log
 ```
 
-Isso funciona bem quando temos apenas um servidor, para mais de um, devemos agregar esses logs em um único local. Podemos usar uma ferramenta como o Splunk TK, por exemplo. Outra é o Kibana, que junto com o ElasticSearch e o LogStash, é um ecossistema para análise e até mesmo predicção de erros. Outras opções também, são o Graylog e o papertrail.
+Isso funciona bem quando temos apenas um servidor, porém para mais de uma máquina devemos agregar esses logs em um único local. Podemos usar uma ferramenta como o [Splunk](https://www.splunk.com/), por exemplo. Outra é o [Kibana](https://www.elastic.co/products/kibana), que junto com o [ElasticSearch](https://www.elastic.co/products/elasticsearch) e o [LogStash](https://www.elastic.co/products/logstash) forma um ecossistema para análise e até mesmo predição de erros. Outras opções também incluem o [Graylog](https://www.graylog.org/) e o [papertrail](https://papertrailapp.com/).
 
-Antecipe problemas analisando seus logs, com notificações que podem vir por slack, telegram, email, etc. Separe as responsabilidades para atribuir e identificar erros corretamente. Faça testes para reproduzir bugs e garantir que eles não aconteçam mais. Entenda que você pode ter problema de recursos, indisponibilidade de bancos de dados, rede, sistema de arquivos e tente preparar sua aplicação para pelo menos exibir mensagens de erros nesses casos.
-Existem erros provocados por ataques e também por usuários, que só estão tentando utilizar o sistema.
-Queries lentas também devem aparecer em logs, para que possamos atuar sobre elas.
+### Dicas
+Antecipe problemas analisando seus logs, com notificações que podem vir por slack, telegram, email, etc. Separe as responsabilidades para atribuir e identificar erros corretamente. Tenha rotinas para ver logs não críticos. Faça testes para reproduzir bugs e garantir que eles não aconteçam mais. Entenda que você pode ter problema de recursos, indisponibilidade de bancos de dados, rede, sistema de arquivos e tente preparar sua aplicação para pelo menos exibir mensagens de erros coerentes nesses casos. Existem erros provocados por ataques e também por usuários, que só estão tentando utilizar o sistema. *Queries* lentas também devem aparecer em logs, para que possamos atuar sobre elas.
 
----
+[Clique aqui](https://speakerdeck.com/raphaeldealmeida/investigando-a-saude-do-seu-sistema-atraves-de-logs) para ver os slides da apresentação do Raphael.
 
-# PHP + Docker + ELK + React: Um case de sucesso - [_Rodrigo Régis Palmeira_](https://twitter.com/regisnew)
+## PHP + Docker + ELK + React: Um case de sucesso - [_Rodrigo Régis Palmeira_](https://twitter.com/regisnew)
 
 O Rodrigo, ou melhor, o Régis, é chefe de desenvolvimento do Tribunal de Contas do Distrito Federal, veio trazer o case que ele passou no trabalho. Em meados do ano passado, foi levantada a necessidade de uma melhoria no sistema de pesquisa textual do TCDF. O sistema de pesquisa já existente utilizava _full text search_ do SQL Server. Embora funcionasse, a busca existente era limitada.
 O que os usuários pediam, basicamente, era uma busca similar a do Google.
@@ -135,13 +142,11 @@ Em seguida, ele mostrou alguns dashboards feitos no Kibana, que são para uso in
 
 Como próximos passos, eles percebem a necessidade da criação de um dicionário de sinônimos no Elasticsearch, uma autenticação com JWT e LDAP para pesquisas restritas de uso interno, com sigilo. Outro passo é a de fazer a busca ser um PWA (Progressive Web App).
 
----
-
-# Stand-up do [_Pokemaobr_](https://twitter.com/pokemaobr)
+## Stand-up do [_Pokemaobr_](https://twitter.com/pokemaobr)
 
 Na volta do almoço, a pedidos da "comunidade", o pokemaobr fez mais um de seus ótimos stand-ups sobre a incrível vida de DEV.
 
-# On Being a Senior Engineer - [_Sheeri K. Cabral_](https://twitter.com/sheeri)
+## On Being a Senior Engineer - [_Sheeri K. Cabral_](https://twitter.com/sheeri)
 
 Em seguida, tivemos mais um keynote, dessa vez com a Sheeri, que é Senior Database Engineer e MySQL Community Contributor. Ela comenta que vai falar mais ou menos sobre o tema que a Diana abordou, porém de uma forma um pouco diferente.
 
@@ -238,12 +243,10 @@ Pessoas percebem você como um expert. Reputação é sobre relacionamentos. Voc
 
 Desenvolva relacionamento, agradeça às pessoas que fazem o trabalho para você ou com você. Se um grande projeto terminar ou alguém sair da empresa, deixe um review legal no LinkedIn. Faça com que seja fácil para os outros fazer o trabalho que você precisa que eles façam.
 
----
+## Serverless: Função como serviço em PHP - [_Jonata Weber_](https://twitter.com/JonataWeber)
 
-# Serverless: Função como serviço em PHP - [_Jonata Weber_](https://twitter.com/JonataWeber)
-
-O Jonata, que era da Bahia e agora está aqui por perto, em Goiânia, veio falar pra gente sobre Serverless, citando um artigo que foi onde ele teve contato com o tema, onde o autor afirmava que para cada 30 mil requisições, pagava apenas US\$0.21.
-Ele afirma que o termo "Server-less" é um pouco estranho pois existem servidores em algum lugar, então um termo um pouco melhor seria "No Ops", No Internal Sys Admin, "Service-full" Architecture TK
+O Jonata, que era da Bahia e agora está aqui por perto, em Goiânia, veio falar pra gente sobre Serverless, citando um artigo que foi onde ele teve contato com o tema, onde o autor afirmava que para cada 30 mil requisições, pagava apenas US$0.21.
+Ele afirma que o termo "Server-less" é um pouco estranho pois existem servidores em algum lugar, então um termo um pouco melhor seria "No Ops", No Internal Sys Admin, "Service-full" Architecture @todo
 
 O **movimento serverless** tenta abstrair e facilitar muitas coisas do processo de desenvolvimento de software, visando tornar mais fácil colocar um código em produção.
 Ele cita o _Time to value_: intervalo entre identificar um problema e entregar um valor e diz que quanto menor esse tempo, melhor vai ser para o sucesso do projeto.
@@ -291,9 +294,7 @@ Para finalizar, o Jonata faz um paralelo com o mais tradicional PaaS (Platform a
 Artigo Martin Fowler serverless
 https://martinfowler.com/articles/serverless.html
 
----
-
-# API First: Quando utilizar a estratégia de API? - [_Bruno Souza_](https://twitter.com/brunosouza)
+## API First: Quando utilizar a estratégia de API? - [_Bruno Souza_](https://twitter.com/brunosouza)
 
 O Bruno Souza, que trabalha no Itamarati, veio falar sobre APIs, que teve um boom nos últimos tempos. Uma API é uma coleção de rotinas, protocolos e ferramentas para "construção de plataformas". Na talk dele, ele decidiu falar sobre WebAPIs.
 
@@ -338,9 +339,7 @@ Como conclusão, falou como API traz grandes oportunidades de negócio, tendo os
 
 e nos slides pode encontrar várias referências.
 
----
-
-# The QueryFilter Concept for Filtering Models - [_Junior Grossi_](https://twitter.com/junior_grossi)
+## The QueryFilter Concept for Filtering Models - [_Junior Grossi_](https://twitter.com/junior_grossi)
 
 Para finalizar o primeiro dia de palestras, decidi ver a talk do Junior, um dos organizadores do PHPMG. E após se apresentar, ele explicou que `QueryFilter` é uma abstração para filtrar objetos baseado na `URL`. Então, caso quiséssemos pegar posts com _título_ `foo` e _status_ `bar`, poderíamos utilizar uma URL do tipo:
 
@@ -354,7 +353,7 @@ E essa é mais ou menos a ideia do `QueryFilter`. Logo já partimos pro live cod
 
 # Dia 2
 
-# ChatOps! Como Podemos Usar "Chatbots" Para Realizar O Trabalho De Infra Por Nós - [_Rodrigo "Pokemao" Cardoso_](https://twitter.com/pokemaobr)
+## ChatOps! Como Podemos Usar "Chatbots" Para Realizar O Trabalho De Infra Por Nós - [_Rodrigo "Pokemao" Cardoso_](https://twitter.com/pokemaobr)
 
 Primeira talk do dia (pra mim, que cheguei atrasado), com o Pokemaobr, Community Manager na iMasters e criador do PokePHP,
 
@@ -370,13 +369,9 @@ Alguns **projetos** citados foram o [Hubot](https://hubot.github.com), do GitHub
 O pokemao mostrou como fazer um ChatOps Bot na prática com PHP, para resolver o problema de criar e deletar droplets na Digital Ocean através do celular. Ele utilizou a biblioteca Digital Ocean V2, a ferramenta Dialogflow onde é possível definir **intenções** do usuário, como por exemplo, "listar droplets". Essa ferramenta permite que webhooks sejam acionados de acordo com as intenções pré determinadas. O pokemao fez uma live mostrando na prática, criando um droplet chamado "darkmiratour" pelo Telegram, confiram no vídeo depois.
 Num outro exemplo mostrado, utilizando o TelegramBot/API, o pokemao fez uma ferramenta que verifica se determinado site está online e avisa por Telegram caso o site saia fora do ar.
 
----
+## Painel Das Comunidades
 
-# Painel Das Comunidades
-
----
-
-# Compartilhando Conhecimento E Unindo Uma Equipe Por Meio De Code Review - [_Vinícius Alonso_](https://twitter.com/alonsoemacao)
+## Compartilhando Conhecimento E Unindo Uma Equipe Por Meio De Code Review - [_Vinícius Alonso_](https://twitter.com/alonsoemacao)
 
 Autor deve escrever código de qualidade, resolver o problema, não introduzir nenhum defeito...
 Fornecendo contexto - Template para pull request
@@ -408,13 +403,11 @@ Uma ferramenta que verifica se a documentação foi atualizada junto com o PR, r
   **- Devemos focar no que a máquina não pode fazer.** A máquina consegue verificar estilo de código, PSRs, complexidade ciclomática, etc. Porém ela não consegue avaliar se um requisito foi atendido, por exemplo, e é nisso que podemos focar.
 - **Para a prática acontecer de maneira saudável precisamos de indivíduos motivados a melhorar**, que saibam escutar as possíveis melhorias e querer evoluir.
 
----
+## Painel - a Participação Da Mulher Na Área De Ti
 
-# Painel - a Participação Da Mulher Na Área De Ti
+@todo
 
----
-
-# Projetando Software Orientado a Objetos Com Qualidade - [_Marcel dos Santos_](https://twitter.com/marcelgsantos)
+## Projetando Software Orientado a Objetos Com Qualidade - [_Marcel  dos Santos_](https://twitter.com/marcelgsantos)
 
 O Marcel, que é desenvolvedor Web Full-Stack e um dos evangelistas do PHPSP, começa sua talk perguntando à plateia: "Orientação a Objetos? O que é isso?" e após algumas respostas, define: _trata da comunicação entre objetos através da troca de mensagens_. Um objeto tem **características**, **comportamentos** e **estado atual**.
 
@@ -447,7 +440,7 @@ Utilizando **injeção** de dependência, conseguimos alcançar o princípio da 
 O princípio **Tell Don't Ask** diz: **não peça** informações para fazer o seu trabalho, apenas **diga** o que quer que seja feito e deixe o outro objeto lidar com isso internamente.
 **Lei de Demeter** diz: fale com seus amigos mais próximos, não fale com estranhos. Por exemplo, tendo `Classe A` dependendo da `Classe B` e a `B` dependendo da `Classe C`, a `Classe A` não deveria enviar mensagens diretamente para a `C`, somente para a `B`.
 
-**Objects Calisthenics** são exercícios que ajudam a melhorar a qualidade do seu código. O Marcel fez uma talk específica sobre isso na Laraconf Brazil 2017, confiram aqui TK.
+**Objects Calisthenics** são exercícios que ajudam a melhorar a qualidade do seu código. O Marcel fez uma talk específica sobre isso na Laraconf Brazil 2017, confiram aqui @todo.
 
 Essas regras não estão escritas em pedra, mas seu uso pode contribuir positivamente para a evolução do código
 
@@ -458,15 +451,13 @@ uma classe não deve ser forçada a depender de uma implementação específica
 a classe deve depender de um contrato, abstração ou interface
 prefira classes com alta coesão e baixo acoplamento
 
-Nos slides TK, o Marcel deixa várias referências para se aprofundar no assunto.
+Nos slides @todo, o Marcel deixa várias referências para se aprofundar no assunto.
 
----
-
-# Legado Ao DDD - [_Leonn Leite_](https://twitter.com/leonnleite)
+## Legado Ao DDD - [_Leonn Leite_](https://twitter.com/leonnleite)
 
 Para fechar as talks do dia, escolhi ver a do Leonn, Líder Técnico PHP na Engesoftware.
 
-## Motivação - Código Legado
+### Motivação - Código Legado
 
 Segundo o Leonn, Brasília é o **país** do legado, então fazer integração contínua em legado é perigoso. Assim, os problemas são cada vez mais replicados conforme o projeto vai sendo desenvolvido, sendo difícil de manter. Geralmente as aplicações são estruturadas. Quando se tem Orientação a Objeto, que é raro, muitas vezes é um OO estruturado, com métodos de mais de mil linhas. Os testes das aplicações são feitos por humanos, sem nada automatizado. Testes unitários por exemplo, não existe. Os contratos com governos não exigem e "se não pagam, não fazemos". Reutilização de código, basicamente é `Ctrl+C` e `Ctrl+V` do Stack Overflow. Composer com Satis ou Toran Proxy poderiam ser utilizados para reaproveitar código...
 
@@ -522,4 +513,4 @@ named constructor: createUserFrom
 O caminho, que não é uma solução única, mas uma dica do Leonn: não desenvolva baseado em framework; usem `final class` para ninguém extender o domínio, **ActiveRecord** não deve ser usado. Use **Eventos**. Cuidado com _Models anêmicos_, que tenham somente `setter`s e `getter`s. Em modelos ricos, não temos setters, apenas no construtor. regra de negócio na entidade. UpdateUser deveria/poderia ser MoveToNewAddres, ChangeEmail, ChangePassword, IntroduceNewContactPerson. Mecanismo de Delivery (???). CommandBus é uma técnica boa para trabalhar com DDD.
 Saia da zona de conforto.
 
-# Keywords: DDD eric evans, vaughn vernon, arquitetura hexagonal, cqrs, event source, domain events, command bus, big ball of mud
+### Keywords: DDD eric evans, vaughn vernon, arquitetura hexagonal, cqrs, event source, domain events, command bus, big ball of mud
