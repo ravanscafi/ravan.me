@@ -7,7 +7,7 @@ import Bio from "./bio"
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
+    const { location, title, children, repository } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
     let header
 
@@ -27,7 +27,7 @@ class Layout extends React.Component {
                 textDecoration: `none`,
                 color: `inherit`,
               }}
-              to={`/`}
+              to={rootPath}
             >
               {title}
             </Link>
@@ -48,7 +48,7 @@ class Layout extends React.Component {
               textDecoration: `none`,
               color: `inherit`,
             }}
-            to={`/`}
+            to={rootPath}
           >
             {title}
           </Link>
@@ -67,10 +67,15 @@ class Layout extends React.Component {
         <header>{header}</header>
         <main>{children}</main>
         <footer style={{ textAlign: "center", marginTop: `1.2rem` }}>
-          © {new Date().getFullYear()} - built with{" "}
+          © {new Date().getFullYear()}
+          <span style={{ padding: `0 .5rem` }}>&bull;</span>
+          built with
+          {` `}
           <Heart className="icon" color="#f00" /> using
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <span style={{ padding: `0 .5rem` }}>&bull;</span>
+          See the project on <a href={repository.url}>{repository.name}</a>
         </footer>
       </div>
     )

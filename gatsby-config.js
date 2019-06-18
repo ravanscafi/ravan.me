@@ -4,6 +4,10 @@ module.exports = {
     author: `Ravan Scafi`,
     description: `Ravan Scafi's personal website.`,
     siteUrl: `https://ravan.me`,
+    repository: {
+      name: "GitHub",
+      url: "https://github.com/ravanscafi/ravan.me"
+    },
     social: {
       twitter: `ravanscafi`,
       github: `ravanscafi`,
