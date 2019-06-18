@@ -1,11 +1,22 @@
-# ravan.me
+# Ravan Scafi's personal website.
 
-## 🚀 Quick start
+[![Netlify Status](https://api.netlify.com/api/v1/badges/56c44513-e90d-4b6d-8880-7a46d7748b62/deploy-status)](https://app.netlify.com/sites/ravan-me/deploys)
 
-1.  **Start developing.**
+This website is built with Node.js, JavaScript, React.js and Gatsby.
+It is static, so you can build it and deploy static files.
+It is currently hosted at [https://ravan.me](https://ravan.me).
 
-    Navigate into your new site’s directory and start it up.
+## Contributing
+First, fork the repository and clone it.
 
-    ```sh
-    gatsby develop
-    ```
+Next, you will need [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com/).
+Run the command below to fetch the dependencies and spin up a local web-server.
+```sh
+yarn start
+```
+Now, go ahead, edit some files and you will see the magic happening 🎉.
+
+Commit your changes and submit a Pull Request 😉.
+
+## License
+MIT
