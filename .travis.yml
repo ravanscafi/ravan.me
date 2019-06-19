@@ -5,10 +5,8 @@ cache: yarn
 jobs:
   include:
     - stage: Lint and Tests
-      install: yarn install
       script: yarn format -c
     - script: yarn test
     - stage: Lighthouse
       if: type = pull_request
-      install: yarn install
-      script: yarn lh --perf 100 --a11y 100 --bp 100 --seo 73 --pwa 100 "$(wait-for-netlify-preview)"
+      script: yarn lh --perf 100 --a11y 100 --bp 93 --seo 73 --pwa 100 "$(wait-for-netlify-preview)"
