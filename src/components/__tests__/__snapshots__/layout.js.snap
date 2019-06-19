@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "marginLeft": "auto",
+      "marginRight": "auto",
+      "maxWidth": "52.5rem",
+      "padding": "2.625rem 1.3125rem 0.875rem",
+    }
+  }
+>
+  <header>
+    <h3
+      style={
+        Object {
+          "fontFamily": "Montserrat, sans-serif",
+          "marginTop": 0,
+        }
+      }
+    >
+      <a
+        href="/"
+        style={
+          Object {
+            "boxShadow": "none",
+            "color": "inherit",
+            "textDecoration": "none",
+          }
+        }
+      >
+        My Site
+      </a>
+    </h3>
+  </header>
+  <main>
+    <p>
+      Content
+    </p>
+  </main>
+  <footer
+    style={
+      Object {
+        "marginTop": "1.2rem",
+        "textAlign": "center",
+      }
+    }
+  >
+    © 
+    2019
+    <span
+      style={
+        Object {
+          "padding": "0 .5rem",
+        }
+      }
+    >
+      •
+    </span>
+    built with
+     
+    <svg
+      className="icon"
+      fill="none"
+      height="24"
+      stroke="#f00"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+      />
+    </svg>
+     using
+     
+    <a
+      href="https://www.gatsbyjs.org"
+    >
+      Gatsby
+    </a>
+    <span
+      style={
+        Object {
+          "padding": "0 .5rem",
+        }
+      }
+    >
+      •
+    </span>
+    See the project on 
+    <a
+      href="gitlab.com"
+    >
+      Gitlab
+    </a>
+  </footer>
+</div>
+`;
