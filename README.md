@@ -1,9 +1,10 @@
 # Ravan Scafi's personal website.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/56c44513-e90d-4b6d-8880-7a46d7748b62/deploy-status)](https://app.netlify.com/sites/ravan-me/deploys)
+[![Build Status](https://travis-ci.org/ravanscafi/ravan.me.svg?branch=master)](https://travis-ci.org/ravanscafi/ravan.me)
 
 This website is built with Node.js, JavaScript, React.js and Gatsby.
-It is static, so you can build it and deploy static files.
+It uses a static generator, so you can build it and deploy only the static files.
 It is currently hosted at [https://ravan.me](https://ravan.me).
 
 ## Contributing
