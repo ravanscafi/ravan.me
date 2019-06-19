@@ -1,0 +1,9 @@
+language: node_js
+jobs:
+  include:
+    - stage: Test Build
+      install: yarn install
+      script: yarn build
+    - stage: Lighthouse
+      if: type = pull_request
+      script: yarn lh --perf 90 --pwa 90 --a11y 90 --bp 90 --seo 90 "$(wait-for-netlify-preview)"
