@@ -7,7 +7,7 @@ cover: ./darkmira2018.jpg
 
 ![Público do evento Darkmira Tour 2018.](./darkmira2018.jpg)
 
-No começo desse mês rolou o [Darkmira Tour 2019](https://php.darkmiratour.rocks/2019/), lá em Fortaleza. Infelizmente, não consegui estar presente, mas na edição do ano passado tive esse prazer. O evento aconteceu nos dias 14 e 15 de abril de 2018, em Brasília. Contou com mais de 20 palestrantes e alguns painéis. Acabei encontrando recentemente minhas anotações no fundo do ~~baú~~ editor de texto, então nesse post vou tentar dar uns *highlights* do que vi por lá!
+No começo desse mês rolou o [Darkmira Tour 2019](https://php.darkmiratour.rocks/2019/), lá em Fortaleza. Infelizmente, não consegui estar presente, mas na edição do ano passado tive esse prazer. O evento aconteceu nos dias 14 e 15 de abril de 2018, em Brasília. Contou com mais de 20 palestrantes e alguns painéis. Acabei encontrando recentemente minhas anotações no fundo do ~~baú~~ editor de texto, então nesse post vou tentar dar uns _highlights_ do que vi por lá!
 
 ## Você é um bom dev? - [_Diana Arnos_](https://twitter.com/dianaarnos)
 
@@ -24,7 +24,7 @@ Segundo a Diana, utilizar boas práticas indica quão longe você foi no conheci
 
 ### Saiba preparar o seu ambiente
 
-Você sabe como sua aplicação sobe? Ou você só executa um script que algum *DevOps* do time te mandou? É importante conhecer o sistema operacional, as ferramentas do servidor, mesmo que apenas superficialmente.
+Você sabe como sua aplicação sobe? Ou você só executa um script que algum _DevOps_ do time te mandou? É importante conhecer o sistema operacional, as ferramentas do servidor, mesmo que apenas superficialmente.
 
 **Virtualização** é uma ótima forma de saber isolar as dependências da sua aplicação e garantir que seus projetos não afetem seu ambiente local. Você pode usar Virtual Box, PHPansible, Docker... (só não subam o docker como `root`, por favor! - ela apela)
 
@@ -37,7 +37,7 @@ Você sabe como sua aplicação sobe? Ou você só executa um script que algum *
 ### Segurança
 
 A Diana comenta que qualquer informação que você expõe do seu sistema está abrindo a potenciais falhas a serem exploradas.
-**Não use IDs sequenciais** para mostrar aos usuários. A coluna de ID do banco serve única e exclusivamente para o banco. Não exponha essa informação ao usuário. **Não mostre a assinatura do servidor e da linguagem** nas requisições, é muito fácil desabilitar isso e evita que algum potencial atacante tenha de mão beijada que você está rodando por exemplo *nginx* numa versão específica. **Inputs devem ser validados** e, não, não estamos falando de validar (somente) no frontend, devemos validar os dados do lado do servidor. Utilize também **Argon 2** e **libsodium** que o PHP tem suporte.
+**Não use IDs sequenciais** para mostrar aos usuários. A coluna de ID do banco serve única e exclusivamente para o banco. Não exponha essa informação ao usuário. **Não mostre a assinatura do servidor e da linguagem** nas requisições, é muito fácil desabilitar isso e evita que algum potencial atacante tenha de mão beijada que você está rodando por exemplo _nginx_ numa versão específica. **Inputs devem ser validados** e, não, não estamos falando de validar (somente) no frontend, devemos validar os dados do lado do servidor. Utilize também **Argon 2** e **libsodium** que o PHP tem suporte.
 
 ### Ferramentas
 
@@ -59,7 +59,7 @@ Confira os slides no [SpeakerDeck](https://speakerdeck.com/dianaarnos/voce-e-um-
 
 ## Investigando a saúde de seu sistema através de Logs - [_Raphael de Almeida_](https://twitter.com/raph_almeida)
 
-Após o keynote da Diana e o coffee-break/networking, escolhi ver a talk do Raphael, já que contamos com duas trilhas no evento. Ele é *community manager* do PHPRio e veio falar sobre **logs**.
+Após o keynote da Diana e o coffee-break/networking, escolhi ver a talk do Raphael, já que contamos com duas trilhas no evento. Ele é _community manager_ do PHPRio e veio falar sobre **logs**.
 Ele começa citando Murphy:
 
 > "Qualquer coisa que possa dar errado, dará no pior momento possível."
@@ -70,34 +70,36 @@ E diz que quanto **mais tempo** um sistema fica **inconsistente**, **piores** s�
 Quem nunca desabilitou os logs do PHP e do Apache porque eles enchiam o disco do servidor? - brinca Raphael. Erros no sistema deixam o usuário frustrado em relação à aplicação, podendo até fazer o mesmo desistir do uso por uma percepção de baixa confiabilidade.
 
 Entre problemas de saúde do sistema, o Raphael cita alguns casos:
+
 - Ter **inconsistência de dados** é um problema que nossa aplicação pode sofrer mas, num exemplo de um e-commerce, um preço muito fora da média poderia ser detectado automaticamente.
 - Caso ocorra a **exposição de vulnerabilidades**, como um log de erro do de uma query MySQl exposto, um atacante conseguiria coletar informações e montar o ataque contra o sistema.
 
 Quando algum problema ocorrer, **reproduza o erro em ambiente local** ao invés de ficar fazendo em produção, tenha o ambiente local o mais próximo possível do ambiente de produção. Aquela história de "na minha máquina funciona" pode realmente acontecer, mesmo com o ambiente parecido. O problema é que o contexto específico em que o bug aconteceu pode estar faltando. Por isso, um **log** é um **diário de acontecimentos** que pode nos dar insights sobre o contexto em que a aplicação vive.
 
-Uma dica para fazer logs é **escrever uma boa mensagem de erro**, não faça por exemplo um log escrito `"Erro inesperado"`. Para escrever uma mensagem relevante é necessário que o desenvolvedor tenha experiência, aprenda com quem está acertando  na escrita e evolua seus logs. Banco de dados, por exemplo, utilizam códigos de erro para facilitar a pesquisa de soluções.
+Uma dica para fazer logs é **escrever uma boa mensagem de erro**, não faça por exemplo um log escrito `"Erro inesperado"`. Para escrever uma mensagem relevante é necessário que o desenvolvedor tenha experiência, aprenda com quem está acertando na escrita e evolua seus logs. Banco de dados, por exemplo, utilizam códigos de erro para facilitar a pesquisa de soluções.
 
 Os erros do PHP são muito bons para descobrir que problemas estamos enfrentando. Similarmente, os erros de framework contêm bastante informações relevantes. Já os códigos de erro HTTP geralmente são ambíguos então uma dica que o Raphael dá é não espelhar esses códigos HTTP para explicar o contexto de erros dentro da aplicação.
 
 ### Contexto dos erros
+
 Quando e onde aconteceu o erro? Se temos mais de uma máquina, qual o ambiente e o nome do host? Com o contexto certo, poderemos saber exatamente qual equipe é responsável por resolver aquele problema.
 
-É uma boa ideia salvar informações sobre o usuário logado, *primary keys*, *stacktrace*, arquivo e linha onde o erro ocorreu, a requisição HTTP.
+É uma boa ideia salvar informações sobre o usuário logado, _primary keys_, _stacktrace_, arquivo e linha onde o erro ocorreu, a requisição HTTP.
 
 Seus logs precisam ser de fácil pesquisa e agrupamento.
 
-Utilize os níveis de criticidade dos Logs, que vão desde `DEBUG`  até `EMERGENCY`, seguindo por exemplo o *[**RFC5424** - The Syslog Protocol](https://tools.ietf.org/html/rfc5424)*, utilizado pelo Linux.
+Utilize os níveis de criticidade dos Logs, que vão desde `DEBUG` até `EMERGENCY`, seguindo por exemplo o _[**RFC5424** - The Syslog Protocol](https://tools.ietf.org/html/rfc5424)_, utilizado pelo Linux.
 
-|Nível|Criticidade|Uso indicado|
-|:---:|:----------:|:----------|
-|DEBUG|Menos crítico|Mensagem para ajudar na depuração|
-|INFO|.|Eventos comuns|
-|NOTICE|.|Eventos comuns, porém com certa relevância|
-|WARNING|.|Eventos que merecem uma certa atenção|
-|ERROR|.|Erros em tempo de execução|
-|CRITICAL|.|Falha de serviços externos ou módulos|
-|ALERT|.|Falha que precisa de ação imediata|
-|EMERGENCY|Mais crítico|Sistema está fora|
+|   Nível   |  Criticidade  | Uso indicado                               |
+| :-------: | :-----------: | :----------------------------------------- |
+|   DEBUG   | Menos crítico | Mensagem para ajudar na depuração          |
+|   INFO    |       .       | Eventos comuns                             |
+|  NOTICE   |       .       | Eventos comuns, porém com certa relevância |
+|  WARNING  |       .       | Eventos que merecem uma certa atenção      |
+|   ERROR   |       .       | Erros em tempo de execução                 |
+| CRITICAL  |       .       | Falha de serviços externos ou módulos      |
+|   ALERT   |       .       | Falha que precisa de ação imediata         |
+| EMERGENCY | Mais crítico  | Sistema está fora                          |
 
 No PHP, temos o [PSR-3](https://www.php-fig.org/psr/psr-3/), que é seguido, por exemplo, pelo [Monolog](https://github.com/Seldaek/monolog). Também temos as **exceções nativas** do PHP, que seguem uma **hierarquia** e podem ser muito úteis para as tratativas da nossa aplicação.
 Em produção, não devemos mostrar os erros, configurando adequadamente o `php.ini`, por exemplo da seguinte forma:
@@ -118,7 +120,8 @@ tail -f /var/log/app_error.log
 Isso funciona bem quando temos apenas um servidor, porém para mais de uma máquina devemos agregar esses logs em um único local. Podemos usar uma ferramenta como o [Splunk](https://www.splunk.com/), por exemplo. Outra é o [Kibana](https://www.elastic.co/products/kibana), que junto com o [ElasticSearch](https://www.elastic.co/products/elasticsearch) e o [LogStash](https://www.elastic.co/products/logstash) forma um ecossistema para análise e até mesmo predição de erros. Outras opções também incluem o [Graylog](https://www.graylog.org/) e o [papertrail](https://papertrailapp.com/).
 
 ### Dicas
-Antecipe problemas analisando seus logs, com notificações que podem vir por slack, telegram, email, etc. Separe as responsabilidades para atribuir e identificar erros corretamente. Tenha rotinas para ver logs não críticos. Faça testes para reproduzir bugs e garantir que eles não aconteçam mais. Entenda que você pode ter problema de recursos, indisponibilidade de bancos de dados, rede, sistema de arquivos e tente preparar sua aplicação para pelo menos exibir mensagens de erros coerentes nesses casos. Existem erros provocados por ataques e também por usuários, que só estão tentando utilizar o sistema. *Queries* lentas também devem aparecer em logs, para que possamos atuar sobre elas.
+
+Antecipe problemas analisando seus logs, com notificações que podem vir por slack, telegram, email, etc. Separe as responsabilidades para atribuir e identificar erros corretamente. Tenha rotinas para ver logs não críticos. Faça testes para reproduzir bugs e garantir que eles não aconteçam mais. Entenda que você pode ter problema de recursos, indisponibilidade de bancos de dados, rede, sistema de arquivos e tente preparar sua aplicação para pelo menos exibir mensagens de erros coerentes nesses casos. Existem erros provocados por ataques e também por usuários, que só estão tentando utilizar o sistema. _Queries_ lentas também devem aparecer em logs, para que possamos atuar sobre elas.
 
 [Clique aqui](https://speakerdeck.com/raphaeldealmeida/investigando-a-saude-do-seu-sistema-atraves-de-logs) para ver os slides da apresentação do Raphael.
 
@@ -245,7 +248,7 @@ Desenvolva relacionamento, agradeça às pessoas que fazem o trabalho para você
 
 ## Serverless: Função como serviço em PHP - [_Jonata Weber_](https://twitter.com/JonataWeber)
 
-O Jonata, que era da Bahia e agora está aqui por perto, em Goiânia, veio falar pra gente sobre Serverless, citando um artigo que foi onde ele teve contato com o tema, onde o autor afirmava que para cada 30 mil requisições, pagava apenas US$0.21.
+O Jonata, que era da Bahia e agora está aqui por perto, em Goiânia, veio falar pra gente sobre Serverless, citando um artigo que foi onde ele teve contato com o tema, onde o autor afirmava que para cada 30 mil requisições, pagava apenas US\$0.21.
 Ele afirma que o termo "Server-less" é um pouco estranho pois existem servidores em algum lugar, então um termo um pouco melhor seria "No Ops", No Internal Sys Admin, "Service-full" Architecture @todo
 
 O **movimento serverless** tenta abstrair e facilitar muitas coisas do processo de desenvolvimento de software, visando tornar mais fácil colocar um código em produção.
@@ -407,7 +410,7 @@ Uma ferramenta que verifica se a documentação foi atualizada junto com o PR, r
 
 @todo
 
-## Projetando Software Orientado a Objetos Com Qualidade - [_Marcel  dos Santos_](https://twitter.com/marcelgsantos)
+## Projetando Software Orientado a Objetos Com Qualidade - [_Marcel dos Santos_](https://twitter.com/marcelgsantos)
 
 O Marcel, que é desenvolvedor Web Full-Stack e um dos evangelistas do PHPSP, começa sua talk perguntando à plateia: "Orientação a Objetos? O que é isso?" e após algumas respostas, define: _trata da comunicação entre objetos através da troca de mensagens_. Um objeto tem **características**, **comportamentos** e **estado atual**.
 
