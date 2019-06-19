@@ -70,5 +70,9 @@
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "lh": "lighthousebot"
+  },
+  "engines": {
+    "node": ">=12.4.0",
+    "yarn": "^1.15.2"
   }
 }
