@@ -64,9 +64,7 @@ function Bio(props) {
                 <a
                   title="Stack Overflow"
                   className="social-icon stackoverflow"
-                  href={`https://stackoverflow.com/users/${
-                    social.stackoverflow
-                  }`}
+                  href={`https://stackoverflow.com/users/${social.stackoverflow}`}
                   rel="nofollow"
                 >
                   <Stackoverflow className="icon" />

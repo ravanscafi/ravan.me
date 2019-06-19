@@ -17,7 +17,11 @@ class BlogIndex extends React.Component {
     const posts = data.allMarkdownRemark.edges
 
     return (
-      <Layout location={this.props.location} title={siteTitle} repository={data.site.siteMetadata.repository}>
+      <Layout
+        location={this.props.location}
+        title={siteTitle}
+        repository={data.site.siteMetadata.repository}
+      >
         <SEO title="Home" />
         <section className="post-feed">
           {posts.map(({ node }) => {

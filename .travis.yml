@@ -4,9 +4,10 @@ node_js:
 cache: yarn
 jobs:
   include:
-    - stage: Tests
+    - stage: Lint and Tests
       install: yarn install
-      script: yarn test
+      script: yarn format -c
+    - script: yarn test
     - stage: Lighthouse
       if: type = pull_request
       install: yarn install
