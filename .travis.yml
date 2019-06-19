@@ -10,4 +10,4 @@ jobs:
     - stage: Lighthouse
       if: type = pull_request
       install: yarn install
-      script: yarn lh --perf 90 --pwa 90 --a11y 90 --bp 90 --seo 90 "$(wait-for-netlify-preview)"
+      script: yarn lh --perf 100 --a11y 100 --bp 93 --seo 73 --pwa 100 "$(wait-for-netlify-preview)"
