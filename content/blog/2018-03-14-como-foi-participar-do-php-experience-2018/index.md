@@ -9,7 +9,7 @@ cover: ./comunidade-phpsp.jpg
 
 Fala galera! Este ano, como representante da comunidade [Laravel SP](https://twitter.com/laravelsp), fui convidado a participar do [PHP Experience](https://eventos.imasters.com.br/phpexperience/). [Na edição do ano passado](https://phpexperience2017.imasters.com.br/), pude contribuir com a comunidade [palestrando sobre APIs](https://www.youtube.com/watch?v=pYI-xievuOo). Foi uma experiência incrível participar de um evento dessa magnitude e relevância e, para este ano, queria poder contribuir de alguma forma também.
 
-Ano passado, após a [Laraconf Brasil 2017](https://laraconfbrasil.com.br/), rolou algo muito legal. O [@eltonantunes\_85873](http://twitter.com/eltonantunes_85873 "Twitter profile for @eltonantunes_85873") publicou o seguinte artigo falando sobre as impressões dele a respeito do evento:
+Ano passado, após a [Laraconf Brasil 2017](https://laraconfbrasil.com.br/), rolou algo muito legal. O [@eltonantunes_85873](http://twitter.com/eltonantunes_85873 "Twitter profile for @eltonantunes_85873") publicou o seguinte artigo falando sobre as impressões dele a respeito do evento:
 
 [**Laraconf Brasil 2017 — Dia 1/2**
 medium.com](https://medium.com/@eltonantunes_85873/laraconf-brasil-2017-dia-1-2-f88078655bf7 "https://medium.com/@eltonantunes_85873/laraconf-brasil-2017-dia-1-2-f88078655bf7")[](https://medium.com/@eltonantunes_85873/laraconf-brasil-2017-dia-1-2-f88078655bf7)
@@ -71,8 +71,8 @@ Em seguida, o Bob começou a explicar sobre os blocos, da blockchain, que são u
 
 Conclusões da talk do Bob:
 
-*   Blockchain é uma forma atômica de guardar dados, há quem diga que estamos indo para uma Web 3.0, de aplicações descentralizadas baseadas em blockchain.
-*   PHP é usado em 83.2% de todos os sites da web, portanto, temos a capacidade de ser a maior rede distribuída do mundo.
+- Blockchain é uma forma atômica de guardar dados, há quem diga que estamos indo para uma Web 3.0, de aplicações descentralizadas baseadas em blockchain.
+- PHP é usado em 83.2% de todos os sites da web, portanto, temos a capacidade de ser a maior rede distribuída do mundo.
 
 Para mais detalhes, [confira o projeto no GitHub](https://github.com/gabrielrcouto/phplata).
 
@@ -86,7 +86,7 @@ Você deve conhecer o Marcelo Camargo, mesmo que indiretamente. Foi ele quem cri
 
 No interpretador PHP, tudo começa com um _Lexer_, que recebe uma lista de caracteres (nosso código) e quebra em palavras que são analisadas e convertidas em _tokens_. Por exemplo, a frase `"Hello, how are you?"` seria quebrada com os seguintes tokens: `[HELLO][,][HOW][ARE][YOU][?]`. Nesse sentido, o PHP até tem uma função chamada [`token_get_all()`](http://php.net/manual/pt_BR/function.token-get-all.php) que nos ajuda com esse trabalho de "tokenização" de uma lista de caracteres.
 
-Após essa primeira fase léxica, vamos para o _Parser_, que define um conjunto de regras de que vão definir a interação com o _Lexer_. Uma mudança legal do PHP 7 é que o resultado do _Parser_ é uma AST (uma [Árvore de Sintaxe Abstrata](https://pt.wikipedia.org/wiki/%C3%81rvore_sint%C3%A1tica_abstrata)), ao invés de opcodes, que era o resultado até o PHP 5.6. Basicamente o _Parser_ vai pegar os tokens e validar se os mesmos estão corretos — _o código digitado gera um programa válido?_ — e transformar esses tokens em uma árvore que ultimamente virará instruções de máquina.
+Após essa primeira fase léxica, vamos para o _Parser_, que define um conjunto de regras de que vão definir a interação com o _Lexer_. Uma mudança legal do PHP 7 é que o resultado do _Parser_ é uma AST (uma [Árvore de Sintaxe Abstrata](https://pt.wikipedia.org/wiki/%C3%81rvore_sint%C3%A1tica_abstrata)), ao invés de opcodes, que era o resultado até o PHP 5.6. Basicamente o _Parser_ vai pegar os tokens e validar se os mesmos estão corretos — *o código digitado gera um programa válido?* — e transformar esses tokens em uma árvore que ultimamente virará instruções de máquina.
 Sabe aquelas mensagens de `UNEXPECTED` e etc. que a gente procura no StackOverflow como resolver? Então, é o _Parser_ que verifica seu código e vê se ele é válido, possivelmente jogando esses problemas pra gente. É nessa fase também que o escopo das variáveis, etc. é verificado e a precedência de operações também.
 
 Em seguida, pasmém, chega a parte mais complexa! _VM e opcodes_. O PHP utiliza uma máquina virtual (VM) baseada em registradores, a _Zend Virtual Machine_. Parecido com como o _Assembly_ moderno trabalha, a VM tem várias instruções para facilitar (as opcodes!). De forma simplificada, o PHP compila para opcodes independentes de máquina, que então podem rodar em qualquer sistema operacional.
@@ -254,7 +254,7 @@ Porém, refatorar código pode não ser um trabalho tão fácil, então o Davi t
 7.  **Código Duplicado.** Identificar duplicação (evidente ou não) de código e movê-lo para dentro de uma única estrutura. As vezes os códigos não são parecidos, mas têm o mesmo intuito. Por exemplo, uma lógica de criar _slugs_ de URLs.
 8.  **Violação de estilos.** Seguir as convenções de estilo (_Code Style_) da linguagem ou da empresa ([PSRs](https://www.php-fig.org/psr/psr-2/), etc.). Podemos utilizar o [PHP Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer) para identificar esses problemas.
 9.  **Mudar o código antes de mudar os testes.** Fazer um health-check nos testes, que devem falhar caso houver alteração no código.
-10.  **Reduzir a quantidade de condicionais.** Cada condicional representa uma “decisão” no código e é importante não ter muitas decisões para cada método, diminuindo a complexidade ciclomática. É possível novamente utilizar o [PHP Mess Detector](https://phpmd.org/) para encontrar esses casos.
+10. **Reduzir a quantidade de condicionais.** Cada condicional representa uma “decisão” no código e é importante não ter muitas decisões para cada método, diminuindo a complexidade ciclomática. É possível novamente utilizar o [PHP Mess Detector](https://phpmd.org/) para encontrar esses casos.
 
 #### Conclusões
 
@@ -302,8 +302,8 @@ O DDD é um framework de design, não de processos, o que deixa a forma de pensa
 
 Algumas técnicas podem auxiliar na concepção dos domínios:
 
-*   **Event Storming** é uma forma interativa e visual entre o time de saber todos os eventos de um domínio, partindo para uma eventual definição dos contextos.
-*   **User Story Mapping** também é uma forma interativa e visual de ter histórias do ponto de vista dos usuários, procurando resolver problemas e anseios específicos que eles terão.
+- **Event Storming** é uma forma interativa e visual entre o time de saber todos os eventos de um domínio, partindo para uma eventual definição dos contextos.
+- **User Story Mapping** também é uma forma interativa e visual de ter histórias do ponto de vista dos usuários, procurando resolver problemas e anseios específicos que eles terão.
 
 O Eriksen recomenda começar com User Story Mapping e depois seguir para o Event Storming para saber quebrar em domínios menores.
 
@@ -349,13 +349,13 @@ Ele define o docker como uma “ferramenta para virtualização de sistemas oper
 
 Quando pensamos em docker em produção, surgem algumas dúvidas, incluindo:
 
-*   Como gerenciar o ciclo vida dos contêineres?
-*   Como escalar os contêineres?
-*   Como recriar contêineres que morrem?
-*   Como atualizar a aplicação sem downtime?
-*   Onde colocar os contêineres? (S.O., tipo de máquina, de cloud, etc)
-*   Como os contêineres vão se comunicar entre eles?
-*   Como gerenciar informações sensíveis, como segredos?
+- Como gerenciar o ciclo vida dos contêineres?
+- Como escalar os contêineres?
+- Como recriar contêineres que morrem?
+- Como atualizar a aplicação sem downtime?
+- Onde colocar os contêineres? (S.O., tipo de máquina, de cloud, etc)
+- Como os contêineres vão se comunicar entre eles?
+- Como gerenciar informações sensíveis, como segredos?
 
 #### Orquestração
 
@@ -365,11 +365,11 @@ Para sanar as preocupações relativas ao docker em produção, espera-se os seg
 
 Outros conceitos importantes quando falamos de orquestração são:
 
-*   **Cluster**: máquinas que vão rodar juntas servindo a um propósito específico.
-*   **Service Discovery**: descobrir automaticamente outros serviços na rede.
-*   **Load Balance**: distribuir carga de trabalho entre o cluster.
-*   **High Availability**: alta disponibilidade dos serviços.
-*   **Auto Scaling**: escalar vertical ou horizontalmente as máquinas para atender a demanda de trabalho.
+- **Cluster**: máquinas que vão rodar juntas servindo a um propósito específico.
+- **Service Discovery**: descobrir automaticamente outros serviços na rede.
+- **Load Balance**: distribuir carga de trabalho entre o cluster.
+- **High Availability**: alta disponibilidade dos serviços.
+- **Auto Scaling**: escalar vertical ou horizontalmente as máquinas para atender a demanda de trabalho.
 
 #### Docker Swarm
 
@@ -427,7 +427,7 @@ Respondendo a reflexão do começo da talk, o Duodraco explicou:
 
 > Aplicações se comunicam por três principais motivos: **Distribuição de Dados**, **Distribuição de Ações** e **Distribuição de Processamento**.
 
-Chegamos aos anos 2000, com a era da Internet e do HTTP. Uma das formas de comunicação consolidadas é o  [**SOAP**](https://pt.wikipedia.org/wiki/SOAP), que o Duodraco explicou com um pouco mais de detalhes dos aspectos de clientes e servidores. Um bom lugar para entender sobre SOAP com PHP é [justamente na documentação](http://php.net/soap).
+Chegamos aos anos 2000, com a era da Internet e do HTTP. Uma das formas de comunicação consolidadas é o [**SOAP**](https://pt.wikipedia.org/wiki/SOAP), que o Duodraco explicou com um pouco mais de detalhes dos aspectos de clientes e servidores. Um bom lugar para entender sobre SOAP com PHP é [justamente na documentação](http://php.net/soap).
 
 Logo, ele nos mostra o **REST**, REpresentional State Transfer, que fala sobre cabeçalhos, verbos HTTP, negociação de conteúdo. Ele ressalta que REST é diferente de JSON e cita o RMM, [o modelo de maturidade de Richardson](https://martinfowler.com/articles/richardsonMaturityModel.html), que indica quão madura a sua API RESTful está, variando do nível 0 ao 3, de acordo com a padronização que sua API segue, utilizando os protocolos HTTP e, ultimamente, hipermídia. O Duodraco, citando o Martin Fowler, afirma que você chega a glória de uma API REST se estiver no nível 3. O PHP não tem nada “pronto” para se trabalhar com REST, mas pacotes como o [Guzzle](http://docs.guzzlephp.org/) auxiliam bastante. Algo que também pode ser utilizado é o [JSON-LD](https://json-ld.org/), que ajuda a descrever seus dados.
 
