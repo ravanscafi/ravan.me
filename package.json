@@ -50,10 +50,12 @@
   "devDependencies": {
     "babel-jest": "^24.8.0",
     "babel-preset-gatsby": "^0.1.11",
+    "husky": "^2.4.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
     "lighthousebot": "https://github.com/GoogleChromeLabs/lighthousebot",
     "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
     "react-test-renderer": "^16.8.6",
     "wait-for-netlify-preview": "^1.2.1"
   },
@@ -70,7 +72,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop -H 0.0.0.0 -o",
-    "format": "prettier --write {src,__mocks__}/**/*.{js,jsx}",
+    "format": "prettier --write {src,content,__mocks__}/**{,/__tests__/**}/*.{js,jsx,md,css}",
     "start": "yarn install && yarn develop",
     "serve": "gatsby serve",
     "test": "jest",
@@ -79,5 +81,10 @@
   "engines": {
     "node": ">=10.16.0",
     "yarn": "^1.13.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }

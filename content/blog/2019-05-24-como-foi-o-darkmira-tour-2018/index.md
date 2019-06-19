@@ -11,31 +11,39 @@ cover: ./darkmira2018.jpg
 O keynote de abertura do primeiro dia de evento é com a Diana Arnos
 
 ### Júnior vs Sênior
+
 Tem júnior que aprende muito rápido e tem sênior que "caga" regra, a Diana já teve a experiência de entrevistar alguns devs que se diziam sênior mas que não sabiam muitas coisas básicas e, nessa, não eram aprovados na contratação. O que mais diferencia um profissional na opinião dela é a **resolução de problemas**. Um júnior tem a vontade de desenvolver, aquele desespero de não saber nada mas tentar correr atrás de todo mundo pra resolver. Já um sênior tem uma tranquilidade maior e consegue investigar os problemas com calma, seguindo um passo a passo e chegando até a resolução sem maiores exaltações.
 
 ### Boas práticas
+
 Por que se preocupar com boas práticas? PSRs, Calisthenics, etc.
 Segundo a Diana, utilizar boas práticas indica quão longe você foi no conhecimento da linguagem e diz muito sobre você, sobre aproveitar o potencial das ferramentas e linguagem. Ela também comenta sobre o ciclo de vida de um software, citando até as culturas _Agile_ e _DevOps_.
 
 ### Saiba preparar o seu ambiente.
+
 Você sabe como sua aplicação sobe? Ou você só executa um script que algum DevOps do time te mandou? É importante conhecer o sistema operacional, as ferramentas do servidor, mesmo que apenas superficialmente.
 **Virtualização** é uma ótima forma de saber isolar as dependências da sua aplicação e garantir que seus projetos não afetem seu ambiente local. Você pode usar Virtual Box, PHPansible, Docker... (só não subam o docker como `root`, por favor! - ela apela)
 
 ### Controle de Versão
+
 Quem usa `.zip` merece morrer. Utilize o Git ou qualquer outra ferramenta de controle de versão. Você terá acesso a histórico, poderá reverter códigos que já foram feitos, poderá ter uma documentação do que foi feito e, de quebra, tem um backup da lógica da sua aplicação.
 
 > "É sabendo de onde vem que sei pra onde vai"
 
 ### Segurança
+
 E se o seu site `meusite.com/phpinfo.php`. ExploitDB, CVS e como explorar falhas. Qualquer informação que você expõe do seu sistema está abrindo a potenciais falhas a serem exploradas.
 **Não use IDs sequenciais** para mostrar aos usuários. A coluna de ID do banco serve única e exclusivamente para o banco. Não exponha essa informação ao usuário.
 **Não mostre a assinatura do servidor e da linguagem** nas requisições, é muito fácil desabilitar e evita que algum potencial atacante tenha de mão beijada que você está rodando por exemplo `nginx` numa versão específica.
 **Inputs devem ser validados** e, não, não estamos falando de validar (somente) no frontend, devemos validar os dados do lado do servidor.
 Utilize também **Argon 2** e **libsodium** que o PHP tem suporte.
+
 ### Ferramentas
+
 A Diana comenta sobre algumas coisas que ela citou: Linux, Windows, Git, GitHub, Virtual Box, Docker, Gecko, Web Kit, Terminal, Nginx, Apache, Ansible. E que devemos nos lembrar que é muita coisa para se dominar além do desenvolvimento em si e não necessariamente um júnior ou um estagiário tenham essa conhecimento.
 
 ### Dicas
+
 **DURMA**, não fique acordado de madrugada resolvendo problemas. A neurociência é sua amiga. Quando você dorme, seu organismo consegue limpar as toxinas acumuladas no seu cérebro. Esqueça desse status de que você é um dev "foda" porque ficou varado trabalhando.
 
 Ainda em neurociência, o **Pensamento focado** é o que já estamos acostumados, que usamos para resolver problemas que já conhecemos e sabemos como atacar. Caso estivermos em um problema que não sabemos resolver, podemos relaxar, ir tomar um banho, um café e deixarmos o **pensamento difuso** agir, resolvendo os problemas através da ligação de informações que talvez não fizessem tanto sentido no pensamento focado.
@@ -43,12 +51,15 @@ Ainda em neurociência, o **Pensamento focado** é o que já estamos acostumados
 A **prática cadenciada**, por exemplo, estudar todos os dias por 30 minutos é algo muito benéfico que até muda nosso cérebro.
 
 ### Open Source
+
 Faça open source! TK
 
 ---
+
 # Investigando a saúde de seu sistema através de Logs - [_Raphael de Almeida_](https://twitter.com/raph_almeida)
 
 Após o keynote da Diana e o coffee-break/networking, escolhi ver a talk do Raphael, community manager do PHPRio, sobre logs.
+
 > "Qualquer coisa que possa dar errado, dará no pior momento possível."
 > _Edward A. Murphy_
 
@@ -59,7 +70,7 @@ Erros no sistema deixam o usuário frustrado em relação à aplicação, podend
 **Reproduza o erro em ambiente local** ao invés de ficar fazendo em produção, tenha o ambiente local o mais próximo possível do ambiente de produção.
 Aquela história de "na minha máquina funciona" pode realmente acontecer, mesmo com o ambiente parecido. O problema é que o contexto específico em que o bug aconteceu pode estar faltando. Por isso, log é um diário de acontecimentos que pode nos dar insights sobre o contexto em que a aplicação vive.
 
-Uma dica para fazer logs é **escrever uma boa mensagem de erro**, não faça por exemplo um log escrito "Erro inesperado". Para escrever uma mensagem relevante é necessário que o desenvolvedor tenha experiência, aprenda com quem está acertando  na escrita e evolua seus logs. Banco de dados, por exemplo, utilizam códigos de erro para facilitar a pesquisa de soluções.
+Uma dica para fazer logs é **escrever uma boa mensagem de erro**, não faça por exemplo um log escrito "Erro inesperado". Para escrever uma mensagem relevante é necessário que o desenvolvedor tenha experiência, aprenda com quem está acertando na escrita e evolua seus logs. Banco de dados, por exemplo, utilizam códigos de erro para facilitar a pesquisa de soluções.
 
 Os Erros do PHP são muito bons para descobrir que problemas estamos enfrentando. Similarmente, os erros de framework contêm bastante informações relevantes.
 
@@ -69,7 +80,8 @@ Quando e onde aconteceu o erro? Se temos mais de uma máquina, qual o ambiente e
 É uma boa ideia salvar informações sobre o usuário logado, primary keys, stacktrace, arquivo e linha onde o erro ocorreu, o HTTP Request...
 Logs precisam ser de fácil pesquisa e agrupamento.
 
-Utilize os níveis de criticidade dos Logs, que vão desde `DEBUG`  até emergência, seguindo por exemplo o _`RFC5424` - The Syslog Protocol_, utilizado pelo Linux.
+Utilize os níveis de criticidade dos Logs, que vão desde `DEBUG` até emergência, seguindo por exemplo o _`RFC5424` - The Syslog Protocol_, utilizado pelo Linux.
+
 - `DEBUG` -
 - `INFO` -
 - `NOTICE` - Eventos comuns, porém com certa relevância
@@ -104,6 +116,7 @@ Queries lentas também devem aparecer em logs, para que possamos atuar sobre ela
 ---
 
 # PHP + Docker + ELK + React: Um case de sucesso - [_Rodrigo Régis Palmeira_](https://twitter.com/regisnew)
+
 O Rodrigo, ou melhor, o Régis, é chefe de desenvolvimento do Tribunal de Contas do Distrito Federal, veio trazer o case que ele passou no trabalho. Em meados do ano passado, foi levantada a necessidade de uma melhoria no sistema de pesquisa textual do TCDF. O sistema de pesquisa já existente utilizava _full text search_ do SQL Server. Embora funcionasse, a busca existente era limitada.
 O que os usuários pediam, basicamente, era uma busca similar a do Google.
 Ao analisar a possibilidade de se utilizar a ferramenta "Google Search Appliance", o custo seria de 2.5 milhões de reais apenas para a configuração que eles precisariam, sem contar outros custos. Parecendo inviável, foram atrás de outras soluções, estudando como outros governos estavam fazendo suas buscas até chegar no ElasticSearch.
@@ -120,24 +133,28 @@ Depois do desenvolvimento do novo ecossistema, que foi feito pelo Régis e outro
 
 Em seguida, ele mostrou alguns dashboards feitos no Kibana, que são para uso interno deles, servindo também como ferramenta de monitoria. Também abriu [a busca](https://busca.tc.df.gov.br) ao vivo e mostrou seu funcionamento.
 
-
 Como próximos passos, eles percebem a necessidade da criação de um dicionário de sinônimos no Elasticsearch, uma autenticação com JWT e LDAP para pesquisas restritas de uso interno, com sigilo. Outro passo é a de fazer a busca ser um PWA (Progressive Web App).
 
 ---
 
 # Stand-up do [_Pokemaobr_](https://twitter.com/pokemaobr)
+
 Na volta do almoço, a pedidos da "comunidade", o pokemaobr fez mais um de seus ótimos stand-ups sobre a incrível vida de DEV.
 
 # On Being a Senior Engineer - [_Sheeri K. Cabral_](https://twitter.com/sheeri)
+
 Em seguida, tivemos mais um keynote, dessa vez com a Sheeri, que é Senior Database Engineer e MySQL Community Contributor. Ela comenta que vai falar mais ou menos sobre o tema que a Diana abordou, porém de uma forma um pouco diferente.
 
 Quando falamos dos níveis de alguém, Júnior, Sênior, et, nos níveis mais básicos, executam processos de escrita, criam novos processos e os executam, tomam a iniciativa numa tarefa, liderar um projeto, fazer a arquitetura de algo
 O trabalho que fazemos: projetos pequenos, grandes, liderar, participar, fazer parte nas especificações, etc.
 Autonomia
 importante ser parte de um time, então em muitos casos é muito bom ter um par para revisar seu código, principalmente quando se é júnior. A Sheeri ressalta que mesmo um sênior pode receber revisão, pois todos são passíveis de erros. Duas cabeças pensam melhor que uma.
+
 ### Priorização
+
 Algo que seniors fazem é priorizar o trabalho. Já um junior acabam pedindo uma priorização e cronogramas para relembrá-los. Um sênior meio que "sabe" quais são as prioridades, se atacar a menor tarefa ou a maior, etc. Ele também sabe alinhar essas prioridades com outras pessoas/departamentos.
 Algumas níveis de expectativas que existem quando vamos desenvolver:
+
 1. vou escrever código seguro
 1. vou implementar o módulo de encriptação
 1. vou implementar o módulo de encriptação pelo fim de maio
@@ -146,11 +163,13 @@ Algumas níveis de expectativas que existem quando vamos desenvolver:
 Quando priorizamos, devemos dizer **não**. Porém, existem vários tipos de não que um sênior aprende a dizer. "Não posso fazer isso agora, mas é possível para o fim do mês". "Não posso fazer agora, mas vamos ver se alguém da equipe pode fazer". Ainda é um **não** mas é um não que consegue ser útil e prestativo e que busca ajudar na resolução da mensagem.
 
 ### Analisando e assumindo riscos
+
 senso apropriado de risco para você ou para companhia
 fazer um deploy depois das três pré feriado?
 pesar consequências, fazer testes e ter um plano **rápido** de rollback, mesmo que signifique ter mais trabalho depois.
 
 ### Detalhes vs Quadro Geral,
+
 1. fazer o trabalho
 1. entender o impacto do trabalho para a empresa
 1. entender porque o trabalho está sendo feito
@@ -159,21 +178,24 @@ pesar consequências, fazer testes e ter um plano **rápido** de rollback, mesmo
 1. escolher os objetivos/visão
 
 ### Recomendações
+
 1. Tecnologia, capacidade, "fit" na organização
 1. Não apenas a "nova tecnologia para testar/aprender"
 1. Caveat: aqueles com experiência algumas vezes acabam usando algo antigo que eles já tem experiência
 1. Defender pontos quando necessário
-2. Quando resolver algo no mesmo momento
-3. Quando não compensa resolver algo
-4. Quando podemos escrever um ticket para escrever depois
-5. Aplicar a regra do 80/20.
+1. Quando resolver algo no mesmo momento
+1. Quando não compensa resolver algo
+1. Quando podemos escrever um ticket para escrever depois
+1. Aplicar a regra do 80/20.
 
 ### Balanço: O Que é melhor?
+
 1. Algumas vezes as solução técnica "correta" não é a solução ótima para o ambiente.
 2. Conversely, algumas vezes você vai contra uma melhor prática porque é a coisa certa a se fazer.
 3. Consensus-based tech. Quando todos vamos para uma sala e saímos com uma decisão, que nem todos podem concordar, mas que é o melhor e que todos assumem e adotam a decisão.
 
 ### Seu escopo
+
 - Pequeno escopo/impacto
 - Maior escopo/impacto
 - Trabalhar com mais pessoas
@@ -181,36 +203,46 @@ pesar consequências, fazer testes e ter um plano **rápido** de rollback, mesmo
 - Trabalhar com consumidores
 
 ### Trabalho "Real"
+
 - Nem sempre o código ou linha de comando
 - Reuniões, expectativas, D.o.D.
 - Planejamento
 - Pode envolver: planilhas, software de planejamento de projeto, grooming, documentação, aprovação.
 
 ### Relacionamentos
+
 - Você trabalha com outros para obter resultados
 - Boa comunicação, expectativas, follow-up e follow-through on promises
 - Falar sobre seus hobbies, o que você fez no final de semana, etc.
 - Existe um balanço sobre não trabalhar e ser 100% focado no trabalho
+
 ### Comunicação
+
 - Comunicação depende da sua audiência, você deve saber comunicar as coisas de acordo com o público, por exemplo, usando ou não termos técnicos, contextualizando para o entendimento de quem está presente. Saiba com quem está conversando.
 
 ### Respondendo a uma questão
+
 "Como eu posso fazer o DB usar um índice nessa query case-sensitive?"
+
 - Eu não sei
 - Você não pode fazer isso
 - Você poderia tentar isso, ah, pera, isso não funciona.Você poderia tentar isso aqui... ah, não funciona também
 - ???? preciso dos slides
-Você pode dizer: tente isso e vê se funciona, ou, eu testei isso e funciona. Ou melhor ainda: que problema você está tentando resolver? Pense sobre quem está fazendo a pergunta.
+  Você pode dizer: tente isso e vê se funciona, ou, eu testei isso e funciona. Ou melhor ainda: que problema você está tentando resolver? Pense sobre quem está fazendo a pergunta.
 
 ### Reputação
+
 Pessoas percebem você como um expert. Reputação é sobre relacionamentos. Você trabalha com pessoas, portanto é importante se dar bem com elas e isso reflete diretamente em como elas o vêem. Confiança: poder confiar que vai realmente fazer o que foi combinado. Faça um bom trabalho, mesmo em trabalho que você pensa que estão além de você. Ajude os outros.
 
 ### Dicas e segredos
+
 Desenvolva relacionamento, agradeça às pessoas que fazem o trabalho para você ou com você. Se um grande projeto terminar ou alguém sair da empresa, deixe um review legal no LinkedIn. Faça com que seja fácil para os outros fazer o trabalho que você precisa que eles façam.
 
 ---
+
 # Serverless: Função como serviço em PHP - [_Jonata Weber_](https://twitter.com/JonataWeber)
-O Jonata, que era da Bahia e agora está aqui por perto, em Goiânia, veio falar pra gente sobre Serverless, citando um artigo que foi onde ele teve contato com o tema, onde o autor afirmava que para cada 30 mil requisições, pagava apenas US$0.21.
+
+O Jonata, que era da Bahia e agora está aqui por perto, em Goiânia, veio falar pra gente sobre Serverless, citando um artigo que foi onde ele teve contato com o tema, onde o autor afirmava que para cada 30 mil requisições, pagava apenas US\$0.21.
 Ele afirma que o termo "Server-less" é um pouco estranho pois existem servidores em algum lugar, então um termo um pouco melhor seria "No Ops", No Internal Sys Admin, "Service-full" Architecture TK
 
 O **movimento serverless** tenta abstrair e facilitar muitas coisas do processo de desenvolvimento de software, visando tornar mais fácil colocar um código em produção.
@@ -229,6 +261,7 @@ Para a talk, ele preparou um exemplo de BaaS + FaaS, para guardar likes de posts
 Para finalizar, o Jonata faz um paralelo com o mais tradicional PaaS (Platform as a Service) mostrando que você paga de forma diferente por esses serviços e que no PaaS provavelmente seu servidor tem um tempo ocioso.
 
 ### Vantagens
+
 - BaaS: Custo menor com Dev e Ops,
 - FaaS: Auto-scaling
 - Pay-per-use
@@ -237,17 +270,20 @@ Para finalizar, o Jonata faz um paralelo com o mais tradicional PaaS (Platform a
 - Zero Administração
 
 ### Desvantagens
+
 - Grande latência de inicialização
 - Limite de execução do container (não pode passar mais que tempo X)
 - Repetição de lógica através de plataformas de cliente
 - Dificuldade de testar.
 
 ### Futuro do Serverless
+
 - Ferramental (inclusive para testes)
 - Surgimento de padrões
 - etc
 
 ### Possibilidades
+
 - Aplicações web
 - Backend de IoT
 - Backend Móveis, etc
@@ -256,7 +292,9 @@ Artigo Martin Fowler serverless
 https://martinfowler.com/articles/serverless.html
 
 ---
+
 # API First: Quando utilizar a estratégia de API? - [_Bruno Souza_](https://twitter.com/brunosouza)
+
 O Bruno Souza, que trabalha no Itamarati, veio falar sobre APIs, que teve um boom nos últimos tempos. Uma API é uma coleção de rotinas, protocolos e ferramentas para "construção de plataformas". Na talk dele, ele decidiu falar sobre WebAPIs.
 
 WebAPIs são baseadas na arquitetura cliente x servidor e podem servir pra várias coisas: **gateway** - gerenciamento do controle de acessos; como um **contrato** entre consumidor e provedor de API; permite a **integração** de apps e dispositivos; permite a **criação de apps** com base em outros apps; como um **plug-in** universal; como um **filtro** de segurança...
@@ -270,12 +308,14 @@ Os benefícios são múltiplos: integração de vários dispositivos; ambiente d
 Uma arquitetura baseada em API visa centralizar diversos recursos e serviços em um lugar só, onde os clientes se conectam. Uma API agrega valor promovendo novos negócios, experiências e recursos; monetiza ativos; oferece suporte a vendas e marketing; organiza códigos e estruturas monolíticas.
 
 Quando usar uma estratégia de API? Algumas perguntas que precisam ser respondidas são:
+
 - Qual a principal razão para a criação da API?
 - Quem é o público de desenvolvedores?
 - Quais ativos serão disponibilizados?
 - Que tipo de aplicativo pode ser criado?
 
 ### Mobile First vs API First
+
 Mobile First - Prioridade do planejamento do desenvolvimento a partir de dispositivos móveis
 API First: API é construída primeiro. Permite que várias plataformas sejam construídas
 
@@ -290,6 +330,7 @@ Arquiteturalmente falando, contamos com alguns padrões como SOAP, REST, GraphQL
 
 O Bruno ainda falou que é importante pensar em performance, para que a API responda em tempo hábil e seus usuários não percam o interesse na aplicação. Mostrou também que existem algumas ferramentas para teste da API.
 Como conclusão, falou como API traz grandes oportunidades de negócio, tendo os desenvolvedores mais alinhados com os objetivos. Os pré-requisitos para criação de uma boa API são:
+
 1. Alinhar os objetivos de negócio
 2. Estabelecer os perfis dos desenvolvedores
 3. Definir a arquitetura da API
@@ -298,18 +339,21 @@ Como conclusão, falou como API traz grandes oportunidades de negócio, tendo os
 e nos slides pode encontrar várias referências.
 
 ---
+
 # The QueryFilter Concept for Filtering Models - [_Junior Grossi_](https://twitter.com/junior_grossi)
+
 Para finalizar o primeiro dia de palestras, decidi ver a talk do Junior, um dos organizadores do PHPMG. E após se apresentar, ele explicou que `QueryFilter` é uma abstração para filtrar objetos baseado na `URL`. Então, caso quiséssemos pegar posts com _título_ `foo` e _status_ `bar`, poderíamos utilizar uma URL do tipo:
 
 `/posts?title=foo&status=bar`
 
-E essa é mais ou menos a ideia do `QueryFilter`. Logo já partimos pro live code, que foi bem completa. Recomendo assistir  a talk quando a mesma for liberada! ;)
+E essa é mais ou menos a ideia do `QueryFilter`. Logo já partimos pro live code, que foi bem completa. Recomendo assistir a talk quando a mesma for liberada! ;)
 
 `QueryFilter` é um conceito, podendo ser utilizado em qualquer linguagem. Existem alguns pacotes prontos para isso disponíveis no Packagist, como o `cerbero/query-filters` e o `kblais/query-filter` que podem ser utilizados nos seus projetos. O Junior comentou que utiliza inclusive o `cerbero`.
 
-
 ---
+
 # Dia 2
+
 # ChatOps! Como Podemos Usar "Chatbots" Para Realizar O Trabalho De Infra Por Nós - [_Rodrigo "Pokemao" Cardoso_](https://twitter.com/pokemaobr)
 
 Primeira talk do dia (pra mim, que cheguei atrasado), com o Pokemaobr, Community Manager na iMasters e criador do PokePHP,
@@ -327,42 +371,51 @@ O pokemao mostrou como fazer um ChatOps Bot na prática com PHP, para resolver o
 Num outro exemplo mostrado, utilizando o TelegramBot/API, o pokemao fez uma ferramenta que verifica se determinado site está online e avisa por Telegram caso o site saia fora do ar.
 
 ---
+
 # Painel Das Comunidades
 
 ---
+
 # Compartilhando Conhecimento E Unindo Uma Equipe Por Meio De Code Review - [_Vinícius Alonso_](https://twitter.com/alonsoemacao)
 
 Autor deve escrever código de qualidade, resolver o problema, não introduzir nenhum defeito...
-Fornecendo contexto -  Template para pull request
+Fornecendo contexto - Template para pull request
 
 O **Revisor** deve instigar um debate sobre o trabalho do colega por meio da argumentação lógica. As responsabilidades do revisor devem ser: perguntar, não dar ordens; justificar as melhorias propostas; ajudar com correções e mudanças.
 
 ### Pontos chave para fazer um review de qualidade
+
 **O que foi desenvolvido atende os requisitos?** É importante cuidar para não introduzir defeitos e de preferência não fazer tarefas ocultas no PR (_Pull Request_), que podem deixar a tarefa muito mais demorada ou complexa. É interessante separar os Pull Requests por tarefa, caso deseje fazer alguma outra coisa, faça outro PR e deixe claro para o time.
 **Os testes escritos garantem que o que foi implementado está realmente funcionando?** Faça testes que façam sentido para o contexto da tarefa,
 **A solução empregada foi a melhor para o momento?** Clean Code, YAGNI
 
 ### Agilidade
+
 Não é fazer SCRUM necessariamente, devemos falar mais sobre o manifesto!
+
 > "Indivíduos e interações mais que processos e ferramentas"
 > "Software funcionando é a primeira métrica de progresso"
 > "Atenção contínua para excelência técnica e um bom design aumenta a agilidade"
 > "As melhores arquiteturas, requisitos e design emergem de times auto organizáveis"
 
-
 ### [Danger](https://github.com/danger/danger) - uma ferramenta para melhorar o Code Review
+
 Uma ferramenta que verifica se a documentação foi atualizada junto com o PR, rejeitando automaticamente
 
 ### Conclusões
+
 - **Code review traz muitos benefícios para sua equipe** que vão além de código, como entendimento das regras de negócio, alinhamento entre os membros.
-**- Devemos focar no que a máquina não pode fazer.** A máquina consegue verificar estilo de código, PSRs, complexidade ciclomática, etc. Porém ela não consegue avaliar se um requisito foi atendido, por exemplo, e é nisso que podemos focar.
+  **- Devemos focar no que a máquina não pode fazer.** A máquina consegue verificar estilo de código, PSRs, complexidade ciclomática, etc. Porém ela não consegue avaliar se um requisito foi atendido, por exemplo, e é nisso que podemos focar.
 - **Para a prática acontecer de maneira saudável precisamos de indivíduos motivados a melhorar**, que saibam escutar as possíveis melhorias e querer evoluir.
 
 ---
+
 # Painel - a Participação Da Mulher Na Área De Ti
 
 ---
-# Projetando Software Orientado a Objetos Com Qualidade - [_Marcel  dos Santos_](https://twitter.com/marcelgsantos)
+
+# Projetando Software Orientado a Objetos Com Qualidade - [_Marcel dos Santos_](https://twitter.com/marcelgsantos)
+
 O Marcel, que é desenvolvedor Web Full-Stack e um dos evangelistas do PHPSP, começa sua talk perguntando à plateia: "Orientação a Objetos? O que é isso?" e após algumas respostas, define: _trata da comunicação entre objetos através da troca de mensagens_. Um objeto tem **características**, **comportamentos** e **estado atual**.
 
 Os pilares da orientação a objeto são:
@@ -372,9 +425,11 @@ Os pilares da orientação a objeto são:
 **Polimorfismo** consiste na alteração do funcionamento interno de um método herdado do pai.
 
 ## Coesão e acoplamento
+
 **Coesão** indica o grau de relação entre os membros de um módulo. **Acoplamento** é o grau de dependência entre as classes.
 
 ## Os maus cheiros do projeto
+
 **rigidez** é a tendência do software de ser difícil de alterar.
 **fragilidade** é a tendência de uma única alteração estragar o software em muitos lugares
 **imobilidade** mostra que a separação de uma lógica pode ser muito custosa e inviabilizada.
@@ -384,6 +439,7 @@ Os pilares da orientação a objeto são:
 **opacidade** refere-se a dificuldade de compreensão de um módulo
 
 ## Princípios e práticas
+
 O `SOLID` é conjunto de princípios que permite um **melhor projeto** de sistemas. Inversão de dependência: módulos de alto nível não devem depender de módulos de baixo nível. modelos de alto nível devem depender apenas de abstrações. módulos de baixo nível também devem depender apenas de abstrações. Por exemplo, uma `Classe A` (alto nível) referencia uma `Classe B` (baixo nível), ou seja, a `A` depende da `B`. Alterações em qualquer uma das classes pode levar a efeitos indesejados na outra também. Utilizando-se uma interface, a `Classe B` poderia implementá-la e a `Classe A` depender somente da interface, tendo a garantia de que suas dependências estejam implementadas.
 Uma iniciativa como essa **diminui o acoplamento** do nosso código.
 Utilizando **injeção** de dependência, conseguimos alcançar o princípio da **inversão** de dependência. É possível fazer isso sem a necessidade de bibliotecas.
@@ -396,6 +452,7 @@ O princípio **Tell Don't Ask** diz: **não peça** informações para fazer o s
 Essas regras não estão escritas em pedra, mas seu uso pode contribuir positivamente para a evolução do código
 
 ### Conclusões
+
 princípios de design ajudam a projetar códigos melhores.
 uma classe não deve ser forçada a depender de uma implementação específica
 a classe deve depender de um contrato, abstração ou interface
@@ -403,14 +460,18 @@ prefira classes com alta coesão e baixo acoplamento
 
 Nos slides TK, o Marcel deixa várias referências para se aprofundar no assunto.
 
-
 ---
+
 # Legado Ao DDD - [_Leonn Leite_](https://twitter.com/leonnleite)
+
 Para fechar as talks do dia, escolhi ver a do Leonn, Líder Técnico PHP na Engesoftware.
+
 ## Motivação - Código Legado
+
 Segundo o Leonn, Brasília é o **país** do legado, então fazer integração contínua em legado é perigoso. Assim, os problemas são cada vez mais replicados conforme o projeto vai sendo desenvolvido, sendo difícil de manter. Geralmente as aplicações são estruturadas. Quando se tem Orientação a Objeto, que é raro, muitas vezes é um OO estruturado, com métodos de mais de mil linhas. Os testes das aplicações são feitos por humanos, sem nada automatizado. Testes unitários por exemplo, não existe. Os contratos com governos não exigem e "se não pagam, não fazemos". Reutilização de código, basicamente é `Ctrl+C` e `Ctrl+V` do Stack Overflow. Composer com Satis ou Toran Proxy poderiam ser utilizados para reaproveitar código...
 
 A culpa desses sistemas serem assim, geralmente são: falta de tempo; experiência dos profissionais; falha na comunicação.
+
 - Falta de tempo: não reinvente a roda; foque no problema real e não em "perfumaria"
 - Experiência dos profissionais: pair programming, fale (literalmente) seus problemas, leia mais código, faça code review, leia do github.
 - Falha na comunicação: medo de perguntar, cada um fala de uma forma, as vezes, quando tentamos programar em inglês, fica mais complexo
@@ -432,8 +493,9 @@ json é view, xml é view, html é view.
 **Repository** é uma coleção, uma camada de persistência, pode ser In/Out, usado para inversão de dependência (marcel falou também)
 
 ## o que é DDD?
+
 Criado pelo Eric Evans, tem como subtítulo: "Atacando as complexidades no coração do software"
-Domínio = Core Domain +  Subdomains
+Domínio = Core Domain + Subdomains
 
 - Por que escrever esse software vale a pena?
 - Por que não comprar uma solução pronta?

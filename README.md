@@ -8,16 +8,20 @@ It uses a static generator, so you can build it and deploy only the static files
 It is currently hosted at [https://ravan.me](https://ravan.me).
 
 ## Contributing
+
 First, fork the repository and clone it.
 
 Next, you will need [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com/).
 Run the command below to fetch the dependencies and spin up a local web-server.
+
 ```sh
 yarn start
 ```
+
 Now, go ahead, edit some files and you will see the magic happening 🎉.
 
 Commit your changes and submit a Pull Request 😉.
 
 ## License
+
 MIT

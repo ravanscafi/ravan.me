@@ -8,14 +8,11 @@ cover: ./nicolas.jpg
 
 [Veja a programação do evento](https://brasil2019.live.symfony.com/speakers).
 
-
 # Dia 1 - Quinta-feira 16/maio
 
-## Abertura  - Cyrille
+## Abertura - Cyrille
+
 O Cyrille deu início à primeira #Symfony_Live da América Latina, é uma honra pra mim estar participando desse evento <3
-
-
-
 
 ## Symphony MIME - [Nicolas Grekas](https://connect.symfony.com/profile/nicolas-grekas)
 
@@ -51,6 +48,7 @@ Com um filtro para CSS dessa integração com o Twig, conseguimos aplicar CSS in
 Os emails, no ato de envio, são convertidos para strings e não classes do PHP ou algo do tipo, aumentando a previsibilidade do que vai ser enviado - nenhuma surpresa sobre isso :)
 
 ### Como enviar esses emails?
+
 O Nicolas esclarece para nós que esse componente foi feito precisamente para emails transacionais. Não foi pensado em email marketing ou algo do tipo, para envio de emails em massa.
 Existem atalhos para alguns providers STMP, como Gmail, Mailgun, Sendgrid, etc. É possível utilizar as APIs para envio ao invés de SMTP, bem como DSN, que permite estratégias de transporte como `Failover` ou `RoundRobin`.
 
@@ -99,6 +97,7 @@ composer create-project symfony/skeleton app
 É muito legal notar que o [`skeleton`](https://github.com/symfony/skeleton) só tem um único arquivo `composer.json` e os componentes são escolhidos por você, no momento da configuração.
 
 ### Demo time!
+
 Logo em seguida, vimos uma Demo utilizando o `skeleton`, mostrando como configurar o projeto, seguir os primeiros passos, instalar novos componentes que julgamos necessários e até mesmo criar novos controllers e configurar rotas, tudo de forma intuitiva e prática.
 
 Por baixo dos panos, o Symfony Flex faz _prefetch_ e download em paralelo de dependências, tem pacotes de componentes que instalam vários pacotes mais facilmente. Há também bastante automação e receitas que facilitam instalações e configurações, sem precisar editar vários arquivos para ter componentes novos funcionando. Podemos utilizar _aliases_, rodando por exemplo apenas `composer require log` e obteremos o [Monolog Bundle](https://github.com/symfony/monolog-bundle). Existem ainda alguns comandos extras para o composer, como por exemplo `composer symfony:unpack` que pode desfazer esses pacotes de componentes.
@@ -120,8 +119,8 @@ Ele começou refletindo que, no mundo ideal, todas as aplicações compartilham 
 
 Mas, a realidade nem sempre é essa, né?
 
-
 ### Web Scraping (ou o menos conhecido termo, raspagem de dados)
+
 Web Scraping pode ser utilizado para inúmeras coisas, incluindo:
 
 - Web Indexing
@@ -131,7 +130,7 @@ Web Scraping pode ser utilizado para inúmeras coisas, incluindo:
 - Detecção de alterações
 
 Para isso, podemos, de uma maneira mais "ingênua", utilizar `cURL`. Mas e se quisermos simular um usuário, lendo HTML, manipulando formulários, utilizando cookies?
-Temos como alguns exemplos melhores algumas bibliotecas como o [Guzzle](http://docs.guzzlephp.org/en/stable/) e o [DomCrawler](https://symfony.com/doc/current/components/dom_crawler.html). Porém a web continua evoluindo, com SPAs (Single Page Applications) sendo criadas, necessitando de muita interação com  JavaScript - por exemplo.
+Temos como alguns exemplos melhores algumas bibliotecas como o [Guzzle](http://docs.guzzlephp.org/en/stable/) e o [DomCrawler](https://symfony.com/doc/current/components/dom_crawler.html). Porém a web continua evoluindo, com SPAs (Single Page Applications) sendo criadas, necessitando de muita interação com JavaScript - por exemplo.
 
 Eis que surge o [Symfony Panther](https://github.com/symfony/panther), que utiliza o protocolo WebDriver da W3C, que é o mesmo protocolo utilizado pelo Selenium, por exemplo. Podemos utilizar o Google Chrome "Headless" para interagir com o Panther, sendo nosso browser.
 
@@ -161,7 +160,7 @@ echo $crawler->filter('.support')->text();
 $client->takeScreenshot('screen.png'); // Yeah, screenshot!
 ```
 
-O Raphael fez uma demo pra gente, demonstrando como jogar o jogo  [Pokémon - Memory Game](https://vue-pokemon-memory-game.vinicius73.dev/), feito pelo grande [Vinicius Reis](https://twitter.com/luizvinicius73), utilizando o Symfony Panther. Ele foi mostrando passo a passo como interagir com o jogo,
+O Raphael fez uma demo pra gente, demonstrando como jogar o jogo [Pokémon - Memory Game](https://vue-pokemon-memory-game.vinicius73.dev/), feito pelo grande [Vinicius Reis](https://twitter.com/luizvinicius73), utilizando o Symfony Panther. Ele foi mostrando passo a passo como interagir com o jogo,
 Vale a pena conferir no vídeo, quando estiver disponível. Olha só o gif da aplicação dele jogando a memória:
 
 ![Bot rodando o jogo](./bot.gif)
@@ -177,7 +176,6 @@ Fiquei pensando aqui, será que ele pode fazer um bot pro [meu campo minado](htt
 
 Os slides da palestra estão disponíveis no [SpeakerDeck](https://speakerdeck.com/raphaeldealmeida/web-scraping-com-symfony-panther).
 
-
 ## Dominando o Symfony Messenger - [Hussani Oliveira](https://connect.symfony.com/profile/hussani)
 
 ![Hussani Oliveira](./hussani.jpg)
@@ -186,6 +184,7 @@ O Hussani, que trabalha na Cabify e é evangelista de longa data do [PHPSP](http
 Ele apontou os problemas: processamento lento e lógica de negócio no controller. Em seguida, explicou que o [Symfony Messenger](https://symfony.com/doc/current/messenger.html) tem o propósito de trafegar mensagens. Ele mostrou que você pode trabalhar com mensageria dentro da própria aplicação, não necessariamente se comunicando com outras aplicações. É um tipo de arquitetura baseada em troca de mensagens.
 
 ### Mensagens
+
 Uma mensagem no `Messenger`, nada mais é que um simples objeto que vai trafegar pela aplicação, como por exemplo a mensagem abaixo:
 
 ```php
@@ -212,10 +211,9 @@ Os `Handlers` recebem as mensagens e fazem "o que quiser" com elas.
 Nos arquivos de configuração, você pode configurar quais handlers escutam quais mensagens e, somente com isso, o `Bus` saberá para quem entregar as mensagens.
 
 ### Transportes
+
 Bundles para trabalhar com AMQP, Kafka, Redis, etc.
 Configuramos no `config/packages/messenger.yaml` quais meios de transporte queremos utilizar e essas mensagens podem ser enviadas através dessas camadas para outras aplicações e serviços.
-
-
 
 ## Mercure - atualização em tempo real para sua aplicação - [Anderson Casimiro](https://connect.symfony.com/profile/duodraco)
 
@@ -228,6 +226,7 @@ Até que surge o GMail, que revolucionou a maneira como víamos e consumíamos a
 Então, muitos estudos sobre o HTTP foram feitos para otimizar a comunicação. Eis que surgem os `WebSockets`, que começam em cima do protocolo HTTP e abrem uma conexão persistente entre cliente-servidor, mudando depois o protocolo (por exemplo `xmpp://`, `ws://` etc.).
 
 ### Mercure
+
 O Mercure é um protocolo que permite enviar atualizações de dados para navegadores e outros clientes HTTP. O legal é que ele funciona com padrões que já existem, então não é necessário mudar os navegadores ou as aplicações. Caso não existam conexões persistentes, ele funciona com HTTP, por exemplo. Ele tem alguns recursos interessantes, como reestabelecimento de conexão, reconciliação de estado. Funciona com HTTP/2, tem autenticação baseada em JWT. Suporta HATEOAS e GraphQL. Encripta mensagens e com um _polyfill_ pode funcionar até no IE 7.
 
 1. Cliente assina um tópico no `Mercure Hub`.
@@ -238,26 +237,30 @@ O Mercure é um protocolo que permite enviar atualizações de dados para navega
 
 A tabela abaixo mostra um comparativo que o Duodraco mostrou em seus slides:
 
-|Mercure|WebSocket|
-|----|---|
-|API de alto nivel|API de Baixo Nível|
-|Autorização|Você deve implementar por si mesmo|
-|Reconexão|Você deve implementar por si mesmo|
-||Você deve implementar por si mesmo|
-|HTTP/2|Sem suporte|
-|Draft de Standard|RFC6455|
+| Mercure           | WebSocket                          |
+| ----------------- | ---------------------------------- |
+| API de alto nivel | API de Baixo Nível                 |
+| Autorização       | Você deve implementar por si mesmo |
+| Reconexão         | Você deve implementar por si mesmo |
+|                   | Você deve implementar por si mesmo |
+| HTTP/2            | Sem suporte                        |
+| Draft de Standard | RFC6455                            |
 
 ### Mercure Hub
+
 Possui implementação em Kubernetes, tem uma imagem do docker, tem um binário e estão trabalhando em um serviço gerenciado por eles mesmo.
 Para conectar ao mesmo, é só colocar endereço, chave JWT e mais algumas outras configurações. Existem bibliotecas para JavaScript por exemplo, para se conectar ao Hub.
 
 ### E onde entra o Symfony?
+
 O Mercure possui um bundle do Symfony, que você inclui na sua aplicação e configura.
 
 ### Demo!
+
 Após mostrar todos os conceitos, o Duodraco fez uma demo pra gente, mostrando uma aplicação dos Vingadores que ele construiu na [API Platform](https://api-platform.com/), colocou o Mercure e que atualiza em tempo real outra aplicação, em Vue.js, que ele também fez.
 
 ### Considerações
+
 O Mercure ainda não é um padrão estabelecido, então ainda pode existir certa instabilidade ou virem muitas mudanças na forma como funciona. De qualquer forma, já é utilizável e pode funcionar para comunicação entre múltiplas aplicações ou entre cliente-servidores.
 
 ## Aumente o reconhecimento da sua carreira através da certificação Symfony - [Hallison Boaventura](https://connect.symfony.com/profile/hallisonboaventura)
@@ -280,8 +283,8 @@ O Hallison também contou a história dele com o Symfony, que tem mais ou menos 
 - Documentação
 - Lista de estudo com os tópicos e subtópicos exigidos pela Symfony
 
-
 ### Recomendações
+
 - SymfonyCasts
 - Use uma lista
 - Contribua para a documentação
@@ -291,11 +294,10 @@ O Hallison também contou a história dele com o Symfony, que tem mais ou menos 
 - Baixar a documentação offline em formato PDF
 - Veja a apresentação do Tobias Nyholm: "Deep dive into Symfony 4 internas"
 
-
 O Hallison também falou sobre alguns componentes como o Symfony HttpKernel e EventDispatcher. Vale a pena conferir a aula que ele deu quando sair o vídeo da talk dele :)
 
-
 ### Processo de Certificação
+
 - Conta no SymfonyConnect
 - [Badge & PDF](https://connect.symfony.com/profile/hallisonboaventura)
 - Investimento de 250 euros
@@ -307,8 +309,7 @@ O Hallison também falou sobre alguns componentes como o Symfony HttpKernel e Ev
 
 - 75 questões, 15 tópicos, 90 minutos
 - Pearson VUE ou exame online
-- Tipos de perguntas
-	- true/false, única resposta, respostas múltiplas
+- Tipos de perguntas - true/false, única resposta, respostas múltiplas
 - Validade de 1 ano
 - Retake
 - Não há questões sobre Bundle de terceiros ou sobre o Doctrine.
@@ -321,11 +322,9 @@ Os benefícios incluem promoção de cargo e aumento de salário; viabilidade mu
 
 Nos slides, tem uma certificação falsa que o Hallison fez como exemplo para você entender mais ou menos como é a prova :)
 
-
 ### Mantenha-se Atualizado
+
 @TODO
-
-
 
 ## Gerenciando Assets com Symfony Encore - [Marcel Gonçalves dos Santos](https://connect.symfony.com/profile/marcelgsantos)
 
@@ -363,14 +362,13 @@ E depois disso, rodar um `npm install` ou `yarn install`.
 Uma vantagem do arquivo Webpack gerado pelo Encore é que ele é muito bem documentado. Para se ter uma ideia, veja exemplo do encore:
 
 ```js
-var Encore = require('@symfony/webpack-encore');
+var Encore = require("@symfony/webpack-encore")
 
-Encore
-    .setOutputPath('public/build/')
-    .setPublicPath('/build')
-    .addEntry('app', './assets/js/app.js');
+Encore.setOutputPath("public/build/")
+  .setPublicPath("/build")
+  .addEntry("app", "./assets/js/app.js")
 
-module.exports = Encore.getWebpackConfig();
+module.exports = Encore.getWebpackConfig()
 ```
 
 O Marcel também deu algumas dicas de configuração, explicando por exemplo sobre a divisão de bundles. É legal ver que ele passou por muitos dos conceitos citados e como configurar, dá pra ter uma ideia de como funciona esse universo hoje em dia.
@@ -378,16 +376,18 @@ O Marcel também deu algumas dicas de configuração, explicando por exemplo sob
 O Encore tem alguns helpers do Twig para incluir os assets no template, como `encore_entry_js_files()`, que por baixo dos panos usa o arquivo `entrypoints.json`, gerado pelo Webpack, para saber quais arquivos incluir.
 
 ### Conclusões
+
 1. utilize um workflow moderno
 2. @TODO
 
 [Confira aqui os slides da apresentação do Marcel.](https://speakerdeck.com/marcelgsantos/gerenciando-assets-com-symfony-encore)
 
-
 ## Lightning talk - Lucas
+
 O Lucas, que trabalha na ETTBrasil, na equipe Enterprise PHP nos mostrou uma demo de como utilizar o [blackfire.io](https://blackfire.io/) para profiling, testes e mais algumas coisas. É uma ferramenta muito poderosa e que o Lucas claramente domina. Vale a pena conferir :)
 
 ## Lightning talk - Hallison
+
 O Hallison mostrou uma aplicação que ele fez usando o componente HttpClient do Symfony para descobrir quais usuários do [Symfony Connect](https://connect.symfony.com) que possuem a certificação, tema de sua palestra principal. Foi legal que ele também fez uma comparação com o Guzzle.
 
 ## Lightning Talk - Duodraco
@@ -395,19 +395,20 @@ O Hallison mostrou uma aplicação que ele fez usando o componente HttpClient do
 O Duodraco fez outra demo pra gente, tentando criar uma API em 4:28 minutos (por causa do Symfony 4.28, haha). Nesse pouquíssimo tempo, explicando cada passo, conseguiu refazer a API que utilizou na sua apresentação principal e até mesmo testar no último minuto. Quem sabe faz ao vivo!
 
 ## PHPSP Symfony Live + Pub
+
 Com o fim do primeiro dia, foi a hora de deixar o notebook de lado e ir para a [confraternização](https://www.meetup.com/pt-BR/php-sp/events/261486182/).
 
 ---
 
 # Dia 2 - Sexta-feira 17/maio
 
-## Keynote  - [Cyrille Grandval](https://connect.symfony.com/profile/cgrandval)
+## Keynote - [Cyrille Grandval](https://connect.symfony.com/profile/cgrandval)
 
 Perdi :(
 
 ## Empodere suas entidades com Doctrine e DDD - [Tobias Sette](https://connect.symfony.com/profile/gnumoksha)
 
-O Tobias veio trazer para a gente uma talk sobre _Domain Driven Design_, o DDD. É um tema que ganha cada vez mais relevância e é  ótimo poder saber
+O Tobias veio trazer para a gente uma talk sobre _Domain Driven Design_, o DDD. É um tema que ganha cada vez mais relevância e é ótimo poder saber
 
 ### Visão Geral sobre DDD
 
@@ -417,6 +418,7 @@ O Tobias veio trazer para a gente uma talk sobre _Domain Driven Design_, o DDD. 
 Uma coisa legal sobre essa frase, segundo o Tobias, além da definição em si é que ela não fala de uma linguagem de programação, um framework ou algo do tipo. Os contextos do DDD são definidos pelos desenvolvedores juntamente com o time de negócio, o que é interessante e diferente de algumas práticas que vemos por aí para por exemplo "quebrar" microserviços, que normalmente não envolve o negócio.
 
 ### Entidades
+
 Falando sobre Entidades, um termo já conhecido para usuários do [Doctrine](https://www.doctrine-project.org/), vemos o tema de Active Record vs Data Mapper, explicitando como Data Mapper é o padrão utilizado pelo Doctrine.
 
 ![Tobias Sette](./tobias.jpg)
@@ -425,16 +427,19 @@ O Tobias fala sobre **Entidades anêmicas**, mostrando um exemplo de uma classe 
 Em seguida, realiza uma mudança nessa classe, adicionando **comportamento** para uma lógica de troca de email, disparando um evento para a aplicação informando sobre essa troca. Segundo ele, esse comportamento é inerente a essa classe e por isso deve estar junto a ela: Dados + Comportamentos da entidade.
 
 ### Objetos de Valor
+
 Objetos que não carregam comportamento, apenas valores. Cita o exemplo da biblioteca [Money](https://github.com/moneyphp/money), para manipular valores de dinheiro. Um exemplo no caso do contexto de `Customer` citado pelo Tobias, é um Objeto de Valor para email, que no próprio construtor já valida o email para garantir que estamos trabalhando com dados corretos.
 Voltando para a classe `Customer`, melhoramos nossa lógica de troca de email, utilizando esse objeto de valor. Ele também cria um outro objeto de valor para lidar com o `status` do Customer, utilizando a biblioteca [myclabs/php-enum](https://github.com/myclabs/php-enum) para facilitar a criação e utilização desse objeto. Continuando o refactor, ele utiliza também esse objeto na nossa classe `Customer`.
 
 ### Entidades Filhas vs Relacionadas
+
 Um conceito importante para modelar nossos dados, onde por exemplo um `Customer` seja relacionado a uma `Order`, que por sua vez tem como entidade filha um `OrderItem`, que é relacionado ao `Product`. Assim, chegamos no conceito de **Agregados**.
 Utilizando Agregados, conseguimos saber quais entidades devem ter objetos de valor e começamos a criar limites mais bem definidos no nosso sistema.
 
 @TODO
 
 O Tobias dá algumas dicas ao criar agregados, como:
+
 1. **Proteja as invariantes do negócio dentro do agregado.** Uma `Order` tem o seu `OrderId`, seu `Value` e seu `OrderItem`. Eles têm **invariantes**, que são regras que precisa sempre ser verdadeira. Por exemplo, o valor de todos os `OrderItem`s deve ser igual ao valor total do `Order` - isso é uma invariante e deve estar dentro do agregado `Order`.
 2. @TODO
 3. **Referencie outros agregados apenas pela Identidade `(id`)**. Não se deve consultar relacionamentos diretamente, mas sim pelos ids.
@@ -444,10 +449,7 @@ Utilizando as dicas e conceitos apresentados, o Tobias mostrou como melhorar o c
 
 O Tobias citou ainda [Repositórios](https://martinfowler.com/eaaCatalog/repository.html), que faz o meio de campo para as camadas de data mapping e provê uma interface de coleção para os Objetos de Domínio. Ele mostrou como persistir e recuperar `Customer`s com o uso de repositórios.
 
-
 Algumas das referências utilizadas na apresentação podem ser encontradas nos slides.
-
-
 
 ## Rodando Symfony em Docker containers. Dicas e melhores práticas - [Wellington Figueira da Silva](https://connect.symfony.com/profile/wsilva)
 
@@ -456,6 +458,7 @@ O Wellington começa sua talk com a pergunta que não quer calar: **O que é Doc
 > "Ferramenta para **virtualização** no nível do Sistema Operacional." - Wellington F. Silva
 
 E em seguida já explica pra gente quais são os tipos de **virtualização**:
+
 - **Full virtualization**: instalar a iso e rodar na máquina
 - **Partial virtualization**: virtual box, algumas coisas não funcionam tipo ler pendrive, etc...
 - **Paravirtualization**: alterar algumas coisas no guest para funcionar melhor no host
@@ -503,12 +506,15 @@ Para utilizarmos em nossa aplicação, temos alguns métodos para nossas entidad
 Existem também helpers para o Twig que também permitem trabalhar com o componente, com métodos como `workflow_can()`, `workflow_transitions()`, entre outros...
 
 ### Máquinas de estado
+
 Também podemos utilizar o tipo `state_machine` (máquina de estado). As principais diferenças entre `workflow` e `state_machine` são que os fluxos de trabalho podem estar em mais de um lugar (estado) ao mesmo tempo, enquanto nas máquinas de estado não. Além disso, os fluxos de trabalho geralmente não tem caminhos cíclicos, mas são comuns em máquinas de estado. Existem algumas outras diferenças e [na documentação do componente](https://symfony.com/doc/current/workflow/introduction.html) dá pra entender melhor :)
 
 ### Eventos
+
 Alguns eventos são disparados ao interagirmos com o Workflow, como por exemplo, `workflow.enter`, que ocorre quando um novo estado é definido. Existem muitos outros, como `workflow.leave`, `workflow.transition`, `workflow.guard`.
 
 ### Na prática
+
 A Camila mostrou uma demo pra gente que foi mostrado na #Symfony_Live Paris 2016 e que você pode conferir [aqui](https://symfony-workflow-demo.herokuapp.com). O código está disponível no [GitHub](https://github.com/lyrixx/SFLive-Paris2016-Workflow).
 
 Confira os slides da palestra.
@@ -527,7 +533,6 @@ composer require symfony/security
 ```
 
 Primeiro: Precisamos criar um `User` Class. Para isso, podemos usar o [Maker-Bundle](https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html):
-
 
 ```bash
 composer require symfony/maker-bundle
@@ -548,15 +553,13 @@ php bin/console make:auth
 
 Escolhendo o `Login Authenticator` geramos o que precisamos de form, etc. e podemos ir para o próximo passo: **autenticação**. Ela explicou pra gente como funciona a `Authenticator Interface`. Configuramos no `security.yaml` que queremos utilizar nosso `Authenticator`, em `firewalls.main.guard.authenticators`. Ela explicou em detalhes como funciona a implementação do `Authenticator` que geramos com o `make:auth` e como deixar ainda mais seguro.
 
-É muito legal ter um código seguro de autenticação resolvendo vários problemas para nós. Em 30 minutos, já temos um token para  proteger contra [ataques `CSRF`](https://pt.wikipedia.org/wiki/Cross-site_request_forgery), as senhas já são criptografadas e tudo o mais. Vale a pena dar uma olhada nos slides ou no vídeo para poder ver tudo no detalhe :)
+É muito legal ter um código seguro de autenticação resolvendo vários problemas para nós. Em 30 minutos, já temos um token para proteger contra [ataques `CSRF`](https://pt.wikipedia.org/wiki/Cross-site_request_forgery), as senhas já são criptografadas e tudo o mais. Vale a pena dar uma olhada nos slides ou no vídeo para poder ver tudo no detalhe :)
 
 Para APIs, utilizamos o mesmo `make:auth`, porém criamos um `Empty Authenticator`. Com isso podemos tratar um token que servirá como autenticação na API. O componente tem algumas coisas para ajudar com tokens também. A Diana mostrou por cima como podemos fazer nosso autenticador.
 
 [Confira os slides da talk.](https://bit.ly/sflive-guard)
 
 ## Criando API's em um passo com o API Platform - [Bruno Henrique de Souza](https://connect.symfony.com/profile/brunohsouza)
-
-
 
 O Bruno Souza veio de Brasília trazer conteúdo para a gente sobre APIs e sobre a [API Platform](https://api-platform.com/).
 
@@ -577,7 +580,7 @@ E é basicamente isso. Ele está de pé.
 
 O API Platform tem alguns componentes principais, como por exemplo o _Schema Generator Command_, que gera dados no vocabulário [`schema.org`](https://schema.org/). Mapeando com o vocabulário adequado nossa configuração, podemos rodar um comando para gerar nossas entidades.
 
-O Bruno fez algumas considerações sobre *Data Persisters*, *Data Providers*, a anotação `@ApiResource`, sobre `Code First` vs `Design First` e alguns padrões.
+O Bruno fez algumas considerações sobre _Data Persisters_, _Data Providers_, a anotação `@ApiResource`, sobre `Code First` vs `Design First` e alguns padrões.
 
 Em uma **coleção** da nossa API, podemos dar um `GET` para recuperar vários itens e um `POST` para criar um novo item. Já em um **item**, temos o `GET` para recuperar informações do mesmo, o `PUT` para atualizar esse item e o `DELETE` para apagá-lo.
 
@@ -597,9 +600,9 @@ Confira os slides da talk :) @TODO
 
 ## Por que o Symfony salvou o Drupal? [Vanessa Martins](https://connect.symfony.com/profile/vmartinsweb)
 
-Na última talk do dia - e do evento- a Vanessa vai falar pra gente sobre o [Drupal](https://www.drupal.org/) -  e a relação dele com o Symfony.
+Na última talk do dia - e do evento- a Vanessa vai falar pra gente sobre o [Drupal](https://www.drupal.org/) - e a relação dele com o Symfony.
 
-O Drupal surgiu como um CMS em PHP, lá pelos anos 2000 e hoje é um CMF, um _Content Management
+O Drupal surgiu como um CMS em PHP, lá pelos anos 2000 e hoje é um CMF, um \_Content Management
 
 O Drupal teve 155,079 e mais de 1300 comias hoje comias nessa semana. Existem mais de um milhão de pessoas relacionadas de alguma maneira ao Drupal, desde desenvolvedores a usuários da plataforma. Existem cerca de 580 mil sites em Drupal no mundo, sendo 3500 deles no Brasil.
 
@@ -622,6 +625,4 @@ O Drupal 9 já está sendo desenvolvido e a ideia é que seja fácil de atualiza
 
 [Confira os slides da apresentação.](https://docs.google.com/presentation/d/17aL2ua4NQ235uj4rnVA8SWKcCfqHJbPQ2FfDdSoWDgo/edit#slide=id.p)
 
-
 ## Encerramento
-
