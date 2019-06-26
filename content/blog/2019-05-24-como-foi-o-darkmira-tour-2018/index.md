@@ -113,11 +113,11 @@ error_log = /var/log/app_error.log
 
 Podemos posterior fazer uma análise desse log com `tail`:
 
-```sh
+```bash
 tail -f /var/log/app_error.log
 ```
 
-Isso funciona bem quando temos apenas um servidor, porém para mais de uma máquina devemos agregar esses logs em um único local. Podemos usar uma ferramenta como o [Splunk](https://www.splunk.com/), por exemplo. Outra é o [Kibana](https://www.elastic.co/products/kibana), que junto com o [ElasticSearch](https://www.elastic.co/products/elasticsearch) e o [LogStash](https://www.elastic.co/products/logstash) forma um ecossistema para análise e até mesmo predição de erros. Outras opções também incluem o [Graylog](https://www.graylog.org/) e o [papertrail](https://papertrailapp.com/).
+Isso funciona bem quando temos apenas um servidor, porém para mais de uma máquina devemos agregar esses logs em um único local. Podemos usar uma ferramenta como o [Splunk](https://www.splunk.com/), por exemplo. Outra é o [Kibana](https://www.elastic.co/products/kibana), que junto com o [Elasticsearch](https://www.elastic.co/products/elasticsearch) e o [Logstash](https://www.elastic.co/products/logstash) forma um ecossistema para análise e até mesmo predição de erros. Outras opções também incluem o [Graylog](https://www.graylog.org/) e o [papertrail](https://papertrailapp.com/).
 
 ### Dicas
 
@@ -127,11 +127,11 @@ Antecipe problemas analisando seus logs, com notificações que podem vir por sl
 
 ## PHP + Docker + ELK + React: Um case de sucesso - [_Rodrigo Régis Palmeira_](https://twitter.com/regisnew)
 
-O Rodrigo, ou melhor, o Régis, é chefe de desenvolvimento do Tribunal de Contas do Distrito Federal, veio trazer o case que ele passou no trabalho. Em meados do ano passado, foi levantada a necessidade de uma melhoria no sistema de pesquisa textual do TCDF. O sistema de pesquisa já existente utilizava _full text search_ do SQL Server. Embora funcionasse, a busca existente era limitada.
+O Rodrigo, ou melhor, o Régis, é chefe de desenvolvimento do [Tribunal de Contas do Distrito Federal](https://www.tc.df.gov.br/) (TCDF) e trouxe o case que ele participou no trabalho. Em meados de 2017 foi levantada a necessidade de uma melhoria no sistema de pesquisa textual do TCDF. O sistema de pesquisa já existente utilizava _full text search_ do SQL Server. Embora funcionasse, a busca existente era limitada.
 O que os usuários pediam, basicamente, era uma busca similar a do Google.
-Ao analisar a possibilidade de se utilizar a ferramenta "Google Search Appliance", o custo seria de 2.5 milhões de reais apenas para a configuração que eles precisariam, sem contar outros custos. Parecendo inviável, foram atrás de outras soluções, estudando como outros governos estavam fazendo suas buscas até chegar no ElasticSearch.
+Ao analisar a possibilidade de se utilizar a ferramenta [Google Search Appliance](https://enterprise.google.com/search/), o custo seria de 2,5 milhões de reais apenas para a configuração que eles precisariam, sem contar outros custos. Parecendo inviável, foram atrás de outras soluções, estudando como outros governos estavam fazendo suas buscas até chegar no [Elasticsearch](https://www.elastic.co/products/elasticsearch).
 
-Assim, decidiram fazer uma implementação, com uma definição das tecnologias que seriam utilizadas, todas elas open source. Uma delas é o Apache Tika, que extrai dados relevantes (como o texto) de diversos formatos de arquivos (como por exemplo imagens, PDFs). Esses dados extraídos pelo Tika são enviados para o LogStash, ferramenta da Elastic que recebe dados brutos, filtra, transforma e solta uma saída mais rica. Essa saída é então enviada para o ElasticSearch, onde os dados são armazenados e podem ser pesquisados com queries e diversas facilidades para o fim. Por fim, o Kibana é uma interface plugável no ElasticSearch para pesquisas e que pode ser utilizado diretamente pelos usuários, por exemplo.
+Assim, decidiram fazer uma implementação definindo que as tecnologias utilizadas seriam todas open source. Uma delas é o [Apache Tika](https://tika.apache.org/), que extrai dados relevantes, como o texto, de diversos formatos de arquivos como imagens, PDFs, etc. Os dados extraídos pelo Tika são enviados para o [Logstash](https://www.elastic.co/products/logstash), ferramenta da Elastic que recebe dados brutos, filtra, transforma e solta uma saída mais rica. Essa saída é então enviada para o Elasticsearch, onde os dados são armazenados e podem ser pesquisados com _queries_ e outras diversas facilidades. Por fim, o [Kibana](https://www.elastic.co/products/kibana) é uma interface plugável no Elasticsearch para pesquisas e que pode ser utilizado diretamente pelos usuários, por exemplo.
 
 No backend dessa implementação, eles utilizaram, entre outras coisas, Symfony, Guzzle, Doctrine. Já no frontend, decidiram por React com JSX. Também decidiram adotar o Docker, que traz portabilidade, versionamento, uniformidade, imutabilidade e diversas outras vantagens para o ambiente de desenvolvimento e também para o de produção.
 
