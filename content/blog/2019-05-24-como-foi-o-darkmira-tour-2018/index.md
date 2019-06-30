@@ -63,6 +63,7 @@ Após o keynote da Diana e o coffee-break/networking, escolhi ver a talk do Raph
 Ele começa citando Murphy:
 
 > "Qualquer coisa que possa dar errado, dará no pior momento possível."
+>
 > _Edward A. Murphy_
 
 E diz que quanto **mais tempo** um sistema fica **inconsistente**, **piores** são as **consequências**.
@@ -151,20 +152,21 @@ Clique [aqui](https://speakerdeck.com/regisnew/php-plus-docker-plus-elk-plus-rea
 
 ## Stand-up do [_Pokemaobr_](https://twitter.com/pokemaobr)
 
-Na volta do almoço, a pedidos da "comunidade", o pokemaobr fez mais um de seus ótimos stand-ups sobre a incrível vida de DEV.
+Na volta do almoço, a pedidos da "comunidade", o pokemaobr fez mais um de seus ótimos stand-ups sobre a incrível vida de DEV. Eu sempre choro de rir, pois me relaciono demais com as piadas que ele faz.
 
 ## On Being a Senior Engineer - [_Sheeri K. Cabral_](https://twitter.com/sheeri)
 
-Em seguida, tivemos mais um keynote, dessa vez com a Sheeri, que é Senior Database Engineer e MySQL Community Contributor. Ela comenta que vai falar mais ou menos sobre o tema que a Diana abordou, porém de uma forma um pouco diferente.
+Em seguida tivemos mais um _keynote_, dessa vez com a Sheeri que é _Senior Database Engineer_ e _MySQL Community Contributor_. Ela comenta que vai falar mais ou menos sobre o tema que a Diana abordou, porém de uma forma um pouco diferente.
 
-Quando falamos dos níveis de alguém, Júnior, Sênior, et, nos níveis mais básicos, executam processos de escrita, criam novos processos e os executam, tomam a iniciativa numa tarefa, liderar um projeto, fazer a arquitetura de algo
-O trabalho que fazemos: projetos pequenos, grandes, liderar, participar, fazer parte nas especificações, etc.
-Autonomia
-importante ser parte de um time, então em muitos casos é muito bom ter um par para revisar seu código, principalmente quando se é júnior. A Sheeri ressalta que mesmo um sênior pode receber revisão, pois todos são passíveis de erros. Duas cabeças pensam melhor que uma.
+### Níveis de senioridade
+
+Quando falamos dos níveis de alguém, Júnior, Sênior, etc., de forma básica, os colaboradores executam processos de escrita, criam novos processos e os executam, tomam a iniciativa numa tarefa, lideram um projeto, fazer a arquitetura de algo. O trabalho que fazemos pode ser em projetos pequenos, em grandes projetos, pode envolver liderança, participação, fazer parte nas especificações, etc. Autonomia é algo que difere um pouco entre os níveis.
+
+É muito importante ser parte de um time, então em muitos casos é muito bom ter um par para revisar seu código, principalmente quando se é júnior. A Sheeri ressalta que mesmo um sênior pode ter seu trabalho revisado, pois todos são passíveis de erros. Duas cabeças pensam melhor que uma.
 
 ### Priorização
 
-Algo que seniors fazem é priorizar o trabalho. Já um junior acabam pedindo uma priorização e cronogramas para relembrá-los. Um sênior meio que "sabe" quais são as prioridades, se atacar a menor tarefa ou a maior, etc. Ele também sabe alinhar essas prioridades com outras pessoas/departamentos.
+Algo que sêniors fazem é priorizar o trabalho. Já júniors acabam pedindo uma priorização e cronogramas para relembrá-los. Um sênior meio que "sabe" quais são as prioridades, se atacar a menor tarefa ou a maior, etc. Ele também sabe alinhar essas prioridades com outras pessoas/departamentos.
 Algumas níveis de expectativas que existem quando vamos desenvolver:
 
 1. vou escrever código seguro
@@ -176,79 +178,55 @@ Quando priorizamos, devemos dizer **não**. Porém, existem vários tipos de nã
 
 ### Analisando e assumindo riscos
 
-senso apropriado de risco para você ou para companhia
-fazer um deploy depois das três pré feriado?
-pesar consequências, fazer testes e ter um plano **rápido** de rollback, mesmo que signifique ter mais trabalho depois.
+É importante desenvolver um senso apropriado de risco, tanto para você quanto para a companhia. Por exemplo, será que compensa fazer um deploy depois das três da tarde em um pré-feriado? Devemos pesar consequências, fazer testes e ter um plano **rápido** de _rollback_, mesmo que isso signifique ter mais trabalho depois.
 
-### Detalhes vs Quadro Geral,
+### Detalhes versus Quadro Geral
 
-1. fazer o trabalho
-1. entender o impacto do trabalho para a empresa
-1. entender porque o trabalho está sendo feito
-1. sugerir objetivos
-1. sugerir a visão
-1. escolher os objetivos/visão
+Devemos fazer o trabalho; entender o impacto do trabalho para a empresa; entender porque o trabalho está sendo feito; sugerir objetivos; sugerir a visão; escolher os objetivos/visão.
 
 ### Recomendações
 
-1. Tecnologia, capacidade, "fit" na organização
-1. Não apenas a "nova tecnologia para testar/aprender"
-1. Caveat: aqueles com experiência algumas vezes acabam usando algo antigo que eles já tem experiência
-1. Defender pontos quando necessário
-1. Quando resolver algo no mesmo momento
-1. Quando não compensa resolver algo
-1. Quando podemos escrever um ticket para escrever depois
-1. Aplicar a regra do 80/20.
+Pense sobre tecnologias, na capacidade do time em relação a elas e no "fit" na organização. Não queira usar apenas a "nova tecnologia para testar/aprender". Uma ressalva é que aqueles com experiência algumas vezes acabam usando algo antigo que eles já tem maior familiaridade. Defenda pontos quando necessário. Entenda quando é preciso resolver algo no mesmo momento, quando não compensa resolver e quando podemos simplesmente escrever um ticket para resolver depois. Aplique a regra do [80/20](https://pt.wikipedia.org/wiki/Princ%C3%ADpio_de_Pareto).
 
-### Balanço: O Que é melhor?
+### Balanço: O que é melhor?
 
-1. Algumas vezes as solução técnica "correta" não é a solução ótima para o ambiente.
-2. Conversely, algumas vezes você vai contra uma melhor prática porque é a coisa certa a se fazer.
-3. Consensus-based tech. Quando todos vamos para uma sala e saímos com uma decisão, que nem todos podem concordar, mas que é o melhor e que todos assumem e adotam a decisão.
+Algumas vezes a solução técnica "correta" não é a solução ótima para o ambiente. Por outro lado, algumas vezes você vai contra uma melhor prática porque é a coisa certa a se fazer. Tecnologia baseada em consenso: quando todos vão para uma sala e saem com uma decisão que nem todos podem concordar, mas que é a melhor e que todos assumem e adotam.
 
-### Seu escopo
+### Escopo
 
-- Pequeno escopo/impacto
-- Maior escopo/impacto
-- Trabalhar com mais pessoas
-- Trabalhar com mais times
-- Trabalhar com consumidores
+No trabalho, seu escopo e impacto pode ser pequeno ou grande. Você pode trabalhar com mais pessoas ou sozinho, pode trabalhar com mais times, trabalhar com clientes ou não.
 
 ### Trabalho "Real"
 
-- Nem sempre o código ou linha de comando
-- Reuniões, expectativas, D.o.D.
-- Planejamento
-- Pode envolver: planilhas, software de planejamento de projeto, grooming, documentação, aprovação.
+O trabalho em si nem sempre envolve código ou linha de comando. Existem reuniões, expectativas, [definições de pronto](http://blog.kudoos.com.br/agile/explorando-a-definicao-de-pronto/). Há também muito planejamento. Seu trabalho também pode envolver planilhas, software de planejamento de projeto, [_groomings_](http://blog.kudoos.com.br/agile/dissecando-o-grooming/), documentação e aprovação.
 
 ### Relacionamentos
 
-- Você trabalha com outros para obter resultados
-- Boa comunicação, expectativas, follow-up e follow-through on promises
-- Falar sobre seus hobbies, o que você fez no final de semana, etc.
-- Existe um balanço sobre não trabalhar e ser 100% focado no trabalho
+Você trabalha com outros para obter resultados. É imprescindível boa comunicação, alinhamento das expectativas e acompanhamentos para certificar-se que tudo ocorre como esperado. Falar sobre seus hobbies, o que você fez no final de semana, etc. Existe um balanço sobre não trabalhar e ser 100% focado no trabalho, encontre o seu.
 
 ### Comunicação
 
-- Comunicação depende da sua audiência, você deve saber comunicar as coisas de acordo com o público, por exemplo, usando ou não termos técnicos, contextualizando para o entendimento de quem está presente. Saiba com quem está conversando.
+Comunicação depende da sua audiência, você deve saber comunicar as coisas de acordo com o público, por exemplo, usando ou não termos técnicos, contextualizando para o entendimento de quem está presente. Saiba com quem está conversando.
 
 ### Respondendo a uma questão
 
-"Como eu posso fazer o DB usar um índice nessa query case-sensitive?"
+Existem várias maneiras de se responder a uma questão. Por exemplo, para a questão: "Como eu posso fazer o DB usar um índice nessa query case-sensitive?", você poderia responder:
 
-- Eu não sei
-- Você não pode fazer isso
-- Você poderia tentar isso, ah, pera, isso não funciona.Você poderia tentar isso aqui... ah, não funciona também
-- ???? preciso dos slides
-  Você pode dizer: tente isso e vê se funciona, ou, eu testei isso e funciona. Ou melhor ainda: que problema você está tentando resolver? Pense sobre quem está fazendo a pergunta.
+- Eu não sei.
+- Você não pode fazer isso.
+- Você poderia tentar isso, ah, pera, isso não funciona.Você poderia tentar isso aqui... ah, não funciona também...
+
+Melhor do que isso, você poderia dizer: "tente isso e vê se funciona" ou "eu testei isso e funciona". Ou melhor ainda: "que problema você está tentando resolver?" - Pense sobre quem está fazendo a pergunta e como pode verdadeiramente ajudar.
 
 ### Reputação
 
-Pessoas percebem você como um expert. Reputação é sobre relacionamentos. Você trabalha com pessoas, portanto é importante se dar bem com elas e isso reflete diretamente em como elas o vêem. Confiança: poder confiar que vai realmente fazer o que foi combinado. Faça um bom trabalho, mesmo em trabalho que você pensa que estão além de você. Ajude os outros.
+Pessoas **percebem** você como um expert, não importa o que o seu cargo diga. Reputação é sobre relacionamentos. Você trabalha com pessoas, portanto é importante se dar bem com elas e isso reflete diretamente em como elas o vêem. Confiança também é importante: poder confiar que vai realmente fazer o que foi combinado. Faça um bom trabalho, mesmo em casos que pensa que estão além de você. Ajude os outros.
 
 ### Dicas e segredos
 
-Desenvolva relacionamento, agradeça às pessoas que fazem o trabalho para você ou com você. Se um grande projeto terminar ou alguém sair da empresa, deixe um review legal no LinkedIn. Faça com que seja fácil para os outros fazer o trabalho que você precisa que eles façam.
+Desenvolva relacionamentos, agradeça às pessoas que fazem o trabalho para você ou com você. Se um grande projeto terminar ou alguém sair da empresa, deixe um review legal no LinkedIn. Faça com que seja fácil para os outros fazerem o trabalho que você precisa que eles façam.
+
+Infelizmente não consegui acessar os slides no momento da publicação desse post, [mas estou tentando](https://twitter.com/ravanscafi/status/1145338092183859200).
 
 ## Serverless: Função como serviço em PHP - [_Jonata Weber_](https://twitter.com/JonataWeber)
 
