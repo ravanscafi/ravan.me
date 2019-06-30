@@ -133,17 +133,21 @@ Ao analisar a possibilidade de se utilizar a ferramenta [Google Search Appliance
 
 Assim, decidiram fazer uma implementação definindo que as tecnologias utilizadas seriam todas open source. Uma delas é o [Apache Tika](https://tika.apache.org/), que extrai dados relevantes, como o texto, de diversos formatos de arquivos como imagens, PDFs, etc. Os dados extraídos pelo Tika são enviados para o [Logstash](https://www.elastic.co/products/logstash), ferramenta da Elastic que recebe dados brutos, filtra, transforma e solta uma saída mais rica. Essa saída é então enviada para o Elasticsearch, onde os dados são armazenados e podem ser pesquisados com _queries_ e outras diversas facilidades. Por fim, o [Kibana](https://www.elastic.co/products/kibana) é uma interface plugável no Elasticsearch para pesquisas e que pode ser utilizado diretamente pelos usuários, por exemplo.
 
-No backend dessa implementação, eles utilizaram, entre outras coisas, Symfony, Guzzle, Doctrine. Já no frontend, decidiram por React com JSX. Também decidiram adotar o Docker, que traz portabilidade, versionamento, uniformidade, imutabilidade e diversas outras vantagens para o ambiente de desenvolvimento e também para o de produção.
+No backend dessa implementação, eles utilizaram, entre outras coisas, [Symfony](https://symfony.com/), [Guzzle](http://docs.guzzlephp.org/en/stable/) e [Doctrine](https://www.doctrine-project.org/). Já no frontend, decidiram por [React](https://reactjs.org/) com [JSX](https://reactjs.org/docs/introducing-jsx.html). Também decidiram adotar o [Docker](https://www.docker.com/), que traz portabilidade, versionamento, uniformidade, imutabilidade e diversas outras vantagens para o ambiente de desenvolvimento e também para o de produção.
 
-O ecossistema anterior de busca tinha basicamente PHP com Apache no sistema principal, banco SQL Server, um outro sistema para controle de acesso com PHP, Symfony, Apache e um servidor para salvar e recuperar arquivos com as mesmas tecnologias, juntamente com o Samba.
+O ecossistema anterior de busca tinha basicamente PHP com Apache no sistema principal, banco SQL Server, um outro sistema para controle de acesso com PHP, Symfony, Apache e um servidor para salvar e recuperar arquivos com as mesmas tecnologias, juntamente com o [Samba](https://www.samba.org/).
 
-Depois do desenvolvimento do novo ecossistema, que foi feito pelo Régis e outro colega de trabalho, agora provê interfaces com APIs, tanto para o sistema principal quanto para busca. Também existem máquinas para a busca dos usuários, máquinas para Logstash e Kibana, Elasticsearch, sendo a maioria delas dentro do Docker e usando NGINX ao invés do Apache.
+Depois do desenvolvimento do novo ecossistema, que foi feito pelo Régis e outro colega de trabalho, agora existem interfaces com APIs, tanto para o sistema principal quanto para a busca. Também existem máquinas para a busca dos usuários, máquinas para Logstash e Kibana, Elasticsearch, sendo a maioria delas dentro do Docker e usando NGINX ao invés do Apache.
 
-[O projeto foi colocado no ar em dezembro, com uma interface muito próxima a do Google](https://busca.tc.df.gov.br). O feedback dos usuários foi muito positivo, com uma busca agora muito mais completa e assertiva, sendo um belo case de sucesso desenvolvido em apenas três meses, com um orçamento bem reduzido. O Régis ressalta que iniciativas de governo como essa devem ser mostradas.
+![O novo ecossistema de busca do TDCF](./ecossistema_elk.jpg)
 
-Em seguida, ele mostrou alguns dashboards feitos no Kibana, que são para uso interno deles, servindo também como ferramenta de monitoria. Também abriu [a busca](https://busca.tc.df.gov.br) ao vivo e mostrou seu funcionamento.
+[O projeto foi colocado no ar em dezembro de 2017, com uma interface muito próxima a do Google](https://busca.tc.df.gov.br). O feedback dos usuários foi muito positivo, com uma busca agora muito mais completa e assertiva, sendo um belo case de sucesso desenvolvido em apenas três meses, com um orçamento bem reduzido. O Régis ressalta que iniciativas de governo como essa devem ser mostradas.
+
+Em seguida, ele mostrou alguns dashboards feitos no Kibana para uso interno, servindo também como ferramenta de monitoria. Também abriu [a busca](https://busca.tc.df.gov.br) ao vivo e mostrou seu funcionamento.
 
 Como próximos passos, eles percebem a necessidade da criação de um dicionário de sinônimos no Elasticsearch, uma autenticação com JWT e LDAP para pesquisas restritas de uso interno, com sigilo. Outro passo é a de fazer a busca ser um PWA (Progressive Web App).
+
+Clique [aqui](https://speakerdeck.com/regisnew/php-plus-docker-plus-elk-plus-react-um-case-de-sucesso) para conferir os slides da apresentação.
 
 ## Stand-up do [_Pokemaobr_](https://twitter.com/pokemaobr)
 
