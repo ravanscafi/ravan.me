@@ -230,54 +230,35 @@ Infelizmente não consegui acessar os slides no momento da publicação desse po
 
 ## Serverless: Função como serviço em PHP - [_Jonata Weber_](https://twitter.com/JonataWeber)
 
-O Jonata, que era da Bahia e agora está aqui por perto, em Goiânia, veio falar pra gente sobre Serverless, citando um artigo que foi onde ele teve contato com o tema, onde o autor afirmava que para cada 30 mil requisições, pagava apenas US\$0.21.
-Ele afirma que o termo "Server-less" é um pouco estranho pois existem servidores em algum lugar, então um termo um pouco melhor seria "No Ops", No Internal Sys Admin, "Service-full" Architecture @todo
+O Jonata, que era da Bahia e está por perto, em Goiânia, foi falar pra gente sobre _Serverless_, citando [um artigo](https://fmlnerd.com/2016/08/16/30k-page-views-for-0-21-a-serverless-story/) que foi onde ele teve contato com o tema, onde o autor afirmava que para cada 30 mil requisições pagava apenas US\$0.21.
+Ele afirma que o termo _"Server-less"_ é um pouco estranho pois existem servidores em algum lugar, então alguns termos um pouco melhores seriam _"No Ops"_, _"No Internal Sys Admin"_, _"Service-full" Architecture_... enfim.
 
-O **movimento serverless** tenta abstrair e facilitar muitas coisas do processo de desenvolvimento de software, visando tornar mais fácil colocar um código em produção.
-Ele cita o _Time to value_: intervalo entre identificar um problema e entregar um valor e diz que quanto menor esse tempo, melhor vai ser para o sucesso do projeto.
-Para rodar um app, precisamos de um S.O., que por sua vez precisa de um hardware. Como devs, gostamos de abstrair as coisas e, assim, começamos a trabalhar com máquinas virtuais, que abstraem os sistemas operacionais, sem precisar lidar diretamente com hardware e rodando o app em "qualquer" servidor.
-Seguindo em uma linha mais profunda de abstração, temos o BaaS (Backend as a Service - Backend como um Serviço), que abstrai o backend todo e te dá apenas APIs para lidar com a aplicação, abstraindo banco de dados e diversos outros problemas.
-Abstraindo mais ainda, temos o _Function as a Service_ (FaaS), onde funções vão rodar em, por exemplo, contêineres, com um input e um output.
+O **movimento serverless** tenta abstrair e facilitar muitas coisas do processo de desenvolvimento de software, visando tornar mais fácil colocar código em produção. Ele cita o **_time to value_**: intervalo entre identificar um problema e entregar valor e diz que quanto menor esse tempo, melhor vai ser para o sucesso do projeto.
 
-Arquitetura
-Monolítica -> Microserviços x5 -> Funções x10
+Para rodar um app, precisamos de um Sistema Operacional (SO), que por sua vez precisa de um hardware. Como devs, gostamos de abstrair as coisas e, assim, começamos a trabalhar com máquinas virtuais, que abstraem os sistemas operacionais, sem precisar lidar diretamente com hardware e rodando o app em "qualquer" servidor.
+
+Seguindo em uma linha mais profunda de abstração, temos o **BaaS** (_Backend as a Service_ - Backend como um Serviço), que abstrai o backend todo e te dá apenas APIs para lidar com a aplicação, lidando com banco de dados e diversos outros problemas.
+Abstraindo mais ainda, temos o **FaaS** (_Function as a Service_ - Função como um serviço), onde funções vão rodar por exemplo em contêineres, com um _input_ e um _output_.
 
 Empresas que suportam FaaS incluem: AWS, Google Cloud Platform, Microsoft Azure, Apache OpenWhisk. O Jonata cita que só o Azure suporta PHP. Logo em seguida, ele faz uma demo mostrando um pouquinho dos conceitos do FaaS.
 
-Para a talk, ele preparou um exemplo de BaaS + FaaS, para guardar likes de posts no twitter, enviando esses dados com o Apache OpenWhisk, que consequentemente os salva no Firebase, mostrando em tempo real as atualizações numa interface de usuário. A aplicação de exemplo [está disponível no GitHub](https://github.com/jonataa/serverless-php-talk).
+Para a talk, ele preparou um exemplo de BaaS + FaaS para guardar likes de posts no twitter, enviando esses dados com o Apache OpenWhisk, que consequentemente os salva no Firebase, mostrando em tempo real as atualizações numa interface de usuário. A aplicação de exemplo [está disponível no GitHub](https://github.com/jonataa/serverless-php-talk).
 
-Para finalizar, o Jonata faz um paralelo com o mais tradicional PaaS (Platform as a Service) mostrando que você paga de forma diferente por esses serviços e que no PaaS provavelmente seu servidor tem um tempo ocioso.
+Para finalizar, o Jonata faz um paralelo com o mais tradicional **PaaS** (_Platform as a Service_ - Plataforma como um Serviço) mostrando que você paga de forma diferente por esses serviços e que no PaaS provavelmente seu servidor tem um tempo ocioso.
 
 ### Vantagens
 
-- BaaS: Custo menor com Dev e Ops,
-- FaaS: Auto-scaling
-- Pay-per-use
-- Time to value/Experimentação
-- Complexidade reduzida de build e deploy (por exemplo, só alterar uma função que foi identificada um problema, ao invés de o sistema todo)
-- Zero Administração
+Entre os benefícios de se utilizar tecnologias do tipo, temos um custo menor com Dev e Ops com BaaS. Já com FaaS, contamos com _auto-scaling_ e pagamentos apenas pelo uso. Com essas tecnologias temos mais facilidade em atingir o _time to value_, podendo fazer mais **experimentação**. Contamos com uma complexidade reduzida de _build_ e _deploy_ (por exemplo, é só alterar uma função onde foi identificado um problema, ao invés de fazer o deploy do sistema todo). Ainda contamos com zero administração.
 
 ### Desvantagens
 
-- Grande latência de inicialização
-- Limite de execução do container (não pode passar mais que tempo X)
-- Repetição de lógica através de plataformas de cliente
-- Dificuldade de testar.
+Já, pelo lado ruim, temos grande latência de inicialização; limitação de tempo de execução do contêiner; repetição de lógica em alguns casos e dificuldade de testar a aplicação.
 
-### Futuro do Serverless
+### Futuro do Serverless e Possibilidades
 
-- Ferramental (inclusive para testes)
-- Surgimento de padrões
-- etc
+O Jonata vê o serverless tendendo para uma evolução no **ferramental**, inclusive para testes. Também espera que ocorra o surgimento de **padrões**, entre outras coisas. Ele acredita que Serverless serve para aplicações web; como backend de _IoT_ (internet das coisas); como backend de aplicações móveis, entre outros usos. Por fim, cita [um artigo](https://martinfowler.com/articles/serverless.html) do Martin Fowler sobre o tema.
 
-### Possibilidades
-
-- Aplicações web
-- Backend de IoT
-- Backend Móveis, etc
-
-Artigo Martin Fowler serverless
-https://martinfowler.com/articles/serverless.html
+Infelizmente, não consegui encontrar os slides da apresentação.
 
 ## API First: Quando utilizar a estratégia de API? - [_Bruno Souza_](https://twitter.com/brunosouza)
 
