@@ -312,13 +312,15 @@ Até a publicação desse post, não encontrei os slides da apresentação.
 
 ## The QueryFilter Concept for Filtering Models - [_Junior Grossi_](https://twitter.com/junior_grossi)
 
-Para finalizar o primeiro dia de palestras, decidi ver a talk do Junior, um dos organizadores do PHPMG. E após se apresentar, ele explicou que `QueryFilter` é uma abstração para filtrar objetos baseado na `URL`. Então, caso quiséssemos pegar posts com _título_ `foo` e _status_ `bar`, poderíamos utilizar uma URL do tipo:
+Para finalizar o primeiro dia de palestras, decidi ver a talk do Junior, um dos organizadores do PHPMG. E após se apresentar, ele explicou que `QueryFilter` é uma abstração para filtrar objetos baseado nos parâmetros da `URL`. Ele diz que pegou a ideia de um vídeo do [Laracasts](https://laracasts.com/). Explicando o conceito, caso quiséssemos pegar posts com _título_ `foo` e _status_ `bar`, poderíamos utilizar uma URL do tipo:
 
-`/posts?title=foo&status=bar`
+```url
+/posts?title=foo&status=bar
+```
 
-E essa é mais ou menos a ideia do `QueryFilter`. Logo já partimos pro live code, que foi bem completa. Recomendo assistir a talk quando a mesma for liberada! ;)
+E essa é mais ou menos a ideia do `QueryFilter`. Logo já partimos pro _live coding_, que foi bem completo e explicativo - o Junior é um ótimo professor.
 
-`QueryFilter` é um conceito, podendo ser utilizado em qualquer linguagem. Existem alguns pacotes prontos para isso disponíveis no Packagist, como o `cerbero/query-filters` e o `kblais/query-filter` que podem ser utilizados nos seus projetos. O Junior comentou que utiliza inclusive o `cerbero`.
+`QueryFilter` é um conceito, podendo ser utilizado em qualquer linguagem. Existem alguns pacotes prontos para isso disponíveis no Packagist, como o [cerbero/query-filters](https://github.com/cerbero90/query-filters) e o [kblais/query-filter](https://github.com/kblais/query-filter) que podem ser utilizados nos seus projetos. O Junior comentou que inclusive utiliza o `cerbero` em seus projetos.
 
 Confira os slides da apresentação no [SpeakerDeck](https://speakerdeck.com/jgrossi/queryfilter-model-filtering).
 
