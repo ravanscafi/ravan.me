@@ -262,48 +262,53 @@ Infelizmente, não consegui encontrar os slides da apresentação.
 
 ## API First: Quando utilizar a estratégia de API? - [_Bruno Souza_](https://twitter.com/brunosouza)
 
-O Bruno Souza, que trabalha no Itamarati, veio falar sobre APIs, que teve um boom nos últimos tempos. Uma API é uma coleção de rotinas, protocolos e ferramentas para "construção de plataformas". Na talk dele, ele decidiu falar sobre WebAPIs.
+O Bruno Souza, que trabalha no Itamarati, veio falar sobre APIs, tema que teve um boom nos últimos tempos. Uma API é uma coleção de rotinas, protocolos e ferramentas para "construção de plataformas". Na talk dele, ele decidiu falar sobre _WebAPIs_.
 
-WebAPIs são baseadas na arquitetura cliente x servidor e podem servir pra várias coisas: **gateway** - gerenciamento do controle de acessos; como um **contrato** entre consumidor e provedor de API; permite a **integração** de apps e dispositivos; permite a **criação de apps** com base em outros apps; como um **plug-in** universal; como um **filtro** de segurança...
+_WebAPIs_ são baseadas na arquitetura cliente x servidor e podem servir pra várias coisas, por exemplo:
 
-A economia de APIs envolve por exemplo IoT, para gerenciar os dados do dispositivos. APIs tornaram possível a criação de FinTechs mais dinâmicas como os bancos Nubank, por exemplo. Dentro de criptocurrency APIs são vitais. Redes sociais também fazem uso de APIs.
+- como um **gateway** para gerenciamento do controle de acessos;
+- como um **contrato** entre consumidor e provedor de APIs;
+- permite a **integração** de apps e dispositivos;
+- permite a **criação de apps** com base em outros apps;
+- como um **plug-in** universal;
+- como um **filtro** de segurança;
 
-Com isso, chegamos no conceito de **API First**, que tem o intuito de alinhar a criação de APIs com os objetivos de negócio. A estratégia envolve pensar primeiramente na API, antes da implementação. Ela deve ser a primeira interface de usuário da aplicação e deve ser bem descritiva.
+A economia de APIs envolve por exemplo _IoT_, para gerenciar os dados do dispositivos. APIs tornaram possível a criação de FinTechs mais dinâmicas como os bancos Nubank, por exemplo. Dentro de criptomoedas, as APIs são vitais. Redes sociais também fazem uso de APIs.
 
-Os benefícios são múltiplos: integração de vários dispositivos; ambiente distribuído; criação, manutenção e refatoração das funcionalidades em API bem documentadas. Melhora a produtividade do time, até sendo mais aderente ao Agile.
+Com isso, chegamos ao conceito de **API First**, que tem o intuito de alinhar a criação de APIs com os objetivos de negócio. A estratégia envolve pensar primeiramente na API, antes mesmo da implementação. Ela deve ser a primeira interface de usuário da aplicação e deve ser bem descritiva.
 
-Uma arquitetura baseada em API visa centralizar diversos recursos e serviços em um lugar só, onde os clientes se conectam. Uma API agrega valor promovendo novos negócios, experiências e recursos; monetiza ativos; oferece suporte a vendas e marketing; organiza códigos e estruturas monolíticas.
+Segundo o Bruno, os benefícios são múltiplos: integração de vários dispositivos; ambiente distribuído; criação, manutenção e refatoração das funcionalidades em API bem documentadas. Melhora a produtividade do time, até sendo mais aderente ao ágil.
 
-Quando usar uma estratégia de API? Algumas perguntas que precisam ser respondidas são:
+Uma arquitetura baseada em API visa centralizar diversos recursos e serviços em um lugar só onde os clientes se conectam. Uma API agrega valor promovendo novos negócios, experiências e recursos; monetiza ativos; oferece suporte a vendas e marketing; organiza códigos e estruturas monolíticas.
+
+Quando usar uma estratégia de API? Para saber disso, algumas perguntas que precisam ser respondidas são:
 
 - Qual a principal razão para a criação da API?
 - Quem é o público de desenvolvedores?
 - Quais ativos serão disponibilizados?
 - Que tipo de aplicativo pode ser criado?
 
-### Mobile First vs API First
+### _Mobile First_ versus _API First_
 
-Mobile First - Prioridade do planejamento do desenvolvimento a partir de dispositivos móveis
-API First: API é construída primeiro. Permite que várias plataformas sejam construídas
+No Mobile First, a prioridade do planejamento do desenvolvimento se dá a partir de dispositivos móveis. Já no API First, a API é construída primeiro. Essas abordagens permitem que várias plataformas sejam construídas.
 
-Developer Experience - foco da criação da API na UX (sendo o desenvolvedor o usuário). Como os desenvolvedores usarão essa interface? É importante definir o tipo de dev que usará a API, expor os objetivos com clareza
+Temos também a API voltada para a _Developer Experience_, onde o foco da criação da API é na UX (sendo o desenvolvedor o usuário). Como os desenvolvedores usarão essa interface? É importante definir o tipo de dev que usará a API, expor os objetivos dela com clareza.
 
-Prototipar sua API é muito importante para melhorar o design da mesma. Algumas ferramentas que auxiliam nesse processo são: Apiary, RAML, Swagger. A documentação da API auxilia muito a equipe no momento do desenvolvimento e atualização da mesma.
+Prototipar sua API é muito importante para melhorar o design da mesma. Algumas ferramentas que auxiliam nesse processo são: [Apiary](https://apiary.io/), [RAML](https://raml.org/) e [Swagger](https://swagger.io/). A documentação da API auxilia muito a equipe no momento do desenvolvimento e atualização da mesma.
 É importante que a documentação seja fácil de entender e pesquisável, sendo auto-suficiente e intuitiva. A mesma deve estar sempre atualizada.
 
-Podem existir APIs públicas e privadas, cada uma com seu intuito. Independente disso, devem ser consideradas medidas de segurança, como por exemplo, autenticação e autorização. O tráfego da mesma pode ser monitorado, com controles como limite de requisições, cotas de uso, rejeição de requisições, etc.
+Podem existir APIs públicas e privadas, cada uma com o seu intuito. Independente disso, devem ser consideradas medidas de segurança, como por exemplo, **autenticação** e **autorização**. O tráfego da mesma pode ser monitorado, com controles como limite de requisições, cotas de uso, rejeição de requisições, etc.
 
-Arquiteturalmente falando, contamos com alguns padrões como SOAP, REST, GraphQL. O Bruno explicou um pouco como funciona cada um desses padrões, com alguns exemplos básicos.
+Arquiteturalmente falando, contamos com alguns padrões como por exemplo SOAP, REST e GraphQL. O Bruno explicou um pouco como funciona cada um desses padrões, com alguns exemplos básicos.
 
-O Bruno ainda falou que é importante pensar em performance, para que a API responda em tempo hábil e seus usuários não percam o interesse na aplicação. Mostrou também que existem algumas ferramentas para teste da API.
-Como conclusão, falou como API traz grandes oportunidades de negócio, tendo os desenvolvedores mais alinhados com os objetivos. Os pré-requisitos para criação de uma boa API são:
+Ele ainda falou que é importante pensar em performance, para que a API responda em tempo hábil e seus usuários não percam o interesse na aplicação. Mostrou também que existem algumas ferramentas para realizar testes da API. Como conclusão, explicou como uma API traz grandes oportunidades de negócio, tendo os desenvolvedores mais alinhados com os objetivos. Os pré-requisitos para criação de uma boa API são:
 
 1. Alinhar os objetivos de negócio
 2. Estabelecer os perfis dos desenvolvedores
 3. Definir a arquitetura da API
 4. Implantar uma infraestrutura de API
 
-e nos slides pode encontrar várias referências.
+Até a publicação desse post, não encontrei os slides da apresentação.
 
 ## The QueryFilter Concept for Filtering Models - [_Junior Grossi_](https://twitter.com/junior_grossi)
 
@@ -314,6 +319,8 @@ Para finalizar o primeiro dia de palestras, decidi ver a talk do Junior, um dos 
 E essa é mais ou menos a ideia do `QueryFilter`. Logo já partimos pro live code, que foi bem completa. Recomendo assistir a talk quando a mesma for liberada! ;)
 
 `QueryFilter` é um conceito, podendo ser utilizado em qualquer linguagem. Existem alguns pacotes prontos para isso disponíveis no Packagist, como o `cerbero/query-filters` e o `kblais/query-filter` que podem ser utilizados nos seus projetos. O Junior comentou que utiliza inclusive o `cerbero`.
+
+Confira os slides da apresentação no [SpeakerDeck](https://speakerdeck.com/jgrossi/queryfilter-model-filtering).
 
 ---
 
@@ -334,6 +341,8 @@ Alguns **projetos** citados foram o [Hubot](https://hubot.github.com), do GitHub
 
 O pokemao mostrou como fazer um ChatOps Bot na prática com PHP, para resolver o problema de criar e deletar droplets na Digital Ocean através do celular. Ele utilizou a biblioteca Digital Ocean V2, a ferramenta Dialogflow onde é possível definir **intenções** do usuário, como por exemplo, "listar droplets". Essa ferramenta permite que webhooks sejam acionados de acordo com as intenções pré determinadas. O pokemao fez uma live mostrando na prática, criando um droplet chamado "darkmiratour" pelo Telegram, confiram no vídeo depois.
 Num outro exemplo mostrado, utilizando o TelegramBot/API, o pokemao fez uma ferramenta que verifica se determinado site está online e avisa por Telegram caso o site saia fora do ar.
+
+Os slides da apresentação estão disponíveis no [SpeakerDeck](https://speakerdeck.com/pokemaobr/como-criar-e-utilizar-chatbots-para-nos-auxiliar-com-questoes-de-infraestrutura).
 
 ## Painel Das Comunidades
 
@@ -369,6 +378,8 @@ Uma ferramenta que verifica se a documentação foi atualizada junto com o PR, r
   **- Devemos focar no que a máquina não pode fazer.** A máquina consegue verificar estilo de código, PSRs, complexidade ciclomática, etc. Porém ela não consegue avaliar se um requisito foi atendido, por exemplo, e é nisso que podemos focar.
 - **Para a prática acontecer de maneira saudável precisamos de indivíduos motivados a melhorar**, que saibam escutar as possíveis melhorias e querer evoluir.
 
+Veja os slides da apresentação [clicando aqui](https://speakerdeck.com/viniciusalonso/compartilhando-conhecimento-e-unindo-uma-equipe-por-meio-de-code-review).
+
 ## Painel - a Participação Da Mulher Na Área De Ti
 
 @todo
@@ -383,11 +394,11 @@ Os pilares da orientação a objeto são:
 **Encapsulamento** permite ocultar a implementação interna de um objeto.
 **Polimorfismo** consiste na alteração do funcionamento interno de um método herdado do pai.
 
-## Coesão e acoplamento
+### Coesão e acoplamento
 
 **Coesão** indica o grau de relação entre os membros de um módulo. **Acoplamento** é o grau de dependência entre as classes.
 
-## Os maus cheiros do projeto
+### Os maus cheiros do projeto
 
 **rigidez** é a tendência do software de ser difícil de alterar.
 **fragilidade** é a tendência de uma única alteração estragar o software em muitos lugares
@@ -397,7 +408,7 @@ Os pilares da orientação a objeto são:
 **repetição desnecessária** é quando um mesmo código aparece inúmeras vezes de forma pouco diferentes.
 **opacidade** refere-se a dificuldade de compreensão de um módulo
 
-## Princípios e práticas
+### Princípios e práticas
 
 O `SOLID` é conjunto de princípios que permite um **melhor projeto** de sistemas. Inversão de dependência: módulos de alto nível não devem depender de módulos de baixo nível. modelos de alto nível devem depender apenas de abstrações. módulos de baixo nível também devem depender apenas de abstrações. Por exemplo, uma `Classe A` (alto nível) referencia uma `Classe B` (baixo nível), ou seja, a `A` depende da `B`. Alterações em qualquer uma das classes pode levar a efeitos indesejados na outra também. Utilizando-se uma interface, a `Classe B` poderia implementá-la e a `Classe A` depender somente da interface, tendo a garantia de que suas dependências estejam implementadas.
 Uma iniciativa como essa **diminui o acoplamento** do nosso código.
@@ -406,9 +417,9 @@ Utilizando **injeção** de dependência, conseguimos alcançar o princípio da 
 O princípio **Tell Don't Ask** diz: **não peça** informações para fazer o seu trabalho, apenas **diga** o que quer que seja feito e deixe o outro objeto lidar com isso internamente.
 **Lei de Demeter** diz: fale com seus amigos mais próximos, não fale com estranhos. Por exemplo, tendo `Classe A` dependendo da `Classe B` e a `B` dependendo da `Classe C`, a `Classe A` não deveria enviar mensagens diretamente para a `C`, somente para a `B`.
 
-**Objects Calisthenics** são exercícios que ajudam a melhorar a qualidade do seu código. O Marcel fez uma talk específica sobre isso na Laraconf Brazil 2017, confiram aqui @todo.
+**Objects Calisthenics** são exercícios que ajudam a melhorar a qualidade do seu código. O Marcel fez uma talk específica sobre isso na Laraconf Brazil 2017, [confiram aqui](https://youtu.be/IaZC6iKX5J4?t=547).
 
-Essas regras não estão escritas em pedra, mas seu uso pode contribuir positivamente para a evolução do código
+Essas regras não estão escritas em pedra, mas seu uso pode contribuir positivamente para a evolução do código.
 
 ### Conclusões
 
@@ -417,11 +428,11 @@ uma classe não deve ser forçada a depender de uma implementação específica
 a classe deve depender de um contrato, abstração ou interface
 prefira classes com alta coesão e baixo acoplamento
 
-Nos slides @todo, o Marcel deixa várias referências para se aprofundar no assunto.
+[Nos slides](https://speakerdeck.com/marcelgsantos/projetando-software-orientado-a-objetos-com-qualidade), o Marcel deixa várias referências para se aprofundar no assunto.
 
 ## Legado Ao DDD - [_Leonn Leite_](https://twitter.com/leonnleite)
 
-Para fechar as talks do dia, escolhi ver a do Leonn, Líder Técnico PHP na Engesoftware.
+Para fechar as talks do dia - e do evento, escolhi ver a do Leonn, Líder Técnico PHP na Engesoftware.
 
 ### Motivação - Código Legado
 
@@ -436,7 +447,7 @@ A culpa desses sistemas serem assim, geralmente são: falta de tempo; experiênc
 reflexão do phpx
 "Vocês ainda não perceberam que o poder da empresa está na mão do programador?" tiago baestá (cofounder do imasters)
 
-## não sei
+### não sei
 
 jogar fora e criar do zero vs refatorar
 
@@ -449,7 +460,7 @@ json é view, xml é view, html é view.
 **Entity** também são objetos, possuem um ID que não deve mudar, são mutáveis, pode possuir Value Objects
 **Repository** é uma coleção, uma camada de persistência, pode ser In/Out, usado para inversão de dependência (marcel falou também)
 
-## o que é DDD?
+### o que é DDD?
 
 Criado pelo Eric Evans, tem como subtítulo: "Atacando as complexidades no coração do software"
 Domínio = Core Domain + Subdomains
@@ -479,4 +490,6 @@ named constructor: createUserFrom
 O caminho, que não é uma solução única, mas uma dica do Leonn: não desenvolva baseado em framework; usem `final class` para ninguém extender o domínio, **ActiveRecord** não deve ser usado. Use **Eventos**. Cuidado com _Models anêmicos_, que tenham somente `setter`s e `getter`s. Em modelos ricos, não temos setters, apenas no construtor. regra de negócio na entidade. UpdateUser deveria/poderia ser MoveToNewAddres, ChangeEmail, ChangePassword, IntroduceNewContactPerson. Mecanismo de Delivery (???). CommandBus é uma técnica boa para trabalhar com DDD.
 Saia da zona de conforto.
 
-### Keywords: DDD eric evans, vaughn vernon, arquitetura hexagonal, cqrs, event source, domain events, command bus, big ball of mud
+#### Keywords: DDD eric evans, vaughn vernon, arquitetura hexagonal, cqrs, event source, domain events, command bus, big ball of mud
+
+Confira os slides da talk do Leonn no [SlideShare](https://pt.slideshare.net/leonnleite/do-legado-ao-ddd-94043869).
