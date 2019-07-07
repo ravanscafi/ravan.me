@@ -314,7 +314,7 @@ Até a publicação desse post, não encontrei os slides da apresentação.
 
 Para finalizar o primeiro dia de palestras, decidi ver a talk do Junior, um dos organizadores do PHPMG. E após se apresentar, ele explicou que `QueryFilter` é uma abstração para filtrar objetos baseado nos parâmetros da `URL`. Ele diz que pegou a ideia de um vídeo do [Laracasts](https://laracasts.com/). Explicando o conceito, caso quiséssemos pegar posts com _título_ `foo` e _status_ `bar`, poderíamos utilizar uma URL do tipo:
 
-```url
+```none
 /posts?title=foo&status=bar
 ```
 
@@ -326,69 +326,83 @@ Confira os slides da apresentação no [SpeakerDeck](https://speakerdeck.com/jgr
 
 ---
 
-# Dia 2
+## Dia 2
 
 ## ChatOps! Como Podemos Usar "Chatbots" Para Realizar O Trabalho De Infra Por Nós - [_Rodrigo "Pokemao" Cardoso_](https://twitter.com/pokemaobr)
 
-Primeira talk do dia (pra mim, que cheguei atrasado), com o Pokemaobr, Community Manager na iMasters e criador do PokePHP,
+Como cheguei atrasado no evento (ops! 😅), essa foi a primeira talk do dia para mim. O pokemaobr, _Community Manager_ no iMasters e criador do [PokePHP](http://www.pokephp.com.br/), veio falar sobre um case específico de uso de _ChatBots_, para _Ops_.
 
-ChatBot existe desde 1950, porém virou moda, o pokemao já fazia ChatBots no mIRC, anos atrás
-eram bem parecidos com os chatbots de hoje: funcionam em um chat, orientado a eventos e a expressões, execução de comandos, acesso a serviços externos, integração com base de dados (arquivos .ini) e "inteligência artificial"
-Mas por que ChatBots estão na moda? Um dos motivos, talvez é a ideia que é vendida de que eles podem resolver todos os problemas de atendimento. O pokemao considera um mito e também cita outros mitos, como falar que os mesmos são inteligentes e que as pessoas preferem com robô.
-Com serverless por exemplo, é fácil fazer um bot com um custo baixo. Além disso, existem vários players com cotas gratuitas. O legal de chatbots é que você consegue implementar em qualquer linguagem, integrando aos serviços através de APIs ou com SDKs.
+_ChatBots_ existem desde 1950, porém viraram moda atualmente. O pokemao comenta que já fazia ChatBots no mIRC, anos e anos atrás. Esses bots são bem parecidos com os de hoje: funcionam em um chat, orientados a eventos e expressões, permitem a execução de comandos, possuem acesso a serviços externos, têm integração com base de dados (arquivos `.ini`) e "inteligência artificial".
+Mas por que ChatBots estão na moda? Um dos motivos talvez seja a ideia que é vendida de que eles podem resolver todos os problemas de atendimento. O pokemao considera isso um mito e também cita outros mitos, como falar que os mesmos são inteligentes e que as pessoas preferem falar com robôs.
 
-Aproveitando o que temos de bom em chatbot, que são os comandos, o pokemao chega ao tema ChatOps. Num fluxo básico de ChatOps, um desenvolvedor manda mensagem num aplicativo de chat, que é lida por um bot e alguma ação é realizada na sua infraestrutura.
-É possível, por exemplo, criar e destruir novos servidores em cloud, utilizar automatizadores de criação de ambientes como Ansible, Chef, Puppet. Com as APIs e SDKs existentes, isso se torna possível via ChatOps. Outro problema que pode ser resolvido é o de Deploy.
-Alguns **projetos** citados foram o [Hubot](https://hubot.github.com), do GitHub; o Slack Deploy Bot; o opsdroid; o Botman, em PHP e o repositório Awesome ChatOps.
+Com _serverless_ por exemplo, é fácil fazer um bot com um custo baixo. Além disso, existem várias soluções com cotas gratuitas. O legal de chatbots é que você consegue implementar em qualquer linguagem, integrando aos serviços através de _APIs_ ou com _SDKs_.
 
-O pokemao mostrou como fazer um ChatOps Bot na prática com PHP, para resolver o problema de criar e deletar droplets na Digital Ocean através do celular. Ele utilizou a biblioteca Digital Ocean V2, a ferramenta Dialogflow onde é possível definir **intenções** do usuário, como por exemplo, "listar droplets". Essa ferramenta permite que webhooks sejam acionados de acordo com as intenções pré determinadas. O pokemao fez uma live mostrando na prática, criando um droplet chamado "darkmiratour" pelo Telegram, confiram no vídeo depois.
-Num outro exemplo mostrado, utilizando o TelegramBot/API, o pokemao fez uma ferramenta que verifica se determinado site está online e avisa por Telegram caso o site saia fora do ar.
+Aproveitando o que temos de bom em chatbot, que são os comandos, o pokemao chega ao tema **ChatOps**. Num fluxo básico de _ChatOps_, um desenvolvedor **envia uma mensagem** num aplicativo de chat, que é **lida por um bot** e alguma **ação é realizada na sua infraestrutura**.
+
+É possível, por exemplo, criar e destruir novos servidores em cloud, utilizar automatizadores de criação de ambientes como [Ansible](https://www.ansible.com/), [Chef](https://www.chef.io/), [Puppet](https://puppet.com/). Com as APIs e SDKs existentes, isso se torna viável com ChatOps. Outro problema que pode ser resolvido é o de Deploy.
+
+Alguns **projetos** citados foram o [Hubot](https://hubot.github.com), do GitHub; o [Slack Deploy Bot](https://github.com/accessd/slack-deploy-bot); o [opsdroid](https://opsdroid.dev/); o [Botman](https://botman.io/), feito em PHP e por último o repositório [Awesome ChatOps](https://github.com/exAspArk/awesome-chatops).
+
+Em seguida, o pokemao mostrou como fazer um ChatOps Bot na prática com PHP para resolver o problema de criar e deletar droplets na Digital Ocean através do celular. Ele utilizou a biblioteca [Digital Ocean V2](https://github.com/toin0u/DigitalOceanV2), a ferramenta [Dialogflow](https://dialogflow.com/) onde é possível definir **intenções** do usuário, como por exemplo, _"listar droplets"_. Essa ferramenta permite que _webhooks_ sejam acionados de acordo com intenções pré determinadas. O pokemao fez uma live mostrando na prática a criação de um droplet chamado `darkmiratour` pelo Telegram.
+Num outro exemplo mostrado, utilizando o [TelegramBot](https://telegram.org/blog/bot-revolution)/API, o pokemao fez uma ferramenta que verifica se determinado site está online e avisa por Telegram caso o site saia fora do ar.
 
 Os slides da apresentação estão disponíveis no [SpeakerDeck](https://speakerdeck.com/pokemaobr/como-criar-e-utilizar-chatbots-para-nos-auxiliar-com-questoes-de-infraestrutura).
 
 ## Painel Das Comunidades
 
+Em seguida, tivemos um painel com diversos organizadores de comunidades conversando sobre os desafios de se manter uma comunidade e o trabalho que cada uma faz, muitas vezes até social, como no caso do [PHP com Rapadura](https://phpcomrapadura.org/). Fui convidado a participar por conta do meu trabalho (meio parado no momento, eu sei 😕) na comunidade do [@laravelsp](https://twitter.com/laravelsp). Foi um momento interessante para apresentar aos participantes essas comunidades e também dar dicas de como ajudar ou criar sua própria.
+
 ## Compartilhando Conhecimento E Unindo Uma Equipe Por Meio De Code Review - [_Vinícius Alonso_](https://twitter.com/alonsoemacao)
 
-Autor deve escrever código de qualidade, resolver o problema, não introduzir nenhum defeito...
-Fornecendo contexto - Template para pull request
+Na volta do almoço, decidi ver a talk do Vinícius, que tratou do tema **Code Review** (Revisão de Código). Ele começa com a definição:
 
-O **Revisor** deve instigar um debate sobre o trabalho do colega por meio da argumentação lógica. As responsabilidades do revisor devem ser: perguntar, não dar ordens; justificar as melhorias propostas; ajudar com correções e mudanças.
+> Code Review é uma prática de revisão de trabalho de um programador antes de integrá-lo a base de código.
+
+E cita os valores dessa prática: com o review, temos o **compartilhamento do conhecimento**. Centralizar o conhecimento em apenas um membro pode ser prejudicial à equipe. O review também promove o **debate das soluções**, que pode ser ótimo para melhorar nosso código. O **senso de equipe** aumenta.
+
+### Papéis dos envolvidos
+
+Temos o **autor**, que é quem escreveu o código e enviou o _Pull Request_. Entre suas responsabilidades, deve escrever código de qualidade, resolver o problema de acordo com o requisito, **fornecer contexto**, não introduzir nenhum defeito...
+
+![Fornecendo contexto - Template para Pull Requests](./fornecendo_contexto.jpg)
+
+Temos também o **revisor**, que deve instigar um debate sobre o trabalho do colega por meio da argumentação lógica. As responsabilidades do revisor envolvem perguntar, não dar ordens, justificar as melhorias propostas, ajudar com correções e mudanças.
 
 ### Pontos chave para fazer um review de qualidade
 
-**O que foi desenvolvido atende os requisitos?** É importante cuidar para não introduzir defeitos e de preferência não fazer tarefas ocultas no PR (_Pull Request_), que podem deixar a tarefa muito mais demorada ou complexa. É interessante separar os Pull Requests por tarefa, caso deseje fazer alguma outra coisa, faça outro PR e deixe claro para o time.
-**Os testes escritos garantem que o que foi implementado está realmente funcionando?** Faça testes que façam sentido para o contexto da tarefa,
-**A solução empregada foi a melhor para o momento?** Clean Code, YAGNI
+- **O que foi desenvolvido atende aos requisitos?** É importante cuidar para não introduzir defeitos e de preferência não fazer tarefas ocultas no PR (_Pull Request_), que podem deixar a tarefa muito mais demorada ou complexa. É interessante separar os Pull Requests por tarefa, caso deseje fazer alguma outra coisa, faça outro PR e deixe claro para o time.
+- **Os testes escritos garantem que o que foi implementado está realmente funcionando?** Faça testes que façam sentido para o contexto da tarefa, eles devem cobrir os fluxos da funcionalidade, desde o caminho feliz até caminhos de erro. Garanta que os testes de fato testem algo.
+- **A solução empregada foi a melhor para o momento?** Lembre-se de aplicar técnicas de **Clean Code**, de refletir sobre a necessidade de se utilizar algo, como diz o **YAGNI** (_You ain't gonna need it_ - Você ainda não vai precisar disso) e pense também na **arquitetura** utilizada.
 
 ### Agilidade
 
-Não é fazer SCRUM necessariamente, devemos falar mais sobre o manifesto!
+Agilidade não é necessariamente sobre fazer _SCRUM_, devemos falar mais sobre o manifesto!
 
 > "Indivíduos e interações mais que processos e ferramentas"
+>
 > "Software funcionando é a primeira métrica de progresso"
+>
 > "Atenção contínua para excelência técnica e um bom design aumenta a agilidade"
-> "As melhores arquiteturas, requisitos e design emergem de times auto organizáveis"
+>
+> "As melhores arquiteturas, requisitos e designs emergem de times auto organizáveis"
 
 ### [Danger](https://github.com/danger/danger) - uma ferramenta para melhorar o Code Review
 
-Uma ferramenta que verifica se a documentação foi atualizada junto com o PR, rejeitando automaticamente
+O Vinícius ainda citou o Danger, uma ferramenta que verifica se a documentação foi atualizada junto com o PR além de várias outras funcionalidades, rejeitando automaticamente PRs que não passem nessas regras estabelecidas.
 
 ### Conclusões
 
 - **Code review traz muitos benefícios para sua equipe** que vão além de código, como entendimento das regras de negócio, alinhamento entre os membros.
-  **- Devemos focar no que a máquina não pode fazer.** A máquina consegue verificar estilo de código, PSRs, complexidade ciclomática, etc. Porém ela não consegue avaliar se um requisito foi atendido, por exemplo, e é nisso que podemos focar.
-- **Para a prática acontecer de maneira saudável precisamos de indivíduos motivados a melhorar**, que saibam escutar as possíveis melhorias e querer evoluir.
+- **Devemos focar no que a máquina não pode fazer**. A máquina consegue verificar estilo de código, PSRs, complexidade ciclomática, etc. Porém ela não consegue avaliar se um requisito foi atendido, por exemplo, e é nisso que podemos focar.
+- **Para a prática acontecer de maneira saudável precisamos de indivíduos motivados a melhorar**, que saibam escutar as possíveis melhorias e queiram evoluir.
 
 Veja os slides da apresentação [clicando aqui](https://speakerdeck.com/viniciusalonso/compartilhando-conhecimento-e-unindo-uma-equipe-por-meio-de-code-review).
 
-## Painel - a Participação Da Mulher Na Área De Ti
-
-@todo
-
 ## Projetando Software Orientado a Objetos Com Qualidade - [_Marcel dos Santos_](https://twitter.com/marcelgsantos)
 
-O Marcel, que é desenvolvedor Web Full-Stack e um dos evangelistas do PHPSP, começa sua talk perguntando à plateia: "Orientação a Objetos? O que é isso?" e após algumas respostas, define: _trata da comunicação entre objetos através da troca de mensagens_. Um objeto tem **características**, **comportamentos** e **estado atual**.
+Acabei por ficar um tempo conversando com o [Júnior Grossi](https://twitter.com/junior_grossi) e o [David Jonas](https://twitter.com/djonasm_) sobre trabalho remoto e infelizmente não consegui assistir ao outro painel do evento, sobre a participação das mulheres na TI. Assim, acabei voltando para essa talk do Marcel.
+
+O Marcel, que é desenvolvedor Web Full-Stack e um dos evangelistas do [PHPSP](https://phpsp.org.br/), começa sua talk perguntando à plateia: "Orientação a Objetos? O que é isso?" e após algumas respostas, define: _trata da comunicação entre objetos através da troca de mensagens_. Um objeto tem **características**, **comportamentos** e **estado atual**.
 
 Os pilares da orientação a objeto são:
 **Abstração**, que permite a representação da vida real dentro do sistema.
