@@ -158,13 +158,13 @@ Na volta do almoço, a pedidos da "comunidade", o pokemaobr fez mais um de seus 
 
 Em seguida tivemos mais um _keynote_, dessa vez com a Sheeri que é _Senior Database Engineer_ e _MySQL Community Contributor_. Ela comenta que vai falar mais ou menos sobre o tema que a Diana abordou, porém de uma forma um pouco diferente.
 
-### Níveis de senioridade
+#### Níveis de senioridade
 
 Quando falamos dos níveis de alguém, Júnior, Sênior, etc., de forma básica, os colaboradores executam processos de escrita, criam novos processos e os executam, tomam a iniciativa numa tarefa, lideram um projeto, fazer a arquitetura de algo. O trabalho que fazemos pode ser em projetos pequenos, em grandes projetos, pode envolver liderança, participação, fazer parte nas especificações, etc. Autonomia é algo que difere um pouco entre os níveis.
 
 É muito importante ser parte de um time, então em muitos casos é muito bom ter um par para revisar seu código, principalmente quando se é júnior. A Sheeri ressalta que mesmo um sênior pode ter seu trabalho revisado, pois todos são passíveis de erros. Duas cabeças pensam melhor que uma.
 
-### Priorização
+#### Priorização
 
 Algo que sêniors fazem é priorizar o trabalho. Já júniors acabam pedindo uma priorização e cronogramas para relembrá-los. Um sênior meio que "sabe" quais são as prioridades, se atacar a menor tarefa ou a maior, etc. Ele também sabe alinhar essas prioridades com outras pessoas/departamentos.
 Algumas níveis de expectativas que existem quando vamos desenvolver:
@@ -176,53 +176,53 @@ Algumas níveis de expectativas que existem quando vamos desenvolver:
 
 Quando priorizamos, devemos dizer **não**. Porém, existem vários tipos de não que um sênior aprende a dizer. "Não posso fazer isso agora, mas é possível para o fim do mês". "Não posso fazer agora, mas vamos ver se alguém da equipe pode fazer". Ainda é um **não** mas é um não que consegue ser útil e prestativo e que busca ajudar na resolução da mensagem.
 
-### Analisando e assumindo riscos
+#### Analisando e assumindo riscos
 
 É importante desenvolver um senso apropriado de risco, tanto para você quanto para a companhia. Por exemplo, será que compensa fazer um deploy depois das três da tarde em um pré-feriado? Devemos pesar consequências, fazer testes e ter um plano **rápido** de _rollback_, mesmo que isso signifique ter mais trabalho depois.
 
-### Detalhes versus Quadro Geral
+#### Detalhes versus Quadro Geral
 
 Devemos fazer o trabalho; entender o impacto do trabalho para a empresa; entender porque o trabalho está sendo feito; sugerir objetivos; sugerir a visão; escolher os objetivos/visão.
 
-### Recomendações
+#### Recomendações
 
 Pense sobre tecnologias, na capacidade do time em relação a elas e no "fit" na organização. Não queira usar apenas a "nova tecnologia para testar/aprender". Uma ressalva é que aqueles com experiência algumas vezes acabam usando algo antigo que eles já tem maior familiaridade. Defenda pontos quando necessário. Entenda quando é preciso resolver algo no mesmo momento, quando não compensa resolver e quando podemos simplesmente escrever um ticket para resolver depois. Aplique a regra do [80/20](https://pt.wikipedia.org/wiki/Princ%C3%ADpio_de_Pareto).
 
-### Balanço: O que é melhor?
+#### Balanço: O que é melhor?
 
 Algumas vezes a solução técnica "correta" não é a solução ótima para o ambiente. Por outro lado, algumas vezes você vai contra uma melhor prática porque é a coisa certa a se fazer. Tecnologia baseada em consenso: quando todos vão para uma sala e saem com uma decisão que nem todos podem concordar, mas que é a melhor e que todos assumem e adotam.
 
-### Escopo
+#### Escopo
 
 No trabalho, seu escopo e impacto pode ser pequeno ou grande. Você pode trabalhar com mais pessoas ou sozinho, pode trabalhar com mais times, trabalhar com clientes ou não.
 
-### Trabalho "Real"
+#### Trabalho "Real"
 
 O trabalho em si nem sempre envolve código ou linha de comando. Existem reuniões, expectativas, [definições de pronto](http://blog.kudoos.com.br/agile/explorando-a-definicao-de-pronto/). Há também muito planejamento. Seu trabalho também pode envolver planilhas, software de planejamento de projeto, [_groomings_](http://blog.kudoos.com.br/agile/dissecando-o-grooming/), documentação e aprovação.
 
-### Relacionamentos
+#### Relacionamentos
 
 Você trabalha com outros para obter resultados. É imprescindível boa comunicação, alinhamento das expectativas e acompanhamentos para certificar-se que tudo ocorre como esperado. Falar sobre seus hobbies, o que você fez no final de semana, etc. Existe um balanço sobre não trabalhar e ser 100% focado no trabalho, encontre o seu.
 
-### Comunicação
+#### Comunicação
 
 Comunicação depende da sua audiência, você deve saber comunicar as coisas de acordo com o público, por exemplo, usando ou não termos técnicos, contextualizando para o entendimento de quem está presente. Saiba com quem está conversando.
 
-### Respondendo a uma questão
+#### Respondendo a uma questão
 
-Existem várias maneiras de se responder a uma questão. Por exemplo, para a questão: "Como eu posso fazer o DB usar um índice nessa query case-sensitive?", você poderia responder:
+Existem várias maneiras de se responder a uma questão. Por exemplo, para a questão: _"Como eu posso fazer o DB usar um índice nessa query case-sensitive?"_, você poderia responder:
 
-- Eu não sei.
-- Você não pode fazer isso.
-- Você poderia tentar isso, ah, pera, isso não funciona.Você poderia tentar isso aqui... ah, não funciona também...
+- "Eu não sei."
+- "Você não pode fazer isso."
+- "Você poderia tentar isso, ah, pera, isso não funciona.Você poderia tentar isso aqui... ah, não funciona também..."
 
 Melhor do que isso, você poderia dizer: "tente isso e vê se funciona" ou "eu testei isso e funciona". Ou melhor ainda: "que problema você está tentando resolver?" - Pense sobre quem está fazendo a pergunta e como pode verdadeiramente ajudar.
 
-### Reputação
+#### Reputação
 
 Pessoas **percebem** você como um expert, não importa o que o seu cargo diga. Reputação é sobre relacionamentos. Você trabalha com pessoas, portanto é importante se dar bem com elas e isso reflete diretamente em como elas o vêem. Confiança também é importante: poder confiar que vai realmente fazer o que foi combinado. Faça um bom trabalho, mesmo em casos que pensa que estão além de você. Ajude os outros.
 
-### Dicas e segredos
+#### Dicas e segredos
 
 Desenvolva relacionamentos, agradeça às pessoas que fazem o trabalho para você ou com você. Se um grande projeto terminar ou alguém sair da empresa, deixe um review legal no LinkedIn. Faça com que seja fácil para os outros fazerem o trabalho que você precisa que eles façam.
 
@@ -379,11 +379,11 @@ Temos também o **revisor**, que deve instigar um debate sobre o trabalho do col
 Agilidade não é necessariamente sobre fazer _SCRUM_, devemos falar mais sobre o manifesto!
 
 > "Indivíduos e interações mais que processos e ferramentas"
->
+
 > "Software funcionando é a primeira métrica de progresso"
->
+
 > "Atenção contínua para excelência técnica e um bom design aumenta a agilidade"
->
+
 > "As melhores arquiteturas, requisitos e designs emergem de times auto organizáveis"
 
 ### [Danger](https://github.com/danger/danger) - uma ferramenta para melhorar o Code Review
@@ -402,47 +402,45 @@ Veja os slides da apresentação [clicando aqui](https://speakerdeck.com/viniciu
 
 Acabei por ficar um tempo conversando com o [Júnior Grossi](https://twitter.com/junior_grossi) e o [David Jonas](https://twitter.com/djonasm_) sobre trabalho remoto e infelizmente não consegui assistir ao outro painel do evento, sobre a participação das mulheres na TI. Assim, acabei voltando para essa talk do Marcel.
 
-O Marcel, que é desenvolvedor Web Full-Stack e um dos evangelistas do [PHPSP](https://phpsp.org.br/), começa sua talk perguntando à plateia: "Orientação a Objetos? O que é isso?" e após algumas respostas, define: _trata da comunicação entre objetos através da troca de mensagens_. Um objeto tem **características**, **comportamentos** e **estado atual**.
+O Marcel, que é desenvolvedor Web Full-Stack e um dos evangelistas do [PHPSP](https://phpsp.org.br/), começa sua talk perguntando à plateia: "Orientação a Objetos? O que é isso?" e após algumas respostas, define: _trata da comunicação entre objetos através da troca de mensagens_. Um objeto tem **características**, **comportamentos** e o **estado atual**.
 
-Os pilares da orientação a objeto são:
-**Abstração**, que permite a representação da vida real dentro do sistema.
-**Herança**, que possibilita o reaproveitamento de código em que uma classe herda características e atributos de uma classe base.
-**Encapsulamento** permite ocultar a implementação interna de um objeto.
-**Polimorfismo** consiste na alteração do funcionamento interno de um método herdado do pai.
+### Pilares da Orientação a Objetos
+
+Os pilares da orientação a objetos são a **abstração**, que permite a representação da vida real dentro do sistema; a **herança**, que possibilita o reaproveitamento de código em que uma classe herda características e atributos de uma classe base; o **encapsulamento**, que permite ocultar a implementação interna de um objeto e o **polimorfismo**, que consiste na alteração do funcionamento interno de um método herdado do pai.
 
 ### Coesão e acoplamento
 
-**Coesão** indica o grau de relação entre os membros de um módulo. **Acoplamento** é o grau de dependência entre as classes.
+A **coesão** indica o grau de relação entre os membros de um módulo. Já o **acoplamento** é o grau de dependência entre as classes.
 
 ### Os maus cheiros do projeto
 
-**rigidez** é a tendência do software de ser difícil de alterar.
-**fragilidade** é a tendência de uma única alteração estragar o software em muitos lugares
-**imobilidade** mostra que a separação de uma lógica pode ser muito custosa e inviabilizada.
-**viscosidade** é uma característica que diz o quão difícil é de preservar um software.
-**complexidade desnecessária**
-**repetição desnecessária** é quando um mesmo código aparece inúmeras vezes de forma pouco diferentes.
-**opacidade** refere-se a dificuldade de compreensão de um módulo
+- **Rigidez** é a tendência do software de ser difícil de alterar, mesmo de maneira simples.
+- **Fragilidade** é a tendência de uma única alteração estragar o software em muitos lugares.
+- **Imobilidade** mostra que a separação de uma lógica pode ser muito custosa e inviabilizada.
+- **Viscosidade** é uma característica que diz o quão difícil é de preservar um software.
+- **Complexidade desnecessária** é quando existem elementos que não serão úteis no momento.
+- **Repetição desnecessária** é quando um mesmo código aparece inúmeras vezes de forma pouco diferentes.
+- **Opacidade** refere-se a dificuldade de compreensão de um módulo.
 
 ### Princípios e práticas
 
-O `SOLID` é conjunto de princípios que permite um **melhor projeto** de sistemas. Inversão de dependência: módulos de alto nível não devem depender de módulos de baixo nível. modelos de alto nível devem depender apenas de abstrações. módulos de baixo nível também devem depender apenas de abstrações. Por exemplo, uma `Classe A` (alto nível) referencia uma `Classe B` (baixo nível), ou seja, a `A` depende da `B`. Alterações em qualquer uma das classes pode levar a efeitos indesejados na outra também. Utilizando-se uma interface, a `Classe B` poderia implementá-la e a `Classe A` depender somente da interface, tendo a garantia de que suas dependências estejam implementadas.
-Uma iniciativa como essa **diminui o acoplamento** do nosso código.
-Utilizando **injeção** de dependência, conseguimos alcançar o princípio da **inversão** de dependência. É possível fazer isso sem a necessidade de bibliotecas.
-**Value Objects** é outro conceito que o Marcel traz, que nada mais são que objetos simples e pequenos em que a igualdade não é baseada em identidade, ajudando a representar uma _linguagem ubíqua_ no seu código. Por exemplo, ao invés de representar um email como uma simples string, podemos ter uma classe `Email` que poderia ter suas próprias garantias para dizer que o mesmo é válido, dando maior segurança de transitar essa informação de email pelo sistema.
-O princípio **Tell Don't Ask** diz: **não peça** informações para fazer o seu trabalho, apenas **diga** o que quer que seja feito e deixe o outro objeto lidar com isso internamente.
-**Lei de Demeter** diz: fale com seus amigos mais próximos, não fale com estranhos. Por exemplo, tendo `Classe A` dependendo da `Classe B` e a `B` dependendo da `Classe C`, a `Classe A` não deveria enviar mensagens diretamente para a `C`, somente para a `B`.
+O **SOLID** é conjunto de princípios que permite um **melhor projeto** de sistemas.
 
-**Objects Calisthenics** são exercícios que ajudam a melhorar a qualidade do seu código. O Marcel fez uma talk específica sobre isso na Laraconf Brazil 2017, [confiram aqui](https://youtu.be/IaZC6iKX5J4?t=547).
+No SOLID, temos a **inversão de dependência**: módulos de alto nível não devem depender de módulos de baixo nível; módulos de alto nível devem depender apenas de abstrações. módulos de baixo nível também devem depender apenas de abstrações. Por exemplo, uma `Classe A` (alto nível) referencia uma `Classe B` (baixo nível), ou seja, a `A` depende da `B`. Alterações em qualquer uma das classes pode levar a efeitos indesejados na outra também. Utilizando-se uma interface, a `Classe B` poderia implementá-la e a `Classe A` depender somente da interface, tendo a garantia de que suas dependências estejam implementadas. Uma iniciativa como essa **diminui o acoplamento** do nosso código. Utilizando **injeção** de dependência, conseguimos alcançar o princípio da **inversão** de dependência. É possível fazer isso sem a necessidade de bibliotecas.
 
-Essas regras não estão escritas em pedra, mas seu uso pode contribuir positivamente para a evolução do código.
+**Value Objects** é outro conceito que o Marcel traz, que nada mais são que objetos simples e pequenos em que a igualdade não é baseada em identidade, ajudando a representar uma _linguagem ubíqua_ no seu código. Por exemplo, ao invés de representar um email como uma simples string, podemos ter uma classe `Email` que poderia ter suas próprias garantias para dizer que o mesmo é válido, dando maior segurança de transitar essa informação de email pelo sistema. O mesmo vale também para um _value object_ `Money`, por exemplo. É interessante se utilizar o conceito quando os tipos possuem **validação**, **regras de negócio** ou **comportamento**.
+
+O princípio **Tell, Don't Ask** diz: **não peça** informações para fazer o seu trabalho, apenas **diga** o que quer que seja feito e deixe o outro objeto lidar com isso internamente.
+
+Já a **Lei de Demeter** diz: fale com seus amigos mais próximos, não fale com estranhos. Por exemplo, tendo `Classe A` dependendo da `Classe B` e a `B` dependendo da `Classe C`, a `Classe A` não deveria enviar mensagens diretamente para a `C`, somente para a `B`.
+
+![A Lei de Demeter - não fale com estranhos.](./lei_de_demeter.jpg)
+
+**Objects Calisthenics** são um conjunto de _nove_ exercícios que ajudam a melhorar a qualidade do seu código. O Marcel fez uma talk específica sobre esses exercícios na Laraconf Brazil 2017, [confiram aqui](https://youtu.be/IaZC6iKX5J4?t=547).
 
 ### Conclusões
 
-princípios de design ajudam a projetar códigos melhores.
-uma classe não deve ser forçada a depender de uma implementação específica
-a classe deve depender de um contrato, abstração ou interface
-prefira classes com alta coesão e baixo acoplamento
+Os princípios de design ajudam a projetar códigos melhores. Um código mau projeto é um código difícil de mudar. Uma classe não deve ser forçada a depender de uma implementação específica. Uma classe deve depender de um contrato, abstração ou interface. Prefira classes com alta coesão e baixo acoplamento.
 
 [Nos slides](https://speakerdeck.com/marcelgsantos/projetando-software-orientado-a-objetos-com-qualidade), o Marcel deixa várias referências para se aprofundar no assunto.
 
