@@ -12,6 +12,7 @@ import Twitter from "react-feather/dist/icons/twitter"
 import Github from "react-feather/dist/icons/github"
 import Linkedin from "react-feather/dist/icons/linkedin"
 import Stackoverflow from "./icons/stackoverflow"
+import Exercism from "./icons/exercism"
 
 import { rhythm } from "../utils/typography"
 
@@ -60,6 +61,14 @@ function Bio(props) {
             <Github className="icon" />
           </a>
           <a
+            title="Exercism"
+            className="social-icon exercism"
+            href={`https://exercism.io/profiles/${social.exercism}`}
+            rel="nofollow"
+          >
+            <Exercism className="icon" />
+          </a>
+          <a
             title="Stack Overflow"
             className="social-icon stackoverflow"
             href={`https://stackoverflow.com/users/${social.stackoverflow}`}
@@ -96,6 +105,7 @@ const bioQuery = graphql`
         social {
           twitter
           github
+          exercism
           linkedin
           stackoverflow
         }

@@ -6,11 +6,12 @@ module.exports = {
     siteUrl: `https://ravan.me`,
     repository: {
       name: "GitHub",
-      url: "https://github.com/ravanscafi/ravan.me"
+      url: "https://github.com/ravanscafi/ravan.me",
     },
     social: {
       twitter: `ravanscafi`,
       github: `ravanscafi`,
+      exercism: `ravanscafi`,
       linkedin: `ravanscafi`,
       stackoverflow: `804741/ravan-scafi`,
     },
@@ -59,7 +60,7 @@ module.exports = {
             options: {
               target: null,
               rel: "nofollow",
-            }
+            },
           },
           `gatsby-remark-reading-time`,
           `@weknow/gatsby-remark-twitter`,
@@ -67,9 +68,9 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-draft',
+      resolve: "gatsby-plugin-draft",
       options: {
-        publishDraft: process.env.NODE_ENV !== 'production',
+        publishDraft: process.env.NODE_ENV !== "production",
       },
     },
     `gatsby-transformer-sharp`,
@@ -97,14 +98,14 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({query: {site, allMarkdownRemark}}) => {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{"content:encoded": edge.node.html}],
+                  custom_elements: [{ "content:encoded": edge.node.html }],
                 })
               })
             },
@@ -162,14 +163,14 @@ module.exports = {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
         siteUrl: `https://ravan.me`,
-        stripQueryString: true
+        stripQueryString: true,
       },
     },
     {
       resolve: `gatsby-plugin-disqus`,
       options: {
-        shortname: `ravan-me`
-      }
+        shortname: `ravan-me`,
+      },
     },
   ],
 }

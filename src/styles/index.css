@@ -27,6 +27,10 @@
   color: #fe7a16;
 }
 
+.social-icon.exercism:hover {
+  color: #009cab;
+}
+
 .social-icon.linkedin:hover {
   color: #0077b5;
 }
