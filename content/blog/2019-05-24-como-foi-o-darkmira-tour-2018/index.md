@@ -1,13 +1,13 @@
 ---
 title: Darkmira Tour 2018
-date: "2019-06-17T20:00:00.000Z"
+date: "2019-07-09T10:00:00.000-0300"
 description: Ano passado tive o prazer de participar do Darkmira Tour em Brasília. Veja os highlights do evento!
 cover: ./darkmira2018.jpg
 ---
 
 ![Público do evento Darkmira Tour 2018.](./darkmira2018.jpg)
 
-No começo desse mês rolou o [Darkmira Tour 2019](https://php.darkmiratour.rocks/2019/), lá em Fortaleza. Infelizmente, não consegui estar presente, mas na edição do ano passado tive esse prazer. O evento aconteceu nos dias 14 e 15 de abril de 2018, em Brasília. Contou com mais de 20 palestrantes e alguns painéis. Acabei encontrando recentemente minhas anotações no fundo do ~~baú~~ editor de texto, então nesse post vou tentar dar uns _highlights_ do que vi por lá!
+No começo de junho rolou o [Darkmira Tour 2019](https://php.darkmiratour.rocks/2019/), lá em Fortaleza. Infelizmente, não consegui estar presente, mas na edição do ano passado tive esse imenso prazer. O evento aconteceu nos dias 14 e 15 de abril de 2018, em Brasília. Contou com mais de 20 palestrantes e alguns painéis. Acabei encontrando recentemente minhas anotações no fundo do ~~baú~~ editor de texto, então nesse post vou tentar dar uns _highlights_ do que vi por lá, espero que gostem!
 
 ## Você é um bom dev? - [_Diana Arnos_](https://twitter.com/dianaarnos)
 
