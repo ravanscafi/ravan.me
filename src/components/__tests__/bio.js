@@ -23,6 +23,7 @@ beforeEach(() => {
         social: {
           twitter: "ravanscafi",
           github: "ravanscafi",
+          exercism: "ravanscafi",
           linkedin: "ravanscafi",
           stackoverflow: "804741/ravan-scafi",
         },

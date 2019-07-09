@@ -72,7 +72,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop -H 0.0.0.0 -o",
-    "format": "prettier --write {src,content,__mocks__}/**{,/__tests__/**}/*.{js,jsx,md,css}",
+    "format": "prettier --write {src,content,__mocks__}/**{,/components/**,/__tests__/**}/*.{js,jsx,md,css}",
     "start": "yarn && yarn develop",
     "serve": "gatsby serve",
     "test": "jest",
