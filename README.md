@@ -33,7 +33,7 @@ First, fork the repository and clone it.
 Next, you will need [Node.js](https://nodejs.org/) and [Yarn](https://yarnpkg.com/).
 Run the command below to fetch the dependencies and spin up a local web-server.
 
-```sh
+```bash
 yarn start
 ```
 
@@ -41,7 +41,7 @@ Now, go ahead, edit some files and you will see the magic happening 🎉.
 
 Don't forget to run the tests to make sure that everything is working:
 
-```sh
+```bash
 yarn test
 ```
 
