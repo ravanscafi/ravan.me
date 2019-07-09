@@ -444,66 +444,56 @@ Os princípios de design ajudam a projetar códigos melhores. Um código mau pro
 
 [Nos slides](https://speakerdeck.com/marcelgsantos/projetando-software-orientado-a-objetos-com-qualidade), o Marcel deixa várias referências para se aprofundar no assunto.
 
-## Legado Ao DDD - [_Leonn Leite_](https://twitter.com/leonnleite)
+## Do legado ao DDD - [_Leonn Leite_](https://twitter.com/leonnleite)
 
-Para fechar as talks do dia - e do evento, escolhi ver a do Leonn, Líder Técnico PHP na Engesoftware.
+Para fechar as talks do dia - e também do evento, escolhi ver o Leonn, Líder Técnico PHP na Engesoftware e sua palestra sobre _Domain-Driven Design_ (DDD).
 
 ### Motivação - Código Legado
 
-Segundo o Leonn, Brasília é o **país** do legado, então fazer integração contínua em legado é perigoso. Assim, os problemas são cada vez mais replicados conforme o projeto vai sendo desenvolvido, sendo difícil de manter. Geralmente as aplicações são estruturadas. Quando se tem Orientação a Objeto, que é raro, muitas vezes é um OO estruturado, com métodos de mais de mil linhas. Os testes das aplicações são feitos por humanos, sem nada automatizado. Testes unitários por exemplo, não existe. Os contratos com governos não exigem e "se não pagam, não fazemos". Reutilização de código, basicamente é `Ctrl+C` e `Ctrl+V` do Stack Overflow. Composer com Satis ou Toran Proxy poderiam ser utilizados para reaproveitar código...
+Segundo o Leonn, Brasília é o **país** do legado, então fazer integração contínua em legado é perigoso. Assim, os problemas vão sendo replicados cada vez mais conforme o projeto vai sendo desenvolvido, ficando muito difícil de manter. Geralmente as aplicações são estruturadas. Quando se tem Orientação a Objeto, que é raro, muitas vezes é um OO estruturado, com métodos de mais de mil linhas.
 
-A culpa desses sistemas serem assim, geralmente são: falta de tempo; experiência dos profissionais; falha na comunicação.
+Os testes das aplicações são feitos por humanos, sem nada automatizado. Testes unitários, por exemplo, não existem pois os contratos com governos não exigem e "se não pagam, não fazemos". Sobre reutilização de código, basicamente é <kbd>Ctrl</kbd>+<kbd>C</kbd> e <kbd>Ctrl</kbd>+<kbd>V</kbd> do Stack Overflow. [Composer](https://getcomposer.org/) com [Satis](https://github.com/composer/satis) ou [Toran Proxy](https://toranproxy.com/) poderiam ser utilizados para reaproveitar código...
 
-- Falta de tempo: não reinvente a roda; foque no problema real e não em "perfumaria"
-- Experiência dos profissionais: pair programming, fale (literalmente) seus problemas, leia mais código, faça code review, leia do github.
-- Falha na comunicação: medo de perguntar, cada um fala de uma forma, as vezes, quando tentamos programar em inglês, fica mais complexo
+A culpa desses sistemas serem assim geralmente é da falta de tempo, da experiência dos profissionais e de falhas na comunicação.
+Para lidar com a **falta de tempo**, o Leonn recomenda: não reinvente a roda; foque no problema real e não em "perfumarias". Sobre a **experiência dos profissionais**: faça _pair programming_, fale (literalmente) seus problemas, leia mais código, faça _code review_, leia código do GitHub.A **falha na comunicação** geralmente ocorre pelo medo de perguntar, pelo fato de cada um falar de uma forma diferente e, às vezes, quando tentamos programar em inglês, fica mais complexo e pode gerar dificuldade de entendimento.
 
-reflexão do phpx
-"Vocês ainda não perceberam que o poder da empresa está na mão do programador?" tiago baestá (cofounder do imasters)
+O Leonn deixou também uma reflexão de um pré evento do [PHP Experience](/2018-03-14-como-foi-participar-do-php-experience-2018/):
 
-### não sei
+> "Vocês ainda não perceberam que o poder da empresa está na mão do programador?"
+>
+> Tiago Baeta (cofundador do [iMasters](https://imasters.com.br/))
 
-jogar fora e criar do zero vs refatorar
+### Entendendo sua aplicação
 
-View cama, não tem inteligência, só imprime
-json é view, xml é view, html é view.
+O Leonn mostrou um exemplo de código, que, embora funcionasse, tinha alguns problemas: era desorganizado; com quase nenhuma verificação de erros; a reutilização só era possível copiando o código; a manutenção e os testes eram difíceis. Assim, duas opções surgiam para esse código: jogar fora e criar novo código do zero ou refatorar.
 
-**Front Controller** coordena os serviços
-**Service** faz chamadas externas, faz a transição do controller para o domínio, orquestra as operações do domínio, regra de negocio (não deveriam estar)
-**Value Object**, é um objeto, encapsulam tipos primitivos, por exemplo, `Dinheiro`, `Email` (como o Marcel disse na talk dele)
-**Entity** também são objetos, possuem um ID que não deve mudar, são mutáveis, pode possuir Value Objects
-**Repository** é uma coleção, uma camada de persistência, pode ser In/Out, usado para inversão de dependência (marcel falou também)
+Sobre **Views**, devemos entender que é uma camada que não tem inteligência, só imprime dados. E que também _JSON_ é view, _XML_ é view, _HTML_ é view. Um **Front Controller** faz o meio de campo, controla as requisições, coordena os serviços, iniciada todas as jogadas. Um **Service** faz chamadas externas, faz a transição do _controller_ para o domínio, orquestra as operações do domínio, porém regras de negocio não deveriam estar presentes nessa camada. **Value Objects** são objetos que encapsulam tipos primitivos, por exemplo, `Dinheiro`, `Email` (como o Marcel disse na talk dele), representam valores e são imutáveis. Uma dica é a biblioteca [moneyphp/money](https://github.com/moneyphp/money). **Entities** também são objetos, possuem um identificador que não deve mudar, são mutáveis e podem possuir _Value Objects_. Por fim, um **Repository** é uma coleção, consiste de uma camada de persistência, pode ser _In/Out_ e é usado para inversão de dependência, a letra **D** do SOLID (algo que o Marcel comentou também).
 
-### o que é DDD?
+### O que é DDD?
 
-Criado pelo Eric Evans, tem como subtítulo: "Atacando as complexidades no coração do software"
-Domínio = Core Domain + Subdomains
+Criado pelo Eric Evans, O _Domain-Driven Design_ tem como subtítulo: _"Atacando as complexidades no coração do software"_. Temos nosso **Core Domain**, que é nosso diferencial estratégico. Nosso **domínio** é representado pelo _core domain_ somado aos _subdomains_. Devemos nos questionar:
 
 - Por que escrever esse software vale a pena?
 - Por que não comprar uma solução pronta?
 - Por que não terceirizar o desenvolvimento?
 
-Se você pode terceirizar, talvez essa parte do seu sistema não é o seu _Core Domain_.
+Se você pode terceirizar, talvez essa parte do seu sistema não é o seu _Core Domain_. Nem sempre ele é o que aparenta ser.
 
-Subdomínio Genérico: ?
+Entre os subdomínios, temos os **genéricos** e os de **suporte**. Os **genéricos** são partes da aplicação que podem ser constituídos de projetos _open source_, _pagos_ ou até mesmo _terceirizados_. Em contrapartida, os subdomínios de **suporte** são aqueles que não são diferenciais mas que são necessários, como por exemplo, módulos de pagamento no ecommerce ou módulos de autenticação. Uma dica para diferenciar é: "Eu não consigo viver sem o suporte, eu consigo adaptar o genérico".
 
-Suporte: você não precisa mas sem, exemplo: módulo de pagamento no ecommerce. Autenticação em sistemas corporativos.
+O importante é **focar esforços no Core Domain** e **evitar a IVSF**, a _"irresistível vontade de sair fazendo"_.
 
-Eu não consigo viver sem o suporte, eu consigo adaptar o genérico
-Focar esforços no Core Domain
+Sobre comunicação, o Leonn afirma: comunicação ruim é igual a código ruim. Portanto, tenha uma **linguagem ubíqua**: todos os envolvidos no projeto, não só desenvolvedores, falam nesses termos, todos devem saber o que cada termo significa e temos que usar os termos dos **especialistas do domínio** mesmo no nosso código.
 
-Evitar a `IVSF` - "Irresistível vontade de sair fazendo"
-Comunicação ruim é igual a código ruim.
+As vezes os contextos devem ser separados e temos que fazer essa segmentação no código também, são os chamados **Contextos Delimitados**.
 
-Linguagem ubíqua: todos falam nesses termos, todos devem saber o que cada termo significa e temos que usar os termos dos **especialistas do domínio** mesmo no nosso código
+### Conclusões
 
-Contextos delimitados: as vezes os contextos devem ser separados e temos que fazer essa segmentação no código também
-
-named constructor: createUserFrom
-
-O caminho, que não é uma solução única, mas uma dica do Leonn: não desenvolva baseado em framework; usem `final class` para ninguém extender o domínio, **ActiveRecord** não deve ser usado. Use **Eventos**. Cuidado com _Models anêmicos_, que tenham somente `setter`s e `getter`s. Em modelos ricos, não temos setters, apenas no construtor. regra de negócio na entidade. UpdateUser deveria/poderia ser MoveToNewAddres, ChangeEmail, ChangePassword, IntroduceNewContactPerson. Mecanismo de Delivery (???). CommandBus é uma técnica boa para trabalhar com DDD.
+O caminho, que não é uma solução única, mas uma dica do Leonn é: não desenvolva baseado em framework; seja independente de _storage_ (banco de dados, cache, mecanismo de busca); use `final class` para ninguém estender o domínio, **ActiveRecord** não deve ser usado. Use **Eventos**. Cuidado com _Models anêmicos_, que tenham somente `setter`s e `getter`s. Em _Models ricos_, não temos setters, os dados são passados apenas no construtor, a regra de negócio é na entidade e segue o mundo real. _CommandBus_ é uma técnica boa para trabalhar com DDD.
 Saia da zona de conforto.
 
-#### Keywords: DDD eric evans, vaughn vernon, arquitetura hexagonal, cqrs, event source, domain events, command bus, big ball of mud
+Confira os slides da talk do Leonn no [SlideShare](https://pt.slideshare.net/leonnleite/do-legado-ao-ddd-94043869), tá cheio de referências.
 
-Confira os slides da talk do Leonn no [SlideShare](https://pt.slideshare.net/leonnleite/do-legado-ao-ddd-94043869).
+Com isso, chegamos ao fim do Darkmira Tour que rolou em 2018. Espero estar presente no de 2020 e fazer a cobertura para vocês! 😉
+
+O que achou? Comenta aí!
