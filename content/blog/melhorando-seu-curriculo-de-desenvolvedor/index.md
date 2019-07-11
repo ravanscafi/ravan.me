@@ -1,6 +1,7 @@
 ---
 title: Melhorando seu currículo de desenvolvedor
 description:
+tags: ["Soft Skills", "Tips"]
 date: ""
 draft: true
 cover: ./writing.jpg

@@ -1,6 +1,7 @@
 ---
 title: Elixir Brasil 2019 - Primeiro dia
 description: "Tive a honra de participar da segunda edição do evento #ElixirBrasil. Confira em detalhes o que aconteceu por lá!"
+tags: ["Elixir", "Events"]
 date: "2019-05-30T03:00:00.000Z"
 cover: ./voce_nao_precisa_ser_grande_para_causar_um_grande_impacto.jpg
 ---

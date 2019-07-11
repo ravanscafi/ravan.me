@@ -1,6 +1,7 @@
 ---
 title: Como foi participar do PHP Experience 2018
 description: Fala galera! Este ano, como representante da comunidade Laravel SP, fui convidado a participar do PHP Experience. Na edição do ano passado…
+tags: ["PHP", "Events"]
 date: "2018-03-14T14:25:33.721Z"
 cover: ./comunidade-phpsp.jpg
 ---
