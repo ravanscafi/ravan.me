@@ -3,10 +3,13 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import PostList from "../components/post-list"
 
 const Tag = ({ location, pageContext, data }) => {
   const { tag } = pageContext
-  const { edges, totalCount } = data.allMarkdownRemark
+  const { totalCount } = data.allMarkdownRemark
+  const posts = data.allMarkdownRemark.edges
+
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
   } tagged with "${tag}"`
@@ -14,19 +17,9 @@ const Tag = ({ location, pageContext, data }) => {
 
   return (
     <Layout location={location} title={title} repository={repository}>
-      <SEO title={tagHeader} />
+      <SEO title={`Tag ${tag}`} />
       <h1>{tagHeader}</h1>
-      <ul>
-        {edges.map(({ node }) => {
-          const { slug } = node.fields
-          const { title } = node.frontmatter
-          return (
-            <li key={slug}>
-              <Link to={slug}>{title}</Link>
-            </li>
-          )
-        })}
-      </ul>
+      <PostList posts={posts} />
       <Link to="/tags">← See all tags</Link>
     </Layout>
   )
@@ -46,18 +39,31 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      limit: 2000
+      limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { in: [$tag] } } }
     ) {
       totalCount
       edges {
         node {
+          excerpt
           fields {
             slug
+            readingTime {
+              text
+            }
           }
           frontmatter {
+            date(formatString: "MMMM DD, YYYY")
             title
+            description
+            cover {
+              childImageSharp {
+                fluid(maxWidth: 625) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
           }
         }
       }
