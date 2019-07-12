@@ -1,9 +1,9 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import kebabCase from "lodash/kebabCase"
+import Tag from "../components/tag"
 
 const TagsPage = ({
   location,
@@ -24,9 +24,7 @@ const TagsPage = ({
             key={tag.fieldValue}
             style={{ display: "inline-block", margin: "0 10px" }}
           >
-            <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-              {tag.fieldValue} ({tag.totalCount})
-            </Link>
+            <Tag name={tag.fieldValue} count={tag.totalCount} />
           </li>
         ))}
       </ul>
@@ -47,7 +45,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(limit: 1000) {
+    allMarkdownRemark(
+      limit: 1000
+      filter: { fields: { draft: { eq: false } } }
+    ) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount

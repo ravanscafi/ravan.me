@@ -25,7 +25,9 @@ class BlogIndex extends React.Component {
         <SEO title="Home" />
         <section className="post-feed">
           {posts.map(({ node }) => {
+            const { cover, date, description } = node.frontmatter
             const title = node.frontmatter.title || node.fields.slug
+
             return (
               <div key={node.fields.slug} className="post">
                 <Link
@@ -34,7 +36,7 @@ class BlogIndex extends React.Component {
                 >
                   <Image
                     fluid={{
-                      ...node.frontmatter.cover.childImageSharp.fluid,
+                      ...cover.childImageSharp.fluid,
                       aspectRatio: 16 / 9,
                     }}
                   />
@@ -44,7 +46,7 @@ class BlogIndex extends React.Component {
                     {title}
                   </h3>
                   <small style={{ color: `hsla(0, 0%, 0%, 0.75)` }}>
-                    <Calendar className="icon" /> {node.frontmatter.date}
+                    <Calendar className="icon" /> {date}
                     <span style={{ padding: `0 .5rem` }}>&bull;</span>
                     <span>
                       <Clock className="icon" /> {node.fields.readingTime.text}
@@ -53,7 +55,7 @@ class BlogIndex extends React.Component {
                   <p
                     style={{ marginTop: rhythm(1 / 4) }}
                     dangerouslySetInnerHTML={{
-                      __html: node.frontmatter.description || node.excerpt,
+                      __html: description || node.excerpt,
                     }}
                   />
                 </Link>
