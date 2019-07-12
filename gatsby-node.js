@@ -1,10 +1,14 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const kebabCase = require(`lodash/kebabCase`)
+const uniq = require(`lodash/uniq`)
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
+  const tagTemplate = path.resolve(`./src/templates/tag.js`)
+
   return graphql(
     `
       {
@@ -20,6 +24,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                tags
               }
             }
           }
@@ -33,6 +38,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     // Create blog posts pages.
     const posts = result.data.allMarkdownRemark.edges
+    let tags = []
 
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
@@ -40,11 +46,28 @@ exports.createPages = ({ graphql, actions }) => {
 
       createPage({
         path: post.node.fields.slug,
-        component: blogPost,
+        component: blogPostTemplate,
         context: {
           slug: post.node.fields.slug,
           previous,
           next,
+        },
+      })
+
+      let postTags = post.node.frontmatter.tags || []
+
+      if (postTags) {
+        tags = tags.concat(postTags)
+      }
+    })
+
+    // Create tag pages.
+    uniq(tags).forEach(tag => {
+      createPage({
+        path: `/tags/${kebabCase(tag)}/`,
+        component: tagTemplate,
+        context: {
+          tag,
         },
       })
     })

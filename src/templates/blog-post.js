@@ -7,6 +7,7 @@ import Clock from "react-feather/dist/icons/clock"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import TagList from "../components/tag-list"
 import { rhythm, scale } from "../utils/typography"
 
 class BlogPostTemplate extends React.Component {
@@ -15,6 +16,7 @@ class BlogPostTemplate extends React.Component {
     const site = this.props.data.site
     const siteTitle = site.siteMetadata.title
     const { previous, next } = this.props.pageContext
+    const { title, description, cover, date, tags } = post.frontmatter
 
     return (
       <Layout
@@ -23,11 +25,11 @@ class BlogPostTemplate extends React.Component {
         repository={site.siteMetadata.repository}
       >
         <SEO
-          title={post.frontmatter.title}
-          description={post.frontmatter.description || post.excerpt}
-          cover={post.frontmatter.cover.childImageSharp.fixed.src}
+          title={title}
+          description={description || post.excerpt}
+          cover={cover.childImageSharp.fixed.src}
         />
-        <h1>{post.frontmatter.title}</h1>
+        <h1>{title}</h1>
         <p
           style={{
             ...scale(-1 / 5),
@@ -36,10 +38,14 @@ class BlogPostTemplate extends React.Component {
             marginTop: rhythm(-1),
           }}
         >
-          <Calendar className="icon" /> {post.frontmatter.date}
+          <Calendar className="icon" /> {date}
           <span style={{ padding: `0 .5rem` }}>&bull;</span>
           <span>
             <Clock className="icon" /> {post.fields.readingTime.text}
+          </span>
+          <span style={{ padding: `0 .5rem` }}>&bull;</span>
+          <span>
+            <TagList tags={tags} />
           </span>
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -80,7 +86,7 @@ class BlogPostTemplate extends React.Component {
         </ul>
         <Disqus
           identifier={post.id}
-          title={post.frontmatter.title}
+          title={title}
           url={`${site.siteMetadata.siteUrl}${post.fields.slug}`}
         />
       </Layout>
@@ -117,6 +123,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
         cover {
           childImageSharp {
             fixed(width: 600) {

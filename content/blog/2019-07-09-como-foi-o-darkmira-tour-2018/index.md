@@ -2,6 +2,7 @@
 title: Como foi o Darkmira Tour 2018
 date: "2019-07-09T11:25:00.000-0300"
 description: Ano passado tive o prazer de participar do Darkmira Tour em Brasília. Veja os highlights do evento!
+tags: ["PHP", "Events"]
 cover: ./darkmira2018.jpg
 ---
 

@@ -1,35 +1,34 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostList from "../components/post-list"
 
-import "../styles/index.css"
+const Tag = ({ location, pageContext, data }) => {
+  const { tag } = pageContext
+  const { totalCount } = data.allMarkdownRemark
+  const posts = data.allMarkdownRemark.edges
 
-class BlogIndex extends React.Component {
-  render() {
-    const { data } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMarkdownRemark.edges
+  const tagHeader = `${totalCount} post${
+    totalCount === 1 ? "" : "s"
+  } tagged with "${tag}"`
+  const { title, repository } = data.site.siteMetadata
 
-    return (
-      <Layout
-        location={this.props.location}
-        title={siteTitle}
-        repository={data.site.siteMetadata.repository}
-      >
-        <SEO title="Home" />
-        <PostList posts={posts} />
-      </Layout>
-    )
-  }
+  return (
+    <Layout location={location} title={title} repository={repository}>
+      <SEO title={`Tag ${tag}`} />
+      <h1>{tagHeader}</h1>
+      <PostList posts={posts} />
+      <Link to="/tags">← See all tags</Link>
+    </Layout>
+  )
 }
 
-export default BlogIndex
+export default Tag
 
 export const pageQuery = graphql`
-  query {
+  query($tag: String) {
     site {
       siteMetadata {
         title
@@ -40,9 +39,14 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
+      limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fields: { draft: { eq: false } } }
+      filter: {
+        frontmatter: { tags: { in: [$tag] } }
+        fields: { draft: { eq: false } }
+      }
     ) {
+      totalCount
       edges {
         node {
           excerpt
