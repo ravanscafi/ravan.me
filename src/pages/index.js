@@ -14,11 +14,7 @@ class BlogIndex extends React.Component {
     const posts = data.allMarkdownRemark.edges
 
     return (
-      <Layout
-        location={this.props.location}
-        title={siteTitle}
-        repository={data.site.siteMetadata.repository}
-      >
+      <Layout location={this.props.location} title={siteTitle}>
         <SEO title="Home" />
         <PostList posts={posts} />
       </Layout>
@@ -33,10 +29,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-        repository {
-          name
-          url
-        }
       }
     }
     allMarkdownRemark(

@@ -19,11 +19,7 @@ class BlogPostTemplate extends React.Component {
     const { title, description, cover, date, tags } = post.frontmatter
 
     return (
-      <Layout
-        location={this.props.location}
-        title={siteTitle}
-        repository={site.siteMetadata.repository}
-      >
+      <Layout location={this.props.location} title={siteTitle}>
         <SEO
           title={title}
           description={description || post.excerpt}
@@ -103,10 +99,6 @@ export const pageQuery = graphql`
         title
         author
         siteUrl
-        repository {
-          name
-          url
-        }
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
