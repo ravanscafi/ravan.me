@@ -20,13 +20,13 @@ const BlogPostTemplate = ({
       html,
     },
     site: {
-      siteMetadata: { author, siteUrl, title: siteTitle },
+      siteMetadata: { author, siteUrl },
     },
   },
   pageContext: { previous, next },
   location,
 }) => (
-  <Layout location={location} title={siteTitle}>
+  <Layout location={location}>
     <SEO
       title={title}
       description={description || excerpt}
@@ -97,7 +97,6 @@ export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
-        title
         author
         siteUrl
       }

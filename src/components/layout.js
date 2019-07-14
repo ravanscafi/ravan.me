@@ -5,14 +5,13 @@ import Heart from "react-feather/dist/icons/heart"
 import { rhythm, scale } from "../utils/typography"
 import Bio from "./bio"
 
-const Layout = props => {
+const Layout = ({ location, children }) => {
   const {
     site: {
-      siteMetadata: { repository },
+      siteMetadata: { repository, title },
     },
   } = useStaticQuery(repositoryQuery)
 
-  const { location, title, children } = props
   const rootPath = `${__PATH_PREFIX__}/`
   let header
 
@@ -90,6 +89,7 @@ const repositoryQuery = graphql`
   query repositoryQuery {
     site {
       siteMetadata {
+        title
         repository {
           name
           url

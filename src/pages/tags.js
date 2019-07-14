@@ -9,12 +9,9 @@ const TagsPage = ({
   location,
   data: {
     allMarkdownRemark: { group },
-    site: {
-      siteMetadata: { title },
-    },
   },
 }) => (
-  <Layout location={location} title={title}>
+  <Layout location={location}>
     <SEO title="Tags" />
     <div>
       <h1>Tags</h1>
@@ -36,11 +33,6 @@ export default TagsPage
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(
       limit: 1000
       filter: { fields: { draft: { eq: false } } }

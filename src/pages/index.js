@@ -10,13 +10,10 @@ import "../styles/index.css"
 const BlogIndex = ({
   data: {
     allMarkdownRemark: { edges },
-    site: {
-      siteMetadata: { title },
-    },
   },
   location,
 }) => (
-  <Layout location={location} title={title}>
+  <Layout location={location}>
     <SEO title="Home" />
     <PostList posts={edges} />
   </Layout>
@@ -26,11 +23,6 @@ export default BlogIndex
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { fields: { draft: { eq: false } } }

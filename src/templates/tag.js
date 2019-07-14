@@ -13,10 +13,9 @@ const Tag = ({ location, pageContext, data }) => {
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
   } tagged with "${tag}"`
-  const { title } = data.site.siteMetadata
 
   return (
-    <Layout location={location} title={title}>
+    <Layout location={location}>
       <SEO title={`Tag ${tag}`} />
       <h1>{tagHeader}</h1>
       <PostList posts={posts} />
@@ -29,11 +28,6 @@ export default Tag
 
 export const pageQuery = graphql`
   query($tag: String) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     allMarkdownRemark(
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }

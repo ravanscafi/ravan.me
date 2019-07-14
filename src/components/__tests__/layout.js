@@ -9,6 +9,7 @@ beforeEach(() => {
     site: {
       siteMetadata: {
         repository: { name: "Gitlab", url: "gitlab.com" },
+        title: "My Site",
       },
     },
   }))
@@ -18,7 +19,7 @@ describe("Layout", () => {
   it("renders correctly", () => {
     const tree = renderer
       .create(
-        <Layout location="cool-location" title="My Site">
+        <Layout location="cool-location">
           <p>Content</p>
         </Layout>
       )
