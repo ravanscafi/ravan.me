@@ -25,73 +25,71 @@ const BlogPostTemplate = ({
   },
   pageContext: { previous, next },
   location,
-}) => {
-  return (
-    <Layout location={location} title={siteTitle}>
-      <SEO
-        title={title}
-        description={description || excerpt}
-        cover={cover.childImageSharp.fixed.src}
-      />
-      <h1>{title}</h1>
-      <p
-        style={{
-          ...scale(-1 / 5),
-          display: `block`,
-          marginBottom: rhythm(1),
-          marginTop: rhythm(-1),
-        }}
-      >
-        <Calendar className="icon" /> {date}
-        <span style={{ padding: `0 .5rem` }}>&bull;</span>
-        <span>
-          <Clock className="icon" /> {readingTime.text}
-        </span>
-        <span style={{ padding: `0 .5rem` }}>&bull;</span>
-        <span>
-          <TagList tags={tags} />
-        </span>
-      </p>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-      <hr
-        style={{
-          marginBottom: rhythm(1),
-        }}
-      />
-      <Bio>
-        <div>
-          <strong>{author}</strong>
-        </div>
-      </Bio>
+}) => (
+  <Layout location={location} title={siteTitle}>
+    <SEO
+      title={title}
+      description={description || excerpt}
+      cover={cover.childImageSharp.fixed.src}
+    />
+    <h1>{title}</h1>
+    <p
+      style={{
+        ...scale(-1 / 5),
+        display: `block`,
+        marginBottom: rhythm(1),
+        marginTop: rhythm(-1),
+      }}
+    >
+      <Calendar className="icon" /> {date}
+      <span style={{ padding: `0 .5rem` }}>&bull;</span>
+      <span>
+        <Clock className="icon" /> {readingTime.text}
+      </span>
+      <span style={{ padding: `0 .5rem` }}>&bull;</span>
+      <span>
+        <TagList tags={tags} />
+      </span>
+    </p>
+    <div dangerouslySetInnerHTML={{ __html: html }} />
+    <hr
+      style={{
+        marginBottom: rhythm(1),
+      }}
+    />
+    <Bio>
+      <div>
+        <strong>{author}</strong>
+      </div>
+    </Bio>
 
-      <ul
-        style={{
-          display: `flex`,
-          flexWrap: `wrap`,
-          justifyContent: `space-between`,
-          listStyle: `none`,
-          padding: 0,
-        }}
-      >
-        <li>
-          {previous && (
-            <Link to={previous.fields.slug} rel="prev">
-              ← {previous.frontmatter.title}
-            </Link>
-          )}
-        </li>
-        <li>
-          {next && (
-            <Link to={next.fields.slug} rel="next">
-              {next.frontmatter.title} →
-            </Link>
-          )}
-        </li>
-      </ul>
-      <Disqus identifier={id} title={title} url={`${siteUrl}${slug}`} />
-    </Layout>
-  )
-}
+    <ul
+      style={{
+        display: `flex`,
+        flexWrap: `wrap`,
+        justifyContent: `space-between`,
+        listStyle: `none`,
+        padding: 0,
+      }}
+    >
+      <li>
+        {previous && (
+          <Link to={previous.fields.slug} rel="prev">
+            ← {previous.frontmatter.title}
+          </Link>
+        )}
+      </li>
+      <li>
+        {next && (
+          <Link to={next.fields.slug} rel="next">
+            {next.frontmatter.title} →
+          </Link>
+        )}
+      </li>
+    </ul>
+    <Disqus identifier={id} title={title} url={`${siteUrl}${slug}`} />
+  </Layout>
+)
 
 export default BlogPostTemplate
 
