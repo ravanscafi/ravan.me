@@ -32,3 +32,5 @@ jobs:
         run: |
           yarn global add @lhci/cli@0.7.1
           $(yarn global bin)/lhci autorun --collect.url=${{ steps.wait-for-netflify-preview.outputs.url }}
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
