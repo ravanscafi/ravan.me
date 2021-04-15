@@ -1,0 +1,26 @@
+on: [push]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+
+      - name: Install dependencies
+        run: yarn install --no-progress --non-interactive
+
+      - name: Lint
+        run: yarn format -c
+
+      - name: Tests
+        run: yarn test
+
+      - name: Lighthouse
+        run:
+          yarn lh --perf 100 --a11y 100 --bp 93 --seo 82 --pwa 100
+          "$(wait-for-netlify-preview)"
