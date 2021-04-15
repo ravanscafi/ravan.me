@@ -48,7 +48,7 @@ exports[`Layout renders correctly 1`] = `
     }
   >
     © 
-    2019
+    2021
     <span
       style={
         Object {
@@ -63,13 +63,13 @@ exports[`Layout renders correctly 1`] = `
     <svg
       className="icon"
       fill="none"
-      height="24"
+      height={24}
       stroke="#f00"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"
       viewBox="0 0 24 24"
-      width="24"
+      width={24}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

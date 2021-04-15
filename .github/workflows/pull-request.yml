@@ -1,0 +1,36 @@
+on: [pull_request]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+
+      - name: Install dependencies
+        run: yarn install --no-progress --non-interactive
+
+      - name: Lint
+        run: yarn format -c
+
+      - name: Tests
+        run: yarn test
+
+      - name: Wait for Netlify Deploy Preview Commit
+        uses: kamranayub/wait-for-netlify-action@v2.0.3
+        id: wait-for-netflify-preview
+        with:
+          site_name: ravan-me
+        env:
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+
+      - name: Lighthouse CI
+        run: |
+          yarn global add @lhci/cli@0.7.1
+          $(yarn global bin)/lhci autorun --collect.url=${{ steps.wait-for-netflify-preview.outputs.url }}
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
