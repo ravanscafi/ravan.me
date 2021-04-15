@@ -11,7 +11,7 @@
         "categories:seo": ["error", { "minScore": 0.86 }],
         "categories:pwa": ["error", { "minScore": 0.92 }],
         "canonical": "off",
-        "seo-crawl": "off"
+        "is-crawlable": "off"
       }
     }
   }
