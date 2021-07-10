@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import Image from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { rhythm } from "../utils/typography"
 import Calendar from "react-feather/dist/icons/calendar"
 import Clock from "react-feather/dist/icons/clock"
@@ -17,11 +17,9 @@ const PostList = ({ posts }) => (
             style={{ boxShadow: `none`, color: "inherit" }}
             to={node.fields.slug}
           >
-            <Image
-              fluid={{
-                ...cover.childImageSharp.fluid,
-                aspectRatio: 16 / 9,
-              }}
+            <GatsbyImage
+              image={cover.childImageSharp.gatsbyImageData}
+              alt={title}
             />
             <h3 style={{ margin: rhythm(1 / 4) + " 0", textAlign: "left" }}>
               {title}

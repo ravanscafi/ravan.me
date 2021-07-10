@@ -2,7 +2,7 @@ import React from "react"
 import renderer from "react-test-renderer"
 import { useStaticQuery } from "gatsby"
 
-import SEO from "../seo"
+import Seo from "../seo"
 
 beforeEach(() => {
   useStaticQuery.mockImplementationOnce(() => ({
@@ -24,9 +24,9 @@ beforeEach(() => {
   }))
 })
 
-describe("SEO", () => {
+describe("Seo", () => {
   it("renders correctly", () => {
-    const tree = renderer.create(<SEO title="My Title" />).toJSON()
+    const tree = renderer.create(<Seo title="My Title" />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

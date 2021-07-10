@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import PostList from "../components/post-list"
 
 const Tag = ({ location, pageContext, data }) => {
@@ -16,7 +16,7 @@ const Tag = ({ location, pageContext, data }) => {
 
   return (
     <Layout location={location}>
-      <SEO title={`Tag ${tag}`} />
+      <Seo title={`Tag ${tag}`} />
       <h1>{tagHeader}</h1>
       <PostList posts={posts} />
       <Link to="/tags">← See all tags</Link>
@@ -27,7 +27,7 @@ const Tag = ({ location, pageContext, data }) => {
 export default Tag
 
 export const pageQuery = graphql`
-  query($tag: String) {
+  query ($tag: String) {
     allMarkdownRemark(
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
@@ -52,9 +52,7 @@ export const pageQuery = graphql`
             description
             cover {
               childImageSharp {
-                fluid(maxWidth: 625) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                gatsbyImageData(layout: CONSTRAINED)
               }
             }
           }

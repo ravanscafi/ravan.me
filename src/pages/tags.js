@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import Tag from "../components/tag"
 
 const TagsPage = ({
@@ -12,11 +12,11 @@ const TagsPage = ({
   },
 }) => (
   <Layout location={location}>
-    <SEO title="Tags" />
+    <Seo title="Tags" />
     <div>
       <h1>Tags</h1>
       <ul>
-        {group.map(tag => (
+        {group.map((tag) => (
           <li
             key={tag.fieldValue}
             style={{ display: "inline-block", margin: "0 10px" }}

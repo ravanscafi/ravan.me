@@ -6,7 +6,7 @@ import Clock from "react-feather/dist/icons/clock"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import TagList from "../components/tag-list"
 import { rhythm, scale } from "../utils/typography"
 
@@ -27,13 +27,13 @@ const BlogPostTemplate = ({
   location,
 }) => (
   <Layout location={location}>
-    <SEO
+    <Seo
       title={title}
       description={description || excerpt}
-      cover={cover.childImageSharp.fixed.src}
+      cover={cover.childImageSharp.gatsbyImageData}
     />
     <h1>{title}</h1>
-    <p
+    <div
       style={{
         ...scale(-1 / 5),
         display: `block`,
@@ -50,7 +50,7 @@ const BlogPostTemplate = ({
       <span>
         <TagList tags={tags} />
       </span>
-    </p>
+    </div>
     <div dangerouslySetInnerHTML={{ __html: html }} />
     <hr
       style={{
@@ -118,9 +118,7 @@ export const pageQuery = graphql`
         tags
         cover {
           childImageSharp {
-            fixed(width: 600) {
-              src
-            }
+            gatsbyImageData(width: 600)
           }
         }
       }

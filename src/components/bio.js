@@ -7,7 +7,7 @@
 
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import Twitter from "react-feather/dist/icons/twitter"
 import Github from "react-feather/dist/icons/github"
 import Linkedin from "react-feather/dist/icons/linkedin"
@@ -28,8 +28,8 @@ function Bio(props) {
       }}
     >
       <div>
-        <Image
-          fixed={data.avatar.childImageSharp.fixed}
+        <GatsbyImage
+          image={data.avatar.childImageSharp.gatsbyImageData}
           alt={author}
           style={{
             marginRight: rhythm(1 / 2),
@@ -94,9 +94,7 @@ const bioQuery = graphql`
   query BioQuery {
     avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
       childImageSharp {
-        fixed(width: 180, height: 180, quality: 90, webpQuality: 90) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
+        gatsbyImageData(width: 180, height: 180)
       }
     }
     site {

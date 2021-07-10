@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import PostList from "../components/post-list"
 
 import "../styles/index.css"
@@ -14,7 +14,7 @@ const BlogIndex = ({
   location,
 }) => (
   <Layout location={location}>
-    <SEO title="Home" />
+    <Seo title="Home" />
     <PostList posts={edges} />
   </Layout>
 )
@@ -42,9 +42,7 @@ export const pageQuery = graphql`
             description
             cover {
               childImageSharp {
-                fluid(maxWidth: 625) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                gatsbyImageData(layout: CONSTRAINED, aspectRatio: 1.77777777778)
               }
             }
           }

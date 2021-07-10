@@ -1,6 +1,6 @@
 import React from "react"
 
-const Exercism = props => {
+const Exercism = (props) => {
   const { color, size, ...otherProps } = props
   return (
     <svg

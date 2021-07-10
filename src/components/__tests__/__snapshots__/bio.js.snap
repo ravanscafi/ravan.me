@@ -26,7 +26,7 @@ exports[`Bio renders correctly 1`] = `
       }
     >
       <img
-        alt=""
+        alt="Ravan Scafi"
         aria-hidden={true}
         src="data:image/jpeg;base64,/9j/SHAcv//Z"
         style={
@@ -44,34 +44,6 @@ exports[`Bio renders correctly 1`] = `
           }
         }
       />
-      <picture>
-        <source
-          srcSet="/static/srcset/profile-pic.jpg"
-        />
-        <img
-          alt="Ravan Scafi"
-          height={150}
-          loading="lazy"
-          onLoad={[Function]}
-          src="/static/src/profile-pic.jpg"
-          srcSet="/static/srcset/profile-pic.jpg"
-          style={
-            Object {
-              "borderRadius": "50%",
-              "height": "100%",
-              "left": 0,
-              "objectFit": "cover",
-              "objectPosition": "center",
-              "opacity": 0,
-              "position": "absolute",
-              "top": 0,
-              "transition": "opacity 500ms",
-              "width": "100%",
-            }
-          }
-          width={150}
-        />
-      </picture>
       <noscript
         dangerouslySetInnerHTML={
           Object {

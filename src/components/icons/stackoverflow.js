@@ -1,6 +1,6 @@
 import React from "react"
 
-const Stackoverflow = props => {
+const Stackoverflow = (props) => {
   const { color, size, ...otherProps } = props
   return (
     <svg
