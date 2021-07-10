@@ -76,8 +76,8 @@
     "test": "jest"
   },
   "engines": {
-    "node": ">=16.2.0",
-    "yarn": "^1.22.10"
+    "node": ">=14.17.1",
+    "yarn": "^1.13.0"
   },
   "husky": {
     "hooks": {
