@@ -5,7 +5,7 @@ description: |
   Lembrar as experiências que você teve, encaixar em um espaço relativamente
   pequeno, mas tentando mostrar a relevância do que você fez...
 tags: ["Soft Skills", "Tips", "Recruiting"]
-date: "2021-07-12T14:00:00.000-0300"
+date: "2021-07-11T14:00:00.000-0300"
 cover: ./writing.jpg
 ---
 
