@@ -30,7 +30,7 @@ const BlogPostTemplate = ({
     <Seo
       title={title}
       description={description || excerpt}
-      cover={cover.childImageSharp.gatsbyImageData}
+      cover={cover.childImageSharp.fixed.src}
     />
     <h1>{title}</h1>
     <div
@@ -118,7 +118,9 @@ export const pageQuery = graphql`
         tags
         cover {
           childImageSharp {
-            gatsbyImageData(width: 600)
+            fixed(width: 600) {
+              src
+            }
           }
         }
       }
