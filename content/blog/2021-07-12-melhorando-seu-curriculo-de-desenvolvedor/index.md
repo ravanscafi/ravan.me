@@ -59,10 +59,10 @@ para mostrar nosso potencial. Pode parecer um pouco exagerado, mas, independente
 de tudo isso, uma coisa é certa: **não queremos dificultar a vida da pessoa
 responsável pela vaga.**
 
-Isso porque, infelizmente, **alguns candidatos são eliminados logo ao ter o
-currículo analisado** e muitas vezes, não é nem por falta de habilidade ou
-experiência dos mesmos, mas meramente **porque não sabem vender seu peixe**. Os
-motivos principais? Não se destacam, apresentam informações incorretas ou não
+Infelizmente, **alguns candidatos são eliminados logo ao ter o currículo
+analisado** e muitas vezes, não é nem por falta de habilidade ou experiência dos
+mesmos, mas meramente **porque não sabem vender seu peixe**. Os motivos
+principais? Não se destacam, apresentam informações incorretas ou não
 relevantes, mostram os dados de forma confusa, demonstram pouco ou nenhum
 interesse na vaga ou empresa.
 
@@ -95,7 +95,7 @@ impresso ou baixado para a máquina da pessoa e seu email original pode ser
 perdido, então colocar o endereço de email não faz mal. Se a pessoa recrutadora
 gostar do seu CV e quiser te contatar, deixe isso bem prático para ela.
 
-Outra coisa que já aconteceu quando recrutava e foi chato foi receber currículo
+Outra coisa que já aconteceu quando recrutava e foi chato, foi receber currículo
 desatualizado. Avaliando o CV de um determinado candidato parecia que ele estava
 numa empresa mas, ao abrir o LinkedIn, já faziam 2 anos que estava trabalhando
 em outra empresa. Não sei se foi um equívoco na hora de escolher o arquivo
@@ -111,18 +111,18 @@ ajuda muito, então mantenha o seu LinkedIn atualizado e pareado com o seu CV.
 
 Ordene sempre suas experiências em ordem cronológica reversa, isto é, das mais
 recentes até as mais antigas. Informe o local onde trabalha(ou) e o que você faz
-ou fez lá. Já recebi experiências assim: `Programador Backend (2019-2020)`, sem
-citar a empresa nem um resumo do que foi feito ou quais tecnologias foram
+ou fez lá. Já recebi experiências assim: _**Programador Backend (2019-2020)**_,
+sem citar a empresa nem um resumo do que foi feito ou quais tecnologias foram
 usadas. Assim fica difícil de avaliar a relevância ou a experiência real do
 candidato.
 
 ### Tecnologias
 
 Tome cuidado com a "sopa de letrinhas" para não ficar muito confuso. Por
-exemplo, para pessoas não técnicas é um pouco mais fácil ler
-`Construção de APIs REST e GraphQL` ou somente `REST, GraphQL`? Agora multiplica
-esse cenário em várias vezes. Lembre-se também de esclarecer algumas coisas, se
-citar um framework, diga de qual linguagem é esse framework, a pessoa não tem a
+exemplo, para pessoas não técnicas é um pouco mais fácil ler _**Construção de
+APIs REST e GraphQL**_ ou somente _**REST, GraphQL**_? Agora multiplica esse
+cenário em várias vezes. Lembre-se também de esclarecer algumas coisas, se citar
+um framework, diga de qual linguagem é esse framework, a pessoa não tem a
 obrigação de saber ou conhecer todos (nem a gente conhece, oras).
 
 Também **não faça gráficos/infográficos** com porcentagem de quanto você sabe de
@@ -203,8 +203,8 @@ importante ficando de fora ou ficando tudo muito espremido e visualmente
 cansativo. Assim, acabei deixando com três páginas, mas para não manter um
 espaço em branco grande no final e nem pra deixar com experiências muito antigas
 que já não queria ali, coloquei alguns links para contato e algumas palestras
-que eu tinha feito. Também deixei um aviso:
-`(experiências anteriores disponível no LinkedIn)`
+que eu tinha feito. Também deixei um aviso: _(experiências anteriores disponível
+no LinkedIn)_
 
 Não sabia se ia ser legal fazer assim, mas segui a intuição nesse caso, coletei
 vários feedbacks de amigos e bem, quando fui aceito na empresa que estava
@@ -243,11 +243,11 @@ Fulano de Tal
 
 Já dá pra saber de cara que é um email genérico, enviado para trocentas
 empresas, provavelmente numa lista de recrutadores que pegou na internet. As
-vezes nem é com cópia oculta e você vê lá:
-`enviado para <você> e mais 49 contatos`. É um tiro no escuro muito grande e
-suas chances diminuem muito assim. Por trabalhar numa empresa grande, eu recebia
-emails dos mais diversos tipos de perfis, para vagas nada relacionadas com as
-que eu de fato estava ajudando ou até mesmo nem relacionadas a tecnologia.
+vezes nem é com cópia oculta e você vê lá: _**enviado para <você> e mais 49
+contatos**_. É um tiro no escuro muito grande e suas chances diminuem muito
+assim. Por trabalhar numa empresa grande, eu recebia emails dos mais diversos
+tipos de perfis, para vagas nada relacionadas com as que eu de fato estava
+ajudando ou até mesmo nem relacionadas a tecnologia.
 
 Agora vejamos a diferença nesse outro exemplo:
 
@@ -277,15 +277,14 @@ pessoa recrutadora e algo não tão habitual. Demonstrar interesse autêntico é
 outro nível.
 
 Um detalhe importante: se na descrição da vaga estiver escrito algo como:
-_"Envie um email para \<xxx> com o assunto
-`"Vaga Pessoa Desenvolvedora Fullstack"`"_, certifique-se de enviar **exatamente
-o assunto pedido**. Tenha certeza que copiou certinho e que não tem erros de
-digitação e etc. Isso é importante porque, dependendo das **regras de segurança
-da empres**a, emails com anexo poderiam ir direto para **spam**, então certos
-filtros são criados por assunto e etc. Isso acontecia comigo quando estava
-recrutando, emails fora do padrão iam parar num limbo no meio de spams e
-demoravam muito mais para serem vistos. Eu também criava marcadores e tinha que
-marcar manualmente esses emails.
+_"Envie um email para \<xxx> com o assunto **"Vaga Pessoa Desenvolvedora
+Fullstack"**"_ certifique-se de enviar **exatamente o assunto pedido**. Tenha
+certeza que copiou certinho e que não tem erros de digitação e etc. Isso é
+importante porque, dependendo das **regras de segurança da empres**a, emails com
+anexo poderiam ir direto para **spam**, então certos filtros são criados por
+assunto e etc. Isso acontecia comigo quando estava recrutando, emails fora do
+padrão iam parar num limbo no meio de spams e demoravam muito mais para serem
+vistos. Eu também criava marcadores e tinha que marcar manualmente esses emails.
 
 Nota: Essa pode ser uma dica não totalmente aplicável se você está enviando o CV
 através de alguma plataforma, mas caso existam campos para apresentação e tudo o
