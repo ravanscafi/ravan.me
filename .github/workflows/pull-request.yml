@@ -25,6 +25,7 @@ jobs:
         id: wait-for-netflify-preview
         with:
           site_name: ravan-me
+          max_timeout: 180
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
 
