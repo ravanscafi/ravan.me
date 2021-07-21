@@ -75,10 +75,11 @@ apresenta nenhum deles?
 ### Informações no Currículo
 
 Pode parecer brincadeira, mas já abri um currículo em que a pessoa se chamava
-`Rafel`, achei um pouco incomum, voltei pro email e era `Rafael` mesmo. O Rafael
-conseguiu errar o próprio nome no CV. Também já vi **várias** vezes links
-errados para perfis, por exemplo, recebi muitos links para o LinkedIn como
-`https://www.linkedin.com/feed`. Telefones errados ou sem DDD também rolavam.
+<mark>Rafel</mark>, achei um pouco incomum, voltei pro email e era
+<mark>Rafael</mark> mesmo. O Rafael conseguiu errar o próprio nome no CV. Também
+já vi **várias** vezes links errados para perfis, por exemplo, recebi muitos
+links para o LinkedIn como `https://www.linkedin.com/feed`. Telefones errados ou
+sem DDD também rolavam.
 
 **No cabeçalho**, não se esqueça de pelo menos **informar a cidade atual**.
 Mesmo se você morar em outra cidade e a vaga for presencial, diga que está
@@ -170,13 +171,13 @@ obrigação de saber ou conhecer todos (nem a gente conhece, oras).
 
 Também **não faça gráficos/infográficos** com porcentagem de quanto você sabe de
 cada habilidade. Isso é extremamente subjetivo e pode mais revelar suas
-fraquezas do que suas habilidades. O que seria saber `90%` de `JavaScript` por
-exemplo? Será que mesmo o
+fraquezas do que suas habilidades. O que seria saber <mark>90%</mark> de
+<mark>JavaScript</mark> por exemplo? Será que mesmo o
 [Brendan Eich](https://en.wikipedia.org/wiki/Brendan_Eich), criador do
-JavaScript, poderia colocar `100%` no gráfico dele de JS? Ao mesmo tempo, ao ver
-que você tem, por exemplo, `20%` em `CSS`, isso acaba denunciando uma
-"fraqueza". De novo, tudo subjetivo ainda por cima. A pessoa avaliando pode e
-vai interpretar de maneira diferente da sua.
+JavaScript, poderia colocar <mark>100%</mark> no gráfico dele de JS? Ao mesmo
+tempo, ao ver que você tem, por exemplo, <mark>20%</mark> em <mark>CSS</mark>,
+isso acaba denunciando uma "fraqueza". De novo, tudo subjetivo ainda por cima. A
+pessoa avaliando pode e vai interpretar de maneira diferente da sua.
 
 ![Habilidades em um infográfico — Créditos: https://bluegg.co.uk/blog/death-to-the-infographic-cv](infografico.jpg)
 
@@ -275,7 +276,9 @@ Conheça pelo menos um pouco da empresa que você está se aplicando. Pode ser
 difícil fazer isso quando você está se aplicando para muitas vagas, mas
 acredite, faz toda a diferença. Aproveite o corpo do email para se apresentar.
 Deixe humano, mostre que você realmente está enviando o email para aquela
-empresa. Não tem coisa pior que receber algum email do tipo:
+empresa.
+
+<p style="color:#ff6347"><strong>Não tem coisa pior que receber algum email do tipo:</strong></p>
 
 ```
 De: Fulano de Tal <fulanodetal@email.com)
@@ -299,12 +302,12 @@ assim. Por trabalhar numa empresa grande, eu recebia emails dos mais diversos
 tipos de perfis, para vagas nada relacionadas com as que eu de fato estava
 ajudando ou até mesmo nem relacionadas a tecnologia.
 
-Agora vejamos a diferença nesse outro exemplo:
+<p style="color:#039a03"><strong>Agora vejamos a diferença nesse outro exemplo:</strong></p>
 
 ```
 De: Fulano de Tal <fulanodetal@email.com)
 Para: <você@suaempresa.com>
-Assunto: Vaga Pessoa Desenvolvedora Fullstack
+Assunto: Vaga Pessoa Desenvolvedora Full Stack
 
 Olá Ciclana, tudo bem?
 Vi no LinkedIn o anúncio da vaga e imediatamente pensei em me aplicar.
@@ -320,15 +323,15 @@ Obrigado desde já,
 Fulano de Tal
 ```
 
-Desde que seja verdadeiro e tudo o mais, um email assim é muito mais assertivo e
-aumenta suas chances de passar para as próximas etapas. Existem pessoas que até
-gravam pequenos vídeos de apresentação. É uma forma de chamar a atenção da
-pessoa recrutadora e algo não tão habitual. Demonstrar interesse autêntico é
-outro nível.
+Desde que seja verdadeiro, um email assim é muito mais assertivo e aumenta suas
+chances de passar para as próximas etapas. Existem pessoas que até gravam
+pequenos vídeos de apresentação. É uma forma de chamar a atenção da pessoa
+recrutadora e algo não tão habitual. Demonstrar interesse autêntico é outro
+nível.
 
 Um detalhe importante: se na descrição da vaga estiver escrito algo como:
-_"Envie um email para \<xxx> com o assunto **"Vaga Pessoa Desenvolvedora
-Fullstack"**"_ certifique-se de enviar **exatamente o assunto pedido**. Tenha
+<mark>Envie um email para \<xxx> com o assunto "Vaga Pessoa Desenvolvedora Full
+Stack"</mark> certifique-se de enviar **exatamente o assunto pedido**. Tenha
 certeza que copiou certinho e que não tem erros de digitação e etc. Isso é
 importante porque, dependendo das **regras de segurança da empres**a, emails com
 anexo poderiam ir direto para **spam**, então certos filtros são criados por
@@ -393,7 +396,7 @@ Isso vale para tudo.
   provavelmente o recrutador já viu aquele template muitas e muitas vezes.
 - Caso você vá fazer um CV para trabalhar remotamente para outros países,
   coloque a timezone que você trabalha (nada muito complexo, pode ser só
-  `Timezone: GMT-3` por exemplo).
+  <mark>Timezone: GMT-3</mark> por exemplo).
 
 ## Leituras interessantes (em inglês)
 

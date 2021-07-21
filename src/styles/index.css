@@ -59,6 +59,9 @@ blockquote {
     background: hsl(220, 10%, 16%);
     color: hsl(220, 10%, 85%);
   }
+  strong {
+    color: hsl(220, 10%, 95%);
+  }
   blockquote {
     color: hsl(210, 19%, 100%);
     border-left-color: hsl(210, 19%, 100%);
