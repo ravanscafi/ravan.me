@@ -12,14 +12,16 @@ const Tag = ({ location, pageContext, data }) => {
 
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
-  } tagged with "${tag}"`
+  } marcado${
+    totalCount === 1 ? "" : "s"
+  } com "${tag}"`
 
   return (
     <Layout location={location}>
       <Seo title={`Tag ${tag}`} />
       <h1>{tagHeader}</h1>
       <PostList posts={posts} />
-      <Link to="/tags">← See all tags</Link>
+      <Link to="/tags">← Veja todas as tags</Link>
     </Layout>
   )
 }

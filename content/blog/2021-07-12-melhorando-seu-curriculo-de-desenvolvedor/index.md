@@ -4,9 +4,9 @@ description: |
   Atualizar o currículo é nem sempre é fácil, né?
   Lembrar as experiências que você teve, encaixar em um espaço relativamente
   pequeno, mas tentando mostrar a relevância do que você fez...
-tags: ["Soft Skills", "Tips", "Recruiting"]
-date: "2021-07-11T14:00:00.000-0300"
-cover: ./writing.jpg
+tags: ["Carreira", "Recrutamento", "Dicas"]
+date: "2021-07-22T10:00:00.000-0300"
+cover: writing.jpg
 ---
 
 ![Créditos: Scott Graham — https://unsplash.com/photos/OQMZwNd3ThU](writing.jpg)

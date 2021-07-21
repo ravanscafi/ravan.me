@@ -4,7 +4,7 @@ date: "2019-05-28T16:40:32.169Z"
 description:
   O primeiro SymfonyLive da América Latina ocorreu na semana passada. Saiba tudo
   sobre o evento!
-tags: ["PHP", "Symfony", "Events"]
+tags: ["PHP", "Symfony", "Eventos"]
 draft: true
 cover: ./nicolas.jpg
 ---
