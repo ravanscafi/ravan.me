@@ -30,7 +30,7 @@ const BlogPostTemplate = ({
     <Seo
       title={title}
       description={description || excerpt}
-      cover={cover.childImageSharp.fixed.src}
+      cover={cover.childImageSharp.fluid.src}
     />
     <h1>{title}</h1>
     <div
@@ -118,7 +118,7 @@ export const pageQuery = graphql`
         tags
         cover {
           childImageSharp {
-            fixed(width: 600) {
+            fluid(maxWidth: 1380) {
               src
             }
           }

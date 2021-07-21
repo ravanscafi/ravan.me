@@ -24,7 +24,7 @@ function Seo({ description, lang, meta, title, cover }) {
         }
         image: file(absolutePath: { regex: "/icon.png/" }) {
           childImageSharp {
-            fixed(width: 360, height: 360) {
+            fluid(maxWidth: 1380) {
               src
             }
           }
@@ -38,7 +38,7 @@ function Seo({ description, lang, meta, title, cover }) {
   if (typeof window !== "undefined") {
     host = `${window.location.protocol}//${window.location.host}`
   }
-  const imageUrl = `${host}${cover || image.childImageSharp.fixed.src}`
+  const imageUrl = `${host}${cover || image.childImageSharp.fluid.src}`
 
   return (
     <Helmet
@@ -70,7 +70,7 @@ function Seo({ description, lang, meta, title, cover }) {
         },
         {
           name: `twitter:card`,
-          content: "summary",
+          content: "summary_large_image",
         },
         {
           name: `twitter:creator`,
