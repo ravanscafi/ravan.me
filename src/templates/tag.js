@@ -10,9 +10,7 @@ const Tag = ({ location, pageContext, data }) => {
   const { totalCount } = data.allMarkdownRemark
   const posts = data.allMarkdownRemark.edges
 
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
-  } marcado${
+  const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"} marcado${
     totalCount === 1 ? "" : "s"
   } com "${tag}"`
 

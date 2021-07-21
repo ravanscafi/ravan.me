@@ -16,7 +16,7 @@ beforeEach(() => {
     },
     image: {
       childImageSharp: {
-        fixed: {
+        fluid: {
           src: "/static/a379ede7190febde66f2453a8c9ac9c1/6e29c/icon.png",
         },
       },
