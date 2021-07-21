@@ -46,18 +46,19 @@ enviamos um currículo?**
 
 Refletindo um pouco, defini um objetivo quando enviamos um CV:
 
-> Conseguir mostrar claramente nossas habilidades e experiências, de forma a
-> permitir que quem analisa o currículo consiga extrair todas as informações que
-> precisa nessa etapa inicial.
+> Mostrar claramente nossas habilidades e experiências de forma a permitir que
+> quem analisa o currículo consiga extrair todas as informações que precisa
+> nessa etapa inicial.
 
 Então temos que mostrar informações **para alguém** analisar. Não sabemos como a
 pessoa que vai nos avaliar está no dia, como está seu nível de concentração,
-quantos outros afazeres tem, quantos currículos recebeu, por quantas vagas ela
-está responsável, qual o prazo dessas vagas e nem nada do tipo. **Podemos ter
-sua atenção somente por poucos segundos** e queremos aproveitar cada momento
-para mostrar nosso potencial. Pode parecer um pouco exagerado, mas, independente
-de tudo isso, uma coisa é certa: **não queremos dificultar a vida da pessoa
-responsável pela vaga.**
+quantos outros afazeres tem, quantos currículos recebeu, por quantas vagas está
+responsável, qual o prazo dessas vagas e nem nada do tipo. Não sabemos nem o
+quanto dessas informações ela entende também. **Podemos ter sua atenção somente
+por poucos segundos** e queremos aproveitar cada momento para mostrar nosso
+potencial. Pode parecer um pouco exagerado, mas, independente de tudo isso, uma
+coisa é certa: **não queremos dificultar a vida da pessoa responsável pela
+vaga.**
 
 Infelizmente, **alguns candidatos são eliminados logo ao ter o currículo
 analisado** e muitas vezes, não é nem por falta de habilidade ou experiência dos
@@ -80,14 +81,13 @@ errados para perfis, por exemplo, recebi muitos links para o LinkedIn como
 `https://www.linkedin.com/feed`. Telefones errados ou sem DDD também rolavam.
 
 **No cabeçalho**, não se esqueça de pelo menos **informar a cidade atual**.
-Mesmo se você morar em uma outra cidade e a vaga seja presencial, informe que
-está disponível para relocação. É melhor que não falar nada e deixar a pessoa
+Mesmo se você morar em outra cidade e a vaga for presencial, diga que está
+disponível para relocação. É melhor que não falar nada e deixar a pessoa
 tentando adivinhar pelo DDD ou caçando em alguma rede social.
 
-Caso queira colocar o endereço, não se preocupe em preencher seu endereço
-completo com complemento, CEP, etc., seu CV não é o cadastro de colaborador da
-empresa. Mais tarde você terá a oportunidade de informar todos esses dados caso
-seja aprovado.
+Caso queira colocar o endereço, não se preocupe em preencher ele completo com
+complemento, CEP, etc., seu CV não é o cadastro de colaborador da empresa. Mais
+tarde você terá a oportunidade de informar todos esses dados caso seja aprovado.
 
 Lembre-se de informar métodos de contato como telefone e também seu endereço de
 email. Mesmo se você enviar seu CV por email, ele pode, por exemplo, ser
@@ -95,17 +95,19 @@ impresso ou baixado para a máquina da pessoa e seu email original pode ser
 perdido, então colocar o endereço de email não faz mal. Se a pessoa recrutadora
 gostar do seu CV e quiser te contatar, deixe isso bem prático para ela.
 
-Outra coisa que já aconteceu quando recrutava e foi chato, foi receber currículo
-desatualizado. Avaliando o CV de um determinado candidato parecia que ele estava
-numa empresa mas, ao abrir o LinkedIn, já faziam 2 anos que estava trabalhando
-em outra empresa. Não sei se foi um equívoco na hora de escolher o arquivo
-correto, mas foi bem estranho.
+Uma coisa que já aconteceu comigo quando recrutava e foi chato, foi receber
+currículo desatualizado. Avaliando o CV de um determinado candidato parecia que
+ele estava numa empresa mas, ao abrir o LinkedIn, já faziam 2 anos que estava
+trabalhando em outra empresa. Não sei se foi um equívoco na hora de escolher o
+arquivo correto, mas foi bem estranho. Todo o trabalho que eu já desprendi
+avaliando o candidato teve que ser refeito.
 
 Também já vi vários candidatos que não possuíam ou não informavam o LinkedIn.
 Confesso que antigamente eu não gostava dessa rede, parecia desnecessária pra
 mim. Mas essa foi uma visão que mudou muito quando passei a estar mais próximo
 do recrutamento de pessoas. É uma forma padronizada de avaliar candidatos e
-ajuda muito, então mantenha o seu LinkedIn atualizado e pareado com o seu CV.
+ajuda muito, também é um chat comum que dá pra conversar em tempo real,
+diferente do email. Mantenha o seu LinkedIn atualizado e pareado com o seu CV.
 
 ### Experiências
 
@@ -116,6 +118,45 @@ sem citar a empresa nem um resumo do que foi feito ou quais tecnologias foram
 usadas. Assim fica difícil de avaliar a relevância ou a experiência real do
 candidato.
 
+Ao invés de algo muito simplista e incompleto como o exemplo abaixo:
+
+```
+Experiências
+• Programador Web (2017-2019)
+• Programador Full Stack na Empresa Tal (2019-2020)
+• Programador Full Stack em Outra Empresa
+```
+
+Siga as dicas e procure fazer algo assim:
+
+```
+Experiências
+
+• Programador Backend Sênior em Outra Empresa (abr/2020 - atual)
+Responsável pelo microserviço de pagamentos da plataforma B2B. Serviço desenvolvido
+em Python e framework próprio da empresa. Evolução da qualidade do mesmo,
+melhorando a cobertura testes automatizados e observabilidade da plataforma
+com Grafana. Exercendo também papel de liderança técnica de três estagiários
+da equipe.
+
+• Programador Full Stack na Empresa Tal (jul/2019 - mar/2020)
+Desenvolvimento do portal de administração do blog da empresa. Criação de um CMS
+utilizando AngularJS e d3.js no frontend e Python com o framework Django, com o
+uso de PostgreSQL. Entrega do software na plataforma da Digital Ocean,
+utilizando Docker e Ansible.
+
+• Programador Web - Freelancer (jan/2017- jun/2019)
+Criação de sites institucionais em WordPress e e-commerces com WooCommerce para
+microempreendedores da cidade. Desenvolvimento de estratégia digital e criação
+de design para esses sites utilizando Photoshop.
+```
+
+Entre esses dois exemplos fictícios, o segundo deixa evidente para quem está
+recrutando as experiências do candidato, muito além das tecnologias. Também
+mostra o momento atual, como está se dando a evolução da pessoa. Na hora de
+montar um CV, **tão importante quanto ter vivido essas experiências é saber
+mostrá-las.**
+
 ### Tecnologias
 
 Tome cuidado com a "sopa de letrinhas" para não ficar muito confuso. Por
@@ -124,6 +165,8 @@ APIs REST e GraphQL**_ ou somente _**REST, GraphQL**_? Agora multiplica esse
 cenário em várias vezes. Lembre-se também de esclarecer algumas coisas, se citar
 um framework, diga de qual linguagem é esse framework, a pessoa não tem a
 obrigação de saber ou conhecer todos (nem a gente conhece, oras).
+
+![Pokémon misturados no meio de tecnologias, você consegue reconhecer quais são tecnologias de verdade e quais não? Fonte: https://imgur.com/gallery/r0SEEoh](pokemon-linkedin-profile.jpeg)
 
 Também **não faça gráficos/infográficos** com porcentagem de quanto você sabe de
 cada habilidade. Isso é extremamente subjetivo e pode mais revelar suas
@@ -156,12 +199,12 @@ saber se tem algo relacionado a estágio/etc. pendente também. Não é para jul
 seu tempo de graduação nem nada. E ah, também informe onde se deu cada formação,
 já recebi CVs que só falavam o título do curso de graduação.
 
-Isso também vale para outros tipos de cursos e treinamentos. Não se esqueça de
-informar a carga horária nesses casos.
+Isso também vale para outros tipos de cursos e treinamentos. Se possível,
+informe a carga horária nesses casos.
 
 ### Evite currículos genéricos
 
-Customize seu currículo de acordo com a vaga. Ressalte experiências relevantes,
+Customize seu currículo conforme a vaga. Ressalte experiências relevantes,
 trabalhe com os seus dados para exibí-los da melhor forma possível pra essa
 empresa. Vai se inscrever pra uma vaga e a empresa usa a tecnologia X ou Y? E
 você tem experiência com isso? Então isso tem que estar destacado nesse CV,
@@ -177,15 +220,22 @@ habilidades de venda, você tem que conhecer seu público para poder vender pra
 ele. Quanto mais você conhecer sobre a empresa, mais fácil de se relacionar com
 ela durante o processo seletivo.
 
+Acho importante frisar que em momento algum recomendo mentir sobre alguma
+habilidade, inventar informações só pra dar um _match_ na vaga. Esse tipo de
+atitude pode ser extremamente nocivo para todos — empresa e candidato. A ideia
+aqui é somente saber organizar as suas informações de modo a deixá-las mais
+fáceis de entender e respondendo perguntas que os recrutadores estão se fazendo
+ao abrir seu CV.
+
 ### Quantidade de informações e tamanho do CV
 
 No começo da minha carreira eu não tinha tanta coisa para preencher meu CV,
 então coloquei experiências acadêmicas como uma iniciação científica que fiz,
 meus trabalhos para a empresa júnior do meu curso e até mesmo uma extensão que
-eu tinha feito pro Google Chrome na época. Hoje em dia essas informações não
-constam mais no meu CV, bem como algumas experiências profissionais mesmo, mas
-com tecnologias que já não quero mais trabalhar. Foi um luxo que pude me dar,
-mas que você vai ter que ponderar para seu próprio caso.
+eu fiz pro Google Chrome na época. Hoje em dia essas informações não constam
+mais no meu CV, bem como algumas experiências profissionais mesmo, mas com
+tecnologias que já não quero mais trabalhar. Foi um luxo que pude me dar, mas
+que você deverá que ponderar para seu próprio caso.
 
 Isso também é válido para as tecnologias que você conhece. Por exemplo, aprendi
 `C`, `Java`, entre várias outras coisas na faculdade. Mas no caso das vagas que
@@ -371,5 +421,6 @@ disso, conheça a empresa que está se candidatando, adapte seu CV, faça uma bo
 apresentação e mantenha-se comunicativo.
 
 **PS:** pensei em deixar meu currículo aqui no final para uma possível
-comparação mas sou um pouco tímido pra isso, hahaha. Caso você queira ajuda com
-o seu CV, entre em contato e tentarei ajudar da melhor forma que souber :)
+comparação mas sou um pouco tímido pra isso, hahaha. Tentei deixar os exemplos
+claros e talvez tenha até escrito um pouco demais. Caso você queira ajuda com o
+seu CV, entre em contato e tentarei ajudar da melhor forma que souber :)
