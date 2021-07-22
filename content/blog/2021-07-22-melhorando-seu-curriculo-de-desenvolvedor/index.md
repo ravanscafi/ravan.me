@@ -278,7 +278,7 @@ acredite, faz toda a diferença. Aproveite o corpo do email para se apresentar.
 Deixe humano, mostre que você realmente está enviando o email para aquela
 empresa.
 
-<p style="color:#ff6347"><strong>Não tem coisa pior que receber algum email do tipo:</strong></p>
+<p style="color:#ff6347;font-weight:bold">Não tem coisa pior que receber algum email do tipo:</p>
 
 ```
 De: Fulano de Tal <fulanodetal@email.com)
@@ -302,7 +302,7 @@ assim. Por trabalhar numa empresa grande, eu recebia emails dos mais diversos
 tipos de perfis, para vagas nada relacionadas com as que eu de fato estava
 ajudando ou até mesmo nem relacionadas a tecnologia.
 
-<p style="color:#039a03"><strong>Agora vejamos a diferença nesse outro exemplo:</strong></p>
+<p style="color:#039a03;font-weight:bold">Agora vejamos a diferença nesse outro exemplo:</p>
 
 ```
 De: Fulano de Tal <fulanodetal@email.com)
