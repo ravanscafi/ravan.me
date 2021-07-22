@@ -5,7 +5,7 @@ description: |
   Lembrar as experiências que você teve, encaixar em um espaço relativamente
   pequeno, mas tentando mostrar a relevância do que você fez...
 tags: ["Carreira", "Recrutamento", "Dicas"]
-date: "2021-07-22T10:00:00.000-0300"
+date: "2021-07-22T08:05:00.000-0300"
 cover: writing.jpg
 ---
 
@@ -167,7 +167,7 @@ cenário em várias vezes. Lembre-se também de esclarecer algumas coisas, se ci
 um framework, diga de qual linguagem é esse framework, a pessoa não tem a
 obrigação de saber ou conhecer todos (nem a gente conhece, oras).
 
-![Pokémon misturados no meio de tecnologias, você consegue reconhecer quais são tecnologias de verdade e quais não? Fonte: https://imgur.com/gallery/r0SEEoh](pokemon-linkedin-profile.jpeg)
+![Pokémon misturados no meio de tecnologias, você consegue reconhecer quais são tecnologias de verdade e quais não? Fonte: https://www.reddit.com/r/ProgrammerHumor/comments/6llocd/my_linkedin_profile/](pokemon-linkedin-profile.jpeg)
 
 Também **não faça gráficos/infográficos** com porcentagem de quanto você sabe de
 cada habilidade. Isso é extremamente subjetivo e pode mais revelar suas
@@ -427,3 +427,7 @@ apresentação e mantenha-se comunicativo.
 comparação mas sou um pouco tímido pra isso, hahaha. Tentei deixar os exemplos
 claros e talvez tenha até escrito um pouco demais. Caso você queira ajuda com o
 seu CV, entre em contato e tentarei ajudar da melhor forma que souber :)
+
+_Agradeço a [@santquel](https://twitter.com/santquel) e a
+[@\_amyport](https://twitter.com/_amyport) pelos feedbacks que deram ao revisar
+esse post, obrigado!_
