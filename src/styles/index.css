@@ -42,3 +42,45 @@
 .social-icon .icon:hover {
   transform: scale(1.2);
 }
+
+.post-info {
+  color: hsla(0, 0%, 0%, 0.75);
+}
+
+blockquote {
+  font-family: "Verveine Regular", sans-serif;
+  font-size: 2.2rem;
+  line-height: 3rem;
+  color: hsla(0, 0%, 0%, 0.9);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: hsl(220, 10%, 16%);
+    color: hsl(220, 10%, 85%);
+  }
+  strong {
+    color: hsl(220, 10%, 95%);
+  }
+  blockquote {
+    color: hsl(210, 19%, 100%);
+    border-left-color: hsl(210, 19%, 100%);
+  }
+  .social-icon {
+    color: hsla(210, 19%, 85%, 0.65);
+  }
+  .social-icon.github:hover {
+    color: #fff;
+  }
+  .post-info {
+    color: hsla(210, 19%, 85%, 0.75);
+  }
+}
+
+@font-face {
+  font-family: "Verveine Regular";
+  src: url("/fonts/Verveine-Regular.woff2") format("woff2"),
+    url("/fonts/Verveine-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

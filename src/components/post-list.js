@@ -24,7 +24,7 @@ const PostList = ({ posts }) => (
             <h3 style={{ margin: rhythm(1 / 4) + " 0", textAlign: "left" }}>
               {title}
             </h3>
-            <small style={{ color: `hsla(0, 0%, 0%, 0.75)` }}>
+            <small className="post-info">
               <Calendar className="icon" /> {date}
               <span style={{ padding: `0 .5rem` }}>&bull;</span>
               <span>

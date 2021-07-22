@@ -8,7 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 function Seo({ description, lang, meta, title, cover }) {
   const { site, image } = useStaticQuery(
@@ -24,7 +24,9 @@ function Seo({ description, lang, meta, title, cover }) {
         }
         image: file(absolutePath: { regex: "/icon.png/" }) {
           childImageSharp {
-            gatsbyImageData(width: 360, height: 360)
+            fluid(maxWidth: 1380) {
+              src
+            }
           }
         }
       }
@@ -32,10 +34,11 @@ function Seo({ description, lang, meta, title, cover }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const type = cover ? "summary_large_image" : "summary"
-  const imageUrl = `${site.siteMetadata.siteUrl}${
-    cover || image.childImageSharp.gatsbyImageData
-  }`
+  let host = site.siteMetadata.siteUrl
+  if (typeof window !== "undefined") {
+    host = `${window.location.protocol}//${window.location.host}`
+  }
+  const imageUrl = `${host}${cover || image.childImageSharp.fluid.src}`
 
   return (
     <Helmet
@@ -62,12 +65,12 @@ function Seo({ description, lang, meta, title, cover }) {
           content: `website`,
         },
         {
-          name: `og:image`,
+          property: `og:image`,
           content: imageUrl,
         },
         {
           name: `twitter:card`,
-          content: type,
+          content: "summary_large_image",
         },
         {
           name: `twitter:creator`,
