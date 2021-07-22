@@ -54,6 +54,16 @@ blockquote {
   color: hsla(0, 0%, 0%, 0.9);
 }
 
+.success {
+  color:#039a03;
+  font-weight:bold;
+}
+
+.error {
+  color:#ff6347;
+  font-weight:bold;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background: hsl(220, 10%, 16%);
