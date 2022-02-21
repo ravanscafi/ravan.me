@@ -153,7 +153,7 @@ exports[`Bio renders correctly 1`] = `
     <h1>
       John Doe
     </h1>
-    I am a web developer living in São Paulo - Brazil.
+    I am a web developer from Brazil, living in Berlin.
     <div
       style={
         Object {

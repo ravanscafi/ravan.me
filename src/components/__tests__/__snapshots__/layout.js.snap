@@ -48,7 +48,7 @@ exports[`Layout renders correctly 1`] = `
     }
   >
     © 
-    2021
+    2022
     <span
       style={
         Object {
